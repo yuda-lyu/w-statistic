@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>w-statistic - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="w-statistic.html">w-statistic</a><ul class='methods'><li data-type='method'><a href="w-statistic.html#.arrCount">arrCount</a></li><li data-type='method'><a href="w-statistic.html#.average">average</a></li><li data-type='method'><a href="w-statistic.html#.geometricAverage">geometricAverage</a></li><li data-type='method'><a href="w-statistic.html#.ltdtAverage">ltdtAverage</a></li><li data-type='method'><a href="w-statistic.html#.ltdtCount">ltdtCount</a></li><li data-type='method'><a href="w-statistic.html#.ltdtStd">ltdtStd</a></li><li data-type='method'><a href="w-statistic.html#.std">std</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">w-statistic</h1>
+    
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+        w-statistic
+        </h2>
+        
+    
+</header>
+
+<article>
+    
+        <div class="container-overview">
+        
+            
+
+    
+
+    <h4 class="name" id="w-statistic"><span class="type-signature"></span>new w-statistic<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="-_class.mjs.html">_class.mjs</a>, <a href="-_class.mjs.html#line1">line 1</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        </div>
+    
+
+    
+
+    
+
+    
+    
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".arrCount"><span class="type-signature">(static) </span>arrCount<span class="signature">(arr)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="arrCount.mjs.html">arrCount.mjs</a>, <a href="arrCount.mjs.html#line49">line 49</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>計算陣列內有效數字依照不重複值進行群組化後，回傳各值之出現次數值</p>
+<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrCount.test.js">Github</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>let arrarr = ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(arrCount(arr))// => [//   { key: '2.5', count: 2 },//   { key: '0.1', count: 2 },//   { key: '-0.1', count: 2 },//   { key: '-1', count: 2 },//   { key: '-2.5', count: 2 },//   { key: '1', count: 2 },//   { key: '0', count: 2 },//   { key: '22.5', count: 1 }// ]arr = ['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(arrCount(arr))// => [//   { key: '2.5', count: 2 },//   { key: '0.1', count: 2 },//   { key: '1', count: 2 },//   { key: '0', count: 2 },//   { key: '22.5', count: 1 }// ]</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>arr</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>回傳各值出現次數值陣列</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".average"><span class="type-signature">(static) </span>average<span class="signature">(arr)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="average.mjs.html">average.mjs</a>, <a href="average.mjs.html#line29">line 29</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>計算陣列內有效數字之平均值</p>
+<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/average.test.js">Github</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>let arrarr = ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(average(arr))// => 1.5arr = ['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(average(arr))// => 3.3</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>arr</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>回傳平均值</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Number</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".geometricAverage"><span class="type-signature">(static) </span>geometricAverage<span class="signature">(arr)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="geometricAverage.mjs.html">geometricAverage.mjs</a>, <a href="geometricAverage.mjs.html#line27">line 27</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>計算陣列內有效數字之幾何平均值</p>
+<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/geometricAverage.test.js">Github</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>let arrarr = ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(geometricAverage(arr))// => 1.0499093195835956arr = ['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(geometricAverage(arr))// => 1.0499093195835956</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>arr</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>回傳幾何平均值</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Number</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".ltdtAverage"><span class="type-signature">(static) </span>ltdtAverage<span class="signature">(arr, key)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ltdtAverage.mjs.html">ltdtAverage.mjs</a>, <a href="ltdtAverage.mjs.html#line146">line 146</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>計算物件陣列內指定鍵值時有效數字之平均值</p>
+<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/ltdtAverage.test.js">Github</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>let ltdtltdt = [    {        'k': 0,        'v': 'abc'    },    {        'k': 1,        'v': '-2.5'    },    {        'k': 2,        'v': -2.5    },    {        'k': 3,        'v': '-1'    },    {        'k': 4,        'v': -1    },    {        'k': 5,        'v': '-0.1'    },    {        'k': 6,        'v': -0.1    },    {        'k': 7,        'v': '0'    },    {        'k': 8,        'v': 0    },    {        'k': 9,        'v': '0.1'    },    {        'k': 10,        'v': 0.1    },    {        'k': 11,        'v': '1'    },    {        'k': 12,        'v': 1    },    {        'k': 13,        'v': '2.5'    },    {        'k': 14,        'v': 2.5    },    {        'k': 15,        'v': 22.5    },    {        'k': 16,        'v': 'xyz'    }]console.log(ltdtAverage(ltdt, 'v'))// => 1.5ltdt = [    {        'k': 0,        'v': 'abc'    },    {        'k': 1,        'v': '0'    },    {        'k': 2,        'v': 0    },    {        'k': 3,        'v': '0.1'    },    {        'k': 4,        'v': 0.1    },    {        'k': 5,        'v': '1'    },    {        'k': 6,        'v': 1    },    {        'k': 7,        'v': '2.5'    },    {        'k': 8,        'v': 2.5    },    {        'k': 9,        'v': 22.5    },    {        'k': 10,        'v': 'xyz'    }]console.log(ltdtAverage(ltdt, 'v'))// => 3.3</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>arr</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>輸入物件陣列，只提取指定鍵值時有效數字(或為字串的數字)進行計算</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>key</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>輸入指定鍵字串</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>回傳平均值</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Number</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".ltdtCount"><span class="type-signature">(static) </span>ltdtCount<span class="signature">(arr, key)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ltdtCount.mjs.html">ltdtCount.mjs</a>, <a href="ltdtCount.mjs.html#line160">line 160</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>計算物件陣列內指定鍵值時有效數字，依照不重複值進行群組化後，回傳各值之出現次數值</p>
+<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/ltdtCount.test.js">Github</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>let ltdtltdt = [    {        'k': 0,        'v': 'abc'    },    {        'k': 1,        'v': '-2.5'    },    {        'k': 2,        'v': -2.5    },    {        'k': 3,        'v': '-1'    },    {        'k': 4,        'v': -1    },    {        'k': 5,        'v': '-0.1'    },    {        'k': 6,        'v': -0.1    },    {        'k': 7,        'v': '0'    },    {        'k': 8,        'v': 0    },    {        'k': 9,        'v': '0.1'    },    {        'k': 10,        'v': 0.1    },    {        'k': 11,        'v': '1'    },    {        'k': 12,        'v': 1    },    {        'k': 13,        'v': '2.5'    },    {        'k': 14,        'v': 2.5    },    {        'k': 15,        'v': 22.5    },    {        'k': 16,        'v': 'xyz'    }]console.log(ltdtCount(ltdt, 'v'))// => [//   { key: '2.5', count: 2 },//   { key: '0.1', count: 2 },//   { key: '-0.1', count: 2 },//   { key: '-1', count: 2 },//   { key: '-2.5', count: 2 },//   { key: '1', count: 2 },//   { key: '0', count: 2 },//   { key: '22.5', count: 1 }// ]ltdt = [    {        'k': 0,        'v': 'abc'    },    {        'k': 1,        'v': '0'    },    {        'k': 2,        'v': 0    },    {        'k': 3,        'v': '0.1'    },    {        'k': 4,        'v': 0.1    },    {        'k': 5,        'v': '1'    },    {        'k': 6,        'v': 1    },    {        'k': 7,        'v': '2.5'    },    {        'k': 8,        'v': 2.5    },    {        'k': 9,        'v': 22.5    },    {        'k': 10,        'v': 'xyz'    }]console.log(ltdtCount(ltdt, 'v'))// => [//   { key: '2.5', count: 2 },//   { key: '0.1', count: 2 },//   { key: '1', count: 2 },//   { key: '0', count: 2 },//   { key: '22.5', count: 1 }// ]</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>arr</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>輸入物件陣列，只提取指定鍵值時有效數字(或為字串的數字)進行計算</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>key</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>輸入指定鍵字串</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>回傳各值出現次數值陣列</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".ltdtStd"><span class="type-signature">(static) </span>ltdtStd<span class="signature">(arr, key)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ltdtStd.mjs.html">ltdtStd.mjs</a>, <a href="ltdtStd.mjs.html#line146">line 146</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>計算物件陣列內指定鍵值時有效數字之標準差</p>
+<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/ltdtStd.test.js">Github</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>let ltdtltdt = [    {        'k': 0,        'v': 'abc'    },    {        'k': 1,        'v': '-2.5'    },    {        'k': 2,        'v': -2.5    },    {        'k': 3,        'v': '-1'    },    {        'k': 4,        'v': -1    },    {        'k': 5,        'v': '-0.1'    },    {        'k': 6,        'v': -0.1    },    {        'k': 7,        'v': '0'    },    {        'k': 8,        'v': 0    },    {        'k': 9,        'v': '0.1'    },    {        'k': 10,        'v': 0.1    },    {        'k': 11,        'v': '1'    },    {        'k': 12,        'v': 1    },    {        'k': 13,        'v': '2.5'    },    {        'k': 14,        'v': 2.5    },    {        'k': 15,        'v': 22.5    },    {        'k': 16,        'v': 'xyz'    }]console.log(ltdtStd(ltdt, 'v'))// => 5.985339231345682ltdt = [    {        'k': 0,        'v': 'abc'    },    {        'k': 1,        'v': '0'    },    {        'k': 2,        'v': 0    },    {        'k': 3,        'v': '0.1'    },    {        'k': 4,        'v': 0.1    },    {        'k': 5,        'v': '1'    },    {        'k': 6,        'v': 1    },    {        'k': 7,        'v': '2.5'    },    {        'k': 8,        'v': 2.5    },    {        'k': 9,        'v': 22.5    },    {        'k': 10,        'v': 'xyz'    }]console.log(ltdtStd(ltdt, 'v'))// => 7.269456650947167</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>arr</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>輸入物件陣列，只提取指定鍵值時有效數字(或為字串的數字)進行計算</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>key</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>輸入指定鍵字串</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>回傳標準差</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Number</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".std"><span class="type-signature">(static) </span>std<span class="signature">(arr)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="std.mjs.html">std.mjs</a>, <a href="std.mjs.html#line34">line 34</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>計算陣列內有效數字之標準差</p>
+<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/std.test.js">Github</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>let arrarr = ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(std(arr))// => 5.985339231345682arr = ['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(std(arr))// => 7.269456650947167arr = [55, 68, 45, 78, 150, 241, 162, 156, 182, 125, 75, 89, 91, 95, 92, 65, 75, 85, 95, 105, 132, 120, 142, 110, 111, 130, 128, 130, 108, 109]console.log(std(arr))// =>  40.84747350759926, 為除以29(n-1)的std</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>arr</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>回傳標準差</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Number</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Mon Nov 08 2021 14:29:29 GMT+0800 (台北標準時間) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>
