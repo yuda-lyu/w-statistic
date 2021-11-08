@@ -75,14 +75,14 @@ ltdt = [
 ]
 console.log(ltdtCount(ltdt, 'v'))
 // => [
-//   { '2.5': 2, key: '2.5', count: 2 },
-//   { '0.1': 2, key: '0.1', count: 2 },
-//   { '-0.1': 2, key: '-0.1', count: 2 },
-//   { '-1': 2, key: '-1', count: 2 },
-//   { '-2.5': 2, key: '-2.5', count: 2 },
-//   { '1': 2, key: '1', count: 2 },
-//   { '0': 2, key: '0', count: 2 },
-//   { '22.5': 1, key: '22.5', count: 1 }
+//   { key: '2.5', count: 2 },
+//   { key: '0.1', count: 2 },
+//   { key: '-0.1', count: 2 },
+//   { key: '-1', count: 2 },
+//   { key: '-2.5', count: 2 },
+//   { key: '1', count: 2 },
+//   { key: '0', count: 2 },
+//   { key: '22.5', count: 1 }
 // ]
 
 ltdt = [
@@ -133,11 +133,11 @@ ltdt = [
 ]
 console.log(ltdtCount(ltdt, 'v'))
 // => [
-//   { '2.5': 2, key: '2.5', count: 2 },
-//   { '0.1': 2, key: '0.1', count: 2 },
-//   { '1': 2, key: '1', count: 2 },
-//   { '0': 2, key: '0', count: 2 },
-//   { '22.5': 1, key: '22.5', count: 1 }
+//   { key: '2.5', count: 2 },
+//   { key: '0.1', count: 2 },
+//   { key: '1', count: 2 },
+//   { key: '0', count: 2 },
+//   { key: '22.5', count: 1 }
 // ]
 
 //node --experimental-modules --es-module-specifier-resolution=node g.mjs
