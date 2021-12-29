@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>ltdtCount.mjs - Documentation</title>
+    <title>arrQuartile.mjs - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">ltdtCount.mjs</h1>
+    <h1 class="page-title">arrQuartile.mjs</h1>
     
 
     
@@ -42,209 +42,94 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import get from 'lodash/get'
-import each from 'lodash/each'
+            <pre class="prettyprint source linenums"><code>import each from 'lodash/each'
 import size from 'lodash/size'
 import isarr from 'wsemi/src/isarr.mjs'
 import isnum from 'wsemi/src/isnum.mjs'
-import isestr from 'wsemi/src/isestr.mjs'
-import arrCount from './arrCount.mjs'
+import ispnum from 'wsemi/src/ispnum.mjs'
+import cdbl from 'wsemi/src/cdbl.mjs'
+import ss from './simpleStatistics.mjs'
 
 
 /**
- * 計算物件陣列內指定鍵值之有效字串，依照不重複值進行群組化後，回傳各值之出現次數值
+ * 計算陣列內有效數字之分位數值
  *
- * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/ltdtCount.test.js Github}
+ * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/arrQuartile.test.js Github}
  * @memberOf w-statistic
- * @param {Array} ltdt 輸入物件陣列，只提取指定鍵值時有效字串(或為字串的數字)進行計算
- * @param {String} key 輸入指定鍵字串
- * @returns {Array} 回傳各值出現次數值陣列
+ * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算
+ * @param {Number} ratio 輸入指定位置浮點數，需介於0至1之間
+ * @returns {Number} 回傳分位數值
  * @example
  *
- * let ltdt
+ * let arr
  *
- * ltdt = [
- *     {
- *         'k': 0,
- *         'v': 'abc'
- *     },
- *     {
- *         'k': 1,
- *         'v': '-2.5'
- *     },
- *     {
- *         'k': 2,
- *         'v': -2.5
- *     },
- *     {
- *         'k': 3,
- *         'v': '-1'
- *     },
- *     {
- *         'k': 4,
- *         'v': -1
- *     },
- *     {
- *         'k': 5,
- *         'v': '-0.1'
- *     },
- *     {
- *         'k': 6,
- *         'v': -0.1
- *     },
- *     {
- *         'k': 7,
- *         'v': '0'
- *     },
- *     {
- *         'k': 8,
- *         'v': 0
- *     },
- *     {
- *         'k': 9,
- *         'v': '0.1'
- *     },
- *     {
- *         'k': 10,
- *         'v': 0.1
- *     },
- *     {
- *         'k': 11,
- *         'v': '1'
- *     },
- *     {
- *         'k': 12,
- *         'v': 1
- *     },
- *     {
- *         'k': 13,
- *         'v': '2.5'
- *     },
- *     {
- *         'k': 14,
- *         'v': 2.5
- *     },
- *     {
- *         'k': 15,
- *         'v': 22.5
- *     },
- *     {
- *         'k': 16,
- *         'v': 'xyz'
- *     },
- *     {
- *         'k': 17,
- *         'v': 'abc'
- *     }
- * ]
- * console.log(ltdtCount(ltdt, 'v'))
- * // => [
- * //   { key: '2.5', count: 2 },
- * //   { key: '0.1', count: 2 },
- * //   { key: '-0.1', count: 2 },
- * //   { key: '-1', count: 2 },
- * //   { key: '-2.5', count: 2 },
- * //   { key: 'abc', count: 2 },
- * //   { key: '1', count: 2 },
- * //   { key: '0', count: 2 },
- * //   { key: 'xyz', count: 1 },
- * //   { key: '22.5', count: 1 }
- * // ]
+ * arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]
+ * console.log(arrQuartile(arr, 0.25))
+ * // => 15
  *
- * ltdt = [
- *     {
- *         'k': 0,
- *         'v': 'abc'
- *     },
- *     {
- *         'k': 1,
- *         'v': '0'
- *     },
- *     {
- *         'k': 2,
- *         'v': 0
- *     },
- *     {
- *         'k': 3,
- *         'v': '0.1'
- *     },
- *     {
- *         'k': 4,
- *         'v': 0.1
- *     },
- *     {
- *         'k': 5,
- *         'v': '1'
- *     },
- *     {
- *         'k': 6,
- *         'v': 1
- *     },
- *     {
- *         'k': 7,
- *         'v': '2.5'
- *     },
- *     {
- *         'k': 8,
- *         'v': 2.5
- *     },
- *     {
- *         'k': 9,
- *         'v': 22.5
- *     },
- *     {
- *         'k': 10,
- *         'v': 'xyz'
- *     },
- *     {
- *         'k': 11,
- *         'v': 'abc'
- *     }
- * ]
- * console.log(ltdtCount(ltdt, 'v'))
- * // => [
- * //   { key: '2.5', count: 2 },
- * //   { key: '0.1', count: 2 },
- * //   { key: 'abc', count: 2 },
- * //   { key: '1', count: 2 },
- * //   { key: '0', count: 2 },
- * //   { key: 'xyz', count: 1 },
- * //   { key: '22.5', count: 1 }
- * // ]
+ * arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]
+ * console.log(arrQuartile(arr, 0.5))
+ * // => 40
+ *
+ * arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]
+ * console.log(arrQuartile(arr, 0.75))
+ * // => 43
+ *
+ * arr = ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']
+ * console.log(arrQuartile(arr, 0.5))
+ * // => 0
+ *
+ * arr = ['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']
+ * console.log(arrQuartile(arr, 0.5))
+ * // => 1
  *
  */
-function ltdtCount(ltdt, key) {
+function arrQuartile(arr, ratio) {
 
-    //check
-    if (!isarr(ltdt)) {
-        return []
+    //check arr
+    if (!isarr(arr)) {
+        return null
     }
-    if (!isestr(key)) {
-        return []
+    if (size(arr) === 0) {
+        return null
+    }
+
+    //check ratio
+    if (!ispnum(ratio)) {
+        return null
+    }
+    ratio = cdbl(ratio)
+    if (ratio &lt; 0) {
+        ratio = 0
+    }
+    if (ratio > 1) {
+        ratio = 1
     }
 
     //rs
     let rs = []
-    each(ltdt, (v) => {
-        let r = get(v, key)
-        if (isnum(r) || isestr(r)) {
-            rs.push(r) //一定要為數字或有效字串才儲存
+    each(arr, (v) => {
+        if (isnum(v)) {
+            rs.push(cdbl(v))
         }
     })
 
+    //n
+    let n = size(rs)
+
     //check
-    if (size(rs) === 0) {
-        return []
+    if (n === 0) {
+        return null
     }
 
-    //arrCount
-    let r = arrCount(rs)
+    //quantile
+    let r = ss.quantile(rs, ratio)
 
     return r
 }
 
 
-export default ltdtCount
+export default arrQuartile
 </code></pre>
         </article>
     </section>

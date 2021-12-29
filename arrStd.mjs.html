@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>ltdtCount.mjs - Documentation</title>
+    <title>arrStd.mjs - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">ltdtCount.mjs</h1>
+    <h1 class="page-title">arrStd.mjs</h1>
     
 
     
@@ -42,209 +42,65 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import get from 'lodash/get'
-import each from 'lodash/each'
-import size from 'lodash/size'
+            <pre class="prettyprint source linenums"><code>import size from 'lodash/size'
+import map from 'lodash/map'
+import filter from 'lodash/filter'
 import isarr from 'wsemi/src/isarr.mjs'
 import isnum from 'wsemi/src/isnum.mjs'
-import isestr from 'wsemi/src/isestr.mjs'
-import arrCount from './arrCount.mjs'
+import cdbl from 'wsemi/src/cdbl.mjs'
+import ss from './simpleStatistics.mjs'
 
 
 /**
- * 計算物件陣列內指定鍵值之有效字串，依照不重複值進行群組化後，回傳各值之出現次數值
+ * 計算陣列內有效數字之標準差
  *
- * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/ltdtCount.test.js Github}
+ * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/arrStd.test.js Github}
  * @memberOf w-statistic
- * @param {Array} ltdt 輸入物件陣列，只提取指定鍵值時有效字串(或為字串的數字)進行計算
- * @param {String} key 輸入指定鍵字串
- * @returns {Array} 回傳各值出現次數值陣列
+ * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算
+ * @returns {Number} 回傳標準差
  * @example
  *
- * let ltdt
+ * let arr
  *
- * ltdt = [
- *     {
- *         'k': 0,
- *         'v': 'abc'
- *     },
- *     {
- *         'k': 1,
- *         'v': '-2.5'
- *     },
- *     {
- *         'k': 2,
- *         'v': -2.5
- *     },
- *     {
- *         'k': 3,
- *         'v': '-1'
- *     },
- *     {
- *         'k': 4,
- *         'v': -1
- *     },
- *     {
- *         'k': 5,
- *         'v': '-0.1'
- *     },
- *     {
- *         'k': 6,
- *         'v': -0.1
- *     },
- *     {
- *         'k': 7,
- *         'v': '0'
- *     },
- *     {
- *         'k': 8,
- *         'v': 0
- *     },
- *     {
- *         'k': 9,
- *         'v': '0.1'
- *     },
- *     {
- *         'k': 10,
- *         'v': 0.1
- *     },
- *     {
- *         'k': 11,
- *         'v': '1'
- *     },
- *     {
- *         'k': 12,
- *         'v': 1
- *     },
- *     {
- *         'k': 13,
- *         'v': '2.5'
- *     },
- *     {
- *         'k': 14,
- *         'v': 2.5
- *     },
- *     {
- *         'k': 15,
- *         'v': 22.5
- *     },
- *     {
- *         'k': 16,
- *         'v': 'xyz'
- *     },
- *     {
- *         'k': 17,
- *         'v': 'abc'
- *     }
- * ]
- * console.log(ltdtCount(ltdt, 'v'))
- * // => [
- * //   { key: '2.5', count: 2 },
- * //   { key: '0.1', count: 2 },
- * //   { key: '-0.1', count: 2 },
- * //   { key: '-1', count: 2 },
- * //   { key: '-2.5', count: 2 },
- * //   { key: 'abc', count: 2 },
- * //   { key: '1', count: 2 },
- * //   { key: '0', count: 2 },
- * //   { key: 'xyz', count: 1 },
- * //   { key: '22.5', count: 1 }
- * // ]
+ * arr = ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']
+ * console.log(arrStd(arr))
+ * // => 5.985339231345682
  *
- * ltdt = [
- *     {
- *         'k': 0,
- *         'v': 'abc'
- *     },
- *     {
- *         'k': 1,
- *         'v': '0'
- *     },
- *     {
- *         'k': 2,
- *         'v': 0
- *     },
- *     {
- *         'k': 3,
- *         'v': '0.1'
- *     },
- *     {
- *         'k': 4,
- *         'v': 0.1
- *     },
- *     {
- *         'k': 5,
- *         'v': '1'
- *     },
- *     {
- *         'k': 6,
- *         'v': 1
- *     },
- *     {
- *         'k': 7,
- *         'v': '2.5'
- *     },
- *     {
- *         'k': 8,
- *         'v': 2.5
- *     },
- *     {
- *         'k': 9,
- *         'v': 22.5
- *     },
- *     {
- *         'k': 10,
- *         'v': 'xyz'
- *     },
- *     {
- *         'k': 11,
- *         'v': 'abc'
- *     }
- * ]
- * console.log(ltdtCount(ltdt, 'v'))
- * // => [
- * //   { key: '2.5', count: 2 },
- * //   { key: '0.1', count: 2 },
- * //   { key: 'abc', count: 2 },
- * //   { key: '1', count: 2 },
- * //   { key: '0', count: 2 },
- * //   { key: 'xyz', count: 1 },
- * //   { key: '22.5', count: 1 }
- * // ]
+ * arr = ['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']
+ * console.log(arrStd(arr))
+ * // => 7.269456650947167
+ *
+ * arr = [55, 68, 45, 78, 150, 241, 162, 156, 182, 125, 75, 89, 91, 95, 92, 65, 75, 85, 95, 105, 132, 120, 142, 110, 111, 130, 128, 130, 108, 109]
+ * console.log(arrStd(arr))
+ * // =>  40.84747350759926, 為除以29(n-1)的std
  *
  */
-function ltdtCount(ltdt, key) {
+function arrStd(arr) {
 
     //check
-    if (!isarr(ltdt)) {
-        return []
+    if (!isarr(arr)) {
+        return null
     }
-    if (!isestr(key)) {
-        return []
+    if (size(arr) === 0) {
+        return null
     }
 
-    //rs
-    let rs = []
-    each(ltdt, (v) => {
-        let r = get(v, key)
-        if (isnum(r) || isestr(r)) {
-            rs.push(r) //一定要為數字或有效字串才儲存
-        }
+    //arr
+    arr = filter(arr, (v) => {
+        return isnum(v)
     })
+    arr = map(arr, cdbl)
 
     //check
-    if (size(rs) === 0) {
-        return []
+    if (size(arr) &lt;= 1) { //標準差至少要2點才能計算
+        return null
     }
 
-    //arrCount
-    let r = arrCount(rs)
-
-    return r
+    return ss.sampleStandardDeviation(arr)
 }
 
 
-export default ltdtCount
+export default arrStd
 </code></pre>
         </article>
     </section>

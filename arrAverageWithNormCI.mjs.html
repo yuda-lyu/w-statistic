@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>arrAverageWithNormCI.mjs - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="w-statistic.html">w-statistic</a><ul class='methods'><li data-type='method'><a href="w-statistic.html#.arrAverage">arrAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrAverageWithLogNormCI">arrAverageWithLogNormCI</a></li><li data-type='method'><a href="w-statistic.html#.arrAverageWithNormCI">arrAverageWithNormCI</a></li><li data-type='method'><a href="w-statistic.html#.arrCount">arrCount</a></li><li data-type='method'><a href="w-statistic.html#.arrGeometricAverage">arrGeometricAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrGeometricStd">arrGeometricStd</a></li><li data-type='method'><a href="w-statistic.html#.arrLogNormInv">arrLogNormInv</a></li><li data-type='method'><a href="w-statistic.html#.arrMovingAverage">arrMovingAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrNormInv">arrNormInv</a></li><li data-type='method'><a href="w-statistic.html#.arrQuartile">arrQuartile</a></li><li data-type='method'><a href="w-statistic.html#.arrStd">arrStd</a></li><li data-type='method'><a href="w-statistic.html#.ltdtAverage">ltdtAverage</a></li><li data-type='method'><a href="w-statistic.html#.ltdtAverageWithLogNormCI">ltdtAverageWithLogNormCI</a></li><li data-type='method'><a href="w-statistic.html#.ltdtAverageWithNormCI">ltdtAverageWithNormCI</a></li><li data-type='method'><a href="w-statistic.html#.ltdtCount">ltdtCount</a></li><li data-type='method'><a href="w-statistic.html#.ltdtGeometricAverage">ltdtGeometricAverage</a></li><li data-type='method'><a href="w-statistic.html#.ltdtGeometricStd">ltdtGeometricStd</a></li><li data-type='method'><a href="w-statistic.html#.ltdtLogNormInv">ltdtLogNormInv</a></li><li data-type='method'><a href="w-statistic.html#.ltdtMovingAverage">ltdtMovingAverage</a></li><li data-type='method'><a href="w-statistic.html#.ltdtNormInv">ltdtNormInv</a></li><li data-type='method'><a href="w-statistic.html#.ltdtQuartile">ltdtQuartile</a></li><li data-type='method'><a href="w-statistic.html#.ltdtStd">ltdtStd</a></li><li data-type='method'><a href="w-statistic.html#.randNorm">randNorm</a></li><li data-type='method'><a href="w-statistic.html#.studentTInv">studentTInv</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">arrAverageWithNormCI.mjs</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import each from 'lodash/each'
+import size from 'lodash/size'
+import isNumber from 'lodash/isNumber'
+import isarr from 'wsemi/src/isarr.mjs'
+import isnum from 'wsemi/src/isnum.mjs'
+import cdbl from 'wsemi/src/cdbl.mjs'
+import arrAverage from './arrAverage.mjs'
+import arrStd from './arrStd.mjs'
+import studentTInv from './studentTInv.mjs'
+
+
+/**
+ * 計算陣列內有效數字之平均值和標準差，並基於司徒頓t累加分布之信賴水準(p)以及指定左右單尾條件下，計算樣本平均值。此時左尾代表樣本平均值可小於等於母數平均值，而右尾代表樣本平均值可大於等於母數平均值
+
+ * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/arrAverageWithNormCI.test.js Github}
+ * @memberOf w-statistic
+ * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算
+ * @param {Number} p 輸入信賴水準浮點數，需介於0至1之間
+ * @param {String} mode 輸入檢定模式字串，可選'two-tailed'、'upper-tail'、'lower-tail'，預設'two-tailed'
+ * @returns {Number} 回傳樣本平均值
+ * @example
+ *
+ * async function test() {
+ *
+ *     let arr
+ *
+ *     arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]
+ *     console.log(await arrAverageWithNormCI(arr, 0.95))
+ *     // => [ 33.48954903620696, 32.8740873274294 ]
+ *
+ *     arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]
+ *     console.log(await arrAverageWithNormCI(arr, 0.95, 'upper-tail'))
+ *     // => 41.85625505621444
+ *
+ *     arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]
+ *     console.log(await arrAverageWithNormCI(arr, 0.95, 'lower-tail'))
+ *     // => 24.507381307421923
+ *
+ *     arr = [18.7261764705882, 18.6629411764705, 19.3983050847457, 18.5099999999999, 18.9986446886446, 18.9083937823834, 19.1957837837837, 19.0423529411764, 19.2320588235294, 18.8526470588235, 18.7982198952879, 19.0423529411764, 19.075, 18.945238095238, 20.6691240875912]
+ *     console.log(await arrAverageWithNormCI(arr, 0.95, 'upper-tail'))
+ *     // => 19.297020893539198
+ *
+ *     arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]
+ *     console.log(await arrAverageWithNormCI(arr, 0.25))
+ *     // => [ 39.026745114674725, 27.33689124896163 ]
+ *
+ *     arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]
+ *     console.log(await arrAverageWithNormCI(arr, 0.5))
+ *     // => [ 36.53111791210903, 29.832518451527324 ]
+ *
+ *     arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]
+ *     console.log(await arrAverageWithNormCI(arr, 0.75))
+ *     // => [ 34.74951166569836, 31.614124697938003 ]
+ *
+ *     arr = ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']
+ *     console.log(await arrAverageWithNormCI(arr, 0.50))
+ *     // => [ 2.5700668400779687, 0.42993315992203107 ]
+ *
+ *     arr = ['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']
+ *     console.log(await arrAverageWithNormCI(arr, 0.50))
+ *     // => [ 5.011682286477021, 1.5883177135229787 ]
+ *
+ * }
+ * test()
+ *     .catch((err) => {
+ *         console.log(err)
+ *     })
+ *
+ */
+async function arrAverageWithNormCI(arr, p, mode = 'two-tailed') {
+
+    //check arr
+    if (!isarr(arr)) {
+        return Promise.reject('arr is not an array')
+    }
+    if (size(arr) === 0) {
+        return Promise.reject('arr is not an effective array')
+    }
+
+    //check p
+    if (!isnum(p)) {
+        return Promise.reject(`p[${p}] is not a number`)
+    }
+    p = cdbl(p)
+    if (p &lt; 0) {
+        return Promise.reject(`p[${p}] &lt; 0`)
+    }
+    if (p > 1) {
+        return Promise.reject(`p[${p}] > 1`)
+    }
+
+    //check mode
+    if (mode !== 'two-tailed' &amp;&amp; mode !== 'upper-tail' &amp;&amp; mode !== 'lower-tail') {
+        return Promise.reject(`mode[${mode}] is not 'two-tailed', 'upper-tail' or 'lower-tail'`)
+    }
+
+    //rs
+    let rs = []
+    each(arr, (v) => {
+        if (isnum(v)) {
+            rs.push(cdbl(v))
+        }
+    })
+
+    //n
+    let n = size(rs)
+
+    //check
+    if (n === 0) {
+        return Promise.reject(`no effective data`)
+    }
+
+    //avg, sigma
+    let avg = arrAverage(arr)
+    let sigma = arrStd(arr) //sigma為樣本標準差(用n-1)
+
+    //check avg
+    if (!isNumber(avg)) {
+        return Promise.reject(`avg[${avg}] is not a number`)
+    }
+
+    //check sigma
+    if (!isNumber(sigma)) {
+        return Promise.reject(`sigma[${sigma}] is not a number`)
+    }
+
+    //r
+    let r = null
+    if (mode === 'upper-tail' || mode === 'lower-tail') {
+        //upper-tail: 右單尾
+        //lower-tail: 左單尾
+
+        //tav
+        let tav = await studentTInv(n, p) //單尾
+
+        //r
+        if (mode === 'upper-tail') {
+            r = avg + tav * sigma / Math.sqrt(n)
+        }
+        else { //左單尾
+            r = avg - tav * sigma / Math.sqrt(n)
+        }
+
+    }
+    else if (mode === 'two-tailed') {
+        //雙尾: two-tailed
+
+        //tav
+        let tav = await studentTInv(n, p / 2) //雙尾
+
+        //r
+        let r1 = avg - tav * sigma / Math.sqrt(n)
+        let r2 = avg + tav * sigma / Math.sqrt(n)
+        r = [r1, r2]
+
+    }
+
+    return r
+}
+
+
+export default arrAverageWithNormCI
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Wed Dec 29 2021 19:58:13 GMT+0800 (台北標準時間) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

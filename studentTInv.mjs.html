@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>ltdtCount.mjs - Documentation</title>
+    <title>studentTInv.mjs - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">ltdtCount.mjs</h1>
+    <h1 class="page-title">studentTInv.mjs</h1>
     
 
     
@@ -42,209 +42,81 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import get from 'lodash/get'
-import each from 'lodash/each'
-import size from 'lodash/size'
-import isarr from 'wsemi/src/isarr.mjs'
+            <pre class="prettyprint source linenums"><code>
+import ispint from 'wsemi/src/ispint.mjs'
 import isnum from 'wsemi/src/isnum.mjs'
-import isestr from 'wsemi/src/isestr.mjs'
-import arrCount from './arrCount.mjs'
+import cint from 'wsemi/src/cint.mjs'
+import cdbl from 'wsemi/src/cdbl.mjs'
+import wd from 'w-distributions'
 
 
 /**
- * 計算物件陣列內指定鍵值之有效字串，依照不重複值進行群組化後，回傳各值之出現次數值
+ * 計算陣列內有效數字之平均值和標準差，並基於常態累加分布計算指定位置之反函數值
  *
- * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/ltdtCount.test.js Github}
+ * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/arrNormInv.test.js Github}
  * @memberOf w-statistic
- * @param {Array} ltdt 輸入物件陣列，只提取指定鍵值時有效字串(或為字串的數字)進行計算
- * @param {String} key 輸入指定鍵字串
- * @returns {Array} 回傳各值出現次數值陣列
+ * @param {Number} n 輸入樣本數整數，需大於0
+ * @param {Number} p 輸入信賴水準浮點數，需介於0至1之間
+ * @returns {Number} 回傳反函數值
  * @example
  *
- * let ltdt
+ * async function test() {
  *
- * ltdt = [
- *     {
- *         'k': 0,
- *         'v': 'abc'
- *     },
- *     {
- *         'k': 1,
- *         'v': '-2.5'
- *     },
- *     {
- *         'k': 2,
- *         'v': -2.5
- *     },
- *     {
- *         'k': 3,
- *         'v': '-1'
- *     },
- *     {
- *         'k': 4,
- *         'v': -1
- *     },
- *     {
- *         'k': 5,
- *         'v': '-0.1'
- *     },
- *     {
- *         'k': 6,
- *         'v': -0.1
- *     },
- *     {
- *         'k': 7,
- *         'v': '0'
- *     },
- *     {
- *         'k': 8,
- *         'v': 0
- *     },
- *     {
- *         'k': 9,
- *         'v': '0.1'
- *     },
- *     {
- *         'k': 10,
- *         'v': 0.1
- *     },
- *     {
- *         'k': 11,
- *         'v': '1'
- *     },
- *     {
- *         'k': 12,
- *         'v': 1
- *     },
- *     {
- *         'k': 13,
- *         'v': '2.5'
- *     },
- *     {
- *         'k': 14,
- *         'v': 2.5
- *     },
- *     {
- *         'k': 15,
- *         'v': 22.5
- *     },
- *     {
- *         'k': 16,
- *         'v': 'xyz'
- *     },
- *     {
- *         'k': 17,
- *         'v': 'abc'
- *     }
- * ]
- * console.log(ltdtCount(ltdt, 'v'))
- * // => [
- * //   { key: '2.5', count: 2 },
- * //   { key: '0.1', count: 2 },
- * //   { key: '-0.1', count: 2 },
- * //   { key: '-1', count: 2 },
- * //   { key: '-2.5', count: 2 },
- * //   { key: 'abc', count: 2 },
- * //   { key: '1', count: 2 },
- * //   { key: '0', count: 2 },
- * //   { key: 'xyz', count: 1 },
- * //   { key: '22.5', count: 1 }
- * // ]
+ *     console.log(await studentTInv(35, 0.95))
+ *     // => 1.6909242551868549
  *
- * ltdt = [
- *     {
- *         'k': 0,
- *         'v': 'abc'
- *     },
- *     {
- *         'k': 1,
- *         'v': '0'
- *     },
- *     {
- *         'k': 2,
- *         'v': 0
- *     },
- *     {
- *         'k': 3,
- *         'v': '0.1'
- *     },
- *     {
- *         'k': 4,
- *         'v': 0.1
- *     },
- *     {
- *         'k': 5,
- *         'v': '1'
- *     },
- *     {
- *         'k': 6,
- *         'v': 1
- *     },
- *     {
- *         'k': 7,
- *         'v': '2.5'
- *     },
- *     {
- *         'k': 8,
- *         'v': 2.5
- *     },
- *     {
- *         'k': 9,
- *         'v': 22.5
- *     },
- *     {
- *         'k': 10,
- *         'v': 'xyz'
- *     },
- *     {
- *         'k': 11,
- *         'v': 'abc'
- *     }
- * ]
- * console.log(ltdtCount(ltdt, 'v'))
- * // => [
- * //   { key: '2.5', count: 2 },
- * //   { key: '0.1', count: 2 },
- * //   { key: 'abc', count: 2 },
- * //   { key: '1', count: 2 },
- * //   { key: '0', count: 2 },
- * //   { key: 'xyz', count: 1 },
- * //   { key: '22.5', count: 1 }
- * // ]
+ *     console.log(await studentTInv(35, 0.5))
+ *     // => 0
+ *
+ *     console.log(await studentTInv(35, 0.05))
+ *     // => -1.6909242551868526
+ *
+ *     console.log(await studentTInv(15, 0.95))
+ *     // => 1.7613101357748913
+ *
+ * }
+ * test()
+ *     .catch((err) => {
+ *         console.log(err)
+ *     })
  *
  */
-function ltdtCount(ltdt, key) {
+async function studentTInv(n, p) {
 
-    //check
-    if (!isarr(ltdt)) {
-        return []
+    //check n
+    if (!ispint(n)) {
+        return Promise.reject(`n[${n}] is not positive integer`)
     }
-    if (!isestr(key)) {
-        return []
+    n = cint(n)
+    if (n &lt;= 1) {
+        return Promise.reject(`n[${n}] &lt;= 1`)
+    }
+    // console.log('n', n)
+
+    //check p
+    if (!isnum(p)) {
+        p = 0.95
+    }
+    p = cdbl(p)
+    if (p &lt; 0) {
+        return Promise.reject(`p[${p}] &lt; 0`)
+    }
+    if (p > 1) {
+        return Promise.reject(`p[${p}] > 1`)
     }
 
-    //rs
-    let rs = []
-    each(ltdt, (v) => {
-        let r = get(v, key)
-        if (isnum(r) || isestr(r)) {
-            rs.push(r) //一定要為數字或有效字串才儲存
-        }
-    })
+    //degrees of freedom為自由度, 為樣本數n-1
+    let df = n - 1
 
-    //check
-    if (size(rs) === 0) {
-        return []
-    }
-
-    //arrCount
-    let r = arrCount(rs)
+    //r, 等同於Excel的r=T.INV(p,df)
+    let studentt = await wd.Studentt(df)
+    let r = studentt.inv(p)
 
     return r
 }
 
 
-export default ltdtCount
+export default studentTInv
 </code></pre>
         </article>
     </section>
