@@ -8,11 +8,11 @@ import arrCount from './arrCount.mjs'
 
 
 /**
- * 計算物件陣列內指定鍵值時有效數字，依照不重複值進行群組化後，回傳各值之出現次數值
+ * 計算物件陣列內指定鍵值之有效字串，依照不重複值進行群組化後，回傳各值之出現次數值
  *
  * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/ltdtCount.test.js Github}
  * @memberOf w-statistic
- * @param {Array} arr 輸入物件陣列，只提取指定鍵值時有效數字(或為字串的數字)進行計算
+ * @param {Array} ltdt 輸入物件陣列，只提取指定鍵值時有效字串(或為字串的數字)進行計算
  * @param {String} key 輸入指定鍵字串
  * @returns {Array} 回傳各值出現次數值陣列
  * @example
@@ -87,6 +87,10 @@ import arrCount from './arrCount.mjs'
  *     {
  *         'k': 16,
  *         'v': 'xyz'
+ *     },
+ *     {
+ *         'k': 17,
+ *         'v': 'abc'
  *     }
  * ]
  * console.log(ltdtCount(ltdt, 'v'))
@@ -96,8 +100,10 @@ import arrCount from './arrCount.mjs'
  * //   { key: '-0.1', count: 2 },
  * //   { key: '-1', count: 2 },
  * //   { key: '-2.5', count: 2 },
+ * //   { key: 'abc', count: 2 },
  * //   { key: '1', count: 2 },
  * //   { key: '0', count: 2 },
+ * //   { key: 'xyz', count: 1 },
  * //   { key: '22.5', count: 1 }
  * // ]
  *
@@ -145,14 +151,20 @@ import arrCount from './arrCount.mjs'
  *     {
  *         'k': 10,
  *         'v': 'xyz'
+ *     },
+ *     {
+ *         'k': 11,
+ *         'v': 'abc'
  *     }
  * ]
  * console.log(ltdtCount(ltdt, 'v'))
  * // => [
  * //   { key: '2.5', count: 2 },
  * //   { key: '0.1', count: 2 },
+ * //   { key: 'abc', count: 2 },
  * //   { key: '1', count: 2 },
  * //   { key: '0', count: 2 },
+ * //   { key: 'xyz', count: 1 },
  * //   { key: '22.5', count: 1 }
  * // ]
  *
@@ -181,7 +193,7 @@ function ltdtCount(ltdt, key) {
         return []
     }
 
-    //std
+    //arrCount
     let r = arrCount(rs)
 
     return r

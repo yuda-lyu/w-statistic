@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>studentTInv.mjs - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="w-statistic.html">w-statistic</a><ul class='methods'><li data-type='method'><a href="w-statistic.html#.arrAverage">arrAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrAverageWithLogNormCI">arrAverageWithLogNormCI</a></li><li data-type='method'><a href="w-statistic.html#.arrAverageWithNormCI">arrAverageWithNormCI</a></li><li data-type='method'><a href="w-statistic.html#.arrCount">arrCount</a></li><li data-type='method'><a href="w-statistic.html#.arrGeometricAverage">arrGeometricAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrGeometricStd">arrGeometricStd</a></li><li data-type='method'><a href="w-statistic.html#.arrLogNormInv">arrLogNormInv</a></li><li data-type='method'><a href="w-statistic.html#.arrMovingAverage">arrMovingAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrNormInv">arrNormInv</a></li><li data-type='method'><a href="w-statistic.html#.arrQuartile">arrQuartile</a></li><li data-type='method'><a href="w-statistic.html#.arrStd">arrStd</a></li><li data-type='method'><a href="w-statistic.html#.ltdtAverage">ltdtAverage</a></li><li data-type='method'><a href="w-statistic.html#.ltdtAverageWithLogNormCI">ltdtAverageWithLogNormCI</a></li><li data-type='method'><a href="w-statistic.html#.ltdtAverageWithNormCI">ltdtAverageWithNormCI</a></li><li data-type='method'><a href="w-statistic.html#.ltdtCount">ltdtCount</a></li><li data-type='method'><a href="w-statistic.html#.ltdtGeometricAverage">ltdtGeometricAverage</a></li><li data-type='method'><a href="w-statistic.html#.ltdtGeometricStd">ltdtGeometricStd</a></li><li data-type='method'><a href="w-statistic.html#.ltdtLogNormInv">ltdtLogNormInv</a></li><li data-type='method'><a href="w-statistic.html#.ltdtMovingAverage">ltdtMovingAverage</a></li><li data-type='method'><a href="w-statistic.html#.ltdtNormInv">ltdtNormInv</a></li><li data-type='method'><a href="w-statistic.html#.ltdtQuartile">ltdtQuartile</a></li><li data-type='method'><a href="w-statistic.html#.ltdtStd">ltdtStd</a></li><li data-type='method'><a href="w-statistic.html#.randNorm">randNorm</a></li><li data-type='method'><a href="w-statistic.html#.studentTInv">studentTInv</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">studentTInv.mjs</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>
+import ispint from 'wsemi/src/ispint.mjs'
+import isnum from 'wsemi/src/isnum.mjs'
+import cint from 'wsemi/src/cint.mjs'
+import cdbl from 'wsemi/src/cdbl.mjs'
+import wd from 'w-distributions'
+
+
+/**
+ * 計算陣列內有效數字之平均值和標準差，並基於常態累加分布計算指定位置之反函數值
+ *
+ * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/arrNormInv.test.js Github}
+ * @memberOf w-statistic
+ * @param {Number} n 輸入樣本數整數，需大於0
+ * @param {Number} p 輸入信賴水準浮點數，需介於0至1之間
+ * @returns {Number} 回傳反函數值
+ * @example
+ *
+ * async function test() {
+ *
+ *     console.log(await studentTInv(35, 0.95))
+ *     // => 1.6909242551868549
+ *
+ *     console.log(await studentTInv(35, 0.5))
+ *     // => 0
+ *
+ *     console.log(await studentTInv(35, 0.05))
+ *     // => -1.6909242551868526
+ *
+ *     console.log(await studentTInv(15, 0.95))
+ *     // => 1.7613101357748913
+ *
+ * }
+ * test()
+ *     .catch((err) => {
+ *         console.log(err)
+ *     })
+ *
+ */
+async function studentTInv(n, p) {
+
+    //check n
+    if (!ispint(n)) {
+        return Promise.reject(`n[${n}] is not positive integer`)
+    }
+    n = cint(n)
+    if (n &lt;= 1) {
+        return Promise.reject(`n[${n}] &lt;= 1`)
+    }
+    // console.log('n', n)
+
+    //check p
+    if (!isnum(p)) {
+        p = 0.95
+    }
+    p = cdbl(p)
+    if (p &lt; 0) {
+        return Promise.reject(`p[${p}] &lt; 0`)
+    }
+    if (p > 1) {
+        return Promise.reject(`p[${p}] > 1`)
+    }
+
+    //degrees of freedom為自由度, 為樣本數n-1
+    let df = n - 1
+
+    //r, 等同於Excel的r=T.INV(p,df)
+    let studentt = await wd.Studentt(df)
+    let r = studentt.inv(p)
+
+    return r
+}
+
+
+export default studentTInv
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Wed Dec 29 2021 19:58:13 GMT+0800 (台北標準時間) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

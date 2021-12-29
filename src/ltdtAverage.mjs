@@ -13,7 +13,7 @@ import cdbl from 'wsemi/src/cdbl.mjs'
  *
  * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/ltdtAverage.test.js Github}
  * @memberOf w-statistic
- * @param {Array} arr 輸入物件陣列，只提取指定鍵值時有效數字(或為字串的數字)進行計算
+ * @param {Array} ltdt 輸入物件陣列，只提取指定鍵值時有效數字(或為字串的數字)進行計算
  * @param {String} key 輸入指定鍵字串
  * @returns {Number} 回傳平均值
  * @example
@@ -169,7 +169,7 @@ function ltdtAverage(ltdt, key) {
     }
 
     //mean
-    let r = mean(rs) //每個值都確保為數字, 可直接用mean
+    let r = mean(rs)
 
     return r
 }

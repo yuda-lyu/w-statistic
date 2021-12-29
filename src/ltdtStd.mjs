@@ -5,7 +5,7 @@ import isarr from 'wsemi/src/isarr.mjs'
 import isnum from 'wsemi/src/isnum.mjs'
 import isestr from 'wsemi/src/isestr.mjs'
 import cdbl from 'wsemi/src/cdbl.mjs'
-import std from './std.mjs'
+import arrStd from './arrStd.mjs'
 
 
 /**
@@ -13,7 +13,7 @@ import std from './std.mjs'
  *
  * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/ltdtStd.test.js Github}
  * @memberOf w-statistic
- * @param {Array} arr 輸入物件陣列，只提取指定鍵值時有效數字(或為字串的數字)進行計算
+ * @param {Array} ltdt 輸入物件陣列，只提取指定鍵值時有效數字(或為字串的數字)進行計算
  * @param {String} key 輸入指定鍵字串
  * @returns {Number} 回傳標準差
  * @example
@@ -168,8 +168,8 @@ function ltdtStd(ltdt, key) {
         return null
     }
 
-    //std
-    let r = std(rs) //每個值都確保為數字, 可直接用mean
+    //arrStd
+    let r = arrStd(rs)
 
     return r
 }

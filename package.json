@@ -1,12 +1,13 @@
 {
   "name": "w-statistic",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A tool for statistical analysis.",
   "main": "dist/w-statistic.umd.js",
   "dependencies": {
     "lodash": "^4.17.21",
     "simple-statistics": "^7.7.0",
-    "wsemi": "^1.6.31"
+    "w-distributions": "^1.0.4",
+    "wsemi": "^1.6.34"
   },
   "devDependencies": {
     "w-package-tools": "^1.0.59"

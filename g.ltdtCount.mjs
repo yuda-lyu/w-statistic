@@ -71,6 +71,10 @@ ltdt = [
     {
         'k': 16,
         'v': 'xyz'
+    },
+    {
+        'k': 17,
+        'v': 'abc'
     }
 ]
 console.log(ltdtCount(ltdt, 'v'))
@@ -80,8 +84,10 @@ console.log(ltdtCount(ltdt, 'v'))
 //   { key: '-0.1', count: 2 },
 //   { key: '-1', count: 2 },
 //   { key: '-2.5', count: 2 },
+//   { key: 'abc', count: 2 },
 //   { key: '1', count: 2 },
 //   { key: '0', count: 2 },
+//   { key: 'xyz', count: 1 },
 //   { key: '22.5', count: 1 }
 // ]
 
@@ -129,15 +135,21 @@ ltdt = [
     {
         'k': 10,
         'v': 'xyz'
+    },
+    {
+        'k': 11,
+        'v': 'abc'
     }
 ]
 console.log(ltdtCount(ltdt, 'v'))
 // => [
 //   { key: '2.5', count: 2 },
 //   { key: '0.1', count: 2 },
+//   { key: 'abc', count: 2 },
 //   { key: '1', count: 2 },
 //   { key: '0', count: 2 },
+//   { key: 'xyz', count: 1 },
 //   { key: '22.5', count: 1 }
 // ]
 
-//node --experimental-modules --es-module-specifier-resolution=node g.mjs
+//node --experimental-modules --es-module-specifier-resolution=node g.ltdtCount.mjs

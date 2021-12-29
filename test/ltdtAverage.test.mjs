@@ -132,31 +132,31 @@ describe(`ltdtAverage`, function() {
         assert.strict.deepStrictEqual(r, rr)
     })
 
-    it(`should return [] when input ''`, function() {
+    it(`should return null when input ''`, function() {
         let r = ltdtAverage('')
         let rr = null
         assert.strict.deepStrictEqual(r, rr)
     })
 
-    it(`should return [] when input []`, function() {
+    it(`should return null when input []`, function() {
         let r = ltdtAverage([])
         let rr = null
         assert.strict.deepStrictEqual(r, rr)
     })
 
-    it(`should return [] when input {}`, function() {
+    it(`should return null when input {}`, function() {
         let r = ltdtAverage({})
         let rr = null
         assert.strict.deepStrictEqual(r, rr)
     })
 
-    it(`should return [] when input null`, function() {
+    it(`should return null when input null`, function() {
         let r = ltdtAverage(null)
         let rr = null
         assert.strict.deepStrictEqual(r, rr)
     })
 
-    it(`should return [] when input undefined`, function() {
+    it(`should return null when input undefined`, function() {
         let r = ltdtAverage(undefined)
         let rr = null
         assert.strict.deepStrictEqual(r, rr)

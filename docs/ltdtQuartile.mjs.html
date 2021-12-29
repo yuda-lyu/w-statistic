@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>ltdtQuartile.mjs - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="w-statistic.html">w-statistic</a><ul class='methods'><li data-type='method'><a href="w-statistic.html#.arrAverage">arrAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrAverageWithLogNormCI">arrAverageWithLogNormCI</a></li><li data-type='method'><a href="w-statistic.html#.arrAverageWithNormCI">arrAverageWithNormCI</a></li><li data-type='method'><a href="w-statistic.html#.arrCount">arrCount</a></li><li data-type='method'><a href="w-statistic.html#.arrGeometricAverage">arrGeometricAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrGeometricStd">arrGeometricStd</a></li><li data-type='method'><a href="w-statistic.html#.arrLogNormInv">arrLogNormInv</a></li><li data-type='method'><a href="w-statistic.html#.arrMovingAverage">arrMovingAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrNormInv">arrNormInv</a></li><li data-type='method'><a href="w-statistic.html#.arrQuartile">arrQuartile</a></li><li data-type='method'><a href="w-statistic.html#.arrStd">arrStd</a></li><li data-type='method'><a href="w-statistic.html#.ltdtAverage">ltdtAverage</a></li><li data-type='method'><a href="w-statistic.html#.ltdtAverageWithLogNormCI">ltdtAverageWithLogNormCI</a></li><li data-type='method'><a href="w-statistic.html#.ltdtAverageWithNormCI">ltdtAverageWithNormCI</a></li><li data-type='method'><a href="w-statistic.html#.ltdtCount">ltdtCount</a></li><li data-type='method'><a href="w-statistic.html#.ltdtGeometricAverage">ltdtGeometricAverage</a></li><li data-type='method'><a href="w-statistic.html#.ltdtGeometricStd">ltdtGeometricStd</a></li><li data-type='method'><a href="w-statistic.html#.ltdtLogNormInv">ltdtLogNormInv</a></li><li data-type='method'><a href="w-statistic.html#.ltdtMovingAverage">ltdtMovingAverage</a></li><li data-type='method'><a href="w-statistic.html#.ltdtNormInv">ltdtNormInv</a></li><li data-type='method'><a href="w-statistic.html#.ltdtQuartile">ltdtQuartile</a></li><li data-type='method'><a href="w-statistic.html#.ltdtStd">ltdtStd</a></li><li data-type='method'><a href="w-statistic.html#.randNorm">randNorm</a></li><li data-type='method'><a href="w-statistic.html#.studentTInv">studentTInv</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">ltdtQuartile.mjs</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import get from 'lodash/get'
+import each from 'lodash/each'
+import size from 'lodash/size'
+import isarr from 'wsemi/src/isarr.mjs'
+import isnum from 'wsemi/src/isnum.mjs'
+import ispnum from 'wsemi/src/ispnum.mjs'
+import isestr from 'wsemi/src/isestr.mjs'
+import cdbl from 'wsemi/src/cdbl.mjs'
+import arrQuartile from './arrQuartile.mjs'
+
+
+/**
+ * 計算物件陣列內指定鍵值時有效數字之分位數值
+ *
+ * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/ltdtQuartile.test.js Github}
+ * @memberOf w-statistic
+ * @param {Array} ltdt 輸入物件陣列，只提取指定鍵值時有效數字(或為字串的數字)進行計算
+ * @param {String} key 輸入指定鍵字串
+ * @param {Number} ratio 輸入指定位置浮點數，需介於0至1之間
+ * @returns {Number} 回傳分位數值
+ * @example
+ *
+ * let ltdt
+ *
+ * ltdt = [
+ *     {
+ *         'k': 0,
+ *         'v': 6,
+ *     },
+ *     {
+ *         'k': 1,
+ *         'v': 47,
+ *     },
+ *     {
+ *         'k': 2,
+ *         'v': 49,
+ *     },
+ *     {
+ *         'k': 3,
+ *         'v': 15,
+ *     },
+ *     {
+ *         'k': 4,
+ *         'v': 42,
+ *     },
+ *     {
+ *         'k': 5,
+ *         'v': 41,
+ *     },
+ *     {
+ *         'k': 6,
+ *         'v': 7,
+ *     },
+ *     {
+ *         'k': 7,
+ *         'v': 39,
+ *     },
+ *     {
+ *         'k': 8,
+ *         'v': 43,
+ *     },
+ *     {
+ *         'k': 9,
+ *         'v': 40,
+ *     },
+ *     {
+ *         'k': 10,
+ *         'v': 36,
+ *     },
+ * ]
+ * console.log(ltdtQuartile(ltdt, 'v', 0.25))
+ * // => 15
+ *
+ * ltdt = [
+ *     {
+ *         'k': 0,
+ *         'v': 6,
+ *     },
+ *     {
+ *         'k': 1,
+ *         'v': 47,
+ *     },
+ *     {
+ *         'k': 2,
+ *         'v': 49,
+ *     },
+ *     {
+ *         'k': 3,
+ *         'v': 15,
+ *     },
+ *     {
+ *         'k': 4,
+ *         'v': 42,
+ *     },
+ *     {
+ *         'k': 5,
+ *         'v': 41,
+ *     },
+ *     {
+ *         'k': 6,
+ *         'v': 7,
+ *     },
+ *     {
+ *         'k': 7,
+ *         'v': 39,
+ *     },
+ *     {
+ *         'k': 8,
+ *         'v': 43,
+ *     },
+ *     {
+ *         'k': 9,
+ *         'v': 40,
+ *     },
+ *     {
+ *         'k': 10,
+ *         'v': 36,
+ *     },
+ * ]
+ * console.log(ltdtQuartile(ltdt, 'v', 0.5))
+ * // => 40
+ *
+ * ltdt = [
+ *     {
+ *         'k': 0,
+ *         'v': 6,
+ *     },
+ *     {
+ *         'k': 1,
+ *         'v': 47,
+ *     },
+ *     {
+ *         'k': 2,
+ *         'v': 49,
+ *     },
+ *     {
+ *         'k': 3,
+ *         'v': 15,
+ *     },
+ *     {
+ *         'k': 4,
+ *         'v': 42,
+ *     },
+ *     {
+ *         'k': 5,
+ *         'v': 41,
+ *     },
+ *     {
+ *         'k': 6,
+ *         'v': 7,
+ *     },
+ *     {
+ *         'k': 7,
+ *         'v': 39,
+ *     },
+ *     {
+ *         'k': 8,
+ *         'v': 43,
+ *     },
+ *     {
+ *         'k': 9,
+ *         'v': 40,
+ *     },
+ *     {
+ *         'k': 10,
+ *         'v': 36,
+ *     },
+ * ]
+ * console.log(ltdtQuartile(ltdt, 'v', 0.75))
+ * // => 43
+ *
+ * ltdt = [
+ *     {
+ *         'k': 0,
+ *         'v': 'abc'
+ *     },
+ *     {
+ *         'k': 1,
+ *         'v': '-2.5'
+ *     },
+ *     {
+ *         'k': 2,
+ *         'v': -2.5
+ *     },
+ *     {
+ *         'k': 3,
+ *         'v': '-1'
+ *     },
+ *     {
+ *         'k': 4,
+ *         'v': -1
+ *     },
+ *     {
+ *         'k': 5,
+ *         'v': '-0.1'
+ *     },
+ *     {
+ *         'k': 6,
+ *         'v': -0.1
+ *     },
+ *     {
+ *         'k': 7,
+ *         'v': '0'
+ *     },
+ *     {
+ *         'k': 8,
+ *         'v': 0
+ *     },
+ *     {
+ *         'k': 9,
+ *         'v': '0.1'
+ *     },
+ *     {
+ *         'k': 10,
+ *         'v': 0.1
+ *     },
+ *     {
+ *         'k': 11,
+ *         'v': '1'
+ *     },
+ *     {
+ *         'k': 12,
+ *         'v': 1
+ *     },
+ *     {
+ *         'k': 13,
+ *         'v': '2.5'
+ *     },
+ *     {
+ *         'k': 14,
+ *         'v': 2.5
+ *     },
+ *     {
+ *         'k': 15,
+ *         'v': 22.5
+ *     },
+ *     {
+ *         'k': 16,
+ *         'v': 'xyz'
+ *     }
+ * ]
+ * console.log(ltdtQuartile(ltdt, 'v', 0.5))
+ * // => 0
+ *
+ * ltdt = [
+ *     {
+ *         'k': 0,
+ *         'v': 'abc'
+ *     },
+ *     {
+ *         'k': 1,
+ *         'v': '0'
+ *     },
+ *     {
+ *         'k': 2,
+ *         'v': 0
+ *     },
+ *     {
+ *         'k': 3,
+ *         'v': '0.1'
+ *     },
+ *     {
+ *         'k': 4,
+ *         'v': 0.1
+ *     },
+ *     {
+ *         'k': 5,
+ *         'v': '1'
+ *     },
+ *     {
+ *         'k': 6,
+ *         'v': 1
+ *     },
+ *     {
+ *         'k': 7,
+ *         'v': '2.5'
+ *     },
+ *     {
+ *         'k': 8,
+ *         'v': 2.5
+ *     },
+ *     {
+ *         'k': 9,
+ *         'v': 22.5
+ *     },
+ *     {
+ *         'k': 10,
+ *         'v': 'xyz'
+ *     }
+ * ]
+ * console.log(ltdtQuartile(ltdt, 'v', 0.5))
+ * // => 1
+ *
+ */
+function ltdtQuartile(ltdt, key, ratio) {
+
+    //check ltdt
+    if (!isarr(ltdt)) {
+        return null
+    }
+
+    //check key
+    if (!isestr(key)) {
+        return null
+    }
+
+    //check ratio
+    if (!ispnum(ratio)) {
+        return null
+    }
+    ratio = cdbl(ratio)
+    if (ratio &lt; 0) {
+        ratio = 0
+    }
+    if (ratio > 1) {
+        ratio = 1
+    }
+
+    //rs
+    let rs = []
+    each(ltdt, (v) => {
+        let r = get(v, key)
+        if (isnum(r)) {
+            r = cdbl(r)
+            rs.push(r) //一定要為數字才儲存
+        }
+    })
+
+    //check
+    if (size(rs) === 0) {
+        return null
+    }
+
+    //arrQuartile
+    let r = arrQuartile(rs, ratio)
+
+    return r
+}
+
+
+export default ltdtQuartile
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Wed Dec 29 2021 19:58:13 GMT+0800 (台北標準時間) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

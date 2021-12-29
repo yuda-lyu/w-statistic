@@ -72,17 +72,23 @@ describe(`ltdtCount`, function() {
         {
             'k': 16,
             'v': 'xyz'
+        },
+        {
+            'k': 17,
+            'v': 'abc'
         }
     ]
     let rr1 = [
-        { 'key': '2.5', 'count': 2 },
-        { 'key': '0.1', 'count': 2 },
-        { 'key': '-0.1', 'count': 2 },
-        { 'key': '-1', 'count': 2 },
-        { 'key': '-2.5', 'count': 2 },
-        { 'key': '1', 'count': 2 },
-        { 'key': '0', 'count': 2 },
-        { 'key': '22.5', 'count': 1 }
+        { key: '2.5', count: 2 },
+        { key: '0.1', count: 2 },
+        { key: '-0.1', count: 2 },
+        { key: '-1', count: 2 },
+        { key: '-2.5', count: 2 },
+        { key: 'abc', count: 2 },
+        { key: '1', count: 2 },
+        { key: '0', count: 2 },
+        { key: 'xyz', count: 1 },
+        { key: '22.5', count: 1 }
     ]
     it(`should return ${JSON.stringify(rr1)} when input ${JSON.stringify(ltdt1)}, 'v'`, function() {
         let r = ltdtCount(ltdt1, 'v')
@@ -134,14 +140,20 @@ describe(`ltdtCount`, function() {
         {
             'k': 10,
             'v': 'xyz'
+        },
+        {
+            'k': 11,
+            'v': 'abc'
         }
     ]
     let rr2 = [
-        { 'key': '2.5', 'count': 2 },
-        { 'key': '0.1', 'count': 2 },
-        { 'key': '1', 'count': 2 },
-        { 'key': '0', 'count': 2 },
-        { 'key': '22.5', 'count': 1 }
+        { key: '2.5', count: 2 },
+        { key: '0.1', count: 2 },
+        { key: 'abc', count: 2 },
+        { key: '1', count: 2 },
+        { key: '0', count: 2 },
+        { key: 'xyz', count: 1 },
+        { key: '22.5', count: 1 }
     ]
     it(`should return ${JSON.stringify(rr2)} when input ${JSON.stringify(ltdt2)}, 'v'`, function() {
         let r = ltdtCount(ltdt2, 'v')

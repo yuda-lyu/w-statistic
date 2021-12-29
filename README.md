@@ -13,7 +13,7 @@ To view documentation or get support, visit [docs](https://yuda-lyu.github.io/w-
 
 ## Installation
 ### Using npm(ES6 module):
-> **Note:** w-statistic is mainly dependent on `lodash` and `wsemi`.
+> **Note:** w-statistic is mainly dependent on `simple-statistics` and `lodash` and `wsemi`.
 ```alias
 npm i w-statistic
 ```
@@ -23,5 +23,5 @@ npm i w-statistic
 
 Add script for w-statistic.
 ```alias
-<script src="https://cdn.jsdelivr.net/npm/w-statistic@1.0.0/dist/w-statistic.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/w-statistic@1.0.1/dist/w-statistic.umd.js"></script>
 ```

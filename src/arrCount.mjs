@@ -1,28 +1,27 @@
+import each from 'lodash/each'
 import map from 'lodash/map'
 import size from 'lodash/size'
 import groupBy from 'lodash/groupBy'
-import filter from 'lodash/filter'
 import sortBy from 'lodash/sortBy'
 import reverse from 'lodash/reverse'
 import isarr from 'wsemi/src/isarr.mjs'
 import isnum from 'wsemi/src/isnum.mjs'
 import isestr from 'wsemi/src/isestr.mjs'
-import cdbl from 'wsemi/src/cdbl.mjs'
 import cstr from 'wsemi/src/cstr.mjs'
 
 
 /**
- * 計算陣列內有效數字依照不重複值進行群組化後，回傳各值之出現次數值
+ * 計算陣列內有效字串依照不重複值進行群組化後，回傳各值之出現次數值
  *
  * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/arrCount.test.js Github}
  * @memberOf w-statistic
- * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算
+ * @param {Array} arr 輸入陣列，只提取有效字串(或為字串的數字)進行計算
  * @returns {Array} 回傳各值出現次數值陣列
  * @example
  *
  * let arr
  *
- * arr = ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']
+ * arr = ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, 'abc', '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']
  * console.log(arrCount(arr))
  * // => [
  * //   { key: '2.5', count: 2 },
@@ -30,20 +29,24 @@ import cstr from 'wsemi/src/cstr.mjs'
  * //   { key: '-0.1', count: 2 },
  * //   { key: '-1', count: 2 },
  * //   { key: '-2.5', count: 2 },
+ * //   { key: 'abc', count: 2 },
  * //   { key: '1', count: 2 },
  * //   { key: '0', count: 2 },
+ * //   { key: 'xyz', count: 1 },
  * //   { key: '22.5', count: 1 }
  * // ]
  *
- * arr = ['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']
+ * arr = ['abc', '0', 0, 'abc', '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']
  * console.log(arrCount(arr))
  * // => [
- * //   { key: '2.5', count: 2 },
- * //   { key: '0.1', count: 2 },
- * //   { key: '1', count: 2 },
- * //   { key: '0', count: 2 },
- * //   { key: '22.5', count: 1 }
- * // ]
+ * //  { key: '2.5', count: 2 },
+ * //  { key: '0.1', count: 2 },
+ * //  { key: 'abc', count: 2 },
+ * //  { key: '1', count: 2 },
+ * //  { key: '0', count: 2 },
+ * //  { key: 'xyz', count: 1 },
+ * //  { key: '22.5', count: 1 }
+ * //]
  *
  */
 function arrCount(arr) {
@@ -52,33 +55,30 @@ function arrCount(arr) {
     if (!isarr(arr)) {
         return []
     }
-
-    //arr
-    arr = filter(arr, (v) => {
-        return isnum(v)
-    })
-    arr = map(arr, cdbl)
-
-    //都轉字串
-    arr = map(arr, cstr)
-
-    //剔除無有效字串項目
-    arr = filter(arr, (v) => {
-        return isestr(v)
-    })
-
-    //check
     if (size(arr) === 0) {
         return []
     }
 
+    //rs
+    let rs = []
+    each(arr, (v) => {
+        if (isnum(v) || isestr(v)) {
+            rs.push(cstr(v)) //都轉字串
+        }
+    })
+
+    //check
+    if (size(rs) === 0) {
+        return []
+    }
+
     //轉物件
-    arr = map(arr, (v) => {
+    rs = map(rs, (v) => {
         return { v }
     })
 
     //groupBy
-    let gs = groupBy(arr, 'v')
+    let gs = groupBy(rs, 'v')
     // console.log('groupBy gs', gs)
 
     //to array
