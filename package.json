@@ -1,16 +1,16 @@
 {
   "name": "w-statistic",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A tool for statistical analysis.",
   "main": "dist/w-statistic.umd.js",
   "dependencies": {
     "lodash": "^4.17.21",
-    "simple-statistics": "^7.7.0",
-    "w-distributions": "^1.0.4",
-    "wsemi": "^1.6.34"
+    "simple-statistics": "^7.7.5",
+    "w-distributions": "^1.0.7",
+    "wsemi": "^1.6.54"
   },
   "devDependencies": {
-    "w-package-tools": "^1.0.59"
+    "w-package-tools": "^1.0.65"
   },
   "scripts": {
     "test": "mocha --parallel --timeout 60000 --experimental-modules --es-module-specifier-resolution=node",
