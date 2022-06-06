@@ -4,13 +4,18 @@ import min from 'lodash/min'
 import max from 'lodash/max'
 import sum from 'lodash/sum'
 import size from 'lodash/size'
+import floor from 'lodash/floor'
+import round from 'lodash/round'
+import ceil from 'lodash/ceil'
 import ispint from 'wsemi/src/ispint.mjs'
 import isfun from 'wsemi/src/isfun.mjs'
 import ispm from 'wsemi/src/ispm.mjs'
+import cdbl from 'wsemi/src/cdbl.mjs'
 import cint from 'wsemi/src/cint.mjs'
 import arrFilterByNum from 'wsemi/src/arrFilterByNum.mjs'
 import rang from 'wsemi/src/rang.mjs'
 import bin from './bin.mjs'
+import isnum from 'wsemi/src/isnum'
 
 
 /**
@@ -247,13 +252,6 @@ async function histGen(arr, fun, opt = {}) {
         return null
     }
 
-    //n
-    let n = get(opt, 'n')
-    if (!ispint(n)) {
-        n = 30
-    }
-    n = cint(n)
-
     //nCurve
     let nCurve = get(opt, 'nCurve')
     if (!ispint(nCurve)) {
@@ -262,20 +260,71 @@ async function histGen(arr, fun, opt = {}) {
     nCurve = cint(nCurve)
     // console.log('nCurve', nCurve)
 
-    //rmin
-    let rmin = get(opt, 'min', null)
-    // console.log('rmin', rmin)
+    //dx, n, rmin, rmax
+    let dx
+    let n
+    let rmin
+    let rmax
 
-    //rmax
-    let rmax = get(opt, 'max', null)
-    // console.log('rmax', rmax)
+    //dx
+    dx = get(opt, 'dx', null)
+    // console.log('dx', dx)
+
+    //check
+    if (isnum(dx)) {
+
+        //cdbl
+        dx = cdbl(dx)
+
+        //dataMin, dataMax
+        let dataMin = min(rs)
+        let dataMax = max(rs)
+
+        //rmin
+        rmin = floor(dataMin / dx) * dx
+        // console.log('rmin', rmin)
+
+        //rmax
+        rmax = ceil(dataMax / dx) * dx
+        // console.log('rmax', rmax)
+
+        //n
+        n = round(rmax - rmin) / dx
+        // console.log('n', n)
+
+    }
+    else {
+        //若不提供dx, 則需讀取n, min, max, 並由直方圖數據取得當前dx
+
+        //n
+        n = get(opt, 'n')
+        if (!ispint(n)) {
+            n = 30
+        }
+        n = cint(n)
+
+        //rmin
+        rmin = get(opt, 'min', null)
+        // console.log('rmin', rmin)
+
+        //rmax
+        rmax = get(opt, 'max', null)
+        // console.log('rmax', rmax)
+
+    }
 
     //bs
     let bs = bin(rs, n, { min: rmin, max: rmax })
+    // console.log('bs', bs)
 
-    //dx
-    let dx = get(bs, '0.max') - get(bs, '0.min')
-    // console.log('dx', dx)
+    //由直方圖數據取得當前dx
+    if (!isnum(dx)) {
+
+        //dx
+        dx = get(bs, '0.max') - get(bs, '0.min')
+        // console.log('dx', dx)
+
+    }
 
     //add counts
     bs = map(bs, (v) => {
