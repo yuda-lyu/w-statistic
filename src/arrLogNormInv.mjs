@@ -1,4 +1,6 @@
+import get from 'lodash/get'
 import size from 'lodash/size'
+import map from 'lodash/map'
 import isNumber from 'lodash/isNumber'
 import isarr from 'wsemi/src/isarr.mjs'
 import isnum from 'wsemi/src/isnum.mjs'
@@ -20,25 +22,31 @@ import arrNormInv from './arrNormInv.mjs'
  * async function test() {
  *
  *     let arr
+ *     let r
  *
  *     arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]
- *     console.log(await arrLogNormInv(arr, 0.25))
+ *     r = await arrLogNormInv(arr, 0.25)
+ *     console.log(r.inv)
  *     // => 16.096845206281877
  *
  *     arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]
- *     console.log(await arrLogNormInv(arr, 0.5))
+ *     r = await arrLogNormInv(arr, 0.5)
+ *     console.log(r.inv)
  *     // => 27.201738017491444
  *
  *     arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]
- *     console.log(await arrLogNormInv(arr, 0.75))
+ *     r = await arrLogNormInv(arr, 0.75)
+ *     console.log(r.inv)
  *     // => 45.96767513695641
  *
  *     arr = ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']
- *     console.log(await arrLogNormInv(arr, 0.5))
+ *     r = await arrLogNormInv(arr, 0.5)
+ *     console.log(r.inv)
  *     // => 1.0499093195835956
  *
  *     arr = ['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']
- *     console.log(await arrLogNormInv(arr, 0.5))
+ *     r = await arrLogNormInv(arr, 0.5)
+ *     console.log(r.inv)
  *     // => 1.0499093195835956
  *
  * }
@@ -84,14 +92,25 @@ async function arrLogNormInv(arr, ratio) {
 
     //arrNormInv
     let r = await arrNormInv(rs, ratio)
+    // inv,
+    // avg,
+    // std,
+    // arr,
 
     //check
-    if (!isNumber(r)) {
+    if (!isNumber(get(r, 'inv'))) {
         return Promise.reject(`invalid value from arrNormInv`)
     }
 
     //exp
-    r = Math.exp(r)
+    r = {
+        inv: Math.exp(r.inv),
+        avg: Math.exp(r.avg),
+        std: Math.exp(r.std),
+        arr: map(r.arr, (v) => {
+            return Math.exp(v)
+        }),
+    }
 
     return r
 }

@@ -11,7 +11,7 @@ async function test() {
         min: 1,
         max: 70,
     })
-    console.log(r)
+    console.log(r.inv)
     // => 14.297217114904852
 
 }

@@ -8,6 +8,7 @@ describe(`arrGammaInv`, function() {
     let opt = { n: 69, min: 1, max: 70 }
     it(`should return 14.297217114904852 when input ${JSON.stringify(arr)}, 0.5, ${JSON.stringify(opt)}`, async () => {
         let r = await arrGammaInv(arr, 0.5, opt)
+        r = r.inv
         let rr = 14.297217114904852
         assert.strict.deepStrictEqual(r, rr)
     })

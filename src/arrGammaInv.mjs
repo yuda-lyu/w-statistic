@@ -30,7 +30,7 @@ import jt from './jStat.mjs'
  *         min: 1,
  *         max: 70,
  *     })
- *     console.log(r)
+ *     console.log(r.inv)
  *     // => 14.297217114904852
  *
  * }
@@ -93,7 +93,10 @@ async function arrGammaInv(arr, ratio, opt = {}) {
     //jt.gamma.inv
     let r = jt.gamma.inv(ratio, rf.shape, rf.scale)
 
-    return r
+    return {
+        inv: r,
+        ...rf,
+    }
 }
 
 

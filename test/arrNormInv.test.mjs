@@ -6,30 +6,35 @@ describe(`arrNormInv`, function() {
 
     it(`should return 22.47539788913989 when input [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36], 0.25`, async () => {
         let r = await arrNormInv([6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36], 0.25)
+        r = r.inv
         let rr = 22.47539788913989
         assert.strict.deepStrictEqual(r, rr)
     })
 
     it(`should return 33.18181818181818 when input [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36], 0.5`, async () => {
         let r = await arrNormInv([6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36], 0.5)
+        r = r.inv
         let rr = 33.18181818181818
         assert.strict.deepStrictEqual(r, rr)
     })
 
     it(`should return 43.88823847449647 when input [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36], 0.75`, async () => {
         let r = await arrNormInv([6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36], 0.75)
+        r = r.inv
         let rr = 43.88823847449647
         assert.strict.deepStrictEqual(r, rr)
     })
 
     it(`should return 1.4999999999999996 when input ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz'], 0.5`, async () => {
         let r = await arrNormInv(['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz'], 0.5)
+        r = r.inv
         let rr = 1.4999999999999996
         assert.strict.deepStrictEqual(r, rr)
     })
 
     it(`should return 3.2999999999999994 when input ['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz'], 0.5`, async () => {
         let r = await arrNormInv(['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz'], 0.5)
+        r = r.inv
         let rr = 3.2999999999999994
         assert.strict.deepStrictEqual(r, rr)
     })

@@ -732,6 +732,7 @@ async function arrGammaFit(arr, opt = {}) {
     return {
         shape,
         scale,
+        arr: rs,
         arrPdf: rstPdf,
         arrCounts: rstCounts,
         dx,
