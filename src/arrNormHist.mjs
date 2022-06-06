@@ -1,6 +1,5 @@
 import size from 'lodash/size'
 import map from 'lodash/map'
-import cloneDeep from 'lodash/cloneDeep'
 import isarr from 'wsemi/src/isarr.mjs'
 import arrAverage from './arrAverage.mjs'
 import arrStd from './arrStd.mjs'
@@ -43,14 +42,16 @@ async function arrNormHist(arr, opt = {}) {
     }
 
     //histGen
+    let avg = null
+    let std = null
     let r = await histGen(arr, (params) => {
         // console.log('params', params)
 
-        //avg
-        let avg = arrAverage(params.arr)
+        //avg, 得使用callback內arr為有效數據
+        avg = arrAverage(params.arr)
 
-        //std
-        let std = arrStd(params.arr)
+        //std, 得使用callback內arr為有效數據
+        std = arrStd(params.arr)
 
         //ry
         let ry = (std * Math.sqrt(2 * Math.PI))
@@ -67,30 +68,34 @@ async function arrNormHist(arr, opt = {}) {
         return curveY
     }, opt)
 
-    //cloneDeep
-    r = cloneDeep(r)
-
     //merge pdfs
-    r.bins = map(r.bins, (v, k) => {
+    let bins = map(r.bins, (v, k) => {
         v.pdf = r.pdfs[k]
         return v
     })
 
     //merge curveX, curveY
-    r.curves = map(r.curveX, (v, k) => {
+    let curves = map(r.curveX, (v, k) => {
         return {
             x: v,
             pdf: r.curveY[k],
         }
     })
 
-    //delete
-    delete r.counts
-    delete r.pdfs
-    delete r.curveX
-    delete r.curveY
+    //res
+    let res = {
+        avg,
+        std,
+        arr: r.arr,
+        min: r.min,
+        max: r.max,
+        barWidth: r.barWidth,
+        ratioForCountToPdf: r.ratioForCountToPdf,
+        bins,
+        curves,
+    }
 
-    return r
+    return res
 }
 
 

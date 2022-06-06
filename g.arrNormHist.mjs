@@ -1,4 +1,6 @@
 import arrNormHist from './src/arrNormHist.mjs'
+// import fs from 'fs'
+// import w from 'wsemi'
 
 async function test() {
 
@@ -30,6 +32,7 @@ async function test() {
     //   min: 12,
     //   max: 23.000000000000007,
     //   barWidth: 1.0999999999999996,
+    //   ratioForCountToPdf: 0.00988142292490119,
     //   bins: [
     //     {
     //       min: 12,
@@ -112,7 +115,6 @@ async function test() {
     //       pdf: 0.02964426877470357
     //     }
     //   ],
-    //   ratioForCountToPdf: 0.00988142292490119,
     //   curves: [
     //     { x: 12, pdf: 0.03539347632001737 },
     //     { x: 12.11, pdf: 0.037383482855803 },
@@ -223,6 +225,12 @@ async function test() {
         dx: 1,
     }
     r = await arrNormHist(arr, opt)
+    // r.bins = r.bins.map((v) => {
+    //     delete v.arr
+    //     return v
+    // })
+    // fs.writeFileSync('bins1.csv', w.getCsvStrFromData(r.bins), 'utf8')
+    // fs.writeFileSync('curves1.csv', w.getCsvStrFromData(r.curves), 'utf8')
     console.log(r)
     // => {
     //   arr: [
@@ -240,6 +248,7 @@ async function test() {
     //   min: 8,
     //   max: 25,
     //   barWidth: 1,
+    //   ratioForCountToPdf: 0.01,
     //   bins: [
     //     { min: 8, max: 9, avg: 8.5, arr: [Array], counts: 1, pdf: 0.01 },
     //     { min: 9, max: 10, avg: 9.5, arr: [Array], counts: 2, pdf: 0.02 },
@@ -287,7 +296,6 @@ async function test() {
     //     { min: 23, max: 24, avg: 23.5, arr: [], counts: 0, pdf: 0 },
     //     { min: 24, max: 25, avg: 24.5, arr: [Array], counts: 3, pdf: 0.03 }
     //   ],
-    //   ratioForCountToPdf: 0.01,
     //   curves: [
     //     { x: 8, pdf: 0.0021354972114315455 },
     //     { x: 8.17, pdf: 0.0024854553367063114 },

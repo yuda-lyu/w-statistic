@@ -346,6 +346,7 @@ async function histGen(arr, fun, opt = {}) {
 
     //r
     let r = sum(counts) * dx //dx大於0, 一定為有效陣列, r必定>0
+    // console.log('r', r, 'dx', dx)
 
     //pdfs
     let pdfs = map(counts, (v) => {
