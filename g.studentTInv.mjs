@@ -3,16 +3,16 @@ import studentTInv from './src/studentTInv.mjs'
 async function test() {
 
     console.log(await studentTInv(35, 0.95))
-    // => 1.6909242551868549
+    // => 1.6909241978049958
 
     console.log(await studentTInv(35, 0.5))
-    // => 0
+    // => -0
 
     console.log(await studentTInv(35, 0.05))
-    // => -1.6909242551868526
+    // => -1.6909241978049974
 
     console.log(await studentTInv(15, 0.95))
-    // => 1.7613101357748913
+    // => 1.7613101151015698
 
 }
 test()

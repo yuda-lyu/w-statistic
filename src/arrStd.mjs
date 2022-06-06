@@ -4,7 +4,7 @@ import filter from 'lodash/filter'
 import isarr from 'wsemi/src/isarr.mjs'
 import isnum from 'wsemi/src/isnum.mjs'
 import cdbl from 'wsemi/src/cdbl.mjs'
-import ss from './simpleStatistics.mjs'
+import jt from './jStat.mjs'
 
 
 /**
@@ -28,7 +28,7 @@ import ss from './simpleStatistics.mjs'
  *
  * arr = [55, 68, 45, 78, 150, 241, 162, 156, 182, 125, 75, 89, 91, 95, 92, 65, 75, 85, 95, 105, 132, 120, 142, 110, 111, 130, 128, 130, 108, 109]
  * console.log(arrStd(arr))
- * // =>  40.84747350759926, 為除以29(n-1)的std
+ * // =>  40.847473507599254, 為除以29(n-1)的std
  *
  */
 function arrStd(arr) {
@@ -52,7 +52,10 @@ function arrStd(arr) {
         return null
     }
 
-    return ss.sampleStandardDeviation(arr)
+    // let r = ss.sampleStandardDeviation(arr)
+    let r = jt.sampleStd(arr)
+
+    return r
 }
 
 

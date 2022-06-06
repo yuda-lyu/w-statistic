@@ -8,7 +8,7 @@ import arrNormInv from './arrNormInv.mjs'
 
 
 /**
- * 計算陣列內有效數字取對數(log)後之平均值和標準差，並基於常態累加分布計算指定位置之反函數取指數(exp)值
+ * 基於對數常態累加分布計算指定位置之反函數值，會先計算陣列內有效數字取對數(log)後之平均值和標準差，並基於其為常態累加分布，計算指定位置之反函數值後，再取指數(exp)值
  *
  * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/arrLogNormInv.test.js Github}
  * @memberOf w-statistic

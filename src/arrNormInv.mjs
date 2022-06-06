@@ -1,16 +1,16 @@
-import each from 'lodash/each'
 import size from 'lodash/size'
 import isNumber from 'lodash/isNumber'
 import isarr from 'wsemi/src/isarr.mjs'
 import isnum from 'wsemi/src/isnum.mjs'
 import cdbl from 'wsemi/src/cdbl.mjs'
-import wd from 'w-distributions'
+import arrFilterByNum from 'wsemi/src/arrFilterByNum.mjs'
 import arrAverage from './arrAverage.mjs'
 import arrStd from './arrStd.mjs'
+import jt from './jStat.mjs'
 
 
 /**
- * 計算陣列內有效數字之平均值和標準差，並基於常態累加分布計算指定位置之反函數值
+ * 基於常態累加分布計算指定位置之反函數值
  *
  * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/arrNormInv.test.js Github}
  * @memberOf w-statistic
@@ -37,11 +37,11 @@ import arrStd from './arrStd.mjs'
  *
  *     arr = ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']
  *     console.log(await arrNormInv(arr, 0.5))
- *     // => 1.5
+ *     // => 1.4999999999999996
  *
  *     arr = ['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']
  *     console.log(await arrNormInv(arr, 0.5))
- *     // => 3.3
+ *     // => 3.2999999999999994
  *
  * }
  * test()
@@ -73,12 +73,7 @@ async function arrNormInv(arr, ratio) {
     }
 
     //rs
-    let rs = []
-    each(arr, (v) => {
-        if (isnum(v)) {
-            rs.push(cdbl(v))
-        }
-    })
+    let rs = arrFilterByNum(arr)
 
     //n
     let n = size(rs)
@@ -115,8 +110,9 @@ async function arrNormInv(arr, ratio) {
     // // => 2.9306901746775
 
     //r, 等同於Excel的r=NORM.INV(p,mean,arrStd)
-    let nm = await wd.Normal(avg, sigma)
-    let r = nm.inv(ratio)
+    // let nm = await wd.Normal(avg, sigma)
+    // let r = nm.inv(ratio)
+    let r = jt.normal.inv(ratio, avg, sigma)
 
     return r
 }

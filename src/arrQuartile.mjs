@@ -1,10 +1,10 @@
-import each from 'lodash/each'
 import size from 'lodash/size'
 import isarr from 'wsemi/src/isarr.mjs'
-import isnum from 'wsemi/src/isnum.mjs'
 import ispnum from 'wsemi/src/ispnum.mjs'
 import cdbl from 'wsemi/src/cdbl.mjs'
+import arrFilterByNum from 'wsemi/src/arrFilterByNum.mjs'
 import ss from './simpleStatistics.mjs'
+// import jt from './jStat.mjs'
 
 
 /**
@@ -18,6 +18,26 @@ import ss from './simpleStatistics.mjs'
  * @example
  *
  * let arr
+ *
+ * arr = [3, 6, 7, 8, 8, 10, 13, 15, 16, 20]
+ * console.log(arrQuartile(arr, 0.25))
+ * // => 7
+ *
+ * arr = [3, 6, 7, 8, 8, 10, 13, 15, 16, 20]
+ * console.log(arrQuartile(arr, 0.5))
+ * // => 9
+ *
+ * arr = [3, 6, 7, 8, 8, 10, 13, 15, 16, 20]
+ * console.log(arrQuartile(arr, 0.75))
+ * // => 15
+ *
+ * arr = [1, 2, 3, 4, 5, 6]
+ * console.log(arrQuartile(arr, 0.25))
+ * // => 2
+ *
+ * arr = [3, 6, 7, 8, 8, 9, 10, 13, 15, 16, 20]
+ * console.log(arrQuartile(arr, 0.5))
+ * // => 9
  *
  * arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]
  * console.log(arrQuartile(arr, 0.25))
@@ -63,12 +83,7 @@ function arrQuartile(arr, ratio) {
     }
 
     //rs
-    let rs = []
-    each(arr, (v) => {
-        if (isnum(v)) {
-            rs.push(cdbl(v))
-        }
-    })
+    let rs = arrFilterByNum(arr)
 
     //n
     let n = size(rs)
@@ -79,7 +94,8 @@ function arrQuartile(arr, ratio) {
     }
 
     //quantile
-    let r = ss.quantile(rs, ratio)
+    let r = ss.quantile(rs, ratio) //simple-statistics會取最靠近的陣列內原始數據值
+    // let r = jt.quantile(rs, ratio) //jStat會取該分位數
 
     return r
 }

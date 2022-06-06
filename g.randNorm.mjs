@@ -24,4 +24,4 @@ console.log(randNorm(0, 1, { num: 5 }))
 //   0.4704840133724234
 // ]
 
-//node --experimental-modules --es-module-specifier-resolution=node g.mjs
+//node --experimental-modules --es-module-specifier-resolution=node g.randNorm.mjs

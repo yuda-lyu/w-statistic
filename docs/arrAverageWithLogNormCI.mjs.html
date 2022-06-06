@@ -27,7 +27,7 @@
 
 <nav >
     
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="w-statistic.html">w-statistic</a><ul class='methods'><li data-type='method'><a href="w-statistic.html#.arrAverage">arrAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrAverageWithLogNormCI">arrAverageWithLogNormCI</a></li><li data-type='method'><a href="w-statistic.html#.arrAverageWithNormCI">arrAverageWithNormCI</a></li><li data-type='method'><a href="w-statistic.html#.arrCount">arrCount</a></li><li data-type='method'><a href="w-statistic.html#.arrGeometricAverage">arrGeometricAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrGeometricStd">arrGeometricStd</a></li><li data-type='method'><a href="w-statistic.html#.arrLogNormInv">arrLogNormInv</a></li><li data-type='method'><a href="w-statistic.html#.arrMovingAverage">arrMovingAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrNormInv">arrNormInv</a></li><li data-type='method'><a href="w-statistic.html#.arrQuartile">arrQuartile</a></li><li data-type='method'><a href="w-statistic.html#.arrStd">arrStd</a></li><li data-type='method'><a href="w-statistic.html#.ltdtAverage">ltdtAverage</a></li><li data-type='method'><a href="w-statistic.html#.ltdtAverageWithLogNormCI">ltdtAverageWithLogNormCI</a></li><li data-type='method'><a href="w-statistic.html#.ltdtAverageWithNormCI">ltdtAverageWithNormCI</a></li><li data-type='method'><a href="w-statistic.html#.ltdtCount">ltdtCount</a></li><li data-type='method'><a href="w-statistic.html#.ltdtGeometricAverage">ltdtGeometricAverage</a></li><li data-type='method'><a href="w-statistic.html#.ltdtGeometricStd">ltdtGeometricStd</a></li><li data-type='method'><a href="w-statistic.html#.ltdtLogNormInv">ltdtLogNormInv</a></li><li data-type='method'><a href="w-statistic.html#.ltdtMovingAverage">ltdtMovingAverage</a></li><li data-type='method'><a href="w-statistic.html#.ltdtNormInv">ltdtNormInv</a></li><li data-type='method'><a href="w-statistic.html#.ltdtQuartile">ltdtQuartile</a></li><li data-type='method'><a href="w-statistic.html#.ltdtStd">ltdtStd</a></li><li data-type='method'><a href="w-statistic.html#.randNorm">randNorm</a></li><li data-type='method'><a href="w-statistic.html#.studentTInv">studentTInv</a></li></ul></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="w-statistic.html">w-statistic</a><ul class='methods'><li data-type='method'><a href="w-statistic.html#.arrAverage">arrAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrAverageWithLogNormCI">arrAverageWithLogNormCI</a></li><li data-type='method'><a href="w-statistic.html#.arrAverageWithNormCI">arrAverageWithNormCI</a></li><li data-type='method'><a href="w-statistic.html#.arrCount">arrCount</a></li><li data-type='method'><a href="w-statistic.html#.arrGammaFit">arrGammaFit</a></li><li data-type='method'><a href="w-statistic.html#.arrGammaInv">arrGammaInv</a></li><li data-type='method'><a href="w-statistic.html#.arrGeometricAverage">arrGeometricAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrGeometricStd">arrGeometricStd</a></li><li data-type='method'><a href="w-statistic.html#.arrLogNormInv">arrLogNormInv</a></li><li data-type='method'><a href="w-statistic.html#.arrMovingAverage">arrMovingAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrNormInv">arrNormInv</a></li><li data-type='method'><a href="w-statistic.html#.arrQuartile">arrQuartile</a></li><li data-type='method'><a href="w-statistic.html#.arrStd">arrStd</a></li><li data-type='method'><a href="w-statistic.html#.bin">bin</a></li><li data-type='method'><a href="w-statistic.html#.histGen">histGen</a></li><li data-type='method'><a href="w-statistic.html#.randNorm">randNorm</a></li><li data-type='method'><a href="w-statistic.html#.studentTInv">studentTInv</a></li></ul></li></ul>
 </nav>
 
 <div id="main">
@@ -51,8 +51,8 @@ import arrAverageWithNormCI from './arrAverageWithNormCI.mjs'
 
 
 /**
- * 計算陣列內有效數字取對數(log)後之平均值和標準差，並基於司徒頓t累加分布之信賴水準(p)以及指定左右單尾條件下，計算樣本平均值再取其指數(exp)值。此時左尾代表樣本平均值可小於等於母數平均值，而右尾代表樣本平均值可大於等於母數平均值
-
+ * 基於Student-T累加分布之信賴水準(p)以及指定左右單尾條件下，計算樣本平均值。Student-T需用於常態分佈樣本，故數據是取log後為常態分佈才能以此計算，而於取log後座標算出樣本平均值，會再取其指數(exp)值回傳。此時左尾代表樣本平均值可小於等於母數平均值，而右尾代表樣本平均值可大於等於母數平均值
+ *
  * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/arrAverageWithLogNormCI.test.js Github}
  * @memberOf w-statistic
  * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算
@@ -67,39 +67,39 @@ import arrAverageWithNormCI from './arrAverageWithNormCI.mjs'
  *
  *     arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]
  *     console.log(await arrAverageWithLogNormCI(arr, 0.95))
- *     // => [ 27.61505005489075, 26.794611985184275 ]
+ *     // => [ 27.615050054890812, 26.794611985184215 ]
  *
  *     arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]
  *     console.log(await arrAverageWithLogNormCI(arr, 0.95, 'upper-tail'))
- *     // => 41.61093910287295
+ *     // => 41.610938902127394
  *
  *     arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]
  *     console.log(await arrAverageWithLogNormCI(arr, 0.95, 'lower-tail'))
- *     // => 17.782212252959027
+ *     // => 17.782212338746568
  *
  *     arr = [18.7261764705882, 18.6629411764705, 19.3983050847457, 18.5099999999999, 18.9986446886446, 18.9083937823834, 19.1957837837837, 19.0423529411764, 19.2320588235294, 18.8526470588235, 18.7982198952879, 19.0423529411764, 19.075, 18.945238095238, 20.6691240875912]
  *     console.log(await arrAverageWithLogNormCI(arr, 0.95, 'upper-tail'))
- *     // => 19.286285749919724
+ *     // => 19.28628574730297
  *
  *     arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]
  *     console.log(await arrAverageWithLogNormCI(arr, 0.25))
- *     // => [ 36.223415550160794, 20.426968024249575 ]
+ *     // => [ 36.223415575653085, 20.42696800987406 ]
  *
  *     arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]
  *     console.log(await arrAverageWithLogNormCI(arr, 0.5))
- *     // => [ 32.05361593350727, 23.084277065875376 ]
+ *     // => [ 32.05361593350904, 23.084277065874097 ]
  *
  *     arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]
  *     console.log(await arrAverageWithLogNormCI(arr, 0.75))
- *     // => [ 29.373829998565377, 25.19026464061302 ]
+ *     // => [ 29.373829998564737, 25.190264640613567 ]
  *
  *     arr = ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']
  *     console.log(await arrAverageWithLogNormCI(arr, 0.50))
- *     // => [ 1.7639684225556358, 0.624903238206194 ]
+ *     // => [ 1.7639684225556826, 0.6249032382061773 ]
  *
  *     arr = ['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']
  *     console.log(await arrAverageWithLogNormCI(arr, 0.50))
- *     // => [ 1.7639684225556358, 0.624903238206194 ]
+ *     // => [ 1.7639684225556826, 0.6249032382061773 ]
  *
  * }
  * test()
@@ -181,7 +181,7 @@ export default arrAverageWithLogNormCI
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Thu Apr 07 2022 16:04:21 GMT+0800 (台北標準時間) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Mon Jun 06 2022 13:10:44 GMT+0800 (台北標準時間) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

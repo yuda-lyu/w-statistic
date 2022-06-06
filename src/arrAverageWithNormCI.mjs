@@ -1,17 +1,17 @@
-import each from 'lodash/each'
 import size from 'lodash/size'
 import isNumber from 'lodash/isNumber'
 import isarr from 'wsemi/src/isarr.mjs'
 import isnum from 'wsemi/src/isnum.mjs'
 import cdbl from 'wsemi/src/cdbl.mjs'
+import arrFilterByNum from 'wsemi/src/arrFilterByNum.mjs'
 import arrAverage from './arrAverage.mjs'
 import arrStd from './arrStd.mjs'
 import studentTInv from './studentTInv.mjs'
 
 
 /**
- * 計算陣列內有效數字之平均值和標準差，並基於司徒頓t累加分布之信賴水準(p)以及指定左右單尾條件下，計算樣本平均值。此時左尾代表樣本平均值可小於等於母數平均值，而右尾代表樣本平均值可大於等於母數平均值
-
+ * 基於Student-T累加分布之信賴水準(p)以及指定左右單尾條件下，計算樣本平均值。Student-T需用於常態分佈樣本。此時左尾代表樣本平均值可小於等於母數平均值，而右尾代表樣本平均值可大於等於母數平均值
+ *
  * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/arrAverageWithNormCI.test.js Github}
  * @memberOf w-statistic
  * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算
@@ -26,39 +26,39 @@ import studentTInv from './studentTInv.mjs'
  *
  *     arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]
  *     console.log(await arrAverageWithNormCI(arr, 0.95))
- *     // => [ 33.48954903620696, 32.8740873274294 ]
+ *     // => [ 33.48954903620701, 32.87408732742935 ]
  *
  *     arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]
  *     console.log(await arrAverageWithNormCI(arr, 0.95, 'upper-tail'))
- *     // => 41.85625505621444
+ *     // => 41.85625495776645
  *
  *     arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]
  *     console.log(await arrAverageWithNormCI(arr, 0.95, 'lower-tail'))
- *     // => 24.507381307421923
+ *     // => 24.507381405869904
  *
  *     arr = [18.7261764705882, 18.6629411764705, 19.3983050847457, 18.5099999999999, 18.9986446886446, 18.9083937823834, 19.1957837837837, 19.0423529411764, 19.2320588235294, 18.8526470588235, 18.7982198952879, 19.0423529411764, 19.075, 18.945238095238, 20.6691240875912]
  *     console.log(await arrAverageWithNormCI(arr, 0.95, 'upper-tail'))
- *     // => 19.297020893539198
+ *     // => 19.297020890880212
  *
  *     arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]
  *     console.log(await arrAverageWithNormCI(arr, 0.25))
- *     // => [ 39.026745114674725, 27.33689124896163 ]
+ *     // => [ 39.026745129035845, 27.336891234600518 ]
  *
  *     arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]
  *     console.log(await arrAverageWithNormCI(arr, 0.5))
- *     // => [ 36.53111791210903, 29.832518451527324 ]
+ *     // => [ 36.53111791211017, 29.832518451526187 ]
  *
  *     arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]
  *     console.log(await arrAverageWithNormCI(arr, 0.75))
- *     // => [ 34.74951166569836, 31.614124697938003 ]
+ *     // => [ 34.74951166569791, 31.614124697938454 ]
  *
  *     arr = ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']
  *     console.log(await arrAverageWithNormCI(arr, 0.50))
- *     // => [ 2.5700668400779687, 0.42993315992203107 ]
+ *     // => [ 2.5700668400787645, 0.4299331599212357 ]
  *
  *     arr = ['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']
  *     console.log(await arrAverageWithNormCI(arr, 0.50))
- *     // => [ 5.011682286477021, 1.5883177135229787 ]
+ *     // => [ 5.011682286477105, 1.5883177135228952 ]
  *
  * }
  * test()
@@ -95,12 +95,7 @@ async function arrAverageWithNormCI(arr, p, mode = 'two-tailed') {
     }
 
     //rs
-    let rs = []
-    each(arr, (v) => {
-        if (isnum(v)) {
-            rs.push(cdbl(v))
-        }
-    })
+    let rs = arrFilterByNum(arr)
 
     //n
     let n = size(rs)

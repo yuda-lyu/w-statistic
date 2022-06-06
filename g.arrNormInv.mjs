@@ -18,11 +18,11 @@ async function test() {
 
     arr = ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']
     console.log(await arrNormInv(arr, 0.5))
-    // => 1.5
+    // => 1.4999999999999996
 
     arr = ['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']
     console.log(await arrNormInv(arr, 0.5))
-    // => 3.3
+    // => 3.2999999999999994
 
 }
 test()
@@ -30,4 +30,4 @@ test()
         console.log(err)
     })
 
-//node --experimental-modules --es-module-specifier-resolution=node g.mjs
+//node --experimental-modules --es-module-specifier-resolution=node g.arrNormInv.mjs

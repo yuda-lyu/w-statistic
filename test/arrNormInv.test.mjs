@@ -22,15 +22,15 @@ describe(`arrNormInv`, function() {
         assert.strict.deepStrictEqual(r, rr)
     })
 
-    it(`should return 1.5 when input ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz'], 0.5`, async () => {
+    it(`should return 1.4999999999999996 when input ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz'], 0.5`, async () => {
         let r = await arrNormInv(['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz'], 0.5)
-        let rr = 1.5
+        let rr = 1.4999999999999996
         assert.strict.deepStrictEqual(r, rr)
     })
 
-    it(`should return 3.3 when input ['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz'], 0.5`, async () => {
+    it(`should return 3.2999999999999994 when input ['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz'], 0.5`, async () => {
         let r = await arrNormInv(['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz'], 0.5)
-        let rr = 3.3
+        let rr = 3.2999999999999994
         assert.strict.deepStrictEqual(r, rr)
     })
 

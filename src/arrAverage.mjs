@@ -1,9 +1,7 @@
-import each from 'lodash/each'
 import size from 'lodash/size'
 import mean from 'lodash/mean'
 import isarr from 'wsemi/src/isarr.mjs'
-import isnum from 'wsemi/src/isnum.mjs'
-import cdbl from 'wsemi/src/cdbl.mjs'
+import arrFilterByNum from 'wsemi/src/arrFilterByNum.mjs'
 
 
 /**
@@ -37,12 +35,7 @@ function arrAverage(arr) {
     }
 
     //rs
-    let rs = []
-    each(arr, (v) => {
-        if (isnum(v)) {
-            rs.push(cdbl(v))
-        }
-    })
+    let rs = arrFilterByNum(arr)
 
     //n
     let n = size(rs)
