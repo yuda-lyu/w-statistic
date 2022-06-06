@@ -15,7 +15,7 @@ import jt from './jStat.mjs'
 
 
 /**
- * 計算Gamma分布參數
+ * 計算擬合Gamma分布之參數
  *
  * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/arrGammaFit.test.js Github}
  * @memberOf w-statistic

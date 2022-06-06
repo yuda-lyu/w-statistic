@@ -19,17 +19,18 @@ import isnum from 'wsemi/src/isnum'
 
 
 /**
- * 陣列數據分組，並基於外部提供函數產生擬合數據
+ * 數據陣列進行直方圖分組，並基於外部提供函數產生擬合數據
  *
  * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/arrGammaInv.test.js Github}
  * @memberOf w-statistic
  * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算
  * @param {Function} fun 輸入產生擬合函數
  * @param {Object} [opt={}] 輸入設定物件，預設{}
- * @param {Integer} [opt.n=30] 輸入分組數量整數，預設30
- * @param {Integer} [opt.nCurve=100] 輸入擬合數據數量整數，預設100
- * @param {Number} [opt.min=null] 輸入分組最小值數字，預設null
- * @param {Number} [opt.max=null] 輸入分組最大值數字，預設null
+ * @param {Number} [opt.dx=null] 輸入直方圖分組(x軸)寬度數字，預設null
+ * @param {Integer} [opt.n=30] 輸入直方圖分組(x軸)數量整數，預設30
+ * @param {Integer} [opt.nCurve=100] 輸入擬合用陣列數據長度整數，預設100
+ * @param {Number} [opt.min=null] 輸入直方圖分組(x軸)最小值數字，若不給則使用數據最小值，預設null
+ * @param {Number} [opt.max=null] 輸入直方圖分組(x軸)最大值數字，若不給則使用數據最大值，預設null
  * @returns {Promise} 回傳Promise，若成功則resolve數據分組與統計數據物件，若失敗則reject錯誤訊息
  * @example
  *

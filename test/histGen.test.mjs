@@ -24,7 +24,7 @@ describe(`histGen`, function() {
             12, 7, 6, 7, 3
         ],
     }
-    it(`should return ${JSON.stringify(kpOut[k])} when input ${JSON.stringify(kpArr[k])}, ${JSON.stringify(kpOpt[k])}`, async function() {
+    it(`should return ${JSON.stringify(kpOut[k])} when input ${JSON.stringify(kpArr[k])}, fun, ${JSON.stringify(kpOpt[k])}`, async function() {
         let k = 0
         let r = await histGen(kpArr[k], (params) => {
             // console.log('params', params)
@@ -58,7 +58,7 @@ describe(`histGen`, function() {
             2, 0, 3
         ],
     }
-    it(`should return ${JSON.stringify(kpOut[k])} when input ${JSON.stringify(kpArr[k])}, ${JSON.stringify(kpOpt[k])}`, async function() {
+    it(`should return ${JSON.stringify(kpOut[k])} when input ${JSON.stringify(kpArr[k])}, fun, ${JSON.stringify(kpOpt[k])}`, async function() {
         let k = 1
         let r = await histGen(kpArr[k], (params) => {
             // console.log('params', params)
