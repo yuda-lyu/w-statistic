@@ -3,6 +3,7 @@ export { default as arrAverageWithLogNormCI } from './arrAverageWithLogNormCI.mj
 export { default as arrAverageWithNormCI } from './arrAverageWithNormCI.mjs'
 export { default as arrCount } from './arrCount.mjs'
 export { default as arrGammaFit } from './arrGammaFit.mjs'
+export { default as arrGammaHist } from './arrGammaHist.mjs'
 export { default as arrGammaInv } from './arrGammaInv.mjs'
 export { default as arrGeometricAverage } from './arrGeometricAverage.mjs'
 export { default as arrGeometricStd } from './arrGeometricStd.mjs'

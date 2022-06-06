@@ -8,7 +8,7 @@ import arrNormHist from './arrNormHist.mjs'
 
 
 /**
- * 基於對數ㄕ常態分布計算陣列數據分組直方圖、統計與趨勢線數據
+ * 基於對數常態分布計算陣列數據分組直方圖、統計與趨勢線數據
  *
  * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/arrLogNormHist.test.js Github}
  * @memberOf w-statistic
