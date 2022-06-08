@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>regLine.mjs - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="w-statistic.html">w-statistic</a><ul class='methods'><li data-type='method'><a href="w-statistic.html#.arrAverage">arrAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrAverageWithLogNormCI">arrAverageWithLogNormCI</a></li><li data-type='method'><a href="w-statistic.html#.arrAverageWithNormCI">arrAverageWithNormCI</a></li><li data-type='method'><a href="w-statistic.html#.arrCount">arrCount</a></li><li data-type='method'><a href="w-statistic.html#.arrGammaFit">arrGammaFit</a></li><li data-type='method'><a href="w-statistic.html#.arrGammaHist">arrGammaHist</a></li><li data-type='method'><a href="w-statistic.html#.arrGammaInv">arrGammaInv</a></li><li data-type='method'><a href="w-statistic.html#.arrGeometricAverage">arrGeometricAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrGeometricStd">arrGeometricStd</a></li><li data-type='method'><a href="w-statistic.html#.arrLogNormHist">arrLogNormHist</a></li><li data-type='method'><a href="w-statistic.html#.arrLogNormInv">arrLogNormInv</a></li><li data-type='method'><a href="w-statistic.html#.arrMovingAverage">arrMovingAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrNormHist">arrNormHist</a></li><li data-type='method'><a href="w-statistic.html#.arrNormInv">arrNormInv</a></li><li data-type='method'><a href="w-statistic.html#.arrQuartile">arrQuartile</a></li><li data-type='method'><a href="w-statistic.html#.arrStd">arrStd</a></li><li data-type='method'><a href="w-statistic.html#.bin">bin</a></li><li data-type='method'><a href="w-statistic.html#.histGen">histGen</a></li><li data-type='method'><a href="w-statistic.html#.regLine">regLine</a></li><li data-type='method'><a href="w-statistic.html#.regPower">regPower</a></li><li data-type='method'><a href="w-statistic.html#.sampleRandom">sampleRandom</a></li><li data-type='method'><a href="w-statistic.html#.studentTInv">studentTInv</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">regLine.mjs</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import get from 'lodash/get'
+import each from 'lodash/each'
+import size from 'lodash/size'
+import isnum from 'wsemi/src/isnum.mjs'
+import isbol from 'wsemi/src/isbol.mjs'
+import iseobj from 'wsemi/src/iseobj.mjs'
+import cdbl from 'wsemi/src/cdbl.mjs'
+import ss from './simpleStatistics.mjs'
+
+
+/**
+ * 針對數據進行線性回歸(y=mx+b)
+ *
+ * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/regLine.test.js Github}
+ * @memberOf w-statistic
+ * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算
+ * @param {Object} [opt={}] 輸入設定物件，預設{}
+ * @param {Number} [opt.interpX=null] 輸入經由回歸結果內插指定x值，預設null
+ * @param {Boolean} [opt.useRegIntercept=true] 輸入是否回歸使用截距布林值，預設true
+ * @param {Boolean} [opt.useSync=false] 輸入是否使用同步函數布林值，預設false
+ * @returns {Object|Promise} 若useSync=true回傳回歸結果物件，若useSync=false則回傳Promise，此時若成功則resolve回歸結果物件，若失敗則reject錯誤訊息
+ * @example
+ *
+ * async function test() {
+ *
+ *     let arr
+ *     let r
+ *
+ *     arr = [
+ *         [1, 2.5],
+ *         [2.5, 1.1],
+ *         [4, 0.5],
+ *     ]
+ *     r = await regLine(arr)
+ *     console.log(r)
+ *     // => { m: -0.6666666666666664, b: 3.0333333333333323 }
+ *
+ *     arr = [
+ *         [1, 0.5],
+ *         [2.5, 1.1],
+ *         [4, 2.5],
+ *     ]
+ *     r = await regLine(arr)
+ *     console.log(r)
+ *     // => { m: 0.666666666666667, b: -0.3000000000000007 }
+ *
+ *     arr = [
+ *         [1, 0.5],
+ *         [2.5, 1.1],
+ *         [4, 2.5],
+ *     ]
+ *     r = await regLine(arr, { useRegIntercept: false }) //不使用截距, 也就是截距=0
+ *     console.log(r)
+ *     // => { m: 0.5698924731182796, b: 0 }
+ *
+ *     arr = [
+ *         [1, 2.5],
+ *         [2.5, 1.1],
+ *         [4, 0.5],
+ *     ]
+ *     r = await regLine(arr, { interpX: 2 })
+ *     console.log(r)
+ *     // => {
+ *     //   m: -0.6666666666666664,
+ *     //   b: 3.0333333333333323,
+ *     //   interpY: 1.6999999999999995
+ *     // }
+ *
+ *     arr = [
+ *         [1, 2.5],
+ *         [2.5, 1.1],
+ *         [4, 0.5],
+ *     ]
+ *     r = regLine(arr, { useSync: true }) //使用同步函數(sync)
+ *     console.log(r)
+ *     // => { m: -0.6666666666666664, b: 3.0333333333333323 }
+ *
+ * }
+ * test()
+ *     .catch((err) => {
+ *         console.log(err)
+ *     })
+ *
+ */
+function regLine(arr, opt = {}) {
+
+    //interpX
+    let interpX = get(opt, 'interpX')
+    if (!isnum(interpX)) {
+        interpX = null
+    }
+
+    //useRegIntercept, 是否回歸使用截距
+    let useRegIntercept = get(opt, 'useRegIntercept')
+    if (!isbol(useRegIntercept)) {
+        useRegIntercept = true
+    }
+
+    //useSync
+    let useSync = get(opt, 'useSync')
+    if (!isbol(useSync)) {
+        useSync = false
+    }
+
+    //_sync
+    let _sync = () => {
+
+        //rs
+        let rs = []
+        each(arr, (v) => {
+            let x = get(v, 0)
+            let y = get(v, 1)
+            if (isnum(x) &amp;&amp; isnum(y)) {
+                rs.push([cdbl(x), cdbl(y)])
+            }
+        })
+        // console.log('rs', rs)
+
+        //check
+        if (size(rs) === 0) {
+            return null
+        }
+
+        //r
+        let r = null
+
+        //useRegIntercept
+        if (!useRegIntercept) {
+
+            //無截距算斜率m
+            let sumx2 = 0
+            let sumxy = 0
+            each(rs, (v) => {
+                sumx2 += v[0] ** 2
+                sumxy += v[0] * v[1]
+            })
+            let m = null
+            if (sumx2 !== 0) {
+                m = sumxy / sumx2
+            }
+            r = {
+                m,
+                b: 0,
+            }
+            // console.log('r(no b)', r)
+
+        }
+        else {
+
+            //linearRegression
+            r = ss.linearRegression(rs)
+            // console.log('r', r)
+
+        }
+
+        //interpX
+        if (isnum(interpX)) {
+            interpX = cdbl(interpX)
+            let interpY = ss.linearRegressionLine(r)(interpX)
+            r.interpY = interpY
+        }
+
+        return r
+    }
+
+    //_async
+    let _async = async () => {
+        let r = null
+        try {
+            r = _sync()
+            if (iseobj(r)) {
+                return r
+            }
+            else {
+                return Promise.reject(`no effective data`)
+            }
+        }
+        catch (err) {
+            console.log(err)
+            return Promise.reject(err.toString())
+        }
+    }
+
+    if (useSync) {
+        return _sync()
+    }
+    else {
+        return _async()
+    }
+}
+
+
+export default regLine
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Wed Jun 08 2022 16:40:00 GMT+0800 (台北標準時間) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>
