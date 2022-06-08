@@ -4,7 +4,6 @@ import ispnum from 'wsemi/src/ispnum.mjs'
 import cdbl from 'wsemi/src/cdbl.mjs'
 import arrFilterByNum from 'wsemi/src/arrFilterByNum.mjs'
 import ss from './simpleStatistics.mjs'
-// import jt from './jStat.mjs'
 
 
 /**
