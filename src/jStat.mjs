@@ -18,6 +18,7 @@ let beta = {
     // jStat.beta.median( alpha, beta )
     // jStat.beta.mode( alpha, beta )
     // jStat.beta.sample( alpha, beta )
+    sample: jStat.beta.sample,
     // jStat.beta.variance( alpha, beta )
 }
 
@@ -32,6 +33,7 @@ let centralF = {
     // jStat.centralF.mean(df1, df2)
     // jStat.centralF.mode(df1, df2)
     // jStat.centralF.sample(df1, df2)
+    sample: jStat.centralF.sample,
     // jStat.centralF.variance(df1, df2)
 }
 
@@ -46,6 +48,7 @@ let cauchy = {
     // jStat.cauchy.median(local, scale)
     // jStat.cauchy.mode(local, scale)
     // jStat.cauchy.sample(local, scale)
+    sample: jStat.cauchy.sample,
     // jStat.cauchy.variance(local, scale)
 }
 
@@ -61,6 +64,7 @@ let chisquare = {
     // jStat.chisquare.median(dof)
     // jStat.chisquare.mode(dof)
     // jStat.chisquare.sample(dof)
+    sample: jStat.chisquare.sample,
     // jStat.chisquare.variance(dof)
 }
 
@@ -76,6 +80,7 @@ let exponential = {
     // jStat.exponential.median(rate)
     // jStat.exponential.mode(rate)
     // jStat.exponential.sample(rate)
+    sample: jStat.exponential.sample,
     // jStat.exponential.variance(rate)
 }
 
@@ -90,6 +95,7 @@ let gamma = {
     // jStat.gamma.mean(shape, scale)
     // jStat.gamma.mode(shape, scale)
     // jStat.gamma.sample(shape, scale)
+    sample: jStat.gamma.sample,
     // jStat.gamma.variance(shape, scale)
 }
 
@@ -104,6 +110,7 @@ let invgamma = {
     // jStat.invgamma.mean(shape, scale)
     // jStat.invgamma.mode(shape, scale)
     // jStat.invgamma.sample(shape, scale)
+    sample: jStat.invgamma.sample,
     // jStat.invgamma.variance(shape, scale)
 }
 
@@ -118,6 +125,7 @@ let kumaraswamy = {
     // jStat.kumaraswamy.mean(alpha, beta)
     // jStat.kumaraswamy.median(alpha, beta)
     // jStat.kumaraswamy.mode(alpha, beta)
+    sample: jStat.kumaraswamy.sample,
     // jStat.kumaraswamy.variance(alpha, beta)
 }
 
@@ -133,6 +141,7 @@ let lognormal = {
     // jStat.lognormal.median(mu, sigma)
     // jStat.lognormal.mode(mu, sigma)
     // jStat.lognormal.sample(mu, sigma)
+    sample: jStat.lognormal.sample,
     // jStat.lognormal.variance(mu, sigma)
 }
 
@@ -148,6 +157,7 @@ let normal = {
     // jStat.normal.median(mean, std)
     // jStat.normal.mode(mean, std)
     // jStat.normal.sample(mean, std)
+    sample: jStat.normal.sample,
     // jStat.normal.variance(mean, std)
 }
 
@@ -162,6 +172,9 @@ let pareto = {
     // jStat.pareto.mean(scale, shape)
     // jStat.pareto.median(scale, shape)
     // jStat.pareto.mode(scale, shape)
+    sample: (scale, shape) => {
+        throw new Error(`invalid pareto.sample`)
+    },
     // jStat.pareto.variance(scale, shape)
 }
 
@@ -177,6 +190,7 @@ let studentt = {
     // jStat.studentt.median(dof)
     // jStat.studentt.mode(dof)
     // jStat.studentt.sample(dof)
+    sample: jStat.studentt.sample,
     // jStat.studentt.variance(dof)
 }
 
@@ -189,6 +203,9 @@ let tukey = {
     cdf: jStat.tukey.cdf,
     // jStat.tukey.inv(p, nmeans, dof)
     inv: jStat.tukey.inv,
+    sample: (nmeans, dof) => {
+        throw new Error(`invalid tukey.sample`)
+    },
 }
 
 let weibull = {
@@ -203,6 +220,7 @@ let weibull = {
     // jStat.weibull.median(scale, shape)
     // jStat.weibull.mode(scale, shape)
     // jStat.weibull.sample(scale, shape)
+    sample: jStat.weibull.sample,
     // jStat.weibull.variance(scale, shape)
 }
 
@@ -218,6 +236,7 @@ let uniform = {
     // jStat.uniform.median(a, b)
     // jStat.uniform.mode(a, b)
     // jStat.uniform.sample(a, b)
+    sample: jStat.uniform.sample,
     // jStat.uniform.variance(a, b)
 }
 
@@ -230,6 +249,9 @@ let binomial = {
     inv: (k, n, p) => {
         throw new Error(`invalid binomial.inv`)
     },
+    sample: (n, p) => {
+        throw new Error(`invalid binomial.sample`)
+    },
 }
 
 let negbin = {
@@ -240,6 +262,9 @@ let negbin = {
     cdf: jStat.negbin.cdf,
     inv: (x, r, p) => {
         throw new Error(`invalid negbin.inv`)
+    },
+    sample: (r, p) => {
+        throw new Error(`invalid negbin.sample`)
     },
 }
 
@@ -252,6 +277,9 @@ let hypgeom = {
     inv: (x, N, m, n) => {
         throw new Error(`invalid hypgeom.inv`)
     },
+    sample: (N, m, n) => {
+        throw new Error(`invalid hypgeom.sample`)
+    },
 }
 
 let poisson = {
@@ -260,10 +288,11 @@ let poisson = {
     pdf: jStat.poisson.pdf,
     // jStat.poisson.cdf(x, l)
     cdf: jStat.poisson.cdf,
-    // jStat.poisson.sample(l)
     inv: (x, l) => {
         throw new Error(`invalid poisson.inv`)
     },
+    // jStat.poisson.sample(l)
+    sample: jStat.poisson.sample,
 }
 
 let triangular = {
@@ -279,6 +308,7 @@ let triangular = {
     // jStat.triangular.median(a, b, c)
     // jStat.triangular.mode(a, b, c)
     // jStat.triangular.sample(a, b, c)
+    sample: jStat.triangular.sample,
     // jStat.triangular.variance(a, b, c)
 }
 
@@ -294,6 +324,7 @@ let arcsine = {
     // jStat.arcsine.median(a, b)
     // jStat.arcsine.mode(a, b)
     // jStat.arcsine.sample(a, b)
+    sample: jStat.arcsine.sample,
     // jStat.arcsine.variance(a, b)
 }
 
