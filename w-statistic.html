@@ -27,7 +27,7 @@
 
 <nav >
     
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="w-statistic.html">w-statistic</a><ul class='methods'><li data-type='method'><a href="w-statistic.html#.arrAverage">arrAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrAverageWithLogNormCI">arrAverageWithLogNormCI</a></li><li data-type='method'><a href="w-statistic.html#.arrAverageWithNormCI">arrAverageWithNormCI</a></li><li data-type='method'><a href="w-statistic.html#.arrCount">arrCount</a></li><li data-type='method'><a href="w-statistic.html#.arrGammaFit">arrGammaFit</a></li><li data-type='method'><a href="w-statistic.html#.arrGammaHist">arrGammaHist</a></li><li data-type='method'><a href="w-statistic.html#.arrGammaInv">arrGammaInv</a></li><li data-type='method'><a href="w-statistic.html#.arrGeometricAverage">arrGeometricAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrGeometricStd">arrGeometricStd</a></li><li data-type='method'><a href="w-statistic.html#.arrLogNormHist">arrLogNormHist</a></li><li data-type='method'><a href="w-statistic.html#.arrLogNormInv">arrLogNormInv</a></li><li data-type='method'><a href="w-statistic.html#.arrMovingAverage">arrMovingAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrNormHist">arrNormHist</a></li><li data-type='method'><a href="w-statistic.html#.arrNormInv">arrNormInv</a></li><li data-type='method'><a href="w-statistic.html#.arrQuartile">arrQuartile</a></li><li data-type='method'><a href="w-statistic.html#.arrStd">arrStd</a></li><li data-type='method'><a href="w-statistic.html#.bin">bin</a></li><li data-type='method'><a href="w-statistic.html#.histGen">histGen</a></li><li data-type='method'><a href="w-statistic.html#.randNorm">randNorm</a></li><li data-type='method'><a href="w-statistic.html#.studentTInv">studentTInv</a></li></ul></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="w-statistic.html">w-statistic</a><ul class='methods'><li data-type='method'><a href="w-statistic.html#.arrAverage">arrAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrAverageWithLogNormCI">arrAverageWithLogNormCI</a></li><li data-type='method'><a href="w-statistic.html#.arrAverageWithNormCI">arrAverageWithNormCI</a></li><li data-type='method'><a href="w-statistic.html#.arrCount">arrCount</a></li><li data-type='method'><a href="w-statistic.html#.arrGammaFit">arrGammaFit</a></li><li data-type='method'><a href="w-statistic.html#.arrGammaHist">arrGammaHist</a></li><li data-type='method'><a href="w-statistic.html#.arrGammaInv">arrGammaInv</a></li><li data-type='method'><a href="w-statistic.html#.arrGeometricAverage">arrGeometricAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrGeometricStd">arrGeometricStd</a></li><li data-type='method'><a href="w-statistic.html#.arrLogNormHist">arrLogNormHist</a></li><li data-type='method'><a href="w-statistic.html#.arrLogNormInv">arrLogNormInv</a></li><li data-type='method'><a href="w-statistic.html#.arrMovingAverage">arrMovingAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrNormHist">arrNormHist</a></li><li data-type='method'><a href="w-statistic.html#.arrNormInv">arrNormInv</a></li><li data-type='method'><a href="w-statistic.html#.arrQuartile">arrQuartile</a></li><li data-type='method'><a href="w-statistic.html#.arrStd">arrStd</a></li><li data-type='method'><a href="w-statistic.html#.bin">bin</a></li><li data-type='method'><a href="w-statistic.html#.histGen">histGen</a></li><li data-type='method'><a href="w-statistic.html#.sampleRandom">sampleRandom</a></li><li data-type='method'><a href="w-statistic.html#.studentTInv">studentTInv</a></li></ul></li></ul>
 </nav>
 
 <div id="main">
@@ -4812,7 +4812,7 @@
 
     
 
-    <h4 class="name" id=".randNorm"><span class="type-signature">(static) </span>randNorm<span class="signature">(mu, sigma, opt<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Number|Array}</span></h4>
+    <h4 class="name" id=".sampleRandom"><span class="type-signature">(async, static) </span>sampleRandom<span class="signature">(name, opt<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Number|Array}</span></h4>
 
     
 
@@ -4824,7 +4824,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="randNorm.mjs.html">randNorm.mjs</a>, <a href="randNorm.mjs.html#line72">line 72</a>
+        <a href="sampleRandom.mjs.html">sampleRandom.mjs</a>, <a href="sampleRandom.mjs.html#line57">line 57</a>
     </li></ul></dd>
     
 
@@ -4864,8 +4864,8 @@
 
 
 <div class="description usertext">
-    <p>依照常態分布隨機產生值或陣列</p>
-<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/randNorm.test.js">Github</a></p>
+    <p>依照指定統計分布隨機產生值或陣列</p>
+<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/sampleRandom.test.js">Github</a></p>
 </div>
 
 
@@ -4878,7 +4878,7 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>console.log(randNorm())// => maybe: 0.17741167566201646, 0.24492265983649456, -0.24293127530491618,...console.log(randNorm(100))// => maybe: 102.2788339269329 98.85403221640757 99.09814133809516,...console.log(randNorm(100, 50))// => maybe: 94.99873795683716 136.81783120735003 49.94186751166804,...console.log(randNorm(100, 50, { low: 90 }))// => maybe: 143.11557161592685 95.05143199643211 103.90352980637562,...console.log(randNorm(100, 50, { low: 90, up: 110 }))// => maybe: 99.45744560964987 95.98664948248341 95.69403830457458,...console.log(randNorm(0, 1, { num: 5 }))// => maybe: [//   0.28480054449658343,//   -1.6656082612520913,//   -1.4973558587107332,//   0.9279728382322514,//   0.4704840133724234// ]</code></pre>
+    <pre class="prettyprint"><code>async function test() {    let r    r = await sampleRandom('normal', { mu: 100, sigma: 50 })    console.log(r)    // => maybe: 94.99873795683716 136.81783120735003 49.94186751166804,...    r = await sampleRandom('normal', { mu: 100, sigma: 50, low: 90 })    console.log(r)    // => maybe: 143.11557161592685 95.05143199643211 103.90352980637562,...    r = await sampleRandom('normal', { mu: 100, sigma: 50, low: 90, up: 110 })    console.log(r)    // => maybe: 99.45744560964987 95.98664948248341 95.69403830457458,...    r = await sampleRandom('normal', { mu: 0, sigma: 1, num: 5 })    console.log(r)    // => maybe: [    //   0.28480054449658343,    //   -1.6656082612520913,    //   -1.4973558587107332,    //   0.9279728382322514,    //   0.4704840133724234    // ]}test()    .catch((err) => {        console.log(err)    })</code></pre>
 
 
 
@@ -4912,13 +4912,13 @@
 
         <tr>
             
-                <td class="name"><code>mu</code></td>
+                <td class="name"><code>name</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Number</span>
+<span class="param-type">String</span>
 
 
             
@@ -4937,49 +4937,10 @@
             
                 <td class="default">
                 
-                    <code>0</code>
-                
                 </td>
             
 
-            <td class="description last"><p>輸入平均值數字</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>sigma</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    <code>1</code>
-                
-                </td>
-            
-
-            <td class="description last"><p>輸入標準差數字</p></td>
+            <td class="description last"><p>輸入統計分布名稱</p></td>
         </tr>
 
     
@@ -5044,6 +5005,45 @@
     </thead>
 
     <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>num</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>1</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>輸入產生亂數數量整數，若有給予需大於等於1，預設1</p></td>
+        </tr>
+
     
 
         <tr>
@@ -5120,45 +5120,6 @@
             
 
             <td class="description last"><p>輸入亂數之最大限制值數字，預設null</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>num</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    <code>null</code>
-                
-                </td>
-            
-
-            <td class="description last"><p>輸入產生亂數數量整數，若有給予需大於等於1，預設null</p></td>
         </tr>
 
     
@@ -5422,7 +5383,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Wed Jun 08 2022 14:36:25 GMT+0800 (台北標準時間) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Wed Jun 08 2022 15:28:19 GMT+0800 (台北標準時間) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
