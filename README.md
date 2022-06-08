@@ -23,5 +23,5 @@ npm i w-statistic
 
 Add script for w-statistic.
 ```alias
-<script src="https://cdn.jsdelivr.net/npm/w-statistic@1.0.9/dist/w-statistic.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/w-statistic@1.0.10/dist/w-statistic.umd.js"></script>
 ```
