@@ -14,6 +14,7 @@
     <link type="text/css" rel="stylesheet" href="styles/prettify.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
     <script src="scripts/nav.js" defer></script>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -27,7 +28,9 @@
 
 <nav >
     
+    
     <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="w-statistic.html">w-statistic</a><ul class='methods'><li data-type='method'><a href="w-statistic.html#.arrAverage">arrAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrAverageWithLogNormCI">arrAverageWithLogNormCI</a></li><li data-type='method'><a href="w-statistic.html#.arrAverageWithNormCI">arrAverageWithNormCI</a></li><li data-type='method'><a href="w-statistic.html#.arrCount">arrCount</a></li><li data-type='method'><a href="w-statistic.html#.arrGammaFit">arrGammaFit</a></li><li data-type='method'><a href="w-statistic.html#.arrGammaHist">arrGammaHist</a></li><li data-type='method'><a href="w-statistic.html#.arrGammaInv">arrGammaInv</a></li><li data-type='method'><a href="w-statistic.html#.arrGeometricAverage">arrGeometricAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrGeometricStd">arrGeometricStd</a></li><li data-type='method'><a href="w-statistic.html#.arrLogNormHist">arrLogNormHist</a></li><li data-type='method'><a href="w-statistic.html#.arrLogNormInv">arrLogNormInv</a></li><li data-type='method'><a href="w-statistic.html#.arrMovingAverage">arrMovingAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrNormHist">arrNormHist</a></li><li data-type='method'><a href="w-statistic.html#.arrNormInv">arrNormInv</a></li><li data-type='method'><a href="w-statistic.html#.arrQuartile">arrQuartile</a></li><li data-type='method'><a href="w-statistic.html#.arrStd">arrStd</a></li><li data-type='method'><a href="w-statistic.html#.bin">bin</a></li><li data-type='method'><a href="w-statistic.html#.histGen">histGen</a></li><li data-type='method'><a href="w-statistic.html#.regLine">regLine</a></li><li data-type='method'><a href="w-statistic.html#.regPower">regPower</a></li><li data-type='method'><a href="w-statistic.html#.sampleRandom">sampleRandom</a></li><li data-type='method'><a href="w-statistic.html#.studentTInv">studentTInv</a></li></ul></li></ul>
+    
 </nav>
 
 <div id="main">
@@ -45,7 +48,9 @@
 <header>
     
         <h2>
-        w-statistic
+        
+            w-statistic
+        
         </h2>
         
     
@@ -67,6 +72,7 @@
 
 
 <dl class="details">
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -135,8 +141,6 @@
 
 
 
-
-
         
         </div>
     
@@ -163,7 +167,7 @@
 
     
 
-    <h4 class="name" id=".arrAverage"><span class="type-signature">(static) </span>arrAverage<span class="signature">(arr)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+    <h4 class="name" id=".arrAverage"><span class="type-signature type-signature-static">(static) </span>arrAverage<span class="signature">(arr)</span><span class="type-signature"> &rarr; {Number}</span></h4>
 
     
 
@@ -171,6 +175,11 @@
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>計算陣列內有效數字之平均值</p>
+<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrAverage.test.js">Github</a></p></li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -214,27 +223,20 @@
 
 
 
-<div class="description usertext">
-    <p>計算陣列內有效數字之平均值</p>
-<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrAverage.test.js">Github</a></p>
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Example</h5>
+    <h5 class="h5-examples">Example</h5>
     
     <pre class="prettyprint"><code>let arrarr = ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(arrAverage(arr))// => 1.5arr = ['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(arrAverage(arr))// => 3.3</code></pre>
 
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -268,6 +270,7 @@
 <span class="param-type">Array</span>
 
 
+
             
             </td>
 
@@ -297,7 +300,7 @@
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 <div class="param-desc">
@@ -315,6 +318,7 @@
 <span class="param-type">Number</span>
 
 
+
     </dd>
 </dl>
 
@@ -327,7 +331,7 @@
 
     
 
-    <h4 class="name" id=".arrAverageWithLogNormCI"><span class="type-signature">(async, static) </span>arrAverageWithLogNormCI<span class="signature">(arr, p, mode)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+    <h4 class="name" id=".arrAverageWithLogNormCI"><span class="type-signature type-signature-async, static">(async, static) </span>arrAverageWithLogNormCI<span class="signature">(arr, p, mode)</span><span class="type-signature"> &rarr; {Number}</span></h4>
 
     
 
@@ -335,6 +339,11 @@
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>基於Student-T累加分布之信賴水準(p)以及指定左右單尾條件下，計算樣本平均值。Student-T需用於常態分佈樣本，故數據是取log後為常態分佈才能以此計算，而於取log後座標算出樣本平均值，會再取其指數(exp)值回傳。此時左尾代表樣本平均值可小於等於母數平均值，而右尾代表樣本平均值可大於等於母數平均值</p>
+<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrAverageWithLogNormCI.test.js">Github</a></p></li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -378,27 +387,20 @@
 
 
 
-<div class="description usertext">
-    <p>基於Student-T累加分布之信賴水準(p)以及指定左右單尾條件下，計算樣本平均值。Student-T需用於常態分佈樣本，故數據是取log後為常態分佈才能以此計算，而於取log後座標算出樣本平均值，會再取其指數(exp)值回傳。此時左尾代表樣本平均值可小於等於母數平均值，而右尾代表樣本平均值可大於等於母數平均值</p>
-<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrAverageWithLogNormCI.test.js">Github</a></p>
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Example</h5>
+    <h5 class="h5-examples">Example</h5>
     
     <pre class="prettyprint"><code>async function test() {    let arr    arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]    console.log(await arrAverageWithLogNormCI(arr, 0.95))    // => [ 27.615050054890812, 26.794611985184215 ]    arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]    console.log(await arrAverageWithLogNormCI(arr, 0.95, 'upper-tail'))    // => 41.610938902127394    arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]    console.log(await arrAverageWithLogNormCI(arr, 0.95, 'lower-tail'))    // => 17.782212338746568    arr = [18.7261764705882, 18.6629411764705, 19.3983050847457, 18.5099999999999, 18.9986446886446, 18.9083937823834, 19.1957837837837, 19.0423529411764, 19.2320588235294, 18.8526470588235, 18.7982198952879, 19.0423529411764, 19.075, 18.945238095238, 20.6691240875912]    console.log(await arrAverageWithLogNormCI(arr, 0.95, 'upper-tail'))    // => 19.28628574730297    arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]    console.log(await arrAverageWithLogNormCI(arr, 0.25))    // => [ 36.223415575653085, 20.42696800987406 ]    arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]    console.log(await arrAverageWithLogNormCI(arr, 0.5))    // => [ 32.05361593350904, 23.084277065874097 ]    arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]    console.log(await arrAverageWithLogNormCI(arr, 0.75))    // => [ 29.373829998564737, 25.190264640613567 ]    arr = ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']    console.log(await arrAverageWithLogNormCI(arr, 0.50))    // => [ 1.7639684225556826, 0.6249032382061773 ]    arr = ['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']    console.log(await arrAverageWithLogNormCI(arr, 0.50))    // => [ 1.7639684225556826, 0.6249032382061773 ]}test()    .catch((err) => {        console.log(err)    })</code></pre>
 
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -434,6 +436,7 @@
 <span class="param-type">Array</span>
 
 
+
             
             </td>
 
@@ -461,6 +464,7 @@
 <span class="param-type">Number</span>
 
 
+
             
             </td>
 
@@ -486,6 +490,7 @@
             
                 
 <span class="param-type">String</span>
+
 
 
             
@@ -523,7 +528,7 @@
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 <div class="param-desc">
@@ -541,6 +546,7 @@
 <span class="param-type">Number</span>
 
 
+
     </dd>
 </dl>
 
@@ -553,7 +559,7 @@
 
     
 
-    <h4 class="name" id=".arrAverageWithNormCI"><span class="type-signature">(async, static) </span>arrAverageWithNormCI<span class="signature">(arr, p, mode)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+    <h4 class="name" id=".arrAverageWithNormCI"><span class="type-signature type-signature-async, static">(async, static) </span>arrAverageWithNormCI<span class="signature">(arr, p, mode)</span><span class="type-signature"> &rarr; {Number}</span></h4>
 
     
 
@@ -561,6 +567,11 @@
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>基於Student-T累加分布之信賴水準(p)以及指定左右單尾條件下，計算樣本平均值。Student-T需用於常態分佈樣本。此時左尾代表樣本平均值可小於等於母數平均值，而右尾代表樣本平均值可大於等於母數平均值</p>
+<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrAverageWithNormCI.test.js">Github</a></p></li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -604,27 +615,20 @@
 
 
 
-<div class="description usertext">
-    <p>基於Student-T累加分布之信賴水準(p)以及指定左右單尾條件下，計算樣本平均值。Student-T需用於常態分佈樣本。此時左尾代表樣本平均值可小於等於母數平均值，而右尾代表樣本平均值可大於等於母數平均值</p>
-<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrAverageWithNormCI.test.js">Github</a></p>
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Example</h5>
+    <h5 class="h5-examples">Example</h5>
     
     <pre class="prettyprint"><code>async function test() {    let arr    arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]    console.log(await arrAverageWithNormCI(arr, 0.95))    // => [ 33.48954903620701, 32.87408732742935 ]    arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]    console.log(await arrAverageWithNormCI(arr, 0.95, 'upper-tail'))    // => 41.85625495776645    arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]    console.log(await arrAverageWithNormCI(arr, 0.95, 'lower-tail'))    // => 24.507381405869904    arr = [18.7261764705882, 18.6629411764705, 19.3983050847457, 18.5099999999999, 18.9986446886446, 18.9083937823834, 19.1957837837837, 19.0423529411764, 19.2320588235294, 18.8526470588235, 18.7982198952879, 19.0423529411764, 19.075, 18.945238095238, 20.6691240875912]    console.log(await arrAverageWithNormCI(arr, 0.95, 'upper-tail'))    // => 19.297020890880212    arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]    console.log(await arrAverageWithNormCI(arr, 0.25))    // => [ 39.026745129035845, 27.336891234600518 ]    arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]    console.log(await arrAverageWithNormCI(arr, 0.5))    // => [ 36.53111791211017, 29.832518451526187 ]    arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]    console.log(await arrAverageWithNormCI(arr, 0.75))    // => [ 34.74951166569791, 31.614124697938454 ]    arr = ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']    console.log(await arrAverageWithNormCI(arr, 0.50))    // => [ 2.5700668400787645, 0.4299331599212357 ]    arr = ['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']    console.log(await arrAverageWithNormCI(arr, 0.50))    // => [ 5.011682286477105, 1.5883177135228952 ]}test()    .catch((err) => {        console.log(err)    })</code></pre>
 
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -660,6 +664,7 @@
 <span class="param-type">Array</span>
 
 
+
             
             </td>
 
@@ -687,6 +692,7 @@
 <span class="param-type">Number</span>
 
 
+
             
             </td>
 
@@ -712,6 +718,7 @@
             
                 
 <span class="param-type">String</span>
+
 
 
             
@@ -749,7 +756,7 @@
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 <div class="param-desc">
@@ -767,6 +774,7 @@
 <span class="param-type">Number</span>
 
 
+
     </dd>
 </dl>
 
@@ -779,7 +787,7 @@
 
     
 
-    <h4 class="name" id=".arrCount"><span class="type-signature">(static) </span>arrCount<span class="signature">(arr)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    <h4 class="name" id=".arrCount"><span class="type-signature type-signature-static">(static) </span>arrCount<span class="signature">(arr)</span><span class="type-signature"> &rarr; {Array}</span></h4>
 
     
 
@@ -787,6 +795,11 @@
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>計算陣列內有效字串依照不重複值進行群組化後，回傳各值之出現次數值</p>
+<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrCount.test.js">Github</a></p></li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -830,27 +843,20 @@
 
 
 
-<div class="description usertext">
-    <p>計算陣列內有效字串依照不重複值進行群組化後，回傳各值之出現次數值</p>
-<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrCount.test.js">Github</a></p>
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Example</h5>
+    <h5 class="h5-examples">Example</h5>
     
     <pre class="prettyprint"><code>let arrarr = ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, 'abc', '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(arrCount(arr))// => [//   { key: '2.5', count: 2 },//   { key: '0.1', count: 2 },//   { key: '-0.1', count: 2 },//   { key: '-1', count: 2 },//   { key: '-2.5', count: 2 },//   { key: 'abc', count: 2 },//   { key: '1', count: 2 },//   { key: '0', count: 2 },//   { key: 'xyz', count: 1 },//   { key: '22.5', count: 1 }// ]arr = ['abc', '0', 0, 'abc', '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(arrCount(arr))// => [//  { key: '2.5', count: 2 },//  { key: '0.1', count: 2 },//  { key: 'abc', count: 2 },//  { key: '1', count: 2 },//  { key: '0', count: 2 },//  { key: 'xyz', count: 1 },//  { key: '22.5', count: 1 }//]</code></pre>
 
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -884,6 +890,7 @@
 <span class="param-type">Array</span>
 
 
+
             
             </td>
 
@@ -913,7 +920,7 @@
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 <div class="param-desc">
@@ -931,6 +938,7 @@
 <span class="param-type">Array</span>
 
 
+
     </dd>
 </dl>
 
@@ -943,7 +951,7 @@
 
     
 
-    <h4 class="name" id=".arrGammaFit"><span class="type-signature">(async, static) </span>arrGammaFit<span class="signature">(arr)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id=".arrGammaFit"><span class="type-signature type-signature-async, static">(async, static) </span>arrGammaFit<span class="signature">(arr)</span><span class="type-signature"> &rarr; {Object}</span></h4>
 
     
 
@@ -951,6 +959,11 @@
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>計算擬合Gamma分布之參數</p>
+<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrGammaFit.test.js">Github</a></p></li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -994,27 +1007,20 @@
 
 
 
-<div class="description usertext">
-    <p>計算擬合Gamma分布之參數</p>
-<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrGammaFit.test.js">Github</a></p>
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Example</h5>
+    <h5 class="h5-examples">Example</h5>
     
     <pre class="prettyprint"><code>async function test() {    let arr    let r    arr = [12, 36, 9, 13, 6, 17, 7, 12, 31, 57, 44, 32, 16, 11, 10, 38, 31, 28, 26, 7, 16, 16, 16, 13, 7, 8, 12, 17, 11, 20, 7, 6, 14, 7, 37, 11, 7, 8, 8, 32, 29, 52, 20, 6, 11, 12, 33, 48, 10, 27, 11, 24, 17, 11, 23, 20, 13, 16, 16, 17, 13, 15, 13, 26, 11, 13, 29, 18, 18, 13, 11, 12, 9, 17, 19, 14, 19, 9, 37, 32, 14, 20, 13, 22, 12, 14, 33, 15, 20, 37, 24, 19, 15, 15, 5, 11, 13, 60, 39, 17, 6, 18, 40, 21, 18, 17, 12, 12, 10, 39, 27, 10, 8, 44, 36, 18, 11, 8, 13, 9, 25, 11, 10, 55, 54, 13, 8, 19, 38, 9, 17, 14, 9, 12, 54, 22, 11, 19, 50, 18, 12, 40, 52, 12, 15, 7, 12, 15, 18, 19, 11, 43, 23, 14, 25, 32, 23, 15, 12, 20, 14, 10, 12, 24, 50, 40, 16, 14, 9, 27, 9, 11, 17, 19, 12, 17, 14, 5, 24, 22, 60, 20, 9, 11, 11, 6, 7, 8, 31, 10, 12, 9, 11, 26, 14, 7, 14, 57, 19, 9, 10, 9, 19, 19, 15, 21, 48, 23, 26, 14, 46, 51, 10, 10, 9, 7, 19, 46, 27, 18, 12, 10, 36, 15, 5, 11, 13, 21, 15, 15, 16, 29, 44, 42, 7, 14, 9, 6, 22, 24, 18, 39, 7, 50, 33, 11, 20, 17, 18, 48, 8, 21, 20, 12, 41, 11, 18, 11, 58, 18, 21, 23, 12, 67, 35]    r = await arrGammaFit(arr, {        n: 69,        min: 1,        max: 70,    })    console.log(r)    // => {    //   shape: 3.8362965388539396,    //   scale: 4.074897568773075,    //   arrPdf: [    //     [ 1.5, 0, 0.002034542900938358 ],    //     [ 2.5, 0, 0.006778251528074013 ],    //     [ 3.5, 0, 0.013772161615714786 ],    //     [ 4.5, 0.011320754716981131, 0.02197810173523445 ],    //     [ 5.5, 0.022641509433962263, 0.030380569392341527 ],    //     [ 6.5, 0.045283018867924525, 0.03817623569640994 ],    //     [ 7.5, 0.03018867924528302, 0.044821355259143096 ],    //     [ 8.5, 0.052830188679245285, 0.05001282903727686 ],    //     [ 9.5, 0.04150943396226415, 0.053642598229888455 ],    //     [ 10.5, 0.07924528301886792, 0.05574595886606071 ],    //     [ 11.5, 0.07169811320754717, 0.05645381775460518 ],    //     [ 12.5, 0.045283018867924525, 0.05595305000100274 ],    //     [ 13.5, 0.04905660377358491, 0.05445596204835303 ],    //     [ 14.5, 0.04150943396226415, 0.05217827444112463 ],    //     [ 15.5, 0.03018867924528302, 0.04932434550769117 ],    //     [ 16.5, 0.04150943396226415, 0.04607816130381367 ],    //     [ 17.5, 0.045283018867924525, 0.04259868048491963 ],    //     [ 18.5, 0.04150943396226415, 0.03901830570786497 ],    //     [ 19.5, 0.033962264150943396, 0.03544347629738162 ],    //     [ 20.5, 0.018867924528301886, 0.031956597426761706 ],    //     [ 21.5, 0.01509433962264151, 0.028618718038250914 ],    //     [ 22.5, 0.018867924528301886, 0.025472535008409646 ],    //     [ 23.5, 0.018867924528301886, 0.0225454335944075 ],    //     [ 24.5, 0.007547169811320755, 0.019852376582105462 ],    //     [ 25.5, 0.01509433962264151, 0.017398531002249633 ],    //     [ 26.5, 0.01509433962264151, 0.0151815764197815 ],    //     [ 27.5, 0.0037735849056603774, 0.013193677058112446 ],    //     [ 28.5, 0.011320754716981131, 0.011423125308268597 ],    //     [ 29.5, 0, 0.009855679783012123 ],    //     [ 30.5, 0.011320754716981131, 0.008475629675587867 ],    //     [ 31.5, 0.01509433962264151, 0.007266620869423741 ],    //     [ 32.5, 0.011320754716981131, 0.006212279625757307 ],    //     [ 33.5, 0, 0.005296667950862123 ],    //     [ 34.5, 0.0037735849056603774, 0.004504601786645908 ],    //     [ 35.5, 0.011320754716981131, 0.0038218595954222644 ],    //     [ 36.5, 0.011320754716981131, 0.0032353051434718273 ],    //     [ 37.5, 0.007547169811320755, 0.0027329446040823616 ],    //     [ 38.5, 0.011320754716981131, 0.0023039346675539146 ],    //     [ 39.5, 0.011320754716981131, 0.001938555255357194 ],    //     [ 40.5, 0.0037735849056603774, 0.0016281577276447906 ],    //     [ 41.5, 0.0037735849056603774, 0.0013650971518721555 ],    //     [ 42.5, 0.0037735849056603774, 0.0011426552473936045 ],    //     [ 43.5, 0.011320754716981131, 0.000954959005617501 ],    //     [ 44.5, 0, 0.0007968986702454505 ],    //     [ 45.5, 0.007547169811320755, 0.0006640477078460918 ],    //     [ 46.5, 0, 0.0005525865668975019 ],    //     [ 47.5, 0.011320754716981131, 0.0004592313773931834 ],    //     [ 48.5, 0, 0.00038116825056312947 ],    //     [ 49.5, 0.011320754716981131, 0.0003159934705381866 ],    //     [ 50.5, 0.0037735849056603774, 0.00026165960216326697 ],    //     [ 51.5, 0.007547169811320755, 0.00021642735070210298 ],    //     [ 52.5, 0, 0.00017882288240340192 ],    //     [ 53.5, 0.007547169811320755, 0.00014760023544158093 ],    //     [ 54.5, 0.0037735849056603774, 0.00012170840693236135 ],    //     [ 55.5, 0, 0.0001002626841944302 ],    //     [ 56.5, 0.007547169811320755, 0.00008251978977290701 ],    //     [ 57.5, 0.0037735849056603774, 0.00006785642416854554 ],    //     [ 58.5, 0, 0.000055750813268511874 ],    //     [ 59.5, 0.007547169811320755, 0.00004576689576865875 ],    //     [ 60.5, 0, 0.000037540816896368505 ],    //     [ 61.5, 0, 0.00003076942665494607 ],    //     [ 62.5, 0, 0.000025200512318922518 ],    //     [ 63.5, 0, 0.000020624525132396522 ],    //     [ 64.5, 0, 0.000016867589533140664 ],    //     [ 65.5, 0, 0.000013785609413643612 ],    //     [ 66.5, 0.0037735849056603774, 0.000011259309780444045 ],    //     [ 67.5, 0, 0.000009190073653789351 ],    //     [ 68.5, 0, 0.000007496453216403037 ],    //     [ 69.5, 0, 0.000006111251186318431 ]    //   ],    //   arrCounts: [    //     [ 1.5, 0, 0.5391538687486649 ],    //     [ 2.5, 0, 1.7962366549396136 ],    //     [ 3.5, 0, 3.6496228281644183 ],    //     [ 4.5, 3, 5.8241969598371295 ],    //     [ 5.5, 6, 8.050850888970505 ],    //     [ 6.5, 12, 10.116702459548634 ],    //     [ 7.5, 8, 11.87765914367292 ],    //     [ 8.5, 14, 13.253399694878366 ],    //     [ 9.5, 11, 14.215288530920441 ],    //     [ 10.5, 21, 14.772679099506087 ],    //     [ 11.5, 19, 14.960261704970373 ],    //     [ 12.5, 12, 14.827558250265724 ],    //     [ 13.5, 13, 14.430829942813553 ],    //     [ 14.5, 11, 13.827242726898026 ],    //     [ 15.5, 8, 13.07095155953816 ],    //     [ 16.5, 11, 12.210712745510621 ],    //     [ 17.5, 12, 11.288650328503703 ],    //     [ 18.5, 11, 10.339851012584218 ],    //     [ 19.5, 9, 9.39252121880613 ],    //     [ 20.5, 5, 8.468498318091852 ],    //     [ 21.5, 4, 7.583960280136492 ],    //     [ 22.5, 5, 6.750221777228556 ],    //     [ 23.5, 5, 5.9745399025179875 ],    //     [ 24.5, 2, 5.2608797942579475 ],    //     [ 25.5, 4, 4.610610715596152 ],    //     [ 26.5, 4, 4.023117751242098 ],    //     [ 27.5, 1, 3.496324420399798 ],    //     [ 28.5, 3, 3.027128206691178 ],    //     [ 29.5, 0, 2.6117551424982124 ],    //     [ 30.5, 3, 2.2460418640307847 ],    //     [ 31.5, 4, 1.9256545303972914 ],    //     [ 32.5, 3, 1.6462541008256864 ],    //     [ 33.5, 0, 1.4036170069784626 ],    //     [ 34.5, 1, 1.1937194734611656 ],    //     [ 35.5, 3, 1.0127927927869 ],    //     [ 36.5, 3, 0.8573558630200342 ],    //     [ 37.5, 2, 0.7242303200818259 ],    //     [ 38.5, 3, 0.6105426869017874 ],    //     [ 39.5, 3, 0.5137171426696564 ],    //     [ 40.5, 1, 0.4314617978258695 ],    //     [ 41.5, 1, 0.3617507452461212 ],    //     [ 42.5, 1, 0.3028036405593052 ],    //     [ 43.5, 3, 0.25306413648863774 ],    //     [ 44.5, 0, 0.2111781476150444 ],    //     [ 45.5, 2, 0.17597264257921433 ],    //     [ 46.5, 0, 0.146435440227838 ],    //     [ 47.5, 3, 0.12169631500919359 ],    //     [ 48.5, 0, 0.10100958639922931 ],    //     [ 49.5, 3, 0.08373826969261944 ],    //     [ 50.5, 1, 0.06933979457326575 ],    //     [ 51.5, 2, 0.05735324793605729 ],    //     [ 52.5, 0, 0.04738806383690151 ],    //     [ 53.5, 2, 0.03911406239201894 ],    //     [ 54.5, 1, 0.03225272783707576 ],    //     [ 55.5, 0, 0.026569611311524 ],    //     [ 56.5, 2, 0.021867744289820357 ],    //     [ 57.5, 1, 0.017981952404664568 ],    //     [ 58.5, 0, 0.014773965516155646 ],    //     [ 59.5, 2, 0.012128227378694569 ],    //     [ 60.5, 0, 0.009948316477537654 ],    //     [ 61.5, 0, 0.008153898063560708 ],    //     [ 62.5, 0, 0.006678135764514467 ],    //     [ 63.5, 0, 0.005465499160085078 ],    //     [ 64.5, 0, 0.004469911226282276 ],    //     [ 65.5, 0, 0.0036531864946155574 ],    //     [ 66.5, 1, 0.002983717091817672 ],    //     [ 67.5, 0, 0.002435369518254178 ],    //     [ 68.5, 0, 0.0019865601023468047 ],    //     [ 69.5, 0, 0.0016194815643743841 ]    //   ],    //   dx: 1,    //   bs: [    //     { min: 1, max: 2, avg: 1.5, arr: [], counts: 0, pdf: 0 },    //     { min: 2, max: 3, avg: 2.5, arr: [], counts: 0, pdf: 0 },    //     { min: 3, max: 4, avg: 3.5, arr: [], counts: 0, pdf: 0 },    //     {    //       min: 4,    //       max: 5,    //       avg: 4.5,    //       arr: [Array],    //       counts: 3,    //       pdf: 0.011320754716981131    //     },    //     {    //       min: 5,    //       max: 6,    //       avg: 5.5,    //       arr: [Array],    //       counts: 6,    //       pdf: 0.022641509433962263    //     },    //     {    //       min: 6,    //       max: 7,    //       avg: 6.5,    //       arr: [Array],    //       counts: 12,    //       pdf: 0.045283018867924525    //     },    //     {    //       min: 7,    //       max: 8,    //       avg: 7.5,    //       arr: [Array],    //       counts: 8,    //       pdf: 0.03018867924528302    //     },    //     {    //       min: 8,    //       max: 9,    //       avg: 8.5,    //       arr: [Array],    //       counts: 14,    //       pdf: 0.052830188679245285    //     },    //     {    //       min: 9,    //       max: 10,    //       avg: 9.5,    //       arr: [Array],    //       counts: 11,    //       pdf: 0.04150943396226415    //     },    //     {    //       min: 10,    //       max: 11,    //       avg: 10.5,    //       arr: [Array],    //       counts: 21,    //       pdf: 0.07924528301886792    //     },    //     {    //       min: 11,    //       max: 12,    //       avg: 11.5,    //       arr: [Array],    //       counts: 19,    //       pdf: 0.07169811320754717    //     },    //     {    //       min: 12,    //       max: 13,    //       avg: 12.5,    //       arr: [Array],    //       counts: 12,    //       pdf: 0.045283018867924525    //     },    //     {    //       min: 13,    //       max: 14,    //       avg: 13.5,    //       arr: [Array],    //       counts: 13,    //       pdf: 0.04905660377358491    //     },    //     {    //       min: 14,    //       max: 15,    //       avg: 14.5,    //       arr: [Array],    //       counts: 11,    //       pdf: 0.04150943396226415    //     },    //     {    //       min: 15,    //       max: 16,    //       avg: 15.5,    //       arr: [Array],    //       counts: 8,    //       pdf: 0.03018867924528302    //     },    //     {    //       min: 16,    //       max: 17,    //       avg: 16.5,    //       arr: [Array],    //       counts: 11,    //       pdf: 0.04150943396226415    //     },    //     {    //       min: 17,    //       max: 18,    //       avg: 17.5,    //       arr: [Array],    //       counts: 12,    //       pdf: 0.045283018867924525    //     },    //     {    //       min: 18,    //       max: 19,    //       avg: 18.5,    //       arr: [Array],    //       counts: 11,    //       pdf: 0.04150943396226415    //     },    //     {    //       min: 19,    //       max: 20,    //       avg: 19.5,    //       arr: [Array],    //       counts: 9,    //       pdf: 0.033962264150943396    //     },    //     {    //       min: 20,    //       max: 21,    //       avg: 20.5,    //       arr: [Array],    //       counts: 5,    //       pdf: 0.018867924528301886    //     },    //     {    //       min: 21,    //       max: 22,    //       avg: 21.5,    //       arr: [Array],    //       counts: 4,    //       pdf: 0.01509433962264151    //     },    //     {    //       min: 22,    //       max: 23,    //       avg: 22.5,    //       arr: [Array],    //       counts: 5,    //       pdf: 0.018867924528301886    //     },    //     {    //       min: 23,    //       max: 24,    //       avg: 23.5,    //       arr: [Array],    //       counts: 5,    //       pdf: 0.018867924528301886    //     },    //     {    //       min: 24,    //       max: 25,    //       avg: 24.5,    //       arr: [Array],    //       counts: 2,    //       pdf: 0.007547169811320755    //     },    //     {    //       min: 25,    //       max: 26,    //       avg: 25.5,    //       arr: [Array],    //       counts: 4,    //       pdf: 0.01509433962264151    //     },    //     {    //       min: 26,    //       max: 27,    //       avg: 26.5,    //       arr: [Array],    //       counts: 4,    //       pdf: 0.01509433962264151    //     },    //     {    //       min: 27,    //       max: 28,    //       avg: 27.5,    //       arr: [Array],    //       counts: 1,    //       pdf: 0.0037735849056603774    //     },    //     {    //       min: 28,    //       max: 29,    //       avg: 28.5,    //       arr: [Array],    //       counts: 3,    //       pdf: 0.011320754716981131    //     },    //     { min: 29, max: 30, avg: 29.5, arr: [], counts: 0, pdf: 0 },    //     {    //       min: 30,    //       max: 31,    //       avg: 30.5,    //       arr: [Array],    //       counts: 3,    //       pdf: 0.011320754716981131    //     },    //     {    //       min: 31,    //       max: 32,    //       avg: 31.5,    //       arr: [Array],    //       counts: 4,    //       pdf: 0.01509433962264151    //     },    //     {    //       min: 32,    //       max: 33,    //       avg: 32.5,    //       arr: [Array],    //       counts: 3,    //       pdf: 0.011320754716981131    //     },    //     { min: 33, max: 34, avg: 33.5, arr: [], counts: 0, pdf: 0 },    //     {    //       min: 34,    //       max: 35,    //       avg: 34.5,    //       arr: [Array],    //       counts: 1,    //       pdf: 0.0037735849056603774    //     },    //     {    //       min: 35,    //       max: 36,    //       avg: 35.5,    //       arr: [Array],    //       counts: 3,    //       pdf: 0.011320754716981131    //     },    //     {    //       min: 36,    //       max: 37,    //       avg: 36.5,    //       arr: [Array],    //       counts: 3,    //       pdf: 0.011320754716981131    //     },    //     {    //       min: 37,    //       max: 38,    //       avg: 37.5,    //       arr: [Array],    //       counts: 2,    //       pdf: 0.007547169811320755    //     },    //     {    //       min: 38,    //       max: 39,    //       avg: 38.5,    //       arr: [Array],    //       counts: 3,    //       pdf: 0.011320754716981131    //     },    //     {    //       min: 39,    //       max: 40,    //       avg: 39.5,    //       arr: [Array],    //       counts: 3,    //       pdf: 0.011320754716981131    //     },    //     {    //       min: 40,    //       max: 41,    //       avg: 40.5,    //       arr: [Array],    //       counts: 1,    //       pdf: 0.0037735849056603774    //     },    //     {    //       min: 41,    //       max: 42,    //       avg: 41.5,    //       arr: [Array],    //       counts: 1,    //       pdf: 0.0037735849056603774    //     },    //     {    //       min: 42,    //       max: 43,    //       avg: 42.5,    //       arr: [Array],    //       counts: 1,    //       pdf: 0.0037735849056603774    //     },    //     {    //       min: 43,    //       max: 44,    //       avg: 43.5,    //       arr: [Array],    //       counts: 3,    //       pdf: 0.011320754716981131    //     },    //     { min: 44, max: 45, avg: 44.5, arr: [], counts: 0, pdf: 0 },    //     {    //       min: 45,    //       max: 46,    //       avg: 45.5,    //       arr: [Array],    //       counts: 2,    //       pdf: 0.007547169811320755    //     },    //     { min: 46, max: 47, avg: 46.5, arr: [], counts: 0, pdf: 0 },    //     {    //       min: 47,    //       max: 48,    //       avg: 47.5,    //       arr: [Array],    //       counts: 3,    //       pdf: 0.011320754716981131    //     },    //     { min: 48, max: 49, avg: 48.5, arr: [], counts: 0, pdf: 0 },    //     {    //       min: 49,    //       max: 50,    //       avg: 49.5,    //       arr: [Array],    //       counts: 3,    //       pdf: 0.011320754716981131    //     },    //     {    //       min: 50,    //       max: 51,    //       avg: 50.5,    //       arr: [Array],    //       counts: 1,    //       pdf: 0.0037735849056603774    //     },    //     {    //       min: 51,    //       max: 52,    //       avg: 51.5,    //       arr: [Array],    //       counts: 2,    //       pdf: 0.007547169811320755    //     },    //     { min: 52, max: 53, avg: 52.5, arr: [], counts: 0, pdf: 0 },    //     {    //       min: 53,    //       max: 54,    //       avg: 53.5,    //       arr: [Array],    //       counts: 2,    //       pdf: 0.007547169811320755    //     },    //     {    //       min: 54,    //       max: 55,    //       avg: 54.5,    //       arr: [Array],    //       counts: 1,    //       pdf: 0.0037735849056603774    //     },    //     { min: 55, max: 56, avg: 55.5, arr: [], counts: 0, pdf: 0 },    //     {    //       min: 56,    //       max: 57,    //       avg: 56.5,    //       arr: [Array],    //       counts: 2,    //       pdf: 0.007547169811320755    //     },    //     {    //       min: 57,    //       max: 58,    //       avg: 57.5,    //       arr: [Array],    //       counts: 1,    //       pdf: 0.0037735849056603774    //     },    //     { min: 58, max: 59, avg: 58.5, arr: [], counts: 0, pdf: 0 },    //     {    //       min: 59,    //       max: 60,    //       avg: 59.5,    //       arr: [Array],    //       counts: 2,    //       pdf: 0.007547169811320755    //     },    //     { min: 60, max: 61, avg: 60.5, arr: [], counts: 0, pdf: 0 },    //     { min: 61, max: 62, avg: 61.5, arr: [], counts: 0, pdf: 0 },    //     { min: 62, max: 63, avg: 62.5, arr: [], counts: 0, pdf: 0 },    //     { min: 63, max: 64, avg: 63.5, arr: [], counts: 0, pdf: 0 },    //     { min: 64, max: 65, avg: 64.5, arr: [], counts: 0, pdf: 0 },    //     { min: 65, max: 66, avg: 65.5, arr: [], counts: 0, pdf: 0 },    //     {    //       min: 66,    //       max: 67,    //       avg: 66.5,    //       arr: [Array],    //       counts: 1,    //       pdf: 0.0037735849056603774    //     },    //     { min: 67, max: 68, avg: 67.5, arr: [], counts: 0, pdf: 0 },    //     { min: 68, max: 69, avg: 68.5, arr: [], counts: 0, pdf: 0 },    //     { min: 69, max: 70, avg: 69.5, arr: [], counts: 0, pdf: 0 }    //   ]    // }}test()    .catch((err) => {        console.log(err)    })</code></pre>
 
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -1048,6 +1054,7 @@
 <span class="param-type">Array</span>
 
 
+
             
             </td>
 
@@ -1077,7 +1084,7 @@
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 <div class="param-desc">
@@ -1095,6 +1102,7 @@
 <span class="param-type">Object</span>
 
 
+
     </dd>
 </dl>
 
@@ -1107,7 +1115,7 @@
 
     
 
-    <h4 class="name" id=".arrGammaHist"><span class="type-signature">(async, static) </span>arrGammaHist<span class="signature">(arr, opt<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+    <h4 class="name" id=".arrGammaHist"><span class="type-signature type-signature-async, static">(async, static) </span>arrGammaHist<span class="signature">(arr, opt<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Number}</span></h4>
 
     
 
@@ -1115,6 +1123,11 @@
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>基於Gamma分布計算陣列數據分組直方圖、統計與趨勢線數據</p>
+<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrGammaHist.test.js">Github</a></p></li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -1158,27 +1171,20 @@
 
 
 
-<div class="description usertext">
-    <p>基於Gamma分布計算陣列數據分組直方圖、統計與趨勢線數據</p>
-<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrGammaHist.test.js">Github</a></p>
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Example</h5>
+    <h5 class="h5-examples">Example</h5>
     
     <pre class="prettyprint"><code>async function test() {}test()    .catch((err) => {        console.log(err)    })</code></pre>
 
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -1216,6 +1222,7 @@
 <span class="param-type">Array</span>
 
 
+
             
             </td>
 
@@ -1249,6 +1256,7 @@
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -1313,6 +1321,7 @@
 <span class="param-type">Number</span>
 
 
+
             
             </td>
 
@@ -1350,6 +1359,7 @@
             
                 
 <span class="param-type">Integer</span>
+
 
 
             
@@ -1391,6 +1401,7 @@
 <span class="param-type">Integer</span>
 
 
+
             
             </td>
 
@@ -1430,6 +1441,7 @@
 <span class="param-type">Number</span>
 
 
+
             
             </td>
 
@@ -1467,6 +1479,7 @@
             
                 
 <span class="param-type">Number</span>
+
 
 
             
@@ -1521,7 +1534,7 @@
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 <div class="param-desc">
@@ -1539,6 +1552,7 @@
 <span class="param-type">Number</span>
 
 
+
     </dd>
 </dl>
 
@@ -1551,7 +1565,7 @@
 
     
 
-    <h4 class="name" id=".arrGammaInv"><span class="type-signature">(async, static) </span>arrGammaInv<span class="signature">(arr, ratio)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+    <h4 class="name" id=".arrGammaInv"><span class="type-signature type-signature-async, static">(async, static) </span>arrGammaInv<span class="signature">(arr, ratio)</span><span class="type-signature"> &rarr; {Number}</span></h4>
 
     
 
@@ -1559,6 +1573,11 @@
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>基於Gamma累加分布計算指定位置之反函數值</p>
+<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrGammaInv.test.js">Github</a></p></li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -1602,27 +1621,20 @@
 
 
 
-<div class="description usertext">
-    <p>基於Gamma累加分布計算指定位置之反函數值</p>
-<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrGammaInv.test.js">Github</a></p>
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Example</h5>
+    <h5 class="h5-examples">Example</h5>
     
     <pre class="prettyprint"><code>async function test() {    let arr    let r    arr = [12, 36, 9, 13, 6, 17, 7, 12, 31, 57, 44, 32, 16, 11, 10, 38, 31, 28, 26, 7, 16, 16, 16, 13, 7, 8, 12, 17, 11, 20, 7, 6, 14, 7, 37, 11, 7, 8, 8, 32, 29, 52, 20, 6, 11, 12, 33, 48, 10, 27, 11, 24, 17, 11, 23, 20, 13, 16, 16, 17, 13, 15, 13, 26, 11, 13, 29, 18, 18, 13, 11, 12, 9, 17, 19, 14, 19, 9, 37, 32, 14, 20, 13, 22, 12, 14, 33, 15, 20, 37, 24, 19, 15, 15, 5, 11, 13, 60, 39, 17, 6, 18, 40, 21, 18, 17, 12, 12, 10, 39, 27, 10, 8, 44, 36, 18, 11, 8, 13, 9, 25, 11, 10, 55, 54, 13, 8, 19, 38, 9, 17, 14, 9, 12, 54, 22, 11, 19, 50, 18, 12, 40, 52, 12, 15, 7, 12, 15, 18, 19, 11, 43, 23, 14, 25, 32, 23, 15, 12, 20, 14, 10, 12, 24, 50, 40, 16, 14, 9, 27, 9, 11, 17, 19, 12, 17, 14, 5, 24, 22, 60, 20, 9, 11, 11, 6, 7, 8, 31, 10, 12, 9, 11, 26, 14, 7, 14, 57, 19, 9, 10, 9, 19, 19, 15, 21, 48, 23, 26, 14, 46, 51, 10, 10, 9, 7, 19, 46, 27, 18, 12, 10, 36, 15, 5, 11, 13, 21, 15, 15, 16, 29, 44, 42, 7, 14, 9, 6, 22, 24, 18, 39, 7, 50, 33, 11, 20, 17, 18, 48, 8, 21, 20, 12, 41, 11, 18, 11, 58, 18, 21, 23, 12, 67, 35]    r = await arrGammaInv(arr, 0.5, {        n: 69,        min: 1,        max: 70,    })    console.log(r.inv)    // => 14.297217114904852}test()    .catch((err) => {        console.log(err)    })</code></pre>
 
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -1656,6 +1668,7 @@
 <span class="param-type">Array</span>
 
 
+
             
             </td>
 
@@ -1677,6 +1690,7 @@
             
                 
 <span class="param-type">Number</span>
+
 
 
             
@@ -1708,7 +1722,7 @@
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 <div class="param-desc">
@@ -1726,6 +1740,7 @@
 <span class="param-type">Number</span>
 
 
+
     </dd>
 </dl>
 
@@ -1738,7 +1753,7 @@
 
     
 
-    <h4 class="name" id=".arrGeometricAverage"><span class="type-signature">(static) </span>arrGeometricAverage<span class="signature">(arr)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+    <h4 class="name" id=".arrGeometricAverage"><span class="type-signature type-signature-static">(static) </span>arrGeometricAverage<span class="signature">(arr)</span><span class="type-signature"> &rarr; {Number}</span></h4>
 
     
 
@@ -1746,6 +1761,11 @@
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>計算陣列內有效數字之幾何平均值</p>
+<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrGeometricAverage.test.js">Github</a></p></li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -1789,27 +1809,20 @@
 
 
 
-<div class="description usertext">
-    <p>計算陣列內有效數字之幾何平均值</p>
-<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrGeometricAverage.test.js">Github</a></p>
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Example</h5>
+    <h5 class="h5-examples">Example</h5>
     
     <pre class="prettyprint"><code>let arrarr = ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(arrGeometricAverage(arr))// => 1.0499093195835956arr = ['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(arrGeometricAverage(arr))// => 1.0499093195835956</code></pre>
 
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -1843,6 +1856,7 @@
 <span class="param-type">Array</span>
 
 
+
             
             </td>
 
@@ -1872,7 +1886,7 @@
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 <div class="param-desc">
@@ -1890,6 +1904,7 @@
 <span class="param-type">Number</span>
 
 
+
     </dd>
 </dl>
 
@@ -1902,7 +1917,7 @@
 
     
 
-    <h4 class="name" id=".arrGeometricStd"><span class="type-signature">(static) </span>arrGeometricStd<span class="signature">(arr)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+    <h4 class="name" id=".arrGeometricStd"><span class="type-signature type-signature-static">(static) </span>arrGeometricStd<span class="signature">(arr)</span><span class="type-signature"> &rarr; {Number}</span></h4>
 
     
 
@@ -1910,6 +1925,11 @@
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>計算陣列內有效數字之幾何標準差</p>
+<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrGeometricStd.test.js">Github</a></p></li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -1953,27 +1973,20 @@
 
 
 
-<div class="description usertext">
-    <p>計算陣列內有效數字之幾何標準差</p>
-<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrGeometricStd.test.js">Github</a></p>
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Example</h5>
+    <h5 class="h5-examples">Example</h5>
     
     <pre class="prettyprint"><code>let arrarr = ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(arrGeometricStd(arr))// => 6.774243857996147arr = ['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(arrGeometricStd(arr))// => 6.774243857996147</code></pre>
 
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -2007,6 +2020,7 @@
 <span class="param-type">Array</span>
 
 
+
             
             </td>
 
@@ -2036,7 +2050,7 @@
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 <div class="param-desc">
@@ -2054,6 +2068,7 @@
 <span class="param-type">Number</span>
 
 
+
     </dd>
 </dl>
 
@@ -2066,7 +2081,7 @@
 
     
 
-    <h4 class="name" id=".arrLogNormHist"><span class="type-signature">(async, static) </span>arrLogNormHist<span class="signature">(arr, opt<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+    <h4 class="name" id=".arrLogNormHist"><span class="type-signature type-signature-async, static">(async, static) </span>arrLogNormHist<span class="signature">(arr, opt<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Number}</span></h4>
 
     
 
@@ -2074,6 +2089,11 @@
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>基於對數常態分布計算陣列數據分組直方圖、統計與趨勢線數據</p>
+<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrLogNormHist.test.js">Github</a></p></li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -2117,27 +2137,20 @@
 
 
 
-<div class="description usertext">
-    <p>基於對數常態分布計算陣列數據分組直方圖、統計與趨勢線數據</p>
-<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrLogNormHist.test.js">Github</a></p>
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Example</h5>
+    <h5 class="h5-examples">Example</h5>
     
     <pre class="prettyprint"><code>async function test() {    let arr    let r    arr = [13.8, 19.5, 16.7, 14.3, 17.5, 14.5, 12.6, 15.6, 8.9, 13.3, 17.1, 15, 16.3, 18.3, 18.7, 16.7, 20.9, 12.3, 22.3, 14.6, 20.1, 16.7, 16.8, 24.2, 21.2, 20.7, 18.6, 18.3, 15.9, 17.2, 18.8, 16.3, 20.5, 14.7, 17.5, 24.1, 14.6, 21.1, 17, 19.6, 21.2, 16, 16.5, 9.3, 16.2, 14.9, 16.3, 13.9, 18.4, 19.2, 24.6, 20.2, 12.8, 12.9, 14.1, 18.5, 13.4, 17.1, 9.9, 21.9, 19.6, 18.3, 19.7, 16.6, 21.7, 11.8, 15.9, 11.4, 14.3, 17.4, 16.4, 20.7, 18.6, 22, 17.9, 16.3, 15.4, 17.2, 17.3, 18.3, 16.8, 20.9, 15, 15.1, 18.6, 17.5, 14.7, 17.4, 13.8, 18.3, 17.2, 13.4, 12.5, 22.8, 18.6, 16.3, 16.1, 15.7, 20.8, 16.4]    r = await arrLogNormHist(arr, {        n: 10,        min: 12,        max: 23,    })    console.log(r)    // => {    //   avg: 17.048000000000002,    //   std: 3.1686749612576244,    //   avg_geo: 16.741131283482233,    //   avg_log: 2.817868642436364,    //   std_log: 0.19557811714294832,    //   arr: [    //     13.8, 19.5, 16.7, 14.3, 17.5, 14.5, 12.6, 15.6,  8.9, 13.3,    //     17.1,   15, 16.3, 18.3, 18.7, 16.7, 20.9, 12.3, 22.3, 14.6,    //     20.1, 16.7, 16.8, 24.2, 21.2, 20.7, 18.6, 18.3, 15.9, 17.2,    //     18.8, 16.3, 20.5, 14.7, 17.5, 24.1, 14.6, 21.1,   17, 19.6,    //     21.2,   16, 16.5,  9.3, 16.2, 14.9, 16.3, 13.9, 18.4, 19.2,    //     24.6, 20.2, 12.8, 12.9, 14.1, 18.5, 13.4, 17.1,  9.9, 21.9,    //     19.6, 18.3, 19.7, 16.6, 21.7, 11.8, 15.9, 11.4, 14.3, 17.4,    //     16.4, 20.7, 18.6,   22, 17.9, 16.3, 15.4, 17.2, 17.3, 18.3,    //     16.8, 20.9,   15, 15.1, 18.6, 17.5, 14.7, 17.4, 13.8, 18.3,    //     17.2, 13.4, 12.5, 22.8, 18.6, 16.3, 16.1, 15.7, 20.8, 16.4    //   ],    //   min: 12,    //   max: 23.000000000000007,    //   barWidth: 1.0999999999999996,    //   ratioForCountToPdf: 0.00988142292490119,    //   bins: [    //     {    //       min: 12,    //       max: 13.1,    //       avg: 12.55,    //       arr: [Array],    //       counts: 5,    //       pdf: 0.04940711462450595    //     },    //     {    //       min: 13.1,    //       max: 14.2,    //       avg: 13.649999999999999,    //       arr: [Array],    //       counts: 7,    //       pdf: 0.06916996047430833    //     },    //     {    //       min: 14.2,    //       max: 15.299999999999999,    //       avg: 14.75,    //       arr: [Array],    //       counts: 11,    //       pdf: 0.10869565217391308    //     },    //     {    //       min: 15.299999999999999,    //       max: 16.4,    //       avg: 15.849999999999998,    //       arr: [Array],    //       counts: 15,    //       pdf: 0.14822134387351785    //     },    //     {    //       min: 16.4,    //       max: 17.5,    //       avg: 16.95,    //       arr: [Array],    //       counts: 19,    //       pdf: 0.1877470355731226    //     },    //     {    //       min: 17.5,    //       max: 18.6,    //       avg: 18.05,    //       arr: [Array],    //       counts: 12,    //       pdf: 0.11857707509881428    //     },    //     {    //       min: 18.6,    //       max: 19.700000000000003,    //       avg: 19.150000000000002,    //       arr: [Array],    //       counts: 7,    //       pdf: 0.06916996047430833    //     },    //     {    //       min: 19.700000000000003,    //       max: 20.800000000000004,    //       avg: 20.250000000000004,    //       arr: [Array],    //       counts: 6,    //       pdf: 0.05928853754940714    //     },    //     {    //       min: 20.800000000000004,    //       max: 21.900000000000006,    //       avg: 21.350000000000005,    //       arr: [Array],    //       counts: 7,    //       pdf: 0.06916996047430833    //     },    //     {    //       min: 21.900000000000006,    //       max: 23.000000000000007,    //       avg: 22.450000000000006,    //       arr: [Array],    //       counts: 3,    //       pdf: 0.02964426877470357    //     }    //   ],    //   curves: [    //     { x: 8.9, pdf: 0.0003700715564882641 },    //     { x: 8.990947415368343, pdf: 0.0004371517692405818 },    //     { x: 9.082824205159403, pdf: 0.0005149975464899293 },    //     { x: 9.17563986647449, pdf: 0.0006050683906353664 },    //     { x: 9.269403993463994, pdf: 0.0007089737523706667 },    //     { x: 9.36412627831911, pdf: 0.0008284803923579783 },    //     { x: 9.459816512273708, pdf: 0.0009655187182904854 },    //     { x: 9.556484586616412, pdf: 0.001122187810647756 },    //     { x: 9.65414049371306, pdf: 0.0013007588285175362 },    //     { x: 9.752794328039583, pdf: 0.0015036764684296378 },    //     { x: 9.852456287225452, pdf: 0.0017335581352873786 },    //     { x: 9.953136673107782, pdf: 0.0019931904762988104 },    //     { x: 10.054845892796212, pdf: 0.002285522927427827 },    //     { x: 10.157594459748662, pdf: 0.002613657928409247 },    //     { x: 10.261392994858094, pdf: 0.00298083747785083 },    //     { x: 10.36625222755036, pdf: 0.00339042572532841 },    //     { x: 10.472182996893284, pdf: 0.003845887333473609 },    //     { x: 10.579196252717077, pdf: 0.0043507613904719255 },    //     { x: 10.687303056746186, pdf: 0.004908630712509229 },    //     { x: 10.796514583742733, pdf: 0.00552308644662074 },    //     { x: 10.906842122661612, pdf: 0.006197687966875915 },    //     { x: 11.018297077817413, pdf: 0.006935918150280943 },    //     { x: 11.130890970063263, pdf: 0.007741134222211307 },    //     { x: 11.2446354379817, pdf: 0.00861651447320171 },    //     { x: 11.359542239087734, pdf: 0.009565001267702787 },    //     { x: 11.475623251044201, pdf: 0.010589240888730601 },    //     { x: 11.592890472889518, pdf: 0.011691520887560489 },    //     { x: 11.711356026278011, pdf: 0.012873705731766286 },    //     { x: 11.831032156732894, pdf: 0.014137171664688699 },    //     { x: 11.951931234912063, pdf: 0.01548274180130405 },    //     { x: 12.07406575788683, pdf: 0.016910622585775168 },    //     { x: 12.197448350433708, pdf: 0.018420342820962683 },    //     { x: 12.322091766339417, pdf: 0.020010696546175967 },    //     { x: 12.448008889719205, pdf: 0.021679691082941988 },    //     { x: 12.575212736348655, pdf: 0.023424501586361234 },    //     { x: 12.703716455009102, pdf: 0.025241433428925014 },    //     { x: 12.833533328846784, pdf: 0.027125893702261122 },    //     { x: 12.964676776745897, pdf: 0.029072373048600202 },    //     { x: 13.097160354715674, pdf: 0.03107443892702878 },    //     { x: 13.230997757291643, pdf: 0.0331247412798984 },    //     { x: 13.366202818951194, pdf: 0.03521503139309641 },    //     { x: 13.50278951554363, pdf: 0.03733619454222775 },    //     { x: 13.640771965734805, pdf: 0.039478296788055166 },    //     { x: 13.780164432466549, pdf: 0.04163064603270107 },    //     { x: 13.920981324430999, pdf: 0.04378186717793234 },    //     { x: 14.063237197559985, pdf: 0.04591999094394063 },    //     { x: 14.20694675652965, pdf: 0.048032555617702366 },    //     { x: 14.35212485628044, pdf: 0.050106720711093324 },    //     { x: 14.498786503552626, pdf: 0.052129391227648016 },    //     { x: 14.646946858437516, pdf: 0.05408735097055588 },    //     { x: 14.796621235944524, pdf: 0.05596740308048474 },    //     { x: 14.947825107584242, pdf: 0.05775651577714975 },    //     { x: 15.100574102967704, pdf: 0.05944197109973037 },    //     { x: 15.254884011421979, pdf: 0.0610115143040895 },    //     { x: 15.410770783622281, pdf: 0.06245350148414965 },    //     { x: 15.568250533240755, pdf: 0.06375704294451334 },    //     { x: 15.727339538612112, pdf: 0.06491213986400327 },    //     { x: 15.888054244416281, pdf: 0.06590981185639877 },    //     { x: 16.05041126337827, pdf: 0.06674221315497592 },    //     { x: 16.21442737798537, pdf: 0.06740273531976387 },    //     { x: 16.38011954222194, pdf: 0.06788609458751015 },    //     { x: 16.547504883321892, pdf: 0.06818840224961567 },    //     { x: 16.7166007035391, pdf: 0.06830721674690912 },    //     { x: 16.8874244819359, pdf: 0.06824157650511187 },    //     { x: 17.059993876189846, pdf: 0.06799201289332384 },    //     { x: 17.234326724418974, pdf: 0.06756054306126427 },    //     { x: 17.410441047025657, pdf: 0.06695064279031931 },    //     { x: 17.58835504855935, pdf: 0.06616719986949657 },    //     { x: 17.768087119598363, pdf: 0.06521644887107333 },    //     { x: 17.949655838650838, pdf: 0.06410588854332999 },    //     { x: 18.133079974075173, pdf: 0.06284418335117622 },    //     { x: 18.318378486020073, pdf: 0.06144105097245895 },    //     { x: 18.505570528384407, pdf: 0.05990713779209599 },    //     { x: 18.69467545079712, pdf: 0.058253884622945194 },    //     { x: 18.885712800617345, pdf: 0.056493385017886685 },    //     { x: 19.078702324954982, pdf: 0.05463823861978922 },    //     { x: 19.273663972711912, pdf: 0.05270140202414444 },    //     { x: 19.470617896644058, pdf: 0.050696039603930654 },    //     { x: 19.66958445544455, pdf: 0.04863537666985231 },    //     { x: 19.870584215848147, pdf: 0.04653255721492421 },    //     { x: 20.073637954757178, pdf: 0.04440050832501409 },    //     { x: 20.278766661389206, pdf: 0.042251813131985824 },    //     { x: 20.485991539446626, pdf: 0.04009859394984052 },    //     { x: 20.69533400930847, pdf: 0.03795240697364387 },    //     { x: 20.906815710244558, pdf: 0.03582414964330889 },    //     { x: 21.120458502652312, pdf: 0.03372398148684345 },    //     { x: 21.33628447031642, pdf: 0.03166125896774226 },    //     { x: 21.554315922691586, pdf: 0.02964448457576937 },    //     { x: 21.774575397208615, pdf: 0.02768127012591452 },    //     { x: 21.997085661604032, pdf: 0.02577831397264268 },    //     { x: 22.221869716273574, pdf: 0.023941391610736773 },    //     { x: 22.448950796649655, pdf: 0.02217535892423078 },    //     { x: 22.678352375603183, pdf: 0.020484167164369224 },    //     { x: 22.910098165869883, pdf: 0.01887088858846632 },    //     { x: 23.144212122501443, pdf: 0.017337751575253052 },    //     { x: 23.380718445341685, pdf: 0.015886183949135855 },    //     { x: 23.619641581528064, pdf: 0.014516863195202644 },    //     { x: 23.861006228018695, pdf: 0.01322977222745922 },    //     { x: 24.10483733414524, pdf: 0.01202425938261601 },    //     { x: 24.35116010419185, pdf: 0.010899101348140865 },    //     ... 1 more item    //   ]    // }    arr = [13.8, 19.5, 16.7, 14.3, 17.5, 14.5, 12.6, 15.6, 8.9, 13.3, 17.1, 15, 16.3, 18.3, 18.7, 16.7, 20.9, 12.3, 22.3, 14.6, 20.1, 16.7, 16.8, 24.2, 21.2, 20.7, 18.6, 18.3, 15.9, 17.2, 18.8, 16.3, 20.5, 14.7, 17.5, 24.1, 14.6, 21.1, 17, 19.6, 21.2, 16, 16.5, 9.3, 16.2, 14.9, 16.3, 13.9, 18.4, 19.2, 24.6, 20.2, 12.8, 12.9, 14.1, 18.5, 13.4, 17.1, 9.9, 21.9, 19.6, 18.3, 19.7, 16.6, 21.7, 11.8, 15.9, 11.4, 14.3, 17.4, 16.4, 20.7, 18.6, 22, 17.9, 16.3, 15.4, 17.2, 17.3, 18.3, 16.8, 20.9, 15, 15.1, 18.6, 17.5, 14.7, 17.4, 13.8, 18.3, 17.2, 13.4, 12.5, 22.8, 18.6, 16.3, 16.1, 15.7, 20.8, 16.4]    r = await arrLogNormHist(arr, {        dx: 1,    })    console.log(r)    // => {    //   avg: 17.048000000000002,    //   std: 3.1686749612576244,    //   avg_geo: 16.741131283482233,    //   avg_log: 2.817868642436364,    //   std_log: 0.19557811714294832,    //   arr: [    //     13.8, 19.5, 16.7, 14.3, 17.5, 14.5, 12.6, 15.6,  8.9, 13.3,    //     17.1,   15, 16.3, 18.3, 18.7, 16.7, 20.9, 12.3, 22.3, 14.6,    //     20.1, 16.7, 16.8, 24.2, 21.2, 20.7, 18.6, 18.3, 15.9, 17.2,    //     18.8, 16.3, 20.5, 14.7, 17.5, 24.1, 14.6, 21.1,   17, 19.6,    //     21.2,   16, 16.5,  9.3, 16.2, 14.9, 16.3, 13.9, 18.4, 19.2,    //     24.6, 20.2, 12.8, 12.9, 14.1, 18.5, 13.4, 17.1,  9.9, 21.9,    //     19.6, 18.3, 19.7, 16.6, 21.7, 11.8, 15.9, 11.4, 14.3, 17.4,    //     16.4, 20.7, 18.6,   22, 17.9, 16.3, 15.4, 17.2, 17.3, 18.3,    //     16.8, 20.9,   15, 15.1, 18.6, 17.5, 14.7, 17.4, 13.8, 18.3,    //     17.2, 13.4, 12.5, 22.8, 18.6, 16.3, 16.1, 15.7, 20.8, 16.4    //   ],    //   min: 8,    //   max: 25,    //   barWidth: 1,    //   ratioForCountToPdf: 0.01,    //   bins: [    //     { min: 8, max: 9, avg: 8.5, arr: [Array], counts: 1, pdf: 0.01 },    //     { min: 9, max: 10, avg: 9.5, arr: [Array], counts: 2, pdf: 0.02 },    //     { min: 10, max: 11, avg: 10.5, arr: [], counts: 0, pdf: 0 },    //     { min: 11, max: 12, avg: 11.5, arr: [Array], counts: 2, pdf: 0.02 },    //     { min: 12, max: 13, avg: 12.5, arr: [Array], counts: 5, pdf: 0.05 },    //     { min: 13, max: 14, avg: 13.5, arr: [Array], counts: 6, pdf: 0.06 },    //     {    //       min: 14,    //       max: 15,    //       avg: 14.5,    //       arr: [Array],    //       counts: 11,    //       pdf: 0.11    //     },    //     { min: 15, max: 16, avg: 15.5, arr: [Array], counts: 7, pdf: 0.07 },    //     {    //       min: 16,    //       max: 17,    //       avg: 16.5,    //       arr: [Array],    //       counts: 17,    //       pdf: 0.17    //     },    //     {    //       min: 17,    //       max: 18,    //       avg: 17.5,    //       arr: [Array],    //       counts: 12,    //       pdf: 0.12    //     },    //     {    //       min: 18,    //       max: 19,    //       avg: 18.5,    //       arr: [Array],    //       counts: 13,    //       pdf: 0.13    //     },    //     { min: 19, max: 20, avg: 19.5, arr: [Array], counts: 5, pdf: 0.05 },    //     { min: 20, max: 21, avg: 20.5, arr: [Array], counts: 8, pdf: 0.08 },    //     { min: 21, max: 22, avg: 21.5, arr: [Array], counts: 6, pdf: 0.06 },    //     { min: 22, max: 23, avg: 22.5, arr: [Array], counts: 2, pdf: 0.02 },    //     { min: 23, max: 24, avg: 23.5, arr: [], counts: 0, pdf: 0 },    //     { min: 24, max: 25, avg: 24.5, arr: [Array], counts: 3, pdf: 0.03 }    //   ],    //   curves: [    //     { x: 8.9, pdf: 0.00037451241516612313 },    //     { x: 8.990947415368343, pdf: 0.0004423975904714686 },    //     { x: 9.082824205159403, pdf: 0.0005211775170478083 },    //     { x: 9.17563986647449, pdf: 0.0006123292113229907 },    //     { x: 9.269403993463994, pdf: 0.0007174814373991145 },    //     { x: 9.36412627831911, pdf: 0.0008384221570662737 },    //     { x: 9.459816512273708, pdf: 0.000977104942909971 },    //     { x: 9.556484586616412, pdf: 0.0011356540643755286 },    //     { x: 9.65414049371306, pdf: 0.0013163679344597463 },    //     { x: 9.752794328039583, pdf: 0.001521720586050793 },    //     { x: 9.852456287225452, pdf: 0.0017543608329108264 },    //     { x: 9.953136673107782, pdf: 0.0020171087620143957 },    //     { x: 10.054845892796212, pdf: 0.0023129492025569603 },    //     { x: 10.157594459748662, pdf: 0.0026450218235501573 },    //     { x: 10.261392994858094, pdf: 0.003016607527585039 },    //     { x: 10.36625222755036, pdf: 0.00343111083403235 },    //     { x: 10.472182996893284, pdf: 0.003892037981475291 },    //     { x: 10.579196252717077, pdf: 0.0044029705271575875 },    //     { x: 10.687303056746186, pdf: 0.004967534281059338 },    //     { x: 10.796514583742733, pdf: 0.005589363483980187 },    //     { x: 10.906842122661612, pdf: 0.006272060222478424 },    //     { x: 11.018297077817413, pdf: 0.007019149168084312 },    //     { x: 11.130890970063263, pdf: 0.00783402783287784 },    //     { x: 11.2446354379817, pdf: 0.008719912646880127 },    //     { x: 11.359542239087734, pdf: 0.009679781282915217 },    //     { x: 11.475623251044201, pdf: 0.010716311779395365 },    //     { x: 11.592890472889518, pdf: 0.01183181913821121 },    //     { x: 11.711356026278011, pdf: 0.013028190200547476 },    //     { x: 11.831032156732894, pdf: 0.014306817724664958 },    //     { x: 11.951931234912063, pdf: 0.015668534702919693 },    //     { x: 12.07406575788683, pdf: 0.017113550056804462 },    //     { x: 12.197448350433708, pdf: 0.01864138693481423 },    //     { x: 12.322091766339417, pdf: 0.020250824904730073 },    //     { x: 12.448008889719205, pdf: 0.021939847375937287 },    //     { x: 12.575212736348655, pdf: 0.02370559560539756 },    //     { x: 12.703716455009102, pdf: 0.025544330630072103 },    //     { x: 12.833533328846784, pdf: 0.027451404426688246 },    //     { x: 12.964676776745897, pdf: 0.029421241525183394 },    //     { x: 13.097160354715674, pdf: 0.03144733219415311 },    //     { x: 13.230997757291643, pdf: 0.03352223817525717 },    //     { x: 13.366202818951194, pdf: 0.03563761176981355 },    //     { x: 13.50278951554363, pdf: 0.03778422887673447 },    //     { x: 13.640771965734805, pdf: 0.03995203634951181 },    //     { x: 13.780164432466549, pdf: 0.04213021378509347 },    //     { x: 13.920981324430999, pdf: 0.04430724958406751 },    //     { x: 14.063237197559985, pdf: 0.0464710308352679 },    //     { x: 14.20694675652965, pdf: 0.04860894628511478 },    //     { x: 14.35212485628044, pdf: 0.05070800135962642 },    //     { x: 14.498786503552626, pdf: 0.052754943922379775 },    //     { x: 14.646946858437516, pdf: 0.05473639918220253 },    //     { x: 14.796621235944524, pdf: 0.056639011917450535 },    //     { x: 14.947825107584242, pdf: 0.058449593966475526 },    //     { x: 15.100574102967704, pdf: 0.06015527475292711 },    //     { x: 15.254884011421979, pdf: 0.061743652475738556 },    //     { x: 15.410770783622281, pdf: 0.06320294350195943 },    //     { x: 15.568250533240755, pdf: 0.06452212745984748 },    //     { x: 15.727339538612112, pdf: 0.06569108554237128 },    //     { x: 15.888054244416281, pdf: 0.06670072959867554 },    //     { x: 16.05041126337827, pdf: 0.0675431197128356 },    //     { x: 16.21442737798537, pdf: 0.06821156814360102 },    //     { x: 16.38011954222194, pdf: 0.06870072772256025 },    //     { x: 16.547504883321892, pdf: 0.06900666307661103 },    //     { x: 16.7166007035391, pdf: 0.06912690334787201 },    //     { x: 16.8874244819359, pdf: 0.06906047542317319 },    //     { x: 17.059993876189846, pdf: 0.0688079170480437 },    //     { x: 17.234326724418974, pdf: 0.06837126957799942 },    //     { x: 17.410441047025657, pdf: 0.06775405050380312 },    //     { x: 17.58835504855935, pdf: 0.0669612062679305 },    //     { x: 17.768087119598363, pdf: 0.06599904625752619 },    //     { x: 17.949655838650838, pdf: 0.06487515920584992 },    //     { x: 18.133079974075173, pdf: 0.06359831355139031 },    //     { x: 18.318378486020073, pdf: 0.06217834358412844 },    //     { x: 18.505570528384407, pdf: 0.06062602344560113 },    //     { x: 18.69467545079712, pdf: 0.05895293123842051 },    //     { x: 18.885712800617345, pdf: 0.05717130563810131 },    //     { x: 19.078702324954982, pdf: 0.05529389748322667 },    //     { x: 19.273663972711912, pdf: 0.053333818848434154 },    //     { x: 19.470617896644058, pdf: 0.0513043920791778 },    //     { x: 19.66958445544455, pdf: 0.04921900118989052 },    //     { x: 19.870584215848147, pdf: 0.04709094790150329 },    //     { x: 20.073637954757178, pdf: 0.044933314424914245 },    //     { x: 20.278766661389206, pdf: 0.04275883488956964 },    //     { x: 20.485991539446626, pdf: 0.040579777077238595 },    //     { x: 20.69533400930847, pdf: 0.03840783585732758 },    //     { x: 20.906815710244558, pdf: 0.036254039439028586 },    //     { x: 21.120458502652312, pdf: 0.03412866926468555 },    //     { x: 21.33628447031642, pdf: 0.032041194075355155 },    //     { x: 21.554315922691586, pdf: 0.03000021839067859 },    //     { x: 21.774575397208615, pdf: 0.028013445367425484 },    //     { x: 21.997085661604032, pdf: 0.02608765374031438 },    //     { x: 22.221869716273574, pdf: 0.024228688310065607 },    //     { x: 22.448950796649655, pdf: 0.022441463231321544 },    //     { x: 22.678352375603183, pdf: 0.020729977170341647 },    //     { x: 22.910098165869883, pdf: 0.019097339251527908 },    //     { x: 23.144212122501443, pdf: 0.01754580459415608 },    //     { x: 23.380718445341685, pdf: 0.01607681815652548 },    //     { x: 23.619641581528064, pdf: 0.01469106555354507 },    //     { x: 23.861006228018695, pdf: 0.013388529494188726 },    //     { x: 24.10483733414524, pdf: 0.012168550495207398 },    //     { x: 24.35116010419185, pdf: 0.01102989056431855 },    //     ... 1 more item    //   ]    // }    arr = [12, 36, 9, 13, 6, 17, 7, 12, 31, 57, 44, 32, 16, 11, 10, 38, 31, 28, 26, 7, 16, 16, 16, 13, 7, 8, 12, 17, 11, 20, 7, 6, 14, 7, 37, 11, 7, 8, 8, 32, 29, 52, 20, 6, 11, 12, 33, 48, 10, 27, 11, 24, 17, 11, 23, 20, 13, 16, 16, 17, 13, 15, 13, 26, 11, 13, 29, 18, 18, 13, 11, 12, 9, 17, 19, 14, 19, 9, 37, 32, 14, 20, 13, 22, 12, 14, 33, 15, 20, 37, 24, 19, 15, 15, 5, 11, 13, 60, 39, 17, 6, 18, 40, 21, 18, 17, 12, 12, 10, 39, 27, 10, 8, 44, 36, 18, 11, 8, 13, 9, 25, 11, 10, 55, 54, 13, 8, 19, 38, 9, 17, 14, 9, 12, 54, 22, 11, 19, 50, 18, 12, 40, 52, 12, 15, 7, 12, 15, 18, 19, 11, 43, 23, 14, 25, 32, 23, 15, 12, 20, 14, 10, 12, 24, 50, 40, 16, 14, 9, 27, 9, 11, 17, 19, 12, 17, 14, 5, 24, 22, 60, 20, 9, 11, 11, 6, 7, 8, 31, 10, 12, 9, 11, 26, 14, 7, 14, 57, 19, 9, 10, 9, 19, 19, 15, 21, 48, 23, 26, 14, 46, 51, 10, 10, 9, 7, 19, 46, 27, 18, 12, 10, 36, 15, 5, 11, 13, 21, 15, 15, 16, 29, 44, 42, 7, 14, 9, 6, 22, 24, 18, 39, 7, 50, 33, 11, 20, 17, 18, 48, 8, 21, 20, 12, 41, 11, 18, 11, 58, 18, 21, 23, 12, 67, 35]    r = await arrLogNormHist(arr, {        n: 69,        min: 1,        max: 70,    })    // r.bins = r.bins.map((v) => {    //     delete v.arr    //     return v    // })    // fs.writeFileSync('bins.csv', w.getCsvStrFromData(r.bins), 'utf8')    // fs.writeFileSync('curves.csv', w.getCsvStrFromData(r.curves), 'utf8')    console.log(r)    // => {    //   avg: 20.11320754716981,    //   std: 13.078811770347688,    //   avg_geo: 16.807250444562037,    //   avg_log: 2.821810367388979,    //   std_log: 0.5877705593811017,    //   arr: [    //     12, 36,  9, 13,  6, 17,  7, 12, 31, 57, 44, 32,    //     16, 11, 10, 38, 31, 28, 26,  7, 16, 16, 16, 13,    //      7,  8, 12, 17, 11, 20,  7,  6, 14,  7, 37, 11,    //      7,  8,  8, 32, 29, 52, 20,  6, 11, 12, 33, 48,    //     10, 27, 11, 24, 17, 11, 23, 20, 13, 16, 16, 17,    //     13, 15, 13, 26, 11, 13, 29, 18, 18, 13, 11, 12,    //      9, 17, 19, 14, 19,  9, 37, 32, 14, 20, 13, 22,    //     12, 14, 33, 15, 20, 37, 24, 19, 15, 15,  5, 11,    //     13, 60, 39, 17,    //     ... 165 more items    //   ],    //   min: 1,    //   max: 70,    //   barWidth: 1,    //   ratioForCountToPdf: 0.0037735849056603774,    //   bins: [    //     { min: 1, max: 2, avg: 1.5, counts: 0, pdf: 0 },    //     { min: 2, max: 3, avg: 2.5, counts: 0, pdf: 0 },    //     { min: 3, max: 4, avg: 3.5, counts: 0, pdf: 0 },    //     { min: 4, max: 5, avg: 4.5, counts: 3, pdf: 0.011320754716981131 },    //     { min: 5, max: 6, avg: 5.5, counts: 6, pdf: 0.022641509433962263 },    //     { min: 6, max: 7, avg: 6.5, counts: 12, pdf: 0.045283018867924525 },    //     { min: 7, max: 8, avg: 7.5, counts: 8, pdf: 0.03018867924528302 },    //     { min: 8, max: 9, avg: 8.5, counts: 14, pdf: 0.052830188679245285 },    //     { min: 9, max: 10, avg: 9.5, counts: 11, pdf: 0.04150943396226415 },    //     {    //       min: 10,    //       max: 11,    //       avg: 10.5,    //       counts: 21,    //       pdf: 0.07924528301886792    //     },    //     {    //       min: 11,    //       max: 12,    //       avg: 11.5,    //       counts: 19,    //       pdf: 0.07169811320754717    //     },    //     {    //       min: 12,    //       max: 13,    //       avg: 12.5,    //       counts: 12,    //       pdf: 0.045283018867924525    //     },    //     {    //       min: 13,    //       max: 14,    //       avg: 13.5,    //       counts: 13,    //       pdf: 0.04905660377358491    //     },    //     {    //       min: 14,    //       max: 15,    //       avg: 14.5,    //       counts: 11,    //       pdf: 0.04150943396226415    //     },    //     {    //       min: 15,    //       max: 16,    //       avg: 15.5,    //       counts: 8,    //       pdf: 0.03018867924528302    //     },    //     {    //       min: 16,    //       max: 17,    //       avg: 16.5,    //       counts: 11,    //       pdf: 0.04150943396226415    //     },    //     {    //       min: 17,    //       max: 18,    //       avg: 17.5,    //       counts: 12,    //       pdf: 0.045283018867924525    //     },    //     {    //       min: 18,    //       max: 19,    //       avg: 18.5,    //       counts: 11,    //       pdf: 0.04150943396226415    //     },    //     {    //       min: 19,    //       max: 20,    //       avg: 19.5,    //       counts: 9,    //       pdf: 0.033962264150943396    //     },    //     {    //       min: 20,    //       max: 21,    //       avg: 20.5,    //       counts: 5,    //       pdf: 0.018867924528301886    //     },    //     {    //       min: 21,    //       max: 22,    //       avg: 21.5,    //       counts: 4,    //       pdf: 0.01509433962264151    //     },    //     {    //       min: 22,    //       max: 23,    //       avg: 22.5,    //       counts: 5,    //       pdf: 0.018867924528301886    //     },    //     {    //       min: 23,    //       max: 24,    //       avg: 23.5,    //       counts: 5,    //       pdf: 0.018867924528301886    //     },    //     {    //       min: 24,    //       max: 25,    //       avg: 24.5,    //       counts: 2,    //       pdf: 0.007547169811320755    //     },    //     {    //       min: 25,    //       max: 26,    //       avg: 25.5,    //       counts: 4,    //       pdf: 0.01509433962264151    //     },    //     {    //       min: 26,    //       max: 27,    //       avg: 26.5,    //       counts: 4,    //       pdf: 0.01509433962264151    //     },    //     {    //       min: 27,    //       max: 28,    //       avg: 27.5,    //       counts: 1,    //       pdf: 0.0037735849056603774    //     },    //     {    //       min: 28,    //       max: 29,    //       avg: 28.5,    //       counts: 3,    //       pdf: 0.011320754716981131    //     },    //     { min: 29, max: 30, avg: 29.5, counts: 0, pdf: 0 },    //     {    //       min: 30,    //       max: 31,    //       avg: 30.5,    //       counts: 3,    //       pdf: 0.011320754716981131    //     },    //     {    //       min: 31,    //       max: 32,    //       avg: 31.5,    //       counts: 4,    //       pdf: 0.01509433962264151    //     },    //     {    //       min: 32,    //       max: 33,    //       avg: 32.5,    //       counts: 3,    //       pdf: 0.011320754716981131    //     },    //     { min: 33, max: 34, avg: 33.5, counts: 0, pdf: 0 },    //     {    //       min: 34,    //       max: 35,    //       avg: 34.5,    //       counts: 1,    //       pdf: 0.0037735849056603774    //     },    //     {    //       min: 35,    //       max: 36,    //       avg: 35.5,    //       counts: 3,    //       pdf: 0.011320754716981131    //     },    //     {    //       min: 36,    //       max: 37,    //       avg: 36.5,    //       counts: 3,    //       pdf: 0.011320754716981131    //     },    //     {    //       min: 37,    //       max: 38,    //       avg: 37.5,    //       counts: 2,    //       pdf: 0.007547169811320755    //     },    //     {    //       min: 38,    //       max: 39,    //       avg: 38.5,    //       counts: 3,    //       pdf: 0.011320754716981131    //     },    //     {    //       min: 39,    //       max: 40,    //       avg: 39.5,    //       counts: 3,    //       pdf: 0.011320754716981131    //     },    //     {    //       min: 40,    //       max: 41,    //       avg: 40.5,    //       counts: 1,    //       pdf: 0.0037735849056603774    //     },    //     {    //       min: 41,    //       max: 42,    //       avg: 41.5,    //       counts: 1,    //       pdf: 0.0037735849056603774    //     },    //     {    //       min: 42,    //       max: 43,    //       avg: 42.5,    //       counts: 1,    //       pdf: 0.0037735849056603774    //     },    //     {    //       min: 43,    //       max: 44,    //       avg: 43.5,    //       counts: 3,    //       pdf: 0.011320754716981131    //     },    //     { min: 44, max: 45, avg: 44.5, counts: 0, pdf: 0 },    //     {    //       min: 45,    //       max: 46,    //       avg: 45.5,    //       counts: 2,    //       pdf: 0.007547169811320755    //     },    //     { min: 46, max: 47, avg: 46.5, counts: 0, pdf: 0 },    //     {    //       min: 47,    //       max: 48,    //       avg: 47.5,    //       counts: 3,    //       pdf: 0.011320754716981131    //     },    //     { min: 48, max: 49, avg: 48.5, counts: 0, pdf: 0 },    //     {    //       min: 49,    //       max: 50,    //       avg: 49.5,    //       counts: 3,    //       pdf: 0.011320754716981131    //     },    //     {    //       min: 50,    //       max: 51,    //       avg: 50.5,    //       counts: 1,    //       pdf: 0.0037735849056603774    //     },    //     {    //       min: 51,    //       max: 52,    //       avg: 51.5,    //       counts: 2,    //       pdf: 0.007547169811320755    //     },    //     { min: 52, max: 53, avg: 52.5, counts: 0, pdf: 0 },    //     {    //       min: 53,    //       max: 54,    //       avg: 53.5,    //       counts: 2,    //       pdf: 0.007547169811320755    //     },    //     {    //       min: 54,    //       max: 55,    //       avg: 54.5,    //       counts: 1,    //       pdf: 0.0037735849056603774    //     },    //     { min: 55, max: 56, avg: 55.5, counts: 0, pdf: 0 },    //     {    //       min: 56,    //       max: 57,    //       avg: 56.5,    //       counts: 2,    //       pdf: 0.007547169811320755    //     },    //     {    //       min: 57,    //       max: 58,    //       avg: 57.5,    //       counts: 1,    //       pdf: 0.0037735849056603774    //     },    //     { min: 58, max: 59, avg: 58.5, counts: 0, pdf: 0 },    //     {    //       min: 59,    //       max: 60,    //       avg: 59.5,    //       counts: 2,    //       pdf: 0.007547169811320755    //     },    //     { min: 60, max: 61, avg: 60.5, counts: 0, pdf: 0 },    //     { min: 61, max: 62, avg: 61.5, counts: 0, pdf: 0 },    //     { min: 62, max: 63, avg: 62.5, counts: 0, pdf: 0 },    //     { min: 63, max: 64, avg: 63.5, counts: 0, pdf: 0 },    //     { min: 64, max: 65, avg: 64.5, counts: 0, pdf: 0 },    //     { min: 65, max: 66, avg: 65.5, counts: 0, pdf: 0 },    //     {    //       min: 66,    //       max: 67,    //       avg: 66.5,    //       counts: 1,    //       pdf: 0.0037735849056603774    //     },    //     { min: 67, max: 68, avg: 67.5, counts: 0, pdf: 0 },    //     { min: 68, max: 69, avg: 68.5, counts: 0, pdf: 0 },    //     { min: 69, max: 70, avg: 69.5, counts: 0, pdf: 0 }    //   ],    //   curves: [    //     { x: 5, pdf: 0.006970263647771901 },    //     { x: 5.1314612337167205, pdf: 0.007627449421952031 },    //     { x: 5.266378878627506, pdf: 0.008330340805749705 },    //     { x: 5.404843811548318, pdf: 0.00908028550685169 },    //     { x: 5.546949298650784, pdf: 0.009878466707792261 },    //     { x: 5.6927910582837296, pdf: 0.010725878642582927 },    //     { x: 5.84246732544643, pdf: 0.011623301921523003 },    //     { x: 5.996078917956994, pdf: 0.012571278882578144 },    //     { x: 6.153729304360484, pdf: 0.013570089271484143 },    //     { x: 6.315524673622478, pdf: 0.014619726573641327 },    //     { x: 6.481574006655039, pdf: 0.015719875338288225 },    //     { x: 6.65198914972326, pdf: 0.016869889848776513 },    //     { x: 6.826884889781832, pdf: 0.018068774501442092 },    //     { x: 7.006379031792385, pdf: 0.01931516625905629 },    //     { x: 7.190592478073664, pdf: 0.020607319542689222 },    //     { x: 7.379649309738012, pdf: 0.021943093917644478 },    //     { x: 7.573676870268995, pdf: 0.02331994491464581 },    //     { x: 7.772805851296467, pdf: 0.024734918306493096 },    //     { x: 7.9771703806268635, pdf: 0.026184648132895973 },    //     { x: 8.186908112588002, pdf: 0.0276653587322046 },    //     { x: 8.402160320749253, pdf: 0.029172870998490696 },    //     { x: 8.62307199307953, pdf: 0.030702613036224635 },    //     { x: 8.849791929607198, pdf: 0.032249635333126726 },    //     { x: 9.082472842647686, pdf: 0.03380863051525675 },    //     { x: 9.321271459666303, pdf: 0.03537395768779317 },    //     { x: 9.566348628845542, pdf: 0.036939671301112156 },    //     { x: 9.817869427428002, pdf: 0.03849955441568438 },    //     { x: 10.076003272907876, pdf: 0.040047156172040195 },    //     { x: 10.340924037145914, pdf: 0.04157583320475795 },    //     { x: 10.612810163484735, pdf: 0.04307879467330953 },    //     { x: 10.891844786943345, pdf: 0.04454915051888296 },    //     { x: 11.178215857571868, pdf: 0.04597996249623112 },    //     { x: 11.472116267049511, pdf: 0.047364297474381256 },    //     { x: 11.773743978611112, pdf: 0.04869528245084682 },    //     { x: 12.083302160389717, pdf: 0.049966160681897076 },    //     { x: 12.400999322265069, pdf: 0.05117034829744484 },    //     { x: 12.727049456310107, pdf: 0.052301490744063775 },    //     { x: 13.061672180930158, pdf: 0.05335351838424792 },    //     { x: 13.405092888791849, pdf: 0.05432070057481254 },    //     { x: 13.757542898641415, pdf: 0.05519769755265327 },    //     { x: 14.119259611114638, pdf: 0.05597960947208052 },    //     { x: 14.490486668643399, pdf: 0.05666202196456824 },    //     { x: 14.87147411956651, pdf: 0.05724104762873568 },    //     { x: 15.262478586555412, pdf: 0.057713362905240304 },    //     { x: 15.663763439468136, pdf: 0.05807623984732463 },    //     { x: 16.075598972748008, pdf: 0.05832757236216284 },    //     { x: 16.498262587486547, pdf: 0.058465896569855 },    //     { x: 16.93203897827323, pdf: 0.058490405004725236 },    //     { x: 17.37722032495791, pdf: 0.05840095446617321 },    //     { x: 17.834106489455163, pdf: 0.05819806741228262 },    //     { x: 18.303005217722994, pdf: 0.05788292687721193 },    //     { x: 18.784232347052086, pdf: 0.05745736498154505 },    //     { x: 19.27811201880509, pdf: 0.05692384519172349 },    //     { x: 19.784976896749342, pdf: 0.05628543856889881 },    //     { x: 20.30516839113004, pdf: 0.055545794327578314 },    //     { x: 20.839036888634787, pdf: 0.05470910509891854 },    //     { x: 21.386941988404423, pdf: 0.05378006736119961 },    //     { x: 21.949252744249144, pdf: 0.05276383755977885 },    //     { x: 22.526347913232968, pdf: 0.05166598448973478 },    //     { x: 23.11861621079411, pdf: 0.050492438555709084 },    //     { x: 23.726456572572985, pdf: 0.04924943855457474 },    //     { x: 24.350278423124315, pdf: 0.04794347664714489 },    //     { x: 24.99050195169423, pdf: 0.0465812421950407 },    //     { x: 25.647558395248204, pdf: 0.04516956513812022 },    //     { x: 26.3218903289404, pdf: 0.04371535957679493 },    //     { x: 27.013951964220148, pdf: 0.042225568202584655 },    //     { x: 27.724209454776272, pdf: 0.04070710819001564 },    //     { x: 28.45314121052541, pdf: 0.039166819124245834 },    //     { x: 29.20123821985576, pdf: 0.03761141349253633 },    //     { x: 29.96900438034338, pdf: 0.036047430214923175 },    //     { x: 30.756956838163735, pdf: 0.03448119163131486 },    //     { x: 31.565626336427126, pdf: 0.032918764299941956 },    //     { x: 32.39555757267267, pdf: 0.0313659238968475 },    //     { x: 33.2473095657616, pdf: 0.029828124439166825 },    //     { x: 34.12145603241695, pdf: 0.028310471987520833 },    //     { x: 35.01858577366343, pdf: 0.026817702916113594 },    //     { x: 35.93930307142755, pdf: 0.025354166774189748 },    //     { x: 36.884228095565355, pdf: 0.023923813700393242 },    //     { x: 37.853997321591756, pdf: 0.022530186293193852 },    //     { x: 38.849263959392935, pdf: 0.021176415786713233 },    //     { x: 39.8706983932106, pdf: 0.019865222332660623 },    //     { x: 40.91898863319436, pdf: 0.01859891914621804 },    //     { x: 41.9948407788264, pdf: 0.01737942023699428 },    //     { x: 43.09897949453077, pdf: 0.016208251415856353 },    //     { x: 44.2321484977873, pdf: 0.015086564244669668 },    //     { x: 45.39511106007937, pdf: 0.014015152578726816 },    //     { x: 46.5886505210125, pdf: 0.012994471340790056 },    //     { x: 47.813570815950385, pdf: 0.01202465716097319 },    //     { x: 49.07069701752372, pdf: 0.011105550517804371 },    //     { x: 50.36087589137634, pdf: 0.010236719022315948 },    //     { x: 51.684976466523345, pdf: 0.009417481498404745 },    //     { x: 53.04389062070511, pdf: 0.008646932528443427 },    //     { x: 54.43853368113166, pdf: 0.007923967152609103 },    //     { x: 55.86984504102183, pdf: 0.007247305433011932 },    //     { x: 57.33878879235279, pdf: 0.006615516618826953 },    //     { x: 58.846354375245824, pdf: 0.00602704267563308 },    //     { x: 60.39355724442606, pdf: 0.005480220970436274 },    //     { x: 61.9814395532048, pdf: 0.0049733059328185055 },    //     { x: 63.61107085544534, pdf: 0.004504489541766293 },    //     { x: 65.28354882598506, pdf: 0.004071920516492762 },    //     ... 1 more item    //   ]    // }}test()    .catch((err) => {        console.log(err)    })</code></pre>
 
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -2175,6 +2188,7 @@
 <span class="param-type">Array</span>
 
 
+
             
             </td>
 
@@ -2208,6 +2222,7 @@
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -2272,6 +2287,7 @@
 <span class="param-type">Number</span>
 
 
+
             
             </td>
 
@@ -2309,6 +2325,7 @@
             
                 
 <span class="param-type">Integer</span>
+
 
 
             
@@ -2350,6 +2367,7 @@
 <span class="param-type">Integer</span>
 
 
+
             
             </td>
 
@@ -2389,6 +2407,7 @@
 <span class="param-type">Number</span>
 
 
+
             
             </td>
 
@@ -2426,6 +2445,7 @@
             
                 
 <span class="param-type">Number</span>
+
 
 
             
@@ -2480,7 +2500,7 @@
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 <div class="param-desc">
@@ -2498,6 +2518,7 @@
 <span class="param-type">Number</span>
 
 
+
     </dd>
 </dl>
 
@@ -2510,7 +2531,7 @@
 
     
 
-    <h4 class="name" id=".arrLogNormInv"><span class="type-signature">(async, static) </span>arrLogNormInv<span class="signature">(arr, ratio)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+    <h4 class="name" id=".arrLogNormInv"><span class="type-signature type-signature-async, static">(async, static) </span>arrLogNormInv<span class="signature">(arr, ratio)</span><span class="type-signature"> &rarr; {Number}</span></h4>
 
     
 
@@ -2518,6 +2539,11 @@
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>基於對數常態累加分布計算指定位置之反函數值，會先計算陣列內有效數字取對數(log)後之平均值和標準差，並基於其為常態累加分布，計算指定位置之反函數值後，再取指數(exp)值</p>
+<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrLogNormInv.test.js">Github</a></p></li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -2561,27 +2587,20 @@
 
 
 
-<div class="description usertext">
-    <p>基於對數常態累加分布計算指定位置之反函數值，會先計算陣列內有效數字取對數(log)後之平均值和標準差，並基於其為常態累加分布，計算指定位置之反函數值後，再取指數(exp)值</p>
-<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrLogNormInv.test.js">Github</a></p>
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Example</h5>
+    <h5 class="h5-examples">Example</h5>
     
     <pre class="prettyprint"><code>async function test() {    let arr    let r    arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]    r = await arrLogNormInv(arr, 0.25)    console.log(r.inv)    // => 16.096845206281877    arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]    r = await arrLogNormInv(arr, 0.5)    console.log(r.inv)    // => 27.201738017491444    arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]    r = await arrLogNormInv(arr, 0.75)    console.log(r.inv)    // => 45.96767513695641    arr = ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']    r = await arrLogNormInv(arr, 0.5)    console.log(r.inv)    // => 1.0499093195835956    arr = ['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']    r = await arrLogNormInv(arr, 0.5)    console.log(r.inv)    // => 1.0499093195835956}test()    .catch((err) => {        console.log(err)    })</code></pre>
 
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -2615,6 +2634,7 @@
 <span class="param-type">Array</span>
 
 
+
             
             </td>
 
@@ -2636,6 +2656,7 @@
             
                 
 <span class="param-type">Number</span>
+
 
 
             
@@ -2667,7 +2688,7 @@
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 <div class="param-desc">
@@ -2685,6 +2706,7 @@
 <span class="param-type">Number</span>
 
 
+
     </dd>
 </dl>
 
@@ -2697,7 +2719,7 @@
 
     
 
-    <h4 class="name" id=".arrMovingAverage"><span class="type-signature">(static) </span>arrMovingAverage<span class="signature">(arr, opt<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    <h4 class="name" id=".arrMovingAverage"><span class="type-signature type-signature-static">(static) </span>arrMovingAverage<span class="signature">(arr, opt<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Array}</span></h4>
 
     
 
@@ -2705,6 +2727,11 @@
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>計算陣列內有效數字之移動平均值</p>
+<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrMovingAverage.test.js">Github</a></p></li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -2748,27 +2775,20 @@
 
 
 
-<div class="description usertext">
-    <p>計算陣列內有效數字之移動平均值</p>
-<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrMovingAverage.test.js">Github</a></p>
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Example</h5>
+    <h5 class="h5-examples">Example</h5>
     
     <pre class="prettyprint"><code>let arrarr = ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(arrMovingAverage(arr))// => [//                   -2.5,                   -2,//                  -1.75,                -1.42,//    -0.9399999999999998, -0.44000000000000006,//   -0.24000000000000005,                -0.02,//                   0.02,                 0.24,//    0.44000000000000006,   0.9400000000000001,//                   1.42,                  5.9,//                  7.125,    9.166666666666666,//                   12.5// ]arr = ['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(arrMovingAverage(arr, { selectCountHalf: 1 }))// => [//   0,//   0,//   0.03333333333333333,//   0.06666666666666667,//   0.39999999999999997,//   0.7000000000000001,//   1.5,//   2,//   9.166666666666666,//   12.5,//   22.5// ]</code></pre>
 
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -2806,6 +2826,7 @@
 <span class="param-type">Array</span>
 
 
+
             
             </td>
 
@@ -2839,6 +2860,7 @@
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -2903,6 +2925,7 @@
 <span class="param-type">Integer</span>
 
 
+
             
             </td>
 
@@ -2955,7 +2978,7 @@
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 <div class="param-desc">
@@ -2973,6 +2996,7 @@
 <span class="param-type">Array</span>
 
 
+
     </dd>
 </dl>
 
@@ -2985,7 +3009,7 @@
 
     
 
-    <h4 class="name" id=".arrNormHist"><span class="type-signature">(async, static) </span>arrNormHist<span class="signature">(arr, opt<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+    <h4 class="name" id=".arrNormHist"><span class="type-signature type-signature-async, static">(async, static) </span>arrNormHist<span class="signature">(arr, opt<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Number}</span></h4>
 
     
 
@@ -2993,6 +3017,11 @@
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>基於常態分布計算陣列數據分組直方圖、統計與趨勢線數據</p>
+<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrNormHist.test.js">Github</a></p></li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -3036,27 +3065,20 @@
 
 
 
-<div class="description usertext">
-    <p>基於常態分布計算陣列數據分組直方圖、統計與趨勢線數據</p>
-<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrNormHist.test.js">Github</a></p>
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Example</h5>
+    <h5 class="h5-examples">Example</h5>
     
     <pre class="prettyprint"><code>async function test() {}test()    .catch((err) => {        console.log(err)    })</code></pre>
 
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -3094,6 +3116,7 @@
 <span class="param-type">Array</span>
 
 
+
             
             </td>
 
@@ -3127,6 +3150,7 @@
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -3191,6 +3215,7 @@
 <span class="param-type">Number</span>
 
 
+
             
             </td>
 
@@ -3228,6 +3253,7 @@
             
                 
 <span class="param-type">Integer</span>
+
 
 
             
@@ -3269,6 +3295,7 @@
 <span class="param-type">Integer</span>
 
 
+
             
             </td>
 
@@ -3308,6 +3335,7 @@
 <span class="param-type">Number</span>
 
 
+
             
             </td>
 
@@ -3345,6 +3373,7 @@
             
                 
 <span class="param-type">Number</span>
+
 
 
             
@@ -3399,7 +3428,7 @@
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 <div class="param-desc">
@@ -3417,6 +3446,7 @@
 <span class="param-type">Number</span>
 
 
+
     </dd>
 </dl>
 
@@ -3429,7 +3459,7 @@
 
     
 
-    <h4 class="name" id=".arrNormInv"><span class="type-signature">(async, static) </span>arrNormInv<span class="signature">(arr, ratio)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+    <h4 class="name" id=".arrNormInv"><span class="type-signature type-signature-async, static">(async, static) </span>arrNormInv<span class="signature">(arr, ratio)</span><span class="type-signature"> &rarr; {Number}</span></h4>
 
     
 
@@ -3437,6 +3467,11 @@
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>基於常態累加分布計算指定位置之反函數值</p>
+<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrNormInv.test.js">Github</a></p></li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -3480,27 +3515,20 @@
 
 
 
-<div class="description usertext">
-    <p>基於常態累加分布計算指定位置之反函數值</p>
-<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrNormInv.test.js">Github</a></p>
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Example</h5>
+    <h5 class="h5-examples">Example</h5>
     
     <pre class="prettyprint"><code>async function test() {    let arr    let r    arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]    r = await arrNormInv(arr, 0.25)    console.log(r.inv)    // => 22.47539788913989    arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]    r = await arrNormInv(arr, 0.5)    console.log(r.inv)    // => 33.18181818181818    arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]    r = await arrNormInv(arr, 0.75)    console.log(r.inv)    // => 43.88823847449647    arr = ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']    r = await arrNormInv(arr, 0.5)    console.log(r.inv)    // => 1.4999999999999996    arr = ['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']    r = await arrNormInv(arr, 0.5)    console.log(r.inv)    // => 3.2999999999999994}test()    .catch((err) => {        console.log(err)    })</code></pre>
 
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -3534,6 +3562,7 @@
 <span class="param-type">Array</span>
 
 
+
             
             </td>
 
@@ -3555,6 +3584,7 @@
             
                 
 <span class="param-type">Number</span>
+
 
 
             
@@ -3586,7 +3616,7 @@
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 <div class="param-desc">
@@ -3604,6 +3634,7 @@
 <span class="param-type">Number</span>
 
 
+
     </dd>
 </dl>
 
@@ -3616,7 +3647,7 @@
 
     
 
-    <h4 class="name" id=".arrQuartile"><span class="type-signature">(static) </span>arrQuartile<span class="signature">(arr, ratio)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+    <h4 class="name" id=".arrQuartile"><span class="type-signature type-signature-static">(static) </span>arrQuartile<span class="signature">(arr, ratio)</span><span class="type-signature"> &rarr; {Number}</span></h4>
 
     
 
@@ -3624,6 +3655,11 @@
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>計算陣列內有效數字之分位數值</p>
+<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrQuartile.test.js">Github</a></p></li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -3667,27 +3703,20 @@
 
 
 
-<div class="description usertext">
-    <p>計算陣列內有效數字之分位數值</p>
-<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrQuartile.test.js">Github</a></p>
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Example</h5>
+    <h5 class="h5-examples">Example</h5>
     
     <pre class="prettyprint"><code>let arrarr = [3, 6, 7, 8, 8, 10, 13, 15, 16, 20]console.log(arrQuartile(arr, 0.25))// => 7arr = [3, 6, 7, 8, 8, 10, 13, 15, 16, 20]console.log(arrQuartile(arr, 0.5))// => 9arr = [3, 6, 7, 8, 8, 10, 13, 15, 16, 20]console.log(arrQuartile(arr, 0.75))// => 15arr = [1, 2, 3, 4, 5, 6]console.log(arrQuartile(arr, 0.25))// => 2arr = [3, 6, 7, 8, 8, 9, 10, 13, 15, 16, 20]console.log(arrQuartile(arr, 0.5))// => 9arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]console.log(arrQuartile(arr, 0.25))// => 15arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]console.log(arrQuartile(arr, 0.5))// => 40arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]console.log(arrQuartile(arr, 0.75))// => 43arr = ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(arrQuartile(arr, 0.5))// => 0arr = ['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(arrQuartile(arr, 0.5))// => 1</code></pre>
 
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -3721,6 +3750,7 @@
 <span class="param-type">Array</span>
 
 
+
             
             </td>
 
@@ -3742,6 +3772,7 @@
             
                 
 <span class="param-type">Number</span>
+
 
 
             
@@ -3773,7 +3804,7 @@
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 <div class="param-desc">
@@ -3791,6 +3822,7 @@
 <span class="param-type">Number</span>
 
 
+
     </dd>
 </dl>
 
@@ -3803,7 +3835,7 @@
 
     
 
-    <h4 class="name" id=".arrStd"><span class="type-signature">(static) </span>arrStd<span class="signature">(arr)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+    <h4 class="name" id=".arrStd"><span class="type-signature type-signature-static">(static) </span>arrStd<span class="signature">(arr)</span><span class="type-signature"> &rarr; {Number}</span></h4>
 
     
 
@@ -3811,6 +3843,11 @@
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>計算陣列內有效數字之標準差</p>
+<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrStd.test.js">Github</a></p></li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -3854,27 +3891,20 @@
 
 
 
-<div class="description usertext">
-    <p>計算陣列內有效數字之標準差</p>
-<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrStd.test.js">Github</a></p>
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Example</h5>
+    <h5 class="h5-examples">Example</h5>
     
     <pre class="prettyprint"><code>let arrarr = ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(arrStd(arr))// => 5.985339231345682arr = ['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(arrStd(arr))// => 7.269456650947167arr = [55, 68, 45, 78, 150, 241, 162, 156, 182, 125, 75, 89, 91, 95, 92, 65, 75, 85, 95, 105, 132, 120, 142, 110, 111, 130, 128, 130, 108, 109]console.log(arrStd(arr))// =>  40.847473507599254, 為除以29(n-1)的std</code></pre>
 
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -3908,6 +3938,7 @@
 <span class="param-type">Array</span>
 
 
+
             
             </td>
 
@@ -3937,7 +3968,7 @@
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 <div class="param-desc">
@@ -3955,6 +3986,7 @@
 <span class="param-type">Number</span>
 
 
+
     </dd>
 </dl>
 
@@ -3967,7 +3999,7 @@
 
     
 
-    <h4 class="name" id=".bin"><span class="type-signature">(static) </span>bin<span class="signature">(arr, n<span class="signature-attributes">opt</span>, opt<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id=".bin"><span class="type-signature type-signature-static">(static) </span>bin<span class="signature">(arr, n<span class="signature-attributes">opt</span>, opt<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
 
     
 
@@ -3975,6 +4007,11 @@
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>針對陣列數據分組</p>
+<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrGammaInv.test.js">Github</a></p></li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -4018,27 +4055,20 @@
 
 
 
-<div class="description usertext">
-    <p>針對陣列數據分組</p>
-<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrGammaInv.test.js">Github</a></p>
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Example</h5>
+    <h5 class="h5-examples">Example</h5>
     
     <pre class="prettyprint"><code>let arrarr = ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(bin(arr, 4))// => [//   {//     min: -2.5,//     max: 3.75,//     avg: 0.625,//     arr: [//       -2.5, -2.5, -1, -1,//       -0.1, -0.1,  0,  0,//        0.1,  0.1,  1,  1,//        2.5,  2.5//     ]//   },//   { min: 3.75, max: 10, avg: 6.875, arr: [] },//   { min: 10, max: 16.25, avg: 13.125, arr: [] },//   { min: 16.25, max: 22.5, avg: 19.375, arr: [ 22.5 ] }// ]arr = [1.1, 2.2, 3.3, 4.4, 5.5, 6.6]console.log(bin(arr, 3))// => [//   {//     min: 1.1,//     max: 2.9333333333333336,//     avg: 2.0166666666666666,//     arr: [ 1.1, 2.2 ]//   },//   {//     min: 2.9333333333333336,//     max: 4.766666666666667,//     avg: 3.85,//     arr: [ 3.3, 4.4 ]//   },//   {//     min: 4.766666666666667,//     max: 6.6,//     avg: 5.683333333333334,//     arr: [ 5.5, 6.6 ]//   }// ]arr = [1.1, 2.2, 3.3, 4.4, 5.5, 6.6]console.log(bin(arr, 5))// => [//   { min: 1.1, max: 2.2, avg: 1.6500000000000001, arr: [ 1.1, 2.2 ] },//   { min: 2.2, max: 3.3000000000000003, avg: 2.75, arr: [ 3.3 ] },//   {//     min: 3.3000000000000003,//     max: 4.4,//     avg: 3.8500000000000005,//     arr: [ 4.4 ]//   },//   { min: 4.4, max: 5.5, avg: 4.95, arr: [ 5.5 ] },//   { min: 5.5, max: 6.6, avg: 6.05, arr: [ 6.6 ] }// ]arr = [1.1, 2.2, 3.3, 4.4, 5.5, 6.6]console.log(bin(arr, 5, { min: 0, max: 10 }))// => [//   { min: 0, max: 2, avg: 1, arr: [ 1.1 ] },//   { min: 2, max: 4, avg: 3, arr: [ 2.2, 3.3 ] },//   { min: 4, max: 6, avg: 5, arr: [ 4.4, 5.5 ] },//   { min: 6, max: 8, avg: 7, arr: [ 6.6 ] },//   { min: 8, max: 10, avg: 9, arr: [] }// ]</code></pre>
 
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -4076,6 +4106,7 @@
 <span class="param-type">Array</span>
 
 
+
             
             </td>
 
@@ -4109,6 +4140,7 @@
             
                 
 <span class="param-type">Integer</span>
+
 
 
             
@@ -4148,6 +4180,7 @@
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -4212,6 +4245,7 @@
 <span class="param-type">Number</span>
 
 
+
             
             </td>
 
@@ -4249,6 +4283,7 @@
             
                 
 <span class="param-type">Number</span>
+
 
 
             
@@ -4303,7 +4338,7 @@
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 <div class="param-desc">
@@ -4321,6 +4356,7 @@
 <span class="param-type">Object</span>
 
 
+
     </dd>
 </dl>
 
@@ -4333,7 +4369,7 @@
 
     
 
-    <h4 class="name" id=".histGen"><span class="type-signature">(async, static) </span>histGen<span class="signature">(arr, fun, opt<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    <h4 class="name" id=".histGen"><span class="type-signature type-signature-async, static">(async, static) </span>histGen<span class="signature">(arr, fun, opt<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
 
     
 
@@ -4341,6 +4377,11 @@
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>數據陣列進行直方圖分組，並基於外部提供函數產生擬合數據</p>
+<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrGammaInv.test.js">Github</a></p></li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -4384,27 +4425,20 @@
 
 
 
-<div class="description usertext">
-    <p>數據陣列進行直方圖分組，並基於外部提供函數產生擬合數據</p>
-<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrGammaInv.test.js">Github</a></p>
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Example</h5>
+    <h5 class="h5-examples">Example</h5>
     
     <pre class="prettyprint"><code>async function test() {    let arr    let opt    let r    arr = [13.8, 19.5, 16.7, 14.3, 17.5, 14.5, 12.6, 15.6, 8.9, 13.3, 17.1, 15, 16.3, 18.3, 18.7, 16.7, 20.9, 12.3, 22.3, 14.6, 20.1, 16.7, 16.8, 24.2, 21.2, 20.7, 18.6, 18.3, 15.9, 17.2, 18.8, 16.3, 20.5, 14.7, 17.5, 24.1, 14.6, 21.1, 17, 19.6, 21.2, 16, 16.5, 9.3, 16.2, 14.9, 16.3, 13.9, 18.4, 19.2, 24.6, 20.2, 12.8, 12.9, 14.1, 18.5, 13.4, 17.1, 9.9, 21.9, 19.6, 18.3, 19.7, 16.6, 21.7, 11.8, 15.9, 11.4, 14.3, 17.4, 16.4, 20.7, 18.6, 22, 17.9, 16.3, 15.4, 17.2, 17.3, 18.3, 16.8, 20.9, 15, 15.1, 18.6, 17.5, 14.7, 17.4, 13.8, 18.3, 17.2, 13.4, 12.5, 22.8, 18.6, 16.3, 16.1, 15.7, 20.8, 16.4]    opt = {        n: 10,        min: 12,        max: 23,    }    r = await histGen(arr, (params) => {        // console.log('params', params)        let avg = arrAverage(params.arr)        let std = arrStd(params.arr)        let ry = (std * Math.sqrt(2 * Math.PI))        let curveY = params.curveX.map((x) => {            let y = 0            if (ry !== 0) {                y = 1 / ry * Math.exp(-((x - avg) ** 2) / (2 * std ** 2))            }            return y        })        return curveY    }, opt)    // let c = ''    // r.curveX.forEach((v, k) => {    //     let x = r.curveX[k]    //     let y = r.curveY[k]    //     c += `${x}, ${y}\n`    // })    // console.log(c)    console.log(r)    // => {    //   arr: [    //     13.8, 19.5, 16.7, 14.3, 17.5, 14.5, 12.6, 15.6,  8.9, 13.3,    //     17.1,   15, 16.3, 18.3, 18.7, 16.7, 20.9, 12.3, 22.3, 14.6,    //     20.1, 16.7, 16.8, 24.2, 21.2, 20.7, 18.6, 18.3, 15.9, 17.2,    //     18.8, 16.3, 20.5, 14.7, 17.5, 24.1, 14.6, 21.1,   17, 19.6,    //     21.2,   16, 16.5,  9.3, 16.2, 14.9, 16.3, 13.9, 18.4, 19.2,    //     24.6, 20.2, 12.8, 12.9, 14.1, 18.5, 13.4, 17.1,  9.9, 21.9,    //     19.6, 18.3, 19.7, 16.6, 21.7, 11.8, 15.9, 11.4, 14.3, 17.4,    //     16.4, 20.7, 18.6,   22, 17.9, 16.3, 15.4, 17.2, 17.3, 18.3,    //     16.8, 20.9,   15, 15.1, 18.6, 17.5, 14.7, 17.4, 13.8, 18.3,    //     17.2, 13.4, 12.5, 22.8, 18.6, 16.3, 16.1, 15.7, 20.8, 16.4    //   ],    //   min: 12,    //   max: 23.000000000000007,    //   barWidth: 1.0999999999999996,    //   bins: [    //     { min: 12, max: 13.1, avg: 12.55, arr: [Array], counts: 5 },    //     {    //       min: 13.1,    //       max: 14.2,    //       avg: 13.649999999999999,    //       arr: [Array],    //       counts: 7    //     },    //     {    //       min: 14.2,    //       max: 15.299999999999999,    //       avg: 14.75,    //       arr: [Array],    //       counts: 11    //     },    //     {    //       min: 15.299999999999999,    //       max: 16.4,    //       avg: 15.849999999999998,    //       arr: [Array],    //       counts: 15    //     },    //     { min: 16.4, max: 17.5, avg: 16.95, arr: [Array], counts: 19 },    //     { min: 17.5, max: 18.6, avg: 18.05, arr: [Array], counts: 12 },    //     {    //       min: 18.6,    //       max: 19.700000000000003,    //       avg: 19.150000000000002,    //       arr: [Array],    //       counts: 7    //     },    //     {    //       min: 19.700000000000003,    //       max: 20.800000000000004,    //       avg: 20.250000000000004,    //       arr: [Array],    //       counts: 6    //     },    //     {    //       min: 20.800000000000004,    //       max: 21.900000000000006,    //       avg: 21.350000000000005,    //       arr: [Array],    //       counts: 7    //     },    //     {    //       min: 21.900000000000006,    //       max: 23.000000000000007,    //       avg: 22.450000000000006,    //       arr: [Array],    //       counts: 3    //     }    //   ],    //   counts: [    //      5, 7, 11, 15, 19,    //     12, 7,  6,  7,  3    //   ],    //   pdfs: [    //     0.04940711462450595,    //     0.06916996047430833,    //     0.10869565217391308,    //     0.14822134387351785,    //     0.1877470355731226,    //     0.11857707509881428,    //     0.06916996047430833,    //     0.05928853754940714,    //     0.06916996047430833,    //     0.02964426877470357    //   ],    //   ratioForCountToPdf: 0.00988142292490119,    //   curveX: [    //                     12,              12.11, 12.219999999999999,    //     12.329999999999998, 12.439999999999998, 12.549999999999997,    //     12.659999999999997, 12.769999999999996, 12.879999999999995,    //     12.989999999999995, 13.099999999999994, 13.209999999999994,    //     13.319999999999993, 13.429999999999993, 13.539999999999992,    //     13.649999999999991, 13.759999999999991,  13.86999999999999,    //      13.97999999999999,  14.08999999999999, 14.199999999999989,    //     14.309999999999988, 14.419999999999987, 14.529999999999987,    //     14.639999999999986, 14.749999999999986, 14.859999999999985,    //     14.969999999999985, 15.079999999999984, 15.189999999999984,    //     15.299999999999983, 15.409999999999982, 15.519999999999982,    //     15.629999999999981,  15.73999999999998,  15.84999999999998,    //      15.95999999999998,  16.06999999999998,  16.17999999999998,    //     16.289999999999978, 16.399999999999977, 16.509999999999977,    //     16.619999999999976, 16.729999999999976, 16.839999999999975,    //     16.949999999999974, 17.059999999999974, 17.169999999999973,    //     17.279999999999973, 17.389999999999972,  17.49999999999997,    //      17.60999999999997,  17.71999999999997,  17.82999999999997,    //      17.93999999999997,  18.04999999999997, 18.159999999999968,    //     18.269999999999968, 18.379999999999967, 18.489999999999966,    //     18.599999999999966, 18.709999999999965, 18.819999999999965,    //     18.929999999999964, 19.039999999999964, 19.149999999999963,    //     19.259999999999962, 19.369999999999962,  19.47999999999996,    //      19.58999999999996,  19.69999999999996,  19.80999999999996,    //      19.91999999999996,  20.02999999999996, 20.139999999999958,    //     20.249999999999957, 20.359999999999957, 20.469999999999956,    //     20.579999999999956, 20.689999999999955, 20.799999999999955,    //     20.909999999999954, 21.019999999999953, 21.129999999999953,    //     21.239999999999952,  21.34999999999995,  21.45999999999995,    //      21.56999999999995,  21.67999999999995,  21.78999999999995,    //      21.89999999999995,  22.00999999999995, 22.119999999999948,    //     22.229999999999947, 22.339999999999947, 22.449999999999946,    //     22.559999999999945, 22.669999999999945, 22.779999999999944,    //     22.889999999999944,    //     ... 1 more item    //   ],    //   curveY: [    //      0.03539347632001737,    0.037383482855803, 0.039437822053457874,    //      0.04155494476232438, 0.043732984782065484,  0.04596975107654172,    //      0.04826272158141871,  0.05060903873486474, 0.053005506852505095,    //      0.05544859145799284, 0.057934420669161386,  0.06045878872679094,    //      0.06301716173861893,  0.06560468569544393,  0.06821619679912554,    //      0.07084623412410286,  0.07348905461489254,  0.07613865040205554,    //      0.07878876839852786,  0.08143293211719617,  0.08406446562938243,    //      0.08667651956270586,   0.0892620990158537,  0.09181409324734967,    //      0.09432530697570551,  0.09678849310961433,  0.09919638670933023,    //      0.10154173996430707,  0.10381735795775265,  0.10601613497619995,    //      0.10813109111168648,  0.11015540889583084,  0.11208246969914742,    //      0.11390588962545672,  0.11561955463032393,  0.11721765459414842,    //      0.11869471608486172,    0.120045633552169,  0.12126569870485275,    //      0.12235062783478269,  0.12329658686584205,  0.12410021392285919,    //        0.124758639234666,  0.12526950220640412,   0.1256309655189545,    //      0.12584172613764152,   0.1259010231379035,  0.12580864228215807,    //      0.12556491730933672,  0.12517072792622605,  0.12462749451753433,    //      0.12393716961919929,   0.1231022262265693,  0.12212564303543284,    //       0.1210108867391587,  0.11976189152917438,  0.11838303596840025,    //      0.11687911742784585,  0.11525532429515117,  0.11351720618024314,    //      0.11167064235732105,  0.10972180869396257,  0.10767714332716188,    //      0.10554331135251384,  0.10332716879651553,   0.1010357261430725,    //      0.09867611168380674,  0.09625553495773567,  0.09378125053941684,    //       0.0912605224258574,  0.08870058926151618,   0.0861086306277478,    //      0.08349173460824426,  0.08085686682562278,  0.07821084112651096,    //       0.0755602920735203,  0.07291164938261302,  0.07027111442379702,    //      0.06764463888206981,  0.06503790565431186,  0.06245631203663879,    //      0.05990495523578081, 0.057388620217582655, 0.054911769885907534,    //      0.05247853756626619, 0.050092721750548005,  0.04775778304244922,    //     0.045476843227705024,  0.04325268637914335,  0.04108776189397607,    //      0.03898418934969129,  0.03694376505545445,  0.03496797016808652,    //      0.03305798023546953, 0.031214676025614625, 0.029438655496583702,    //     0.027730246760929483, 0.026089521898245954,  0.02451631147072182,    //     0.023010219599172477,    //     ... 1 more item    //   ]    // }}test()    .catch((err) => {        console.log(err)    })</code></pre>
 
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -4442,6 +4476,7 @@
 <span class="param-type">Array</span>
 
 
+
             
             </td>
 
@@ -4477,6 +4512,7 @@
 <span class="param-type">function</span>
 
 
+
             
             </td>
 
@@ -4510,6 +4546,7 @@
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -4574,6 +4611,7 @@
 <span class="param-type">Number</span>
 
 
+
             
             </td>
 
@@ -4611,6 +4649,7 @@
             
                 
 <span class="param-type">Integer</span>
+
 
 
             
@@ -4652,6 +4691,7 @@
 <span class="param-type">Integer</span>
 
 
+
             
             </td>
 
@@ -4691,6 +4731,7 @@
 <span class="param-type">Number</span>
 
 
+
             
             </td>
 
@@ -4728,6 +4769,7 @@
             
                 
 <span class="param-type">Number</span>
+
 
 
             
@@ -4782,7 +4824,7 @@
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 <div class="param-desc">
@@ -4800,6 +4842,7 @@
 <span class="param-type">Promise</span>
 
 
+
     </dd>
 </dl>
 
@@ -4812,7 +4855,7 @@
 
     
 
-    <h4 class="name" id=".regLine"><span class="type-signature">(static) </span>regLine<span class="signature">(arr, opt<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Object|Promise}</span></h4>
+    <h4 class="name" id=".regLine"><span class="type-signature type-signature-static">(static) </span>regLine<span class="signature">(arr, opt<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Object|Promise}</span></h4>
 
     
 
@@ -4820,6 +4863,11 @@
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>針對數據進行線性回歸(y=mx+b)</p>
+<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/regLine.test.js">Github</a></p></li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -4863,27 +4911,20 @@
 
 
 
-<div class="description usertext">
-    <p>針對數據進行線性回歸(y=mx+b)</p>
-<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/regLine.test.js">Github</a></p>
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Example</h5>
+    <h5 class="h5-examples">Example</h5>
     
     <pre class="prettyprint"><code>async function test() {    let arr    let r    arr = [        [1, 2.5],        [2.5, 1.1],        [4, 0.5],    ]    r = await regLine(arr)    console.log(r)    // => { m: -0.6666666666666664, b: 3.0333333333333323 }    arr = [        [1, 0.5],        [2.5, 1.1],        [4, 2.5],    ]    r = await regLine(arr)    console.log(r)    // => { m: 0.666666666666667, b: -0.3000000000000007 }    arr = [        [1, 0.5],        [2.5, 1.1],        [4, 2.5],    ]    r = await regLine(arr, { useRegIntercept: false }) //不使用截距, 也就是截距=0    console.log(r)    // => { m: 0.5698924731182796, b: 0 }    arr = [        [1, 2.5],        [2.5, 1.1],        [4, 0.5],    ]    r = await regLine(arr, { interpX: 2 })    console.log(r)    // => {    //   m: -0.6666666666666664,    //   b: 3.0333333333333323,    //   interpY: 1.6999999999999995    // }    arr = [        [1, 2.5],        [2.5, 1.1],        [4, 0.5],    ]    r = regLine(arr, { useSync: true }) //使用同步函數(sync)    console.log(r)    // => { m: -0.6666666666666664, b: 3.0333333333333323 }}test()    .catch((err) => {        console.log(err)    })</code></pre>
 
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -4921,6 +4962,7 @@
 <span class="param-type">Array</span>
 
 
+
             
             </td>
 
@@ -4954,6 +4996,7 @@
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -5018,6 +5061,7 @@
 <span class="param-type">Number</span>
 
 
+
             
             </td>
 
@@ -5057,6 +5101,7 @@
 <span class="param-type">Boolean</span>
 
 
+
             
             </td>
 
@@ -5094,6 +5139,7 @@
             
                 
 <span class="param-type">Boolean</span>
+
 
 
             
@@ -5148,7 +5194,7 @@
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 <div class="param-desc">
@@ -5169,6 +5215,7 @@
 <span class="param-type">Promise</span>
 
 
+
     </dd>
 </dl>
 
@@ -5181,7 +5228,7 @@
 
     
 
-    <h4 class="name" id=".regPower"><span class="type-signature">(static) </span>regPower<span class="signature">(arr, opt<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Object|Promise}</span></h4>
+    <h4 class="name" id=".regPower"><span class="type-signature type-signature-static">(static) </span>regPower<span class="signature">(arr, opt<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Object|Promise}</span></h4>
 
     
 
@@ -5189,6 +5236,11 @@
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>針對數據進行乘冪(Power)回歸(y=ax^b)</p>
+<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/regPower.test.js">Github</a></p></li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -5232,27 +5284,20 @@
 
 
 
-<div class="description usertext">
-    <p>針對數據進行乘冪(Power)回歸(y=ax^b)</p>
-<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/regPower.test.js">Github</a></p>
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Example</h5>
+    <h5 class="h5-examples">Example</h5>
     
     <pre class="prettyprint"><code>async function test() {}test()    .catch((err) => {        console.log(err)    })</code></pre>
 
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -5290,6 +5335,7 @@
 <span class="param-type">Array</span>
 
 
+
             
             </td>
 
@@ -5323,6 +5369,7 @@
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -5387,6 +5434,7 @@
 <span class="param-type">Number</span>
 
 
+
             
             </td>
 
@@ -5424,6 +5472,7 @@
             
                 
 <span class="param-type">Boolean</span>
+
 
 
             
@@ -5478,7 +5527,7 @@
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 <div class="param-desc">
@@ -5499,6 +5548,7 @@
 <span class="param-type">Promise</span>
 
 
+
     </dd>
 </dl>
 
@@ -5511,7 +5561,7 @@
 
     
 
-    <h4 class="name" id=".sampleRandom"><span class="type-signature">(async, static) </span>sampleRandom<span class="signature">(name, opt<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Number|Array}</span></h4>
+    <h4 class="name" id=".sampleRandom"><span class="type-signature type-signature-async, static">(async, static) </span>sampleRandom<span class="signature">(name, opt<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Number|Array}</span></h4>
 
     
 
@@ -5519,6 +5569,11 @@
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>依照指定統計分布隨機產生值或陣列</p>
+<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/sampleRandom.test.js">Github</a></p></li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -5562,27 +5617,20 @@
 
 
 
-<div class="description usertext">
-    <p>依照指定統計分布隨機產生值或陣列</p>
-<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/sampleRandom.test.js">Github</a></p>
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Example</h5>
+    <h5 class="h5-examples">Example</h5>
     
     <pre class="prettyprint"><code>async function test() {    let r    r = await sampleRandom('normal', { mu: 100, sigma: 50 })    console.log(r)    // => maybe: 94.99873795683716 136.81783120735003 49.94186751166804,...    r = await sampleRandom('normal', { mu: 100, sigma: 50, low: 90 })    console.log(r)    // => maybe: 143.11557161592685 95.05143199643211 103.90352980637562,...    r = await sampleRandom('normal', { mu: 100, sigma: 50, low: 90, up: 110 })    console.log(r)    // => maybe: 99.45744560964987 95.98664948248341 95.69403830457458,...    r = await sampleRandom('normal', { mu: 0, sigma: 1, num: 5 })    console.log(r)    // => maybe: [    //   0.28480054449658343,    //   -1.6656082612520913,    //   -1.4973558587107332,    //   0.9279728382322514,    //   0.4704840133724234    // ]}test()    .catch((err) => {        console.log(err)    })</code></pre>
 
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -5620,6 +5668,7 @@
 <span class="param-type">String</span>
 
 
+
             
             </td>
 
@@ -5653,6 +5702,7 @@
             
                 
 <span class="param-type">Object</span>
+
 
 
             
@@ -5717,6 +5767,7 @@
 <span class="param-type">Number</span>
 
 
+
             
             </td>
 
@@ -5756,6 +5807,7 @@
 <span class="param-type">Number</span>
 
 
+
             
             </td>
 
@@ -5793,6 +5845,7 @@
             
                 
 <span class="param-type">Number</span>
+
 
 
             
@@ -5847,7 +5900,7 @@
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 <div class="param-desc">
@@ -5868,6 +5921,7 @@
 <span class="param-type">Array</span>
 
 
+
     </dd>
 </dl>
 
@@ -5880,7 +5934,7 @@
 
     
 
-    <h4 class="name" id=".studentTInv"><span class="type-signature">(async, static) </span>studentTInv<span class="signature">(n, p)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+    <h4 class="name" id=".studentTInv"><span class="type-signature type-signature-async, static">(async, static) </span>studentTInv<span class="signature">(n, p)</span><span class="type-signature"> &rarr; {Number}</span></h4>
 
     
 
@@ -5888,6 +5942,11 @@
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>基於Student-T累加分布計算指定位置之反函數值</p>
+<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/studentTInv.test.js">Github</a></p></li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -5931,27 +5990,20 @@
 
 
 
-<div class="description usertext">
-    <p>基於Student-T累加分布計算指定位置之反函數值</p>
-<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/studentTInv.test.js">Github</a></p>
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Example</h5>
+    <h5 class="h5-examples">Example</h5>
     
     <pre class="prettyprint"><code>async function test() {    console.log(await studentTInv(35, 0.95))    // => 1.6909241978049958    console.log(await studentTInv(35, 0.5))    // => -0    console.log(await studentTInv(35, 0.05))    // => -1.6909241978049974    console.log(await studentTInv(15, 0.95))    // => 1.7613101151015698}test()    .catch((err) => {        console.log(err)    })</code></pre>
 
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -5985,6 +6037,7 @@
 <span class="param-type">Number</span>
 
 
+
             
             </td>
 
@@ -6006,6 +6059,7 @@
             
                 
 <span class="param-type">Number</span>
+
 
 
             
@@ -6037,7 +6091,7 @@
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 <div class="param-desc">
@@ -6053,6 +6107,7 @@
     <dd>
         
 <span class="param-type">Number</span>
+
 
 
     </dd>
@@ -6082,7 +6137,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Thu Jan 19 2023 14:34:26 GMT+0800 (台北標準時間) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a> on Wed Mar 29 2023 15:24:51 GMT+0800 (台北標準時間) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
