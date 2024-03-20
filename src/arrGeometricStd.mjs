@@ -1,4 +1,4 @@
-import size from 'lodash/size'
+import size from 'lodash-es/size'
 import isarr from 'wsemi/src/isarr.mjs'
 import arrFilterByPnumAndToLog from 'wsemi/src/arrFilterByPnumAndToLog.mjs'
 import arrStd from './arrStd.mjs'

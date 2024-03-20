@@ -6,6 +6,7 @@ A tool for statistical analysis.
 [![license](https://img.shields.io/npm/l/w-statistic.svg?style=flat)](https://npmjs.org/package/w-statistic) 
 [![gzip file size](http://img.badgesize.io/yuda-lyu/w-statistic/master/dist/w-statistic.umd.js.svg?compression=gzip)](https://github.com/yuda-lyu/w-statistic)
 [![npm download](https://img.shields.io/npm/dt/w-statistic.svg)](https://npmjs.org/package/w-statistic) 
+[![npm download](https://img.shields.io/npm/dm/w-statistic.svg)](https://npmjs.org/package/w-statistic) 
 [![jsdelivr download](https://img.shields.io/jsdelivr/npm/hm/w-statistic.svg)](https://www.jsdelivr.com/package/npm/w-statistic)
 
 ## Documentation
@@ -13,7 +14,7 @@ To view documentation or get support, visit [docs](https://yuda-lyu.github.io/w-
 
 ## Installation
 ### Using npm(ES6 module):
-> **Note:** w-statistic is mainly dependent on `jstat`, `simple-statistics`, `lodash` and `wsemi`.
+> **Note:** w-statistic is mainly dependent on `jstat`, `simple-statistics`, `lodash-es` and `wsemi`.
 ```alias
 npm i w-statistic
 ```
@@ -23,5 +24,5 @@ npm i w-statistic
 
 Add script for w-statistic.
 ```alias
-<script src="https://cdn.jsdelivr.net/npm/w-statistic@1.0.14/dist/w-statistic.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/w-statistic@1.0.15/dist/w-statistic.umd.js"></script>
 ```
