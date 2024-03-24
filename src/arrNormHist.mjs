@@ -1,5 +1,5 @@
-import size from 'lodash-es/size'
-import map from 'lodash-es/map'
+import size from 'lodash-es/size.js'
+import map from 'lodash-es/map.js'
 import isarr from 'wsemi/src/isarr.mjs'
 import arrAverage from './arrAverage.mjs'
 import arrStd from './arrStd.mjs'

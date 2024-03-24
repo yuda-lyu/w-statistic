@@ -1,5 +1,5 @@
-import size from 'lodash-es/size'
-import mean from 'lodash-es/mean'
+import size from 'lodash-es/size.js'
+import mean from 'lodash-es/mean.js'
 import isarr from 'wsemi/src/isarr.mjs'
 import arrFilterByNum from 'wsemi/src/arrFilterByNum.mjs'
 

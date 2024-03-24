@@ -1,15 +1,15 @@
-import get from 'lodash-es/get'
-import map from 'lodash-es/map'
-import min from 'lodash-es/min'
-import max from 'lodash-es/max'
-import size from 'lodash-es/size'
+import get from 'lodash-es/get.js'
+import map from 'lodash-es/map.js'
+import min from 'lodash-es/min.js'
+import max from 'lodash-es/max.js'
+import size from 'lodash-es/size.js'
 import cint from 'wsemi/src/cint.mjs'
 import cdbl from 'wsemi/src/cdbl.mjs'
 import ispint from 'wsemi/src/ispint.mjs'
 import arrFilterByNum from 'wsemi/src/arrFilterByNum.mjs'
 import arrGroupByMaxmin from 'wsemi/src/arrGroupByMaxmin.mjs'
 import rang from 'wsemi/src/rang.mjs'
-import isnum from 'wsemi/src/isnum'
+import isnum from 'wsemi/src/isnum.mjs'
 
 
 /**

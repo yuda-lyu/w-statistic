@@ -1,4 +1,4 @@
-import size from 'lodash-es/size'
+import size from 'lodash-es/size.js'
 import isarr from 'wsemi/src/isarr.mjs'
 import ispnum from 'wsemi/src/ispnum.mjs'
 import cdbl from 'wsemi/src/cdbl.mjs'

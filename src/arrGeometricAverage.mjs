@@ -1,5 +1,5 @@
-import each from 'lodash-es/each'
-import size from 'lodash-es/size'
+import each from 'lodash-es/each.js'
+import size from 'lodash-es/size.js'
 import isarr from 'wsemi/src/isarr.mjs'
 import arrFilterByPnum from 'wsemi/src/arrFilterByPnum.mjs'
 

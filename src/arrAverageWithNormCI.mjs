@@ -1,5 +1,5 @@
-import size from 'lodash-es/size'
-import isNumber from 'lodash-es/isNumber'
+import size from 'lodash-es/size.js'
+import isNumber from 'lodash-es/isNumber.js'
 import isarr from 'wsemi/src/isarr.mjs'
 import isnum from 'wsemi/src/isnum.mjs'
 import cdbl from 'wsemi/src/cdbl.mjs'

@@ -1,16 +1,16 @@
 {
   "name": "w-statistic",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "main": "dist/w-statistic.umd.js",
   "dependencies": {
     "jstat": "^1.9.6",
     "lodash-es": "^4.17.21",
     "simple-statistics": "^7.8.3",
-    "w-optimization": "^1.0.10",
-    "wsemi": "^1.7.47"
+    "w-optimization": "^1.0.11",
+    "wsemi": "^1.7.49"
   },
   "devDependencies": {
-    "w-package-tools": "^1.0.73"
+    "w-package-tools": "^1.0.75"
   },
   "scripts": {
     "test": "mocha --parallel --timeout 60000 --experimental-modules --es-module-specifier-resolution=node",
