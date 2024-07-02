@@ -46,4 +46,4 @@ test()
         console.log(err)
     })
 
-//node --experimental-modules --es-module-specifier-resolution=node g.arrAverageWithLogNormCI.mjs
+//node --experimental-modules g.arrAverageWithLogNormCI.mjs

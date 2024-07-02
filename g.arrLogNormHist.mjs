@@ -877,4 +877,4 @@ test()
         console.log(err)
     })
 
-//node --experimental-modules --es-module-specifier-resolution=node g.arrLogNormHist.mjs
+//node --experimental-modules g.arrLogNormHist.mjs

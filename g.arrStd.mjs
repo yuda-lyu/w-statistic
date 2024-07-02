@@ -14,4 +14,4 @@ arr = [55, 68, 45, 78, 150, 241, 162, 156, 182, 125, 75, 89, 91, 95, 92, 65, 75,
 console.log(arrStd(arr))
 // =>  40.847473507599254, 為除以29(n-1)的std
 
-//node --experimental-modules --es-module-specifier-resolution=node g.arrStd.mjs
+//node --experimental-modules g.arrStd.mjs

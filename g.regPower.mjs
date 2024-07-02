@@ -51,4 +51,4 @@ test()
         console.log(err)
     })
 
-//node --experimental-modules --es-module-specifier-resolution=node g.regPower.mjs
+//node --experimental-modules g.regPower.mjs

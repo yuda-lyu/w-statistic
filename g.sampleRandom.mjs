@@ -32,4 +32,4 @@ test()
         console.log(err)
     })
 
-//node --experimental-modules --es-module-specifier-resolution=node g.sampleRandom.mjs
+//node --experimental-modules g.sampleRandom.mjs

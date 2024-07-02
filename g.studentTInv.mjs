@@ -20,4 +20,4 @@ test()
         console.log(err)
     })
 
-//node --experimental-modules --es-module-specifier-resolution=node g.studentTInv.mjs
+//node --experimental-modules g.studentTInv.mjs

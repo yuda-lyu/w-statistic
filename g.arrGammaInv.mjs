@@ -20,4 +20,4 @@ test()
         console.log(err)
     })
 
-//node --experimental-modules --es-module-specifier-resolution=node g.arrGammaInv.mjs
+//node --experimental-modules g.arrGammaInv.mjs

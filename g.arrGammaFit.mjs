@@ -20,4 +20,4 @@ test()
         console.log(err)
     })
 
-//node --experimental-modules --es-module-specifier-resolution=node g.arrGammaFit.mjs
+//node --experimental-modules g.arrGammaFit.mjs

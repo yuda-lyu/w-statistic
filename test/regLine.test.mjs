@@ -82,54 +82,53 @@ describe(`regLine`, function() {
         assert.strict.deepStrictEqual(r, rr)
     })
 
-
-    it(`should return null when input ''`, async function() {
+    it(`should catch when input ''`, async function() {
         let r
         await regLine('')
             .catch((err) => {
                 r = err
             })
-        let rr = 'no effective data'
+        let rr = 'arr is not an effective array'
         assert.strict.deepStrictEqual(r, rr)
     })
 
-    it(`should return null when input []`, async function() {
+    it(`should catch when input []`, async function() {
         let r
         await regLine([])
             .catch((err) => {
                 r = err
             })
-        let rr = 'no effective data'
+        let rr = 'arr is not an effective array'
         assert.strict.deepStrictEqual(r, rr)
     })
 
-    it(`should return null when input {}`, async function() {
+    it(`should catch when input {}`, async function() {
         let r
         await regLine({})
             .catch((err) => {
                 r = err
             })
-        let rr = 'no effective data'
+        let rr = 'arr is not an effective array'
         assert.strict.deepStrictEqual(r, rr)
     })
 
-    it(`should return null when input null`, async function() {
+    it(`should catch when input null`, async function() {
         let r
         await regLine(null)
             .catch((err) => {
                 r = err
             })
-        let rr = 'no effective data'
+        let rr = 'arr is not an effective array'
         assert.strict.deepStrictEqual(r, rr)
     })
 
-    it(`should return null when input undefined`, async function() {
+    it(`should catch when input undefined`, async function() {
         let r
         await regLine(undefined)
             .catch((err) => {
                 r = err
             })
-        let rr = 'no effective data'
+        let rr = 'arr is not an effective array'
         assert.strict.deepStrictEqual(r, rr)
     })
 

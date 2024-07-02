@@ -32,4 +32,4 @@ console.log(arrMovingAverage(arr, { selectCountHalf: 1 }))
 //   22.5
 // ]
 
-//node --experimental-modules --es-module-specifier-resolution=node g.arrMovingAverage.mjs
+//node --experimental-modules g.arrMovingAverage.mjs

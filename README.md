@@ -4,7 +4,6 @@ A tool for statistical analysis.
 ![language](https://img.shields.io/badge/language-JavaScript-orange.svg) 
 [![npm version](http://img.shields.io/npm/v/w-statistic.svg?style=flat)](https://npmjs.org/package/w-statistic) 
 [![license](https://img.shields.io/npm/l/w-statistic.svg?style=flat)](https://npmjs.org/package/w-statistic) 
-[![gzip file size](http://img.badgesize.io/yuda-lyu/w-statistic/master/dist/w-statistic.umd.js.svg?compression=gzip)](https://github.com/yuda-lyu/w-statistic)
 [![npm download](https://img.shields.io/npm/dt/w-statistic.svg)](https://npmjs.org/package/w-statistic) 
 [![npm download](https://img.shields.io/npm/dm/w-statistic.svg)](https://npmjs.org/package/w-statistic) 
 [![jsdelivr download](https://img.shields.io/jsdelivr/npm/hm/w-statistic.svg)](https://www.jsdelivr.com/package/npm/w-statistic)
@@ -24,5 +23,5 @@ npm i w-statistic
 
 Add script for w-statistic.
 ```alias
-<script src="https://cdn.jsdelivr.net/npm/w-statistic@1.0.16/dist/w-statistic.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/w-statistic@1.0.17/dist/w-statistic.umd.js"></script>
 ```

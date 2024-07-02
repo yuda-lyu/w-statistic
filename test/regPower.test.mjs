@@ -69,53 +69,53 @@ describe(`regPower`, function() {
     })
 
 
-    it(`should return null when input ''`, async function() {
+    it(`should catch when input ''`, async function() {
         let r
         await regPower('')
             .catch((err) => {
                 r = err
             })
-        let rr = 'no effective data'
+        let rr = 'arr is not an effective array'
         assert.strict.deepStrictEqual(r, rr)
     })
 
-    it(`should return null when input []`, async function() {
+    it(`should catch when input []`, async function() {
         let r
         await regPower([])
             .catch((err) => {
                 r = err
             })
-        let rr = 'no effective data'
+        let rr = 'arr is not an effective array'
         assert.strict.deepStrictEqual(r, rr)
     })
 
-    it(`should return null when input {}`, async function() {
+    it(`should catch when input {}`, async function() {
         let r
         await regPower({})
             .catch((err) => {
                 r = err
             })
-        let rr = 'no effective data'
+        let rr = 'arr is not an effective array'
         assert.strict.deepStrictEqual(r, rr)
     })
 
-    it(`should return null when input null`, async function() {
+    it(`should catch when input null`, async function() {
         let r
         await regPower(null)
             .catch((err) => {
                 r = err
             })
-        let rr = 'no effective data'
+        let rr = 'arr is not an effective array'
         assert.strict.deepStrictEqual(r, rr)
     })
 
-    it(`should return null when input undefined`, async function() {
+    it(`should catch when input undefined`, async function() {
         let r
         await regPower(undefined)
             .catch((err) => {
                 r = err
             })
-        let rr = 'no effective data'
+        let rr = 'arr is not an effective array'
         assert.strict.deepStrictEqual(r, rr)
     })
 

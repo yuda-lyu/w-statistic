@@ -341,4 +341,4 @@ test()
         console.log(err)
     })
 
-//node --experimental-modules --es-module-specifier-resolution=node g.histGen.mjs
+//node --experimental-modules g.histGen.mjs

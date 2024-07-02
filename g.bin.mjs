@@ -69,4 +69,4 @@ console.log(bin(arr, 5, { min: 0, max: 10 }))
 //   { min: 8, max: 10, avg: 9, arr: [] }
 // ]
 
-//node --experimental-modules --es-module-specifier-resolution=node g.bin.mjs
+//node --experimental-modules g.bin.mjs

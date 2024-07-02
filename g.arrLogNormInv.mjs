@@ -36,4 +36,4 @@ test()
         console.log(err)
     })
 
-//node --experimental-modules --es-module-specifier-resolution=node g.arrLogNormInv.mjs
+//node --experimental-modules g.arrLogNormInv.mjs

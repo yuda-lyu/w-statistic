@@ -4,6 +4,7 @@ import size from 'lodash-es/size.js'
 import isnum from 'wsemi/src/isnum.mjs'
 import isbol from 'wsemi/src/isbol.mjs'
 import iseobj from 'wsemi/src/iseobj.mjs'
+import isearr from 'wsemi/src/isearr.mjs'
 import cdbl from 'wsemi/src/cdbl.mjs'
 import ss from './simpleStatistics.mjs'
 
@@ -105,6 +106,11 @@ function regLine(arr, opt = {}) {
     //_sync
     let _sync = () => {
 
+        //check arr
+        if (!isearr(arr)) {
+            throw new Error(`arr is not an effective array`)
+        }
+
         //rs
         let rs = []
         each(arr, (v) => {
@@ -118,7 +124,7 @@ function regLine(arr, opt = {}) {
 
         //check
         if (size(rs) === 0) {
-            return null
+            throw new Error(`no effective data`)
         }
 
         //r
@@ -177,7 +183,7 @@ function regLine(arr, opt = {}) {
         }
         catch (err) {
             console.log(err)
-            return Promise.reject(err.toString())
+            return Promise.reject(err.message)
         }
     }
 

@@ -1,9 +1,11 @@
 import get from 'lodash-es/get.js'
 import each from 'lodash-es/each.js'
 import map from 'lodash-es/map.js'
+import size from 'lodash-es/size.js'
 import isnum from 'wsemi/src/isnum.mjs'
 import isbol from 'wsemi/src/isbol.mjs'
 import iseobj from 'wsemi/src/iseobj.mjs'
+import isearr from 'wsemi/src/isearr.mjs'
 import cdbl from 'wsemi/src/cdbl.mjs'
 import regLine from './regLine.mjs'
 
@@ -46,6 +48,11 @@ function regPower(arr, opt = {}) {
     //_sync
     let _sync = () => {
 
+        //check arr
+        if (!isearr(arr)) {
+            throw new Error(`arr is not an effective array`)
+        }
+
         //rs
         let rs = []
         each(arr, (v) => {
@@ -60,6 +67,11 @@ function regPower(arr, opt = {}) {
             }
         })
         // console.log('rs', rs)
+
+        //check
+        if (size(rs) === 0) {
+            throw new Error(`no effective data`)
+        }
 
         //rsLog
         let rsLog = map(arr, (v) => {
@@ -104,7 +116,7 @@ function regPower(arr, opt = {}) {
         }
         catch (err) {
             console.log(err)
-            return Promise.reject(err.toString())
+            return Promise.reject(err.message)
         }
     }
 
