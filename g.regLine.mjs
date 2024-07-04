@@ -28,7 +28,7 @@ async function test() {
         [2.5, 1.1],
         [4, 2.5],
     ]
-    r = await regLine(arr, { useRegIntercept: false }) //不使用截距, 也就是截距=0
+    r = await regLine(arr, { useRegIntercept: false }) //不使用截距, 也就是截距b=0
     console.log(r)
     // => { m: 0.5698924731182796, b: 0 }
 

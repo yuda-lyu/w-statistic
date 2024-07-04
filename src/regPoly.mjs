@@ -120,6 +120,12 @@ function regPoly(arr, degree, opt = {}) {
         interpX = null
     }
 
+    //useRegIntercept, 是否回歸使用截距
+    let useRegIntercept = get(opt, 'useRegIntercept')
+    if (!isbol(useRegIntercept)) {
+        useRegIntercept = true
+    }
+
     //useSync
     let useSync = get(opt, 'useSync')
     if (!isbol(useSync)) {
@@ -159,29 +165,43 @@ function regPoly(arr, degree, opt = {}) {
             throw new Error(`no effective data`)
         }
 
-        //r
-        let r = {}
-
         //PolynomialRegression
         let x = map(rs, 0)
         let y = map(rs, 1)
-        let regression = new PolynomialRegression(x, y, degree)
+        let optPR = {}
+        if (!useRegIntercept) {
+            optPR = {
+                interceptAtZero: true,
+            }
+        }
+        let regression = new PolynomialRegression(x, y, degree, optPR)
         // console.log('regression', regression)
-        //regression.coefficients[0] -> b, regression.coefficients[1] -> m1, ...
-        // console.log(regression.predict(80)) // Apply the model to some x value. Prints 2.6.
-        // console.log(regression.coefficients) // Prints the coefficients in increasing order of power (from 0 to degree).
+        // console.log('regression.coefficients', regression.coefficients)
+        // from 0 to degree, regression.coefficients[0] -> b, regression.coefficients[1] -> m1, regression.coefficients[2] -> m2, ...
+
+        // console.log(regression.predict(80)) // Apply the model to some x value
         // console.log(regression.toString(10)) // Prints a human-readable version of the function.
         // console.log(regression.toLaTeX())
         // console.log(regression.score(x, y))
 
-        each(regression.coefficients, (v, k) => {
-            if (k === 0) {
-                r['b'] = v
-            }
-            else {
-                r[`m${k}`] = v
-            }
-        })
+        //r
+        let r = {}
+        if (useRegIntercept) {
+            each(regression.coefficients, (v, k) => {
+                if (k === 0) {
+                    r['b'] = v
+                }
+                else {
+                    r[`m${k}`] = v
+                }
+            })
+        }
+        else {
+            r['b'] = 0
+            each(regression.coefficients, (v, k) => {
+                r[`m${k + 1}`] = v
+            })
+        }
         // console.log('r', r)
 
         //interpX

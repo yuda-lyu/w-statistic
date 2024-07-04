@@ -66,16 +66,10 @@ describe(`regPoly`, function() {
         [100, 3.3], [100, 3.5],
         [100, 3]
     ]
-    kpOut[k] = {
-        b: 7.960481099654818,
-        m1: -0.15371134020614285,
-        m2: 0.0010756013745701653,
-        interpX: 80,
-        interpY: 2.5474226804124473
-    }
-    it(`should return ${JSON.stringify(kpOut[k])} when input ${JSON.stringify(kpArr[k])}, 2, { interpX: 80 }`, async function() {
+    kpOut[k] = { b: 0, m1: 0.06524644304242452, m2: -0.00035672260356343373 }
+    it(`should return ${JSON.stringify(kpOut[k])} when input ${JSON.stringify(kpArr[k])}, 2, { useRegIntercept: false }`, async function() {
         let k = 2
-        let r = await regPoly(kpArr[k], 2, { interpX: 80 })
+        let r = await regPoly(kpArr[k], 2, { useRegIntercept: false })
         let rr = kpOut[k]
         assert.strict.deepStrictEqual(r, rr)
     })
@@ -94,10 +88,35 @@ describe(`regPoly`, function() {
     kpOut[k] = {
         b: 7.960481099654818,
         m1: -0.15371134020614285,
+        m2: 0.0010756013745701653,
+        interpX: 80,
+        interpY: 2.5474226804124473
+    }
+    it(`should return ${JSON.stringify(kpOut[k])} when input ${JSON.stringify(kpArr[k])}, 2, { interpX: 80 }`, async function() {
+        let k = 3
+        let r = await regPoly(kpArr[k], 2, { interpX: 80 })
+        let rr = kpOut[k]
+        assert.strict.deepStrictEqual(r, rr)
+    })
+
+    k = 4
+    kpArr[k] = [
+        [50, 3.3], [50, 2.8],
+        [50, 2.9], [70, 2.3],
+        [70, 2.6], [70, 2.1],
+        [80, 2.5], [80, 2.9],
+        [80, 2.4], [90, 3],
+        [90, 3.1], [90, 2.8],
+        [100, 3.3], [100, 3.5],
+        [100, 3]
+    ]
+    kpOut[k] = {
+        b: 7.960481099654818,
+        m1: -0.15371134020614285,
         m2: 0.0010756013745701653
     }
     it(`should return ${JSON.stringify(kpOut[k])} when input ${JSON.stringify(kpArr[k])}, 2, { useSync: true }`, async function() {
-        let k = 3
+        let k = 4
         let r = await regPoly(kpArr[k], 2, { useSync: true })
         let rr = kpOut[k]
         assert.strict.deepStrictEqual(r, rr)
