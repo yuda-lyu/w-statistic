@@ -29,7 +29,7 @@
 <nav >
     
     
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="w-statistic.html">w-statistic</a><ul class='methods'><li data-type='method'><a href="w-statistic.html#.arrAverage">arrAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrAverageWithLogNormCI">arrAverageWithLogNormCI</a></li><li data-type='method'><a href="w-statistic.html#.arrAverageWithNormCI">arrAverageWithNormCI</a></li><li data-type='method'><a href="w-statistic.html#.arrCount">arrCount</a></li><li data-type='method'><a href="w-statistic.html#.arrGammaFit">arrGammaFit</a></li><li data-type='method'><a href="w-statistic.html#.arrGammaHist">arrGammaHist</a></li><li data-type='method'><a href="w-statistic.html#.arrGammaInv">arrGammaInv</a></li><li data-type='method'><a href="w-statistic.html#.arrGeometricAverage">arrGeometricAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrGeometricStd">arrGeometricStd</a></li><li data-type='method'><a href="w-statistic.html#.arrLogNormHist">arrLogNormHist</a></li><li data-type='method'><a href="w-statistic.html#.arrLogNormInv">arrLogNormInv</a></li><li data-type='method'><a href="w-statistic.html#.arrMovingAverage">arrMovingAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrNormHist">arrNormHist</a></li><li data-type='method'><a href="w-statistic.html#.arrNormInv">arrNormInv</a></li><li data-type='method'><a href="w-statistic.html#.arrQuartile">arrQuartile</a></li><li data-type='method'><a href="w-statistic.html#.arrStd">arrStd</a></li><li data-type='method'><a href="w-statistic.html#.bin">bin</a></li><li data-type='method'><a href="w-statistic.html#.histGen">histGen</a></li><li data-type='method'><a href="w-statistic.html#.regLine">regLine</a></li><li data-type='method'><a href="w-statistic.html#.regPoly">regPoly</a></li><li data-type='method'><a href="w-statistic.html#.regPower">regPower</a></li><li data-type='method'><a href="w-statistic.html#.sampleRandom">sampleRandom</a></li><li data-type='method'><a href="w-statistic.html#.studentTInv">studentTInv</a></li></ul></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="w-statistic.html">w-statistic</a><ul class='methods'><li data-type='method'><a href="w-statistic.html#.arrAverage">arrAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrAverageWithLogNormCI">arrAverageWithLogNormCI</a></li><li data-type='method'><a href="w-statistic.html#.arrAverageWithNormCI">arrAverageWithNormCI</a></li><li data-type='method'><a href="w-statistic.html#.arrCount">arrCount</a></li><li data-type='method'><a href="w-statistic.html#.arrGammaFit">arrGammaFit</a></li><li data-type='method'><a href="w-statistic.html#.arrGammaHist">arrGammaHist</a></li><li data-type='method'><a href="w-statistic.html#.arrGammaInv">arrGammaInv</a></li><li data-type='method'><a href="w-statistic.html#.arrGeometricAverage">arrGeometricAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrGeometricStd">arrGeometricStd</a></li><li data-type='method'><a href="w-statistic.html#.arrLogNormHist">arrLogNormHist</a></li><li data-type='method'><a href="w-statistic.html#.arrLogNormInv">arrLogNormInv</a></li><li data-type='method'><a href="w-statistic.html#.arrMovingAverage">arrMovingAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrNormHist">arrNormHist</a></li><li data-type='method'><a href="w-statistic.html#.arrNormInv">arrNormInv</a></li><li data-type='method'><a href="w-statistic.html#.arrQuartile">arrQuartile</a></li><li data-type='method'><a href="w-statistic.html#.arrStd">arrStd</a></li><li data-type='method'><a href="w-statistic.html#.bin">bin</a></li><li data-type='method'><a href="w-statistic.html#.histGen">histGen</a></li><li data-type='method'><a href="w-statistic.html#.regLine">regLine</a></li><li data-type='method'><a href="w-statistic.html#.regMpLine">regMpLine</a></li><li data-type='method'><a href="w-statistic.html#.regPoly">regPoly</a></li><li data-type='method'><a href="w-statistic.html#.regPower">regPower</a></li><li data-type='method'><a href="w-statistic.html#.sampleRandom">sampleRandom</a></li><li data-type='method'><a href="w-statistic.html#.studentTInv">studentTInv</a></li></ul></li></ul>
     
 </nav>
 
@@ -4865,7 +4865,7 @@
 <dl class="details">
     
     <dt class="tag-description">Description:</dt>
-    <dd class="tag-description"><ul class="dummy"><li><p>針對數據進行線性回歸(y=mx+b)</p>
+    <dd class="tag-description"><ul class="dummy"><li><p>針對x,y數據進行線性回歸(y=mx+b)</p>
 <p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/regLine.test.js">Github</a></p></li></ul></dd>
     
 
@@ -5085,7 +5085,416 @@
                 </td>
             
 
-            <td class="description last"><p>輸入經由回歸結果內插指定x值，預設null</p></td>
+            <td class="description last"><p>輸入經由回歸結果內插指定x值數字，預設null</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>useRegIntercept</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>true</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>輸入是否回歸使用截距布林值，預設true</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>useSync</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>false</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>輸入是否使用同步函數布林值，預設false</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>若useSync=true回傳回歸結果物件，若useSync=false則回傳Promise，此時若成功則resolve回歸結果物件，若失敗則reject錯誤訊息</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+|
+
+<span class="param-type">Promise</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".regMpLine"><span class="type-signature type-signature-static">(static) </span>regMpLine<span class="signature">(matX, matY, opt<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Object|Promise}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>針對矩陣X與矩陣Y數據進行多變數線性回歸，單1種y時(y=b+m1<em>x1+m2</em>x2+...)，多種y時[ (y1=b1+m11<em>x1+m12</em>x2+...), (y2=b2+m21<em>x1+m22</em>x2+...),... ]</p>
+<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/regMpLine.test.js">Github</a></p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="regMpLine.mjs.html">regMpLine.mjs</a>, <a href="regMpLine.mjs.html#line249">line 249</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>async function test() {    let arrX    let arrY    let r    arrX = [        [0, 0],        [1, 2],        [2, 3],        [3, 4],    ]    arrY = [        [0],        [2],        [4],        [6],    ]    r = await regMpLine(arrX, arrY)    console.log(r)    // => {    //   coes: [    //     [ 2.0000000000000515 ],    //     [ -1.4210854715202004e-14 ],    //     [ 3.552713678800501e-15 ]    //   ],    //   m1: 2.0000000000000515,    //   m2: -1.4210854715202004e-14,    //   b: 3.552713678800501e-15    // }    arrX = [        [0, 0],        [1, 2],        [2, 3],        [3, 4],    ]    arrY = [        [0, 0],        [2, 4],        [4, 6],        [6, 8],    ]    r = await regMpLine(arrX, arrY)    console.log(r)    // => {    //   coes: [    //     [ 2.0000000000000515, 3.552713678800501e-14 ],    //     [ -1.4210854715202004e-14, 1.9999999999999716 ],    //     [ 3.552713678800501e-15, 0 ]    //   ],    //   m11: 2.0000000000000515,    //   m21: 3.552713678800501e-14,    //   m12: -1.4210854715202004e-14,    //   m22: 1.9999999999999716,    //   b1: 3.552713678800501e-15,    //   b2: 0    // }    arrX = [        [0, 0],        [1, 2],        [2, 3],        [3, 4],    ]    arrY = [        [0, 0, 0],        [2, 4, 3],        [4, 6, 5],        [6, 8, 7],    ]    r = await regMpLine(arrX, arrY)    console.log(r)    // => {    //   coes: [    //     [ 2.0000000000000515, 3.552713678800501e-14, 1.0000000000000426 ],    //     [ -1.4210854715202004e-14, 1.9999999999999716, 0.9999999999999591 ],    //     [ 3.552713678800501e-15, 0, 7.105427357601002e-15 ]    //   ],    //   m11: 2.0000000000000515,    //   m21: 3.552713678800501e-14,    //   m31: 1.0000000000000426,    //   m12: -1.4210854715202004e-14,    //   m22: 1.9999999999999716,    //   m32: 0.9999999999999591,    //   b1: 3.552713678800501e-15,    //   b2: 0,    //   b3: 7.105427357601002e-15    // }    arrX = [        [0, 0],        [1, 2],        [2, 3],        [3, 4],    ]    arrY = [        [0],        [2],        [4],        [6],    ]    r = await regMpLine(arrX, arrY, { useRegIntercept: false }) //不使用截距, 也就是截距b=0    console.log(r)    // => {    //   coes: [ [ 1.9999999999999716 ], [ 1.4210854715202004e-14 ] ],    //   m1: 1.9999999999999716,    //   m2: 1.4210854715202004e-14,    //   b: 0    // }    arrX = [        [0, 0],        [1, 2],        [2, 3],        [3, 4],    ]    arrY = [        [0],        [2],        [4],        [6],    ]    r = await regMpLine(arrX, arrY, { interpX: [0, 0] })    console.log(r)    // => {    //   coes: [    //     [ 2.0000000000000515 ],    //     [ -1.4210854715202004e-14 ],    //     [ 3.552713678800501e-15 ]    //   ],    //   m1: 2.0000000000000515,    //   m2: -1.4210854715202004e-14,    //   b: 3.552713678800501e-15,    //   interpX: [ 0, 0 ],    //   interpY: [ 3.552713678800501e-15 ]    // }    arrX = [        [0, 0],        [1, 2],        [2, 3],        [3, 4],    ]    arrY = [        [0],        [2],        [4],        [6],    ]    r = await regMpLine(arrX, arrY, { interpX: [100, 0] })    console.log(r)    // => {    //   coes: [    //     [ 2.0000000000000515 ],    //     [ -1.4210854715202004e-14 ],    //     [ 3.552713678800501e-15 ]    //   ],    //   m1: 2.0000000000000515,    //   m2: -1.4210854715202004e-14,    //   b: 3.552713678800501e-15,    //   interpX: [ 100, 0 ],    //   interpY: [ 200.00000000000514 ]    // }    arrX = [        [0, 0],        [1, 2],        [2, 3],        [3, 4],    ]    arrY = [        [0],        [2],        [4],        [6],    ]    r = await regMpLine(arrX, arrY, { interpX: [0, 100] })    console.log(r)    // => {    //   coes: [    //     [ 2.0000000000000515 ],    //     [ -1.4210854715202004e-14 ],    //     [ 3.552713678800501e-15 ]    //   ],    //   m1: 2.0000000000000515,    //   m2: -1.4210854715202004e-14,    //   b: 3.552713678800501e-15,    //   interpX: [ 0, 100 ],    //   interpY: [ -1.4175327578413999e-12 ]    // }    arrX = [        [0, 0],        [1, 2],        [2, 3],        [3, 4],    ]    arrY = [        [0],        [2],        [4],        [6],    ]    r = regMpLine(arrX, arrY, { useSync: true }) //使用同步函數(sync)    console.log(r)    // => {    //   coes: [    //     [ 2.0000000000000515 ],    //     [ -1.4210854715202004e-14 ],    //     [ 3.552713678800501e-15 ]    //   ],    //   m1: 2.0000000000000515,    //   m2: -1.4210854715202004e-14,    //   b: 3.552713678800501e-15    // }}test()    .catch((err) => {        console.log(err)    })</code></pre>
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>matX</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>輸入X二維陣列，為[ [x11,x12,x13,...], [x21,x22,x23,...],... ]</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>matY</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>輸入Y二維陣列，為[ [y11,y12,...], [y21,y22,...],... ]</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>opt</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>{}</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>輸入設定物件，預設{}</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>interpX</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>null</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>輸入經由回歸結果內插指定x陣列，為[x1,x2,x3,...]，預設null</p></td>
         </tr>
 
     
@@ -5238,14 +5647,14 @@
 <dl class="details">
     
     <dt class="tag-description">Description:</dt>
-    <dd class="tag-description"><ul class="dummy"><li><p>針對數據進行多項式回歸(y=b+m1<em>x+m2</em>x^2+...)</p>
+    <dd class="tag-description"><ul class="dummy"><li><p>針對x,y數據進行多項式回歸(y=b+m1<em>x+m2</em>x^2+...)</p>
 <p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/regPoly.test.js">Github</a></p></li></ul></dd>
     
 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="regPoly.mjs.html">regPoly.mjs</a>, <a href="regPoly.mjs.html#line115">line 115</a>
+        <a href="regPoly.mjs.html">regPoly.mjs</a>, <a href="regPoly.mjs.html#line138">line 138</a>
     </li></ul></dd>
     
 
@@ -5292,7 +5701,7 @@
 
     <h5 class="h5-examples">Example</h5>
     
-    <pre class="prettyprint"><code>async function test() {    let arr    let r    arr = [        [50, 3.3], [50, 2.8],        [50, 2.9], [70, 2.3],        [70, 2.6], [70, 2.1],        [80, 2.5], [80, 2.9],        [80, 2.4], [90, 3],        [90, 3.1], [90, 2.8],        [100, 3.3], [100, 3.5],        [100, 3]    ]    r = await regPoly(arr, 2)    console.log(r)    // => {    //   b: 7.960481099654818,    //   m1: -0.15371134020614285,    //   m2: 0.0010756013745701653    // }    arr = [        [50, 3.3], [50, 2.8],        [50, 2.9], [70, 2.3],        [70, 2.6], [70, 2.1],        [80, 2.5], [80, 2.9],        [80, 2.4], [90, 3],        [90, 3.1], [90, 2.8],        [100, 3.3], [100, 3.5],        [100, 3]    ]    r = await regPoly(arr, 3)    console.log(r)    // => {    //   b: 21.051572327842386,    //   m1: -0.7142872117740979,    //   m2: 0.0087657232709057,    //   m3: -0.000034014675054462467    // }    arr = [        [50, 3.3], [50, 2.8],        [50, 2.9], [70, 2.3],        [70, 2.6], [70, 2.1],        [80, 2.5], [80, 2.9],        [80, 2.4], [90, 3],        [90, 3.1], [90, 2.8],        [100, 3.3], [100, 3.5],        [100, 3]    ]    r = await regPoly(arr, 2, { interpX: 80 })    console.log(r)    // => {    //   b: 7.960481099654818,    //   m1: -0.15371134020614285,    //   m2: 0.0010756013745701653,    //   interpX: 80,    //   interpY: 2.5474226804124473    // }    arr = [        [50, 3.3], [50, 2.8],        [50, 2.9], [70, 2.3],        [70, 2.6], [70, 2.1],        [80, 2.5], [80, 2.9],        [80, 2.4], [90, 3],        [90, 3.1], [90, 2.8],        [100, 3.3], [100, 3.5],        [100, 3]    ]    r = regPoly(arr, 2, { useSync: true }) //使用同步函數(sync)    console.log(r)    // => {    //   b: 7.960481099654818,    //   m1: -0.15371134020614285,    //   m2: 0.0010756013745701653    // }}test()    .catch((err) => {        console.log(err)    })</code></pre>
+    <pre class="prettyprint"><code>async function test() {    let arr    let r    arr = [        [50, 3.3], [50, 2.8],        [50, 2.9], [70, 2.3],        [70, 2.6], [70, 2.1],        [80, 2.5], [80, 2.9],        [80, 2.4], [90, 3],        [90, 3.1], [90, 2.8],        [100, 3.3], [100, 3.5],        [100, 3]    ]    r = await regPoly(arr, 2)    console.log(r)    // => {    //   b: 7.960481099654818,    //   m1: -0.15371134020614285,    //   m2: 0.0010756013745701653    // }    arr = [        [50, 3.3], [50, 2.8],        [50, 2.9], [70, 2.3],        [70, 2.6], [70, 2.1],        [80, 2.5], [80, 2.9],        [80, 2.4], [90, 3],        [90, 3.1], [90, 2.8],        [100, 3.3], [100, 3.5],        [100, 3]    ]    r = await regPoly(arr, 3)    console.log(r)    // => {    //   b: 21.051572327842386,    //   m1: -0.7142872117740979,    //   m2: 0.0087657232709057,    //   m3: -0.000034014675054462467    // }    arr = [        [50, 3.3], [50, 2.8],        [50, 2.9], [70, 2.3],        [70, 2.6], [70, 2.1],        [80, 2.5], [80, 2.9],        [80, 2.4], [90, 3],        [90, 3.1], [90, 2.8],        [100, 3.3], [100, 3.5],        [100, 3]    ]    r = await regPoly(arr, 2, { useRegIntercept: false }) //不使用截距, 也就是截距b=0    console.log(r)    // => { b: 0, m1: 0.06524644304242452, m2: -0.00035672260356343373 }    arr = [        [50, 3.3], [50, 2.8],        [50, 2.9], [70, 2.3],        [70, 2.6], [70, 2.1],        [80, 2.5], [80, 2.9],        [80, 2.4], [90, 3],        [90, 3.1], [90, 2.8],        [100, 3.3], [100, 3.5],        [100, 3]    ]    r = await regPoly(arr, 2, { interpX: 80 })    console.log(r)    // => {    //   b: 7.960481099654818,    //   m1: -0.15371134020614285,    //   m2: 0.0010756013745701653,    //   interpX: 80,    //   interpY: 2.5474226804124473    // }    arr = [        [50, 3.3], [50, 2.8],        [50, 2.9], [70, 2.3],        [70, 2.6], [70, 2.1],        [80, 2.5], [80, 2.9],        [80, 2.4], [90, 3],        [90, 3.1], [90, 2.8],        [100, 3.3], [100, 3.5],        [100, 3]    ]    r = regPoly(arr, 2, { useSync: true }) //使用同步函數(sync)    console.log(r)    // => {    //   b: 7.960481099654818,    //   m1: -0.15371134020614285,    //   m2: 0.0010756013745701653    // }    arr = [        [1, 2.5],        [2.5, 1.1],        [4, 0.5],    ]    r = await regPoly(arr, 1)    console.log(r)    // => { b: 3.0333333333333314, m1: -0.666666666666666 }}test()    .catch((err) => {        console.log(err)    })</code></pre>
 
 
 
@@ -5458,7 +5867,7 @@
                 </td>
             
 
-            <td class="description last"><p>輸入經由回歸結果內插指定x值，預設null</p></td>
+            <td class="description last"><p>輸入經由回歸結果內插指定x值數字，預設null</p></td>
         </tr>
 
     
@@ -5611,7 +6020,7 @@
 <dl class="details">
     
     <dt class="tag-description">Description:</dt>
-    <dd class="tag-description"><ul class="dummy"><li><p>針對數據進行乘冪(Power)回歸(y=ax^b)</p>
+    <dd class="tag-description"><ul class="dummy"><li><p>針對x,y數據進行乘冪(Power)回歸(y=ax^b)</p>
 <p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/regPower.test.js">Github</a></p></li></ul></dd>
     
 
@@ -5831,7 +6240,7 @@
                 </td>
             
 
-            <td class="description last"><p>輸入經由回歸結果內插指定x值，預設null</p></td>
+            <td class="description last"><p>輸入經由回歸結果內插指定x值數字，預設null</p></td>
         </tr>
 
     
@@ -6510,7 +6919,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a> on Thu Jul 04 2024 12:55:35 GMT+0800 (台北標準時間) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a> on Thu Jul 04 2024 21:09:26 GMT+0800 (台北標準時間) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
