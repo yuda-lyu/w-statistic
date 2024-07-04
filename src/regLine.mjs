@@ -10,13 +10,13 @@ import ss from './simpleStatistics.mjs'
 
 
 /**
- * 針對數據進行線性回歸(y=mx+b)
+ * 針對x,y數據進行線性回歸(y=mx+b)
  *
  * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/regLine.test.js Github}
  * @memberOf w-statistic
  * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算
  * @param {Object} [opt={}] 輸入設定物件，預設{}
- * @param {Number} [opt.interpX=null] 輸入經由回歸結果內插指定x值，預設null
+ * @param {Number} [opt.interpX=null] 輸入經由回歸結果內插指定x值數字，預設null
  * @param {Boolean} [opt.useRegIntercept=true] 輸入是否回歸使用截距布林值，預設true
  * @param {Boolean} [opt.useSync=false] 輸入是否使用同步函數布林值，預設false
  * @returns {Object|Promise} 若useSync=true回傳回歸結果物件，若useSync=false則回傳Promise，此時若成功則resolve回歸結果物件，若失敗則reject錯誤訊息

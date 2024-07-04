@@ -122,6 +122,20 @@ describe(`regPoly`, function() {
         assert.strict.deepStrictEqual(r, rr)
     })
 
+    k = 5
+    kpArr[k] = [
+        [1, 2.5],
+        [2.5, 1.1],
+        [4, 0.5],
+    ]
+    kpOut[k] = { b: 3.0333333333333314, m1: -0.666666666666666 }
+    it(`should return ${JSON.stringify(kpOut[k])} when input ${JSON.stringify(kpArr[k])}, 1`, async function() {
+        let k = 5
+        let r = await regPoly(kpArr[k], 1)
+        let rr = kpOut[k]
+        assert.strict.deepStrictEqual(r, rr)
+    })
+
     it(`should catch when input ''`, async function() {
         let r
         await regPoly('')

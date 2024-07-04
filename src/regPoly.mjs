@@ -13,13 +13,13 @@ import { PolynomialRegression } from 'ml-regression-polynomial'
 
 
 /**
- * 針對數據進行多項式回歸(y=b+m1*x+m2*x^2+...)
+ * 針對x,y數據進行多項式回歸(y=b+m1*x+m2*x^2+...)
  *
  * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/regPoly.test.js Github}
  * @memberOf w-statistic
  * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算
  * @param {Object} [opt={}] 輸入設定物件，預設{}
- * @param {Number} [opt.interpX=null] 輸入經由回歸結果內插指定x值，預設null
+ * @param {Number} [opt.interpX=null] 輸入經由回歸結果內插指定x值數字，預設null
  * @param {Boolean} [opt.useRegIntercept=true] 輸入是否回歸使用截距布林值，預設true
  * @param {Boolean} [opt.useSync=false] 輸入是否使用同步函數布林值，預設false
  * @returns {Object|Promise} 若useSync=true回傳回歸結果物件，若useSync=false則回傳Promise，此時若成功則resolve回歸結果物件，若失敗則reject錯誤訊息
@@ -77,6 +77,20 @@ import { PolynomialRegression } from 'ml-regression-polynomial'
  *         [100, 3.3], [100, 3.5],
  *         [100, 3]
  *     ]
+ *     r = await regPoly(arr, 2, { useRegIntercept: false }) //不使用截距, 也就是截距b=0
+ *     console.log(r)
+ *     // => { b: 0, m1: 0.06524644304242452, m2: -0.00035672260356343373 }
+ *
+ *     arr = [
+ *         [50, 3.3], [50, 2.8],
+ *         [50, 2.9], [70, 2.3],
+ *         [70, 2.6], [70, 2.1],
+ *         [80, 2.5], [80, 2.9],
+ *         [80, 2.4], [90, 3],
+ *         [90, 3.1], [90, 2.8],
+ *         [100, 3.3], [100, 3.5],
+ *         [100, 3]
+ *     ]
  *     r = await regPoly(arr, 2, { interpX: 80 })
  *     console.log(r)
  *     // => {
@@ -104,6 +118,15 @@ import { PolynomialRegression } from 'ml-regression-polynomial'
  *     //   m1: -0.15371134020614285,
  *     //   m2: 0.0010756013745701653
  *     // }
+ *
+ *     arr = [
+ *         [1, 2.5],
+ *         [2.5, 1.1],
+ *         [4, 0.5],
+ *     ]
+ *     r = await regPoly(arr, 1)
+ *     console.log(r)
+ *     // => { b: 3.0333333333333314, m1: -0.666666666666666 }
  *
  * }
  * test()
@@ -145,8 +168,8 @@ function regPoly(arr, degree, opt = {}) {
             throw new Error(`degree[${degree}] is not an integer`)
         }
         degree = cint(degree)
-        if (degree < 2) {
-            throw new Error(`degree[${degree}] < 2`)
+        if (degree < 1) {
+            throw new Error(`degree[${degree}] < 1`)
         }
 
         //rs
@@ -168,11 +191,8 @@ function regPoly(arr, degree, opt = {}) {
         //PolynomialRegression
         let x = map(rs, 0)
         let y = map(rs, 1)
-        let optPR = {}
-        if (!useRegIntercept) {
-            optPR = {
-                interceptAtZero: true,
-            }
+        let optPR = {
+            interceptAtZero: !useRegIntercept,
         }
         let regression = new PolynomialRegression(x, y, degree, optPR)
         // console.log('regression', regression)

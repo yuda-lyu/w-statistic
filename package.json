@@ -1,10 +1,11 @@
 {
   "name": "w-statistic",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "main": "dist/w-statistic.umd.js",
   "dependencies": {
     "jstat": "^1.9.6",
     "lodash-es": "^4.17.21",
+    "ml-regression-multivariate-linear": "^2.0.4",
     "ml-regression-polynomial": "^3.0.1",
     "simple-statistics": "^7.8.3",
     "w-optimization": "^1.0.11",
