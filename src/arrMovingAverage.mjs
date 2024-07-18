@@ -5,6 +5,7 @@ import cloneDeep from 'lodash-es/cloneDeep.js'
 import isarr from 'wsemi/src/isarr.mjs'
 import isp0int from 'wsemi/src/isp0int.mjs'
 import cint from 'wsemi/src/cint.mjs'
+import cdbl from 'wsemi/src/cdbl.mjs'
 import arrAverage from './arrAverage.mjs'
 
 
@@ -69,6 +70,12 @@ function arrMovingAverage(arr, opt = {}) {
     }
     selectCountHalf = cint(selectCountHalf)
 
+    //mode
+    let mode = get(opt, 'mode', '')
+    if (mode !== 'PMA' && mode !== 'SMA' && mode !== 'EMA') {
+        mode = 'PMA'
+    }
+
     //n
     let n = size(arr)
 
@@ -83,26 +90,69 @@ function arrMovingAverage(arr, opt = {}) {
     //arrAverage
     each(arr, (v, k) => {
 
-        //kStart, kEnd
-        let kStart = k - selectCountHalf
-        kStart = Math.max(kStart, 0)
-        kStart = Math.min(kStart, n - 1)
-        let kEnd = Math.max(k + selectCountHalf, 0)
-        kEnd = Math.max(kEnd, 0)
-        kEnd = Math.min(kEnd, n - 1)
+        let r = 0
+        if (mode === 'PMA') {
 
-        //arrt
-        let arrt = []
-        for (let i = kStart; i <= kEnd; i++) {
-            arrt.push(arr[i])
+            //kStart, kEnd
+            let kStart = k - selectCountHalf
+            kStart = Math.max(kStart, 0)
+            kStart = Math.min(kStart, n - 1)
+            let kEnd = Math.max(k + selectCountHalf, 0)
+            kEnd = Math.max(kEnd, 0)
+            kEnd = Math.min(kEnd, n - 1)
+            // console.log('mode', mode)
+            // console.log('kStart', kStart)
+            // console.log('kEnd', kEnd)
+
+            //arrt
+            let arrt = []
+            for (let i = kStart; i <= kEnd; i++) {
+                arrt.push(arr[i])
+            }
+
+            //arrAverage
+            r = arrAverage(arrt)
+            // console.log(k, kStart, kEnd, 'arrt', arrt, 'avg', r)
+
+        }
+        else if (mode === 'SMA') {
+
+            //kStart, kEnd
+            let kStart = k - (selectCountHalf - 1) //-1是因為selectCountHalf要把當前點也算進去
+            kStart = Math.max(kStart, 0)
+            kStart = Math.min(kStart, n - 1)
+            let kEnd = k
+            // console.log('mode', mode)
+            // console.log('kStart', kStart)
+            // console.log('kEnd', kEnd)
+
+            //arrt
+            let arrt = []
+            for (let i = kStart; i <= kEnd; i++) {
+                arrt.push(arr[i])
+            }
+            // console.log('size(arrt)', size(arrt))
+
+            //arrAverage
+            r = arrAverage(arrt)
+            // console.log(k, kStart, kEnd, 'arrt', arrt, 'SMA', r)
+
+        }
+        else if (mode === 'EMA') {
+
+            if (k === 0) {
+                r = cdbl(v)
+            }
+            else {
+                let _ema = get(rs, k - 1) //前個ema
+                r = (_ema * (selectCountHalf - 1) + v * 2) / (selectCountHalf + 1)
+            }
+            // console.log(k, kStart, kEnd, 'arrt', arrt, 'EMA', r)
+
         }
 
-        //arrAverage
-        let avg = arrAverage(arrt)
-        // console.log(k, kStart, kEnd, 'arrt', arrt, 'avg', avg)
-
         //save
-        rs[k] = avg
+        rs[k] = r
 
     })
 
