@@ -7,6 +7,7 @@ import sum from 'lodash-es/sum.js'
 import isNumber from 'lodash-es/isNumber.js'
 import isarr from 'wsemi/src/isarr.mjs'
 import ispint from 'wsemi/src/ispint.mjs'
+import isnum from 'wsemi/src/isnum.mjs'
 import cint from 'wsemi/src/cint.mjs'
 import arrFilterByNum from 'wsemi/src/arrFilterByNum.mjs'
 import nelderMead from 'w-optimization/src/nelderMead.mjs'
@@ -614,6 +615,18 @@ async function arrGammaFit(arr, opt = {}) {
         return Promise.reject('arr is not an effective array')
     }
 
+    //shape0
+    let shape0 = get(opt, 'shape0', '')
+    if (!isnum(shape0)) {
+        shape0 = 1
+    }
+
+    //scale0
+    let scale0 = get(opt, 'scale0', '')
+    if (!isnum(scale0)) {
+        scale0 = 1
+    }
+
     //bin_n
     let bin_n = get(opt, 'n')
     if (!ispint(bin_n)) {
@@ -708,7 +721,7 @@ async function arrGammaFit(arr, opt = {}) {
     }
 
     //nelderMead
-    let rf = await nelderMead(funFit, [1, 1])
+    let rf = await nelderMead(funFit, [shape0, scale0])
     // console.log('rf', rf)
     // => {
     //   count: 225,
