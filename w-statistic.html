@@ -4872,7 +4872,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="regLine.mjs.html">regLine.mjs</a>, <a href="regLine.mjs.html#line86">line 86</a>
+        <a href="regLine.mjs.html">regLine.mjs</a>, <a href="regLine.mjs.html#line100">line 100</a>
     </li></ul></dd>
     
 
@@ -4919,7 +4919,7 @@
 
     <h5 class="h5-examples">Example</h5>
     
-    <pre class="prettyprint"><code>async function test() {    let arr    let r    arr = [        [1, 2.5],        [2.5, 1.1],        [4, 0.5],    ]    r = await regLine(arr)    console.log(r)    // => { m: -0.6666666666666664, b: 3.0333333333333323 }    arr = [        [1, 0.5],        [2.5, 1.1],        [4, 2.5],    ]    r = await regLine(arr)    console.log(r)    // => { m: 0.666666666666667, b: -0.3000000000000007 }    arr = [        [1, 0.5],        [2.5, 1.1],        [4, 2.5],    ]    r = await regLine(arr, { useRegIntercept: false }) //不使用截距, 也就是截距=0    console.log(r)    // => { m: 0.5698924731182796, b: 0 }    arr = [        [1, 2.5],        [2.5, 1.1],        [4, 0.5],    ]    r = await regLine(arr, { interpX: 2 })    console.log(r)    // => {    //   m: -0.6666666666666664,    //   b: 3.0333333333333323,    //   interpY: 1.6999999999999995    // }    arr = [        [1, 2.5],        [2.5, 1.1],        [4, 0.5],    ]    r = regLine(arr, { useSync: true }) //使用同步函數(sync)    console.log(r)    // => { m: -0.6666666666666664, b: 3.0333333333333323 }}test()    .catch((err) => {        console.log(err)    })</code></pre>
+    <pre class="prettyprint"><code>async function test() {    let arr    let r    arr = [        [1, 2.5],        [2.5, 1.1],        [4, 0.5],    ]    r = await regLine(arr)    console.log(r)    // => { m: -0.6666666666666664, b: 3.0333333333333323 }    arr = [        [1, 0.5],        [2.5, 1.1],        [4, 2.5],    ]    r = await regLine(arr)    console.log(r)    // => { m: 0.666666666666667, b: -0.3000000000000007 }    arr = [        [1, 0.5],        [2.5, 1.1],        [4, 2.5],    ]    r = await regLine(arr, { useRegIntercept: false }) //不使用截距, 也就是截距=0    console.log(r)    // => { m: 0.5698924731182796, b: 0 }    arr = [        [1, 2.5],        [2.5, 1.1],        [4, 0.5],    ]    r = await regLine(arr, { interpX: 2 })    console.log(r)    // => {    //   m: -0.6666666666666664,    //   b: 3.0333333333333323,    //   interpY: 1.6999999999999995    // }    arr = [        [1, 2.5],        [2.5, 1.1],        [4, 0.5],    ]    r = await regLine(arr, { calcR2: true })    console.log(r)    // => {    //   m: -0.6666666666666664,    //   b: 3.0333333333333323,    //   r2: 0.949367088607595    // }    arr = [        [1, 2.5],        [2.5, 1.1],        [4, 0.5],    ]    r = regLine(arr, { useSync: true }) //使用同步函數(sync)    console.log(r)    // => { m: -0.6666666666666664, b: 3.0333333333333323 }}test()    .catch((err) => {        console.log(err)    })</code></pre>
 
 
 
@@ -5086,6 +5086,46 @@
             
 
             <td class="description last"><p>輸入經由回歸結果內插指定x值數字，預設null</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>calcR2</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>false</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>輸入是否計算r2值布林值，預設false</p></td>
         </tr>
 
     
@@ -5654,7 +5694,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="regPoly.mjs.html">regPoly.mjs</a>, <a href="regPoly.mjs.html#line138">line 138</a>
+        <a href="regPoly.mjs.html">regPoly.mjs</a>, <a href="regPoly.mjs.html#line159">line 159</a>
     </li></ul></dd>
     
 
@@ -5701,7 +5741,7 @@
 
     <h5 class="h5-examples">Example</h5>
     
-    <pre class="prettyprint"><code>async function test() {    let arr    let r    arr = [        [50, 3.3], [50, 2.8],        [50, 2.9], [70, 2.3],        [70, 2.6], [70, 2.1],        [80, 2.5], [80, 2.9],        [80, 2.4], [90, 3],        [90, 3.1], [90, 2.8],        [100, 3.3], [100, 3.5],        [100, 3]    ]    r = await regPoly(arr, 2)    console.log(r)    // => {    //   b: 7.960481099654818,    //   m1: -0.15371134020614285,    //   m2: 0.0010756013745701653    // }    arr = [        [50, 3.3], [50, 2.8],        [50, 2.9], [70, 2.3],        [70, 2.6], [70, 2.1],        [80, 2.5], [80, 2.9],        [80, 2.4], [90, 3],        [90, 3.1], [90, 2.8],        [100, 3.3], [100, 3.5],        [100, 3]    ]    r = await regPoly(arr, 3)    console.log(r)    // => {    //   b: 21.051572327842386,    //   m1: -0.7142872117740979,    //   m2: 0.0087657232709057,    //   m3: -0.000034014675054462467    // }    arr = [        [50, 3.3], [50, 2.8],        [50, 2.9], [70, 2.3],        [70, 2.6], [70, 2.1],        [80, 2.5], [80, 2.9],        [80, 2.4], [90, 3],        [90, 3.1], [90, 2.8],        [100, 3.3], [100, 3.5],        [100, 3]    ]    r = await regPoly(arr, 2, { useRegIntercept: false }) //不使用截距, 也就是截距b=0    console.log(r)    // => { b: 0, m1: 0.06524644304242452, m2: -0.00035672260356343373 }    arr = [        [50, 3.3], [50, 2.8],        [50, 2.9], [70, 2.3],        [70, 2.6], [70, 2.1],        [80, 2.5], [80, 2.9],        [80, 2.4], [90, 3],        [90, 3.1], [90, 2.8],        [100, 3.3], [100, 3.5],        [100, 3]    ]    r = await regPoly(arr, 2, { interpX: 80 })    console.log(r)    // => {    //   b: 7.960481099654818,    //   m1: -0.15371134020614285,    //   m2: 0.0010756013745701653,    //   interpX: 80,    //   interpY: 2.5474226804124473    // }    arr = [        [50, 3.3], [50, 2.8],        [50, 2.9], [70, 2.3],        [70, 2.6], [70, 2.1],        [80, 2.5], [80, 2.9],        [80, 2.4], [90, 3],        [90, 3.1], [90, 2.8],        [100, 3.3], [100, 3.5],        [100, 3]    ]    r = regPoly(arr, 2, { useSync: true }) //使用同步函數(sync)    console.log(r)    // => {    //   b: 7.960481099654818,    //   m1: -0.15371134020614285,    //   m2: 0.0010756013745701653    // }    arr = [        [1, 2.5],        [2.5, 1.1],        [4, 0.5],    ]    r = await regPoly(arr, 1)    console.log(r)    // => { b: 3.0333333333333314, m1: -0.666666666666666 }}test()    .catch((err) => {        console.log(err)    })</code></pre>
+    <pre class="prettyprint"><code>async function test() {    let arr    let r    arr = [        [50, 3.3], [50, 2.8],        [50, 2.9], [70, 2.3],        [70, 2.6], [70, 2.1],        [80, 2.5], [80, 2.9],        [80, 2.4], [90, 3],        [90, 3.1], [90, 2.8],        [100, 3.3], [100, 3.5],        [100, 3]    ]    r = await regPoly(arr, 2)    console.log(r)    // => {    //   b: 7.960481099654818,    //   m1: -0.15371134020614285,    //   m2: 0.0010756013745701653    // }    arr = [        [50, 3.3], [50, 2.8],        [50, 2.9], [70, 2.3],        [70, 2.6], [70, 2.1],        [80, 2.5], [80, 2.9],        [80, 2.4], [90, 3],        [90, 3.1], [90, 2.8],        [100, 3.3], [100, 3.5],        [100, 3]    ]    r = await regPoly(arr, 3)    console.log(r)    // => {    //   b: 21.051572327842386,    //   m1: -0.7142872117740979,    //   m2: 0.0087657232709057,    //   m3: -0.000034014675054462467    // }    arr = [        [50, 3.3], [50, 2.8],        [50, 2.9], [70, 2.3],        [70, 2.6], [70, 2.1],        [80, 2.5], [80, 2.9],        [80, 2.4], [90, 3],        [90, 3.1], [90, 2.8],        [100, 3.3], [100, 3.5],        [100, 3]    ]    r = await regPoly(arr, 2, { useRegIntercept: false }) //不使用截距, 也就是截距b=0    console.log(r)    // => { b: 0, m1: 0.06524644304242452, m2: -0.00035672260356343373 }    arr = [        [50, 3.3], [50, 2.8],        [50, 2.9], [70, 2.3],        [70, 2.6], [70, 2.1],        [80, 2.5], [80, 2.9],        [80, 2.4], [90, 3],        [90, 3.1], [90, 2.8],        [100, 3.3], [100, 3.5],        [100, 3]    ]    r = await regPoly(arr, 2, { interpX: 80 })    console.log(r)    // => {    //   b: 7.960481099654818,    //   m1: -0.15371134020614285,    //   m2: 0.0010756013745701653,    //   interpX: 80,    //   interpY: 2.5474226804124473    // }    arr = [        [50, 3.3], [50, 2.8],        [50, 2.9], [70, 2.3],        [70, 2.6], [70, 2.1],        [80, 2.5], [80, 2.9],        [80, 2.4], [90, 3],        [90, 3.1], [90, 2.8],        [100, 3.3], [100, 3.5],        [100, 3]    ]    r = await regPoly(arr, 2, { calcR2: true })    console.log(r)    // => {    //   b: 7.960481099654818,    //   m1: -0.15371134020614285,    //   m2: 0.0010756013745701653,    //   r2: 0.6732052768464256    // }    arr = [        [50, 3.3], [50, 2.8],        [50, 2.9], [70, 2.3],        [70, 2.6], [70, 2.1],        [80, 2.5], [80, 2.9],        [80, 2.4], [90, 3],        [90, 3.1], [90, 2.8],        [100, 3.3], [100, 3.5],        [100, 3]    ]    r = regPoly(arr, 2, { useSync: true }) //使用同步函數(sync)    console.log(r)    // => {    //   b: 7.960481099654818,    //   m1: -0.15371134020614285,    //   m2: 0.0010756013745701653    // }    arr = [        [1, 2.5],        [2.5, 1.1],        [4, 0.5],    ]    r = await regPoly(arr, 1)    console.log(r)    // => { b: 3.0333333333333314, m1: -0.666666666666666 }}test()    .catch((err) => {        console.log(err)    })</code></pre>
 
 
 
@@ -5868,6 +5908,46 @@
             
 
             <td class="description last"><p>輸入經由回歸結果內插指定x值數字，預設null</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>calcR2</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>false</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>輸入是否計算r2值布林值，預設false</p></td>
         </tr>
 
     
@@ -6027,7 +6107,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="regPower.mjs.html">regPower.mjs</a>, <a href="regPower.mjs.html#line34">line 34</a>
+        <a href="regPower.mjs.html">regPower.mjs</a>, <a href="regPower.mjs.html#line92">line 92</a>
     </li></ul></dd>
     
 
@@ -6074,7 +6154,7 @@
 
     <h5 class="h5-examples">Example</h5>
     
-    <pre class="prettyprint"><code>async function test() {}test()    .catch((err) => {        console.log(err)    })</code></pre>
+    <pre class="prettyprint"><code>async function test() {    let arr    let r    arr = [        [1, 2.5],        [2.5, 1.1],        [4, 0.5],    ]    r = await regPower(arr)    console.log(r)    // => { a: 2.6361956497645123, b: -1.1246302189091415 }    arr = [        [1, 0.5],        [2.5, 1.1],        [4, 2.5],    ]    r = await regPower(arr)    console.log(r)    // => { a: 0.47081085944621165, b: 1.1197632837626978 }    arr = [        [1, 2.5],        [2.5, 1.1],        [4, 0.5],    ]    r = await regPower(arr, { interpX: 2 })    console.log(r)    // => {    //   a: 2.6361956497645123,    //   b: -1.1246302189091415,    //   interpY: 1.2090108799137966    // }    arr = [        [1, 2.5],        [2.5, 1.1],        [4, 0.5],    ]    r = await regPower(arr, { calcR2: true })    console.log(r)    // => {    //   a: 2.6361956497645123,    //   b: -1.1246302189091415,    //   r2: 0.977737578800406    // }    arr = [        [1, 2.5],        [2.5, 1.1],        [4, 0.5],    ]    r = regPower(arr, { useSync: true }) //使用同步函數(sync)    console.log(r)    // => { a: 2.6361956497645123, b: -1.1246302189091415 }}test()    .catch((err) => {        console.log(err)    })</code></pre>
 
 
 
@@ -6241,6 +6321,46 @@
             
 
             <td class="description last"><p>輸入經由回歸結果內插指定x值數字，預設null</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>calcR2</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>false</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>輸入是否計算r2值布林值，預設false</p></td>
         </tr>
 
     
@@ -6919,7 +7039,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a> on Sat Sep 07 2024 22:44:18 GMT+0800 (台北標準時間) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a> on Tue Jul 29 2025 14:21:18 GMT+0800 (台北標準時間) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
