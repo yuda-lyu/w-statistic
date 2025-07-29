@@ -41,6 +41,19 @@ async function test() {
         [2.5, 1.1],
         [4, 0.5],
     ]
+    r = await regPower(arr, { calcR2: true })
+    console.log(r)
+    // => {
+    //   a: 2.6361956497645123,
+    //   b: -1.1246302189091415,
+    //   r2: 0.977737578800406
+    // }
+
+    arr = [
+        [1, 2.5],
+        [2.5, 1.1],
+        [4, 0.5],
+    ]
     r = regPower(arr, { useSync: true }) //使用同步函數(sync)
     console.log(r)
     // => { a: 2.6361956497645123, b: -1.1246302189091415 }
@@ -51,4 +64,4 @@ test()
         console.log(err)
     })
 
-//node --experimental-modules g.regPower.mjs
+//node g.regPower.mjs

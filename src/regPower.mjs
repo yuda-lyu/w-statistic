@@ -7,6 +7,7 @@ import isbol from 'wsemi/src/isbol.mjs'
 import iseobj from 'wsemi/src/iseobj.mjs'
 import isearr from 'wsemi/src/isearr.mjs'
 import cdbl from 'wsemi/src/cdbl.mjs'
+import ss from './simpleStatistics.mjs'
 import regLine from './regLine.mjs'
 
 
@@ -18,12 +19,69 @@ import regLine from './regLine.mjs'
  * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算
  * @param {Object} [opt={}] 輸入設定物件，預設{}
  * @param {Number} [opt.interpX=null] 輸入經由回歸結果內插指定x值數字，預設null
+ * @param {Boolean} [opt.calcR2=false] 輸入是否計算r2值布林值，預設false
  * @param {Boolean} [opt.useSync=false] 輸入是否使用同步函數布林值，預設false
  * @returns {Object|Promise} 若useSync=true回傳回歸結果物件，若useSync=false則回傳Promise，此時若成功則resolve回歸結果物件，若失敗則reject錯誤訊息
  * @example
  *
  * async function test() {
-
+ *
+ *     let arr
+ *     let r
+ *
+ *     arr = [
+ *         [1, 2.5],
+ *         [2.5, 1.1],
+ *         [4, 0.5],
+ *     ]
+ *     r = await regPower(arr)
+ *     console.log(r)
+ *     // => { a: 2.6361956497645123, b: -1.1246302189091415 }
+ *
+ *     arr = [
+ *         [1, 0.5],
+ *         [2.5, 1.1],
+ *         [4, 2.5],
+ *     ]
+ *     r = await regPower(arr)
+ *     console.log(r)
+ *     // => { a: 0.47081085944621165, b: 1.1197632837626978 }
+ *
+ *     arr = [
+ *         [1, 2.5],
+ *         [2.5, 1.1],
+ *         [4, 0.5],
+ *     ]
+ *     r = await regPower(arr, { interpX: 2 })
+ *     console.log(r)
+ *     // => {
+ *     //   a: 2.6361956497645123,
+ *     //   b: -1.1246302189091415,
+ *     //   interpY: 1.2090108799137966
+ *     // }
+ *
+ *     arr = [
+ *         [1, 2.5],
+ *         [2.5, 1.1],
+ *         [4, 0.5],
+ *     ]
+ *     r = await regPower(arr, { calcR2: true })
+ *     console.log(r)
+ *     // => {
+ *     //   a: 2.6361956497645123,
+ *     //   b: -1.1246302189091415,
+ *     //   r2: 0.977737578800406
+ *     // }
+ *
+ *     arr = [
+ *         [1, 2.5],
+ *         [2.5, 1.1],
+ *         [4, 0.5],
+ *     ]
+ *     r = regPower(arr, { useSync: true }) //使用同步函數(sync)
+ *     console.log(r)
+ *     // => { a: 2.6361956497645123, b: -1.1246302189091415 }
+ *
  * }
  * test()
  *     .catch((err) => {
@@ -37,6 +95,12 @@ function regPower(arr, opt = {}) {
     let interpX = get(opt, 'interpX')
     if (!isnum(interpX)) {
         interpX = null
+    }
+
+    //calcR2
+    let calcR2 = get(opt, 'calcR2')
+    if (!isbol(calcR2)) {
+        calcR2 = false
     }
 
     //useSync
@@ -79,27 +143,41 @@ function regPower(arr, opt = {}) {
         })
 
         //regLine
-        let r = regLine(rsLog, { useRegIntercept: true, useSync: true }) //要使用截距, 先簡化使用sync
+        let rl = regLine(rsLog, { useRegIntercept: true, useSync: true }) //要使用截距, 先簡化使用sync
 
         //check
-        if (!iseobj(r)) {
+        if (!iseobj(rl)) {
             return null
         }
 
-        //rp
-        let rp = {
-            a: Math.exp(r.b),
-            b: r.m,
+        //r
+        let r = {
+            a: Math.exp(rl.b),
+            b: rl.m,
         }
 
         //interpX
         if (isnum(interpX)) {
             interpX = cdbl(interpX)
-            let interpY = rp.a * (interpX ** rp.b)
-            rp.interpY = interpY
+            let interpY = r.a * (interpX ** r.b)
+            r.interpY = interpY
         }
 
-        return rp
+        //calcR2
+        if (calcR2) {
+            // let ys = []
+            // let yps = []
+            // each(rs, ([x, y]) => {
+            //     let yp = r.a * (x ** r.b)
+            //     ys.push(y)
+            //     yps.push(yp)
+            // })
+            // let r2 = ss.rSquared(ys, yps)
+            let r2 = ss.rSquared(rs, (x) => r.a * (x ** r.b))
+            r.r2 = r2
+        }
+
+        return r
     }
 
     //_async

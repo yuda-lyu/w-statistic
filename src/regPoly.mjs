@@ -9,6 +9,7 @@ import isearr from 'wsemi/src/isearr.mjs'
 import ispint from 'wsemi/src/ispint.mjs'
 import cint from 'wsemi/src/cint.mjs'
 import cdbl from 'wsemi/src/cdbl.mjs'
+import ss from './simpleStatistics.mjs'
 import { PolynomialRegression } from 'ml-regression-polynomial'
 
 
@@ -20,6 +21,7 @@ import { PolynomialRegression } from 'ml-regression-polynomial'
  * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算
  * @param {Object} [opt={}] 輸入設定物件，預設{}
  * @param {Number} [opt.interpX=null] 輸入經由回歸結果內插指定x值數字，預設null
+ * @param {Boolean} [opt.calcR2=false] 輸入是否計算r2值布林值，預設false
  * @param {Boolean} [opt.useRegIntercept=true] 輸入是否回歸使用截距布林值，預設true
  * @param {Boolean} [opt.useSync=false] 輸入是否使用同步函數布林值，預設false
  * @returns {Object|Promise} 若useSync=true回傳回歸結果物件，若useSync=false則回傳Promise，此時若成功則resolve回歸結果物件，若失敗則reject錯誤訊息
@@ -111,6 +113,25 @@ import { PolynomialRegression } from 'ml-regression-polynomial'
  *         [100, 3.3], [100, 3.5],
  *         [100, 3]
  *     ]
+ *     r = await regPoly(arr, 2, { calcR2: true })
+ *     console.log(r)
+ *     // => {
+ *     //   b: 7.960481099654818,
+ *     //   m1: -0.15371134020614285,
+ *     //   m2: 0.0010756013745701653,
+ *     //   r2: 0.6732052768464256
+ *     // }
+ *
+ *     arr = [
+ *         [50, 3.3], [50, 2.8],
+ *         [50, 2.9], [70, 2.3],
+ *         [70, 2.6], [70, 2.1],
+ *         [80, 2.5], [80, 2.9],
+ *         [80, 2.4], [90, 3],
+ *         [90, 3.1], [90, 2.8],
+ *         [100, 3.3], [100, 3.5],
+ *         [100, 3]
+ *     ]
  *     r = regPoly(arr, 2, { useSync: true }) //使用同步函數(sync)
  *     console.log(r)
  *     // => {
@@ -141,6 +162,12 @@ function regPoly(arr, degree, opt = {}) {
     let interpX = get(opt, 'interpX')
     if (!isnum(interpX)) {
         interpX = null
+    }
+
+    //calcR2
+    let calcR2 = get(opt, 'calcR2')
+    if (!isbol(calcR2)) {
+        calcR2 = false
     }
 
     //useRegIntercept, 是否回歸使用截距
@@ -230,6 +257,20 @@ function regPoly(arr, degree, opt = {}) {
             let interpY = regression.predict(interpX)
             r.interpX = interpX
             r.interpY = interpY
+        }
+
+        //calcR2
+        if (calcR2) {
+            // let ys = []
+            // let yps = []
+            // each(rs, ([x, y]) => {
+            //     let yp = regression.predict(x)
+            //     ys.push(y)
+            //     yps.push(yp)
+            // })
+            // let r2 = ss.rSquared(ys, yps)
+            let r2 = ss.rSquared(rs, (x) => regression.predict(x))
+            r.r2 = r2
         }
 
         return r

@@ -20,4 +20,4 @@ test()
         console.log(err)
     })
 
-//node --experimental-modules g.arrGammaFit.mjs
+//node g.arrGammaFit.mjs

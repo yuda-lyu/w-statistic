@@ -341,4 +341,4 @@ test()
         console.log(err)
     })
 
-//node --experimental-modules g.histGen.mjs
+//node g.histGen.mjs

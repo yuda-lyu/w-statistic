@@ -50,6 +50,19 @@ async function test() {
         [2.5, 1.1],
         [4, 0.5],
     ]
+    r = await regLine(arr, { calcR2: true })
+    console.log(r)
+    // => {
+    //   m: -0.6666666666666664,
+    //   b: 3.0333333333333323,
+    //   r2: 0.949367088607595
+    // }
+
+    arr = [
+        [1, 2.5],
+        [2.5, 1.1],
+        [4, 0.5],
+    ]
     r = regLine(arr, { useSync: true }) //使用同步函數(sync)
     console.log(r)
     // => { m: -0.6666666666666664, b: 3.0333333333333323 }
@@ -60,4 +73,4 @@ test()
         console.log(err)
     })
 
-//node --experimental-modules g.regLine.mjs
+//node g.regLine.mjs

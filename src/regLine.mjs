@@ -17,6 +17,7 @@ import ss from './simpleStatistics.mjs'
  * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算
  * @param {Object} [opt={}] 輸入設定物件，預設{}
  * @param {Number} [opt.interpX=null] 輸入經由回歸結果內插指定x值數字，預設null
+ * @param {Boolean} [opt.calcR2=false] 輸入是否計算r2值布林值，預設false
  * @param {Boolean} [opt.useRegIntercept=true] 輸入是否回歸使用截距布林值，預設true
  * @param {Boolean} [opt.useSync=false] 輸入是否使用同步函數布林值，預設false
  * @returns {Object|Promise} 若useSync=true回傳回歸結果物件，若useSync=false則回傳Promise，此時若成功則resolve回歸結果物件，若失敗則reject錯誤訊息
@@ -72,6 +73,19 @@ import ss from './simpleStatistics.mjs'
  *         [2.5, 1.1],
  *         [4, 0.5],
  *     ]
+ *     r = await regLine(arr, { calcR2: true })
+ *     console.log(r)
+ *     // => {
+ *     //   m: -0.6666666666666664,
+ *     //   b: 3.0333333333333323,
+ *     //   r2: 0.949367088607595
+ *     // }
+ *
+ *     arr = [
+ *         [1, 2.5],
+ *         [2.5, 1.1],
+ *         [4, 0.5],
+ *     ]
  *     r = regLine(arr, { useSync: true }) //使用同步函數(sync)
  *     console.log(r)
  *     // => { m: -0.6666666666666664, b: 3.0333333333333323 }
@@ -89,6 +103,12 @@ function regLine(arr, opt = {}) {
     let interpX = get(opt, 'interpX')
     if (!isnum(interpX)) {
         interpX = null
+    }
+
+    //calcR2
+    let calcR2 = get(opt, 'calcR2')
+    if (!isbol(calcR2)) {
+        calcR2 = false
     }
 
     //useRegIntercept, 是否回歸使用截距
@@ -164,6 +184,12 @@ function regLine(arr, opt = {}) {
             interpX = cdbl(interpX)
             let interpY = ss.linearRegressionLine(r)(interpX)
             r.interpY = interpY
+        }
+
+        //calcR2
+        if (calcR2) {
+            let r2 = ss.rSquared(rs, (x) => ss.linearRegressionLine(r)(x))
+            r.r2 = r2
         }
 
         return r

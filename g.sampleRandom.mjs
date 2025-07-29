@@ -32,4 +32,4 @@ test()
         console.log(err)
     })
 
-//node --experimental-modules g.sampleRandom.mjs
+//node g.sampleRandom.mjs

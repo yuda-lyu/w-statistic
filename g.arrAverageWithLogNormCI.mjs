@@ -46,4 +46,4 @@ test()
         console.log(err)
     })
 
-//node --experimental-modules g.arrAverageWithLogNormCI.mjs
+//node g.arrAverageWithLogNormCI.mjs

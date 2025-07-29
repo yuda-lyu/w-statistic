@@ -113,16 +113,40 @@ describe(`regPoly`, function() {
     kpOut[k] = {
         b: 7.960481099654818,
         m1: -0.15371134020614285,
-        m2: 0.0010756013745701653
+        m2: 0.0010756013745701653,
+        r2: 0.6732052768464256
     }
-    it(`should return ${JSON.stringify(kpOut[k])} when input ${JSON.stringify(kpArr[k])}, 2, { useSync: true }`, async function() {
+    it(`should return ${JSON.stringify(kpOut[k])} when input ${JSON.stringify(kpArr[k])}, 2, { calcR2: true }`, async function() {
         let k = 4
-        let r = await regPoly(kpArr[k], 2, { useSync: true })
+        let r = await regPoly(kpArr[k], 2, { calcR2: true })
         let rr = kpOut[k]
         assert.strict.deepStrictEqual(r, rr)
     })
 
     k = 5
+    kpArr[k] = [
+        [50, 3.3], [50, 2.8],
+        [50, 2.9], [70, 2.3],
+        [70, 2.6], [70, 2.1],
+        [80, 2.5], [80, 2.9],
+        [80, 2.4], [90, 3],
+        [90, 3.1], [90, 2.8],
+        [100, 3.3], [100, 3.5],
+        [100, 3]
+    ]
+    kpOut[k] = {
+        b: 7.960481099654818,
+        m1: -0.15371134020614285,
+        m2: 0.0010756013745701653
+    }
+    it(`should return ${JSON.stringify(kpOut[k])} when input ${JSON.stringify(kpArr[k])}, 2, { useSync: true }`, async function() {
+        let k = 5
+        let r = await regPoly(kpArr[k], 2, { useSync: true })
+        let rr = kpOut[k]
+        assert.strict.deepStrictEqual(r, rr)
+    })
+
+    k = 6
     kpArr[k] = [
         [1, 2.5],
         [2.5, 1.1],
@@ -130,7 +154,7 @@ describe(`regPoly`, function() {
     ]
     kpOut[k] = { b: 3.0333333333333314, m1: -0.666666666666666 }
     it(`should return ${JSON.stringify(kpOut[k])} when input ${JSON.stringify(kpArr[k])}, 1`, async function() {
-        let k = 5
+        let k = 6
         let r = await regPoly(kpArr[k], 1)
         let rr = kpOut[k]
         assert.strict.deepStrictEqual(r, rr)

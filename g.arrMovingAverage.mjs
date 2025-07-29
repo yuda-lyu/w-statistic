@@ -65,4 +65,4 @@ console.log(arrMovingAverage(arr, { mode: 'EMA', selectCountHalf: 3 }))
 //   12.28277587890625
 // ]
 
-//node --experimental-modules g.arrMovingAverage.mjs
+//node g.arrMovingAverage.mjs

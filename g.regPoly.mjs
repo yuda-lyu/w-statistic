@@ -1,5 +1,4 @@
 import regPoly from './src/regPoly.mjs'
-import _ from 'lodash-es'
 
 async function test() {
 
@@ -87,6 +86,25 @@ async function test() {
         [100, 3.3], [100, 3.5],
         [100, 3]
     ]
+    r = await regPoly(arr, 2, { calcR2: true })
+    console.log(r)
+    // => {
+    //   b: 7.960481099654818,
+    //   m1: -0.15371134020614285,
+    //   m2: 0.0010756013745701653,
+    //   r2: 0.6732052768464256
+    // }
+
+    arr = [
+        [50, 3.3], [50, 2.8],
+        [50, 2.9], [70, 2.3],
+        [70, 2.6], [70, 2.1],
+        [80, 2.5], [80, 2.9],
+        [80, 2.4], [90, 3],
+        [90, 3.1], [90, 2.8],
+        [100, 3.3], [100, 3.5],
+        [100, 3]
+    ]
     r = regPoly(arr, 2, { useSync: true }) //使用同步函數(sync)
     console.log(r)
     // => {
@@ -110,4 +128,4 @@ test()
         console.log(err)
     })
 
-//node --experimental-modules g.regPoly.mjs
+//node g.regPoly.mjs

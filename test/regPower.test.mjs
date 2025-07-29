@@ -60,9 +60,23 @@ describe(`regPower`, function() {
         [2.5, 1.1],
         [4, 0.5],
     ]
+    kpOut[k] = { a: 2.6361956497645123, b: -1.1246302189091415, r2: 0.977737578800406 }
+    it(`should return ${JSON.stringify(kpOut[k])} when input ${JSON.stringify(kpArr[k])}, { calcR2: true }`, async function() {
+        let k = 3
+        let r = await regPower(kpArr[k], { calcR2: true })
+        let rr = kpOut[k]
+        assert.strict.deepStrictEqual(r, rr)
+    })
+
+    k = 4
+    kpArr[k] = [
+        [1, 2.5],
+        [2.5, 1.1],
+        [4, 0.5],
+    ]
     kpOut[k] = { a: 2.6361956497645123, b: -1.1246302189091415 }
     it(`should return ${JSON.stringify(kpOut[k])} when input ${JSON.stringify(kpArr[k])}, { useSync: true }`, async function() {
-        let k = 3
+        let k = 4
         let r = regPower(kpArr[k], { useSync: true }) //不使用await
         let rr = kpOut[k]
         assert.strict.deepStrictEqual(r, rr)

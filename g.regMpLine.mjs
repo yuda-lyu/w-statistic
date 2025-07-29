@@ -224,4 +224,4 @@ test()
         console.log(err)
     })
 
-//node --experimental-modules g.regMpLine.mjs
+//node g.regMpLine.mjs

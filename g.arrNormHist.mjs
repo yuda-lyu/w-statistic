@@ -407,4 +407,4 @@ test()
         console.log(err)
     })
 
-//node --experimental-modules g.arrNormHist.mjs
+//node g.arrNormHist.mjs

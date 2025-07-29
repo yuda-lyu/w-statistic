@@ -20,4 +20,4 @@ test()
         console.log(err)
     })
 
-//node --experimental-modules g.studentTInv.mjs
+//node g.studentTInv.mjs

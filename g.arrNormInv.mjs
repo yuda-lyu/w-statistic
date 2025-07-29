@@ -36,4 +36,4 @@ test()
         console.log(err)
     })
 
-//node --experimental-modules g.arrNormInv.mjs
+//node g.arrNormInv.mjs

@@ -868,4 +868,4 @@ test()
         console.log(err)
     })
 
-//node --experimental-modules g.arrGammaHist.mjs
+//node g.arrGammaHist.mjs

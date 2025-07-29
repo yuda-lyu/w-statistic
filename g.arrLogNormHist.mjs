@@ -877,4 +877,4 @@ test()
         console.log(err)
     })
 
-//node --experimental-modules g.arrLogNormHist.mjs
+//node g.arrLogNormHist.mjs

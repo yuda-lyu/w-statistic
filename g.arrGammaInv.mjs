@@ -20,4 +20,4 @@ test()
         console.log(err)
     })
 
-//node --experimental-modules g.arrGammaInv.mjs
+//node g.arrGammaInv.mjs

@@ -74,9 +74,23 @@ describe(`regLine`, function() {
         [2.5, 1.1],
         [4, 0.5],
     ]
+    kpOut[k] = { m: -0.6666666666666664, b: 3.0333333333333323, r2: 0.949367088607595 }
+    it(`should return ${JSON.stringify(kpOut[k])} when input ${JSON.stringify(kpArr[k])}, { calcR2: true }`, async function() {
+        let k = 4
+        let r = await regLine(kpArr[k], { calcR2: true })
+        let rr = kpOut[k]
+        assert.strict.deepStrictEqual(r, rr)
+    })
+
+    k = 5
+    kpArr[k] = [
+        [1, 2.5],
+        [2.5, 1.1],
+        [4, 0.5],
+    ]
     kpOut[k] = { m: -0.6666666666666664, b: 3.0333333333333323 }
     it(`should return ${JSON.stringify(kpOut[k])} when input ${JSON.stringify(kpArr[k])}, { useSync: true }`, async function() {
-        let k = 4
+        let k = 5
         let r = regLine(kpArr[k], { useSync: true }) //不使用await
         let rr = kpOut[k]
         assert.strict.deepStrictEqual(r, rr)

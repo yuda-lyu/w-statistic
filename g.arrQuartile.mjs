@@ -42,5 +42,5 @@ arr = ['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']
 console.log(arrQuartile(arr, 0.5))
 // => 1
 
-//node --experimental-modules g.arrQuartile.mjs
+//node g.arrQuartile.mjs
 

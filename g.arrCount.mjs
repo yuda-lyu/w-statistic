@@ -29,4 +29,4 @@ console.log(arrCount(arr))
 //  { key: '22.5', count: 1 }
 //]
 
-//node --experimental-modules g.arrCount.mjs
+//node g.arrCount.mjs
