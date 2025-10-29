@@ -12,13 +12,13 @@ A tool for statistical analysis.
 To view documentation or get support, visit [docs](https://yuda-lyu.github.io/w-statistic/w-statistic.html).
 
 ## Installation
+
 ### Using npm(ES6 module):
 ```alias
 npm i w-statistic
 ```
 
 ### In a browser(UMD module):
-> **Note:** w-statistic does not dependent on any package.
 
 Add script for w-statistic.
 ```alias
