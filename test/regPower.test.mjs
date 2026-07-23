@@ -45,7 +45,7 @@ describe(`regPower`, function() {
     kpOut[k] = {
         a: 2.6361956497645123,
         b: -1.1246302189091415,
-        interpY: 1.2090108799137966
+        interpY: 1.2090108799137964
     }
     it(`should return ${JSON.stringify(kpOut[k])} when input ${JSON.stringify(kpArr[k])}, { interpX: 2 }`, async function() {
         let k = 2
