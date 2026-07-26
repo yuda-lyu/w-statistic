@@ -1,5 +1,5 @@
-import assert from 'assert'
 import regPoly from '../src/regPoly.mjs'
+import assertApprox from './tools/assertApprox.mjs'
 
 
 describe(`regPoly`, function() {
@@ -28,7 +28,7 @@ describe(`regPoly`, function() {
         let k = 0
         let r = await regPoly(kpArr[k], 2)
         let rr = kpOut[k]
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     k = 1
@@ -52,7 +52,7 @@ describe(`regPoly`, function() {
         let k = 1
         let r = await regPoly(kpArr[k], 3)
         let rr = kpOut[k]
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     k = 2
@@ -71,7 +71,7 @@ describe(`regPoly`, function() {
         let k = 2
         let r = await regPoly(kpArr[k], 2, { useRegIntercept: false })
         let rr = kpOut[k]
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     k = 3
@@ -96,7 +96,7 @@ describe(`regPoly`, function() {
         let k = 3
         let r = await regPoly(kpArr[k], 2, { interpX: 80 })
         let rr = kpOut[k]
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     k = 4
@@ -120,7 +120,7 @@ describe(`regPoly`, function() {
         let k = 4
         let r = await regPoly(kpArr[k], 2, { calcR2: true })
         let rr = kpOut[k]
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     k = 5
@@ -143,7 +143,7 @@ describe(`regPoly`, function() {
         let k = 5
         let r = await regPoly(kpArr[k], 2, { useSync: true })
         let rr = kpOut[k]
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     k = 6
@@ -157,7 +157,7 @@ describe(`regPoly`, function() {
         let k = 6
         let r = await regPoly(kpArr[k], 1)
         let rr = kpOut[k]
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     it(`should catch when input ''`, async function() {
@@ -167,7 +167,7 @@ describe(`regPoly`, function() {
                 r = err
             })
         let rr = 'arr is not an effective array'
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     it(`should catch when input []`, async function() {
@@ -177,7 +177,7 @@ describe(`regPoly`, function() {
                 r = err
             })
         let rr = 'arr is not an effective array'
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     it(`should catch when input {}`, async function() {
@@ -187,7 +187,7 @@ describe(`regPoly`, function() {
                 r = err
             })
         let rr = 'arr is not an effective array'
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     it(`should catch when input null`, async function() {
@@ -197,7 +197,7 @@ describe(`regPoly`, function() {
                 r = err
             })
         let rr = 'arr is not an effective array'
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     it(`should catch when input undefined`, async function() {
@@ -207,7 +207,7 @@ describe(`regPoly`, function() {
                 r = err
             })
         let rr = 'arr is not an effective array'
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
 })

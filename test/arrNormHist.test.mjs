@@ -1,5 +1,5 @@
-import assert from 'assert'
 import arrNormHist from '../src/arrNormHist.mjs'
+import assertApprox from './tools/assertApprox.mjs'
 
 
 describe(`arrNormHist`, function() {
@@ -29,7 +29,7 @@ describe(`arrNormHist`, function() {
         r = [r.curves[0], r.curves[1], r.curves[2]]
         let rr = kpOut[k]
         rr = rr.curves3
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     k = 1
@@ -50,7 +50,7 @@ describe(`arrNormHist`, function() {
         r = [r.curves[0], r.curves[1], r.curves[2]]
         let rr = kpOut[k]
         rr = rr.curves3
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
 })

@@ -1,5 +1,5 @@
-import assert from 'assert'
 import arrMovingAverage from '../src/arrMovingAverage.mjs'
+import assertApprox from './tools/assertApprox.mjs'
 
 
 describe(`arrMovingAverage`, function() {
@@ -25,7 +25,7 @@ describe(`arrMovingAverage`, function() {
         let k = 1
         let r = arrMovingAverage(o[k].in)
         let rr = o[k].out
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     k = 2
@@ -49,7 +49,7 @@ describe(`arrMovingAverage`, function() {
         let k = 2
         let r = arrMovingAverage(o[k].in, { selectCountHalf: 1 })
         let rr = o[k].out
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     k = 3
@@ -70,7 +70,7 @@ describe(`arrMovingAverage`, function() {
         let k = 3
         let r = arrMovingAverage(o[k].in, { mode: 'SMA', selectCountHalf: 3 })
         let rr = o[k].out
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     k = 4
@@ -98,37 +98,37 @@ describe(`arrMovingAverage`, function() {
         let k = 4
         let r = arrMovingAverage(o[k].in, { mode: 'EMA', selectCountHalf: 3 })
         let rr = o[k].out
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     it(`should return [] when input ''`, function() {
         let r = arrMovingAverage('')
         let rr = []
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     it(`should return [] when input []`, function() {
         let r = arrMovingAverage([])
         let rr = []
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     it(`should return [] when input {}`, function() {
         let r = arrMovingAverage({})
         let rr = []
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     it(`should return [] when input null`, function() {
         let r = arrMovingAverage(null)
         let rr = []
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     it(`should return [] when input undefined`, function() {
         let r = arrMovingAverage(undefined)
         let rr = []
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
 })

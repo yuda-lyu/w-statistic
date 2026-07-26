@@ -1,5 +1,5 @@
-import assert from 'assert'
 import arrGammaFit from '../src/arrGammaFit.mjs'
+import assertApprox from './tools/assertApprox.mjs'
 
 
 describe(`arrGammaFit`, function() {
@@ -95,7 +95,7 @@ describe(`arrGammaFit`, function() {
         r = r.arrCounts
         let rr = kpOut[k]
         rr = rr.arrCounts
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
 })

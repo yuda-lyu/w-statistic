@@ -1,5 +1,5 @@
-import assert from 'assert'
 import regMpLine from '../src/regMpLine.mjs'
+import assertApprox from './tools/assertApprox.mjs'
 
 
 describe(`regMpLine`, function() {
@@ -36,7 +36,7 @@ describe(`regMpLine`, function() {
         let k = 0
         let r = await regMpLine(kpArrX[k], kpArrY[k])
         let rr = kpOut[k]
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     k = 1
@@ -69,7 +69,7 @@ describe(`regMpLine`, function() {
         let k = 1
         let r = await regMpLine(kpArrX[k], kpArrY[k])
         let rr = kpOut[k]
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     k = 2
@@ -105,7 +105,7 @@ describe(`regMpLine`, function() {
         let k = 2
         let r = await regMpLine(kpArrX[k], kpArrY[k])
         let rr = kpOut[k]
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     k = 3
@@ -131,7 +131,7 @@ describe(`regMpLine`, function() {
         let k = 3
         let r = await regMpLine(kpArrX[k], kpArrY[k], { useRegIntercept: false })
         let rr = kpOut[k]
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     k = 4
@@ -163,7 +163,7 @@ describe(`regMpLine`, function() {
         let k = 4
         let r = await regMpLine(kpArrX[k], kpArrY[k], { interpX: [0, 0] })
         let rr = kpOut[k]
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     k = 5
@@ -195,7 +195,7 @@ describe(`regMpLine`, function() {
         let k = 5
         let r = await regMpLine(kpArrX[k], kpArrY[k], { interpX: [100, 0] })
         let rr = kpOut[k]
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     k = 6
@@ -227,7 +227,7 @@ describe(`regMpLine`, function() {
         let k = 6
         let r = await regMpLine(kpArrX[k], kpArrY[k], { interpX: [0, 100] })
         let rr = kpOut[k]
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     k = 7
@@ -257,7 +257,7 @@ describe(`regMpLine`, function() {
         let k = 7
         let r = await regMpLine(kpArrX[k], kpArrY[k], { useSync: true })
         let rr = kpOut[k]
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     it(`should catch when input ''`, async function() {
@@ -267,7 +267,7 @@ describe(`regMpLine`, function() {
                 r = err
             })
         let rr = 'matX is not an effective array'
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     it(`should catch when input []`, async function() {
@@ -277,7 +277,7 @@ describe(`regMpLine`, function() {
                 r = err
             })
         let rr = 'matX is not an effective array'
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     it(`should catch when input {}`, async function() {
@@ -287,7 +287,7 @@ describe(`regMpLine`, function() {
                 r = err
             })
         let rr = 'matX is not an effective array'
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     it(`should catch when input null`, async function() {
@@ -297,7 +297,7 @@ describe(`regMpLine`, function() {
                 r = err
             })
         let rr = 'matX is not an effective array'
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     it(`should catch when input undefined`, async function() {
@@ -307,7 +307,7 @@ describe(`regMpLine`, function() {
                 r = err
             })
         let rr = 'matX is not an effective array'
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
 })

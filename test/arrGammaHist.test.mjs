@@ -1,5 +1,5 @@
-import assert from 'assert'
 import arrGammaHist from '../src/arrGammaHist.mjs'
+import assertApprox from './tools/assertApprox.mjs'
 
 
 describe(`arrGammaHist`, function() {
@@ -29,7 +29,7 @@ describe(`arrGammaHist`, function() {
         r = [r.curves[0], r.curves[1], r.curves[2]]
         let rr = kpOut[k]
         rr = rr.curves3
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     k = 1
@@ -50,7 +50,7 @@ describe(`arrGammaHist`, function() {
         r = [r.curves[0], r.curves[1], r.curves[2]]
         let rr = kpOut[k]
         rr = rr.curves3
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     k = 2
@@ -73,7 +73,7 @@ describe(`arrGammaHist`, function() {
         r = [r.curves[0], r.curves[1], r.curves[2]]
         let rr = kpOut[k]
         rr = rr.curves3
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
 })

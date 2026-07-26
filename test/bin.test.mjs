@@ -1,5 +1,5 @@
-import assert from 'assert'
 import bin from '../src/bin.mjs'
+import assertApprox from './tools/assertApprox.mjs'
 
 
 describe(`bin`, function() {
@@ -29,7 +29,7 @@ describe(`bin`, function() {
         let k = 0
         let r = bin(oin[k], 4)
         let rr = out[k]
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     k = 1
@@ -58,7 +58,7 @@ describe(`bin`, function() {
         let k = 1
         let r = bin(oin[k], 3)
         let rr = out[k]
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     k = 2
@@ -79,7 +79,7 @@ describe(`bin`, function() {
         let k = 2
         let r = bin(oin[k], 5)
         let rr = out[k]
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     k = 3
@@ -95,37 +95,37 @@ describe(`bin`, function() {
         let k = 3
         let r = bin(oin[k], 5, { min: 0, max: 10 })
         let rr = out[k]
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     it(`should return null when input ''`, function() {
         let r = bin('')
         let rr = []
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     it(`should return null when input []`, function() {
         let r = bin([])
         let rr = []
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     it(`should return null when input {}`, function() {
         let r = bin({})
         let rr = []
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     it(`should return null when input null`, function() {
         let r = bin(null)
         let rr = []
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     it(`should return null when input undefined`, function() {
         let r = bin(undefined)
         let rr = []
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
 })

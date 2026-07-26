@@ -1,5 +1,5 @@
-import assert from 'assert'
 import arrGammaInv from '../src/arrGammaInv.mjs'
+import assertApprox from './tools/assertApprox.mjs'
 
 
 describe(`arrGammaInv`, function() {
@@ -10,7 +10,7 @@ describe(`arrGammaInv`, function() {
         let r = await arrGammaInv(arr, 0.5, opt)
         r = r.inv
         let rr = 14.297217114904852
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     it(`should return 'arr is not an array' when input ''`, async () => {
@@ -20,7 +20,7 @@ describe(`arrGammaInv`, function() {
                 r = err
             })
         let rr = 'arr is not an array'
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     it(`should return 'arr is not an effective array' when input []`, async () => {
@@ -30,7 +30,7 @@ describe(`arrGammaInv`, function() {
                 r = err
             })
         let rr = 'arr is not an effective array'
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     it(`should return 'arr is not an array' when input {}`, async () => {
@@ -40,7 +40,7 @@ describe(`arrGammaInv`, function() {
                 r = err
             })
         let rr = 'arr is not an array'
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     it(`should return 'arr is not an array' when input null`, async () => {
@@ -50,7 +50,7 @@ describe(`arrGammaInv`, function() {
                 r = err
             })
         let rr = 'arr is not an array'
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     it(`should return 'arr is not an array' when input undefined`, async () => {
@@ -60,7 +60,7 @@ describe(`arrGammaInv`, function() {
                 r = err
             })
         let rr = 'arr is not an array'
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
 })

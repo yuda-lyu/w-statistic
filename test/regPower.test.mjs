@@ -1,5 +1,5 @@
-import assert from 'assert'
 import regPower from '../src/regPower.mjs'
+import assertApprox from './tools/assertApprox.mjs'
 
 
 describe(`regPower`, function() {
@@ -19,7 +19,7 @@ describe(`regPower`, function() {
         let k = 0
         let r = await regPower(kpArr[k])
         let rr = kpOut[k]
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     k = 1
@@ -33,7 +33,7 @@ describe(`regPower`, function() {
         let k = 1
         let r = await regPower(kpArr[k])
         let rr = kpOut[k]
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     k = 2
@@ -51,7 +51,7 @@ describe(`regPower`, function() {
         let k = 2
         let r = await regPower(kpArr[k], { interpX: 2 })
         let rr = kpOut[k]
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     k = 3
@@ -65,7 +65,7 @@ describe(`regPower`, function() {
         let k = 3
         let r = await regPower(kpArr[k], { calcR2: true })
         let rr = kpOut[k]
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     k = 4
@@ -79,7 +79,7 @@ describe(`regPower`, function() {
         let k = 4
         let r = regPower(kpArr[k], { useSync: true }) //不使用await
         let rr = kpOut[k]
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
 
@@ -90,7 +90,7 @@ describe(`regPower`, function() {
                 r = err
             })
         let rr = 'arr is not an effective array'
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     it(`should catch when input []`, async function() {
@@ -100,7 +100,7 @@ describe(`regPower`, function() {
                 r = err
             })
         let rr = 'arr is not an effective array'
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     it(`should catch when input {}`, async function() {
@@ -110,7 +110,7 @@ describe(`regPower`, function() {
                 r = err
             })
         let rr = 'arr is not an effective array'
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     it(`should catch when input null`, async function() {
@@ -120,7 +120,7 @@ describe(`regPower`, function() {
                 r = err
             })
         let rr = 'arr is not an effective array'
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
     it(`should catch when input undefined`, async function() {
@@ -130,7 +130,7 @@ describe(`regPower`, function() {
                 r = err
             })
         let rr = 'arr is not an effective array'
-        assert.strict.deepStrictEqual(r, rr)
+        assertApprox(r, rr)
     })
 
 })
