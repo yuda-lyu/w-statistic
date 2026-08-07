@@ -1,15 +1,14 @@
 {
   "name": "w-statistic",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "main": "dist/w-statistic.umd.js",
   "dependencies": {
     "jstat": "^1.9.6",
-    "lodash-es": "^4.18.1",
     "ml-regression-multivariate-linear": "^2.0.4",
     "ml-regression-polynomial": "^3.0.2",
     "simple-statistics": "^7.8.8",
-    "w-optimization": "^1.0.22",
-    "wsemi": "^1.8.67"
+    "w-optimization": "^1.0.23",
+    "wsemi": "^1.8.68"
   },
   "devDependencies": {
     "w-package-tools": "^1.1.12"
