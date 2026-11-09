@@ -133,4 +133,38 @@ describe(`regPower`, function() {
         assertApprox(r, rr)
     })
 
+    //以下為升版simple-statistics 8.0.0後補之代表性迴歸結果(期望值由構造之真值給定, 非現況輸出)與空輸入
+
+    it(`should return { a: 3, b: 2, interpY: 300, r2: 1 } when input exact power y=3x^2, { interpX: 10, calcR2: true }`, async function() {
+        //完全落在y=3x^2上之資料, a=3, b=2, x=10時y=300, 決定係數r2=1
+        let arr = [1, 2, 3, 4, 5].map((x) => [x, 3 * x ** 2])
+        let r = await regPower(arr, { interpX: 10, calcR2: true })
+        let rr = { a: 3, b: 2, interpY: 300, r2: 1 }
+        assertApprox(r, rr, { relTol: 1e-9 }) //內含Math.log與Math.exp, 容差放寬至1e-9(仍遠小於任何計算變更之量級)
+    })
+
+    it(`should catch when input [['a', 'b'], [null, 1], [undefined, undefined]]`, async function() {
+        //陣列內無任何有效數據點, 非同步版須reject
+        let r
+        await regPower([['a', 'b'], [null, 1], [undefined, undefined]])
+            .catch((err) => {
+                r = err
+            })
+        let rr = 'no effective data'
+        assertApprox(r, rr)
+    })
+
+    it(`should throw when input [['a', 'b'], [null, 1]] and useSync`, function() {
+        //陣列內無任何有效數據點, 同步版須丟錯
+        let r
+        try {
+            regPower([['a', 'b'], [null, 1]], { useSync: true })
+        }
+        catch (err) {
+            r = err.message
+        }
+        let rr = 'no effective data'
+        assertApprox(r, rr)
+    })
+
 })
