@@ -16,10 +16,12 @@
 | `arrQuartile`(分位數) | 已做:自行實作母體分位數(`src/arrQuartile.mjs` 之 `quantileSorted`),結果與 simple-statistics 7.8.8 逐位一致,不隨 8.0.0 之線性內插而變;空輸入回 `null` | R1 | `test/arrQuartile.test.mjs` |
 | `regLine`/`regPower`/`regPoly`(迴歸) | 已做:沿用依賴;完全擬合資料可還原真值,`regPoly` 與獨立解法一致;空輸入 reject/丟錯 | R1 | `test/regLine.test.mjs`、`test/regPower.test.mjs`、`test/regPoly.test.mjs` |
 | `simpleStatistics`(透傳) | 已做:原樣透傳 simple-statistics 8.0.0,不包裝 | R1 | `test/simpleStatistics.test.mjs` |
+| `arrMovingAverage`(移動平均) | 已做:PMA 新增 `opt.selectCount`(總取點數,含偶數;有給時優先於 `selectCountHalf`;偶數 N 前取 N/2、後取 N/2−1,同 MATLAB movmean 偶數窗;非正整數視為未給;SMA／EMA 不受影響)(2026-11-10,Gitea #124) | — | `test/arrMovingAverage.test.mjs`、`test/arrMovingAverageSelectCount.test.mjs` |
 | 其餘函式(`arrAverage`、`arrStd`、`histGen` 等) | 本輪未動,見各 `test/<函式>.test.mjs` | — | — |
 
 ## 最近一次驗證
 
+- 2026-11-10:`npm test` 265 案全綠(新增 `arrMovingAverageSelectCount` 7 案;對原版實跑 3 綠 4 紅,改後 7 綠).
 - 2026-11-09:`npm test` 258 案全綠(升版前 200 案).`dist/` 未重建(發布流程自動產製);以相同選項試建置至 `./tmp` 成功,UMD 冒煙通過.
 
 ## 已知缺口與待辦

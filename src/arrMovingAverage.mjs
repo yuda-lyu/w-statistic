@@ -4,6 +4,7 @@ import size from 'lodash-es/size.js'
 import cloneDeep from 'lodash-es/cloneDeep.js'
 import isarr from 'wsemi/src/isarr.mjs'
 import isp0int from 'wsemi/src/isp0int.mjs'
+import ispint from 'wsemi/src/ispint.mjs'
 import cint from 'wsemi/src/cint.mjs'
 import cdbl from 'wsemi/src/cdbl.mjs'
 import arrAverage from './arrAverage.mjs'
@@ -17,6 +18,7 @@ import arrAverage from './arrAverage.mjs'
  * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算
  * @param {Object} [opt={}] 輸入設定物件，預設{}
  * @param {Integer} [opt.selectCountHalf=2] 輸入上下取點數整數，總取點數為2*selectCountHalf+1，預設2(取5點)
+ * @param {Integer} [opt.selectCount] 輸入總取點數正整數，僅mode為PMA時使用，有給時優先於selectCountHalf；奇數N前後各取(N-1)/2點，偶數N前取N/2點、後取N/2-1點(同MATLAB movmean之偶數窗慣例)，邊界處截斷後以實際點數平均；非正整數視為未給
  * @returns {Array} 回傳移動平均值陣列
  * @example
  *
@@ -52,6 +54,14 @@ import arrAverage from './arrAverage.mjs'
  * //   22.5
  * // ]
  *
+ * arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+ * console.log(arrMovingAverage(arr, { selectCount: 4 }))
+ * // => [
+ * //   1.5, 2, 2.5, 3.5,
+ * //   4.5, 5.5, 6.5, 7.5,
+ * //   8.5, 9
+ * // ]
+ *
  */
 function arrMovingAverage(arr, opt = {}) {
 
@@ -69,6 +79,13 @@ function arrMovingAverage(arr, opt = {}) {
         selectCountHalf = 2
     }
     selectCountHalf = cint(selectCountHalf)
+
+    //selectCount, 僅PMA使用, 為總取點數, 有給時優先於selectCountHalf
+    let selectCount = get(opt, 'selectCount')
+    let useSelectCount = ispint(selectCount)
+    if (useSelectCount) {
+        selectCount = cint(selectCount)
+    }
 
     //mode
     let mode = get(opt, 'mode', '')
@@ -93,11 +110,19 @@ function arrMovingAverage(arr, opt = {}) {
         let r = 0
         if (mode === 'PMA') {
 
+            //nBefore, nAfter, 以selectCount取點時: 奇數前後各(N-1)/2點, 偶數前取N/2點、後取N/2-1點
+            let nBefore = selectCountHalf
+            let nAfter = selectCountHalf
+            if (useSelectCount) {
+                nBefore = Math.floor(selectCount / 2)
+                nAfter = selectCount - 1 - nBefore
+            }
+
             //kStart, kEnd
-            let kStart = k - selectCountHalf
+            let kStart = k - nBefore
             kStart = Math.max(kStart, 0)
             kStart = Math.min(kStart, n - 1)
-            let kEnd = Math.max(k + selectCountHalf, 0)
+            let kEnd = Math.max(k + nAfter, 0)
             kEnd = Math.max(kEnd, 0)
             kEnd = Math.min(kEnd, n - 1)
             // console.log('mode', mode)
