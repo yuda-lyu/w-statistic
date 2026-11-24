@@ -1,17 +1,17 @@
 {
   "name": "w-statistic",
-  "version": "1.0.75",
+  "version": "1.0.76",
   "main": "dist/w-statistic.umd.js",
   "dependencies": {
     "jstat": "^1.9.6",
     "ml-regression-multivariate-linear": "^2.0.4",
     "ml-regression-polynomial": "^4.0.0",
     "simple-statistics": "^8.0.0",
-    "w-optimization": "^1.0.73",
-    "wsemi": "^1.9.73"
+    "w-optimization": "^1.0.75",
+    "wsemi": "^1.9.74"
   },
   "devDependencies": {
-    "w-package-tools": "^1.1.29"
+    "w-package-tools": "^1.1.30"
   },
   "scripts": {
     "test": "mocha --parallel \"test/*.test.mjs\" --timeout 180000",
