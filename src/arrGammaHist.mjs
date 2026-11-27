@@ -2,7 +2,7 @@ import size from 'lodash-es/size.js'
 import map from 'lodash-es/map.js'
 import filter from 'lodash-es/filter.js'
 import isarr from 'wsemi/src/isarr.mjs'
-import arrFilterByNum from 'wsemi/src/arrFilterByNum.mjs'
+import arrFilterByENum from 'wsemi/src/arrFilterByENum.mjs'
 import arrGammaFit from './arrGammaFit.mjs'
 import histGen from './histGen.mjs'
 import jt from './jStat.mjs'
@@ -13,13 +13,13 @@ import jt from './jStat.mjs'
  *
  * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/arrGammaHist.test.js Github}
  * @memberOf w-statistic
- * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算
+ * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入
  * @param {Object} [opt={}] 輸入設定物件，預設{}
- * @param {Number} [opt.dx=null] 輸入直方圖分組(x軸)寬度數字，預設null
+ * @param {Number} [opt.dx=null] 輸入直方圖分組(x軸)寬度數字，±Infinity視為未給，預設null
  * @param {Integer} [opt.n=30] 輸入直方圖分組(x軸)數量整數，預設30
  * @param {Integer} [opt.nCurve=100] 輸入擬合用陣列數據長度整數，預設100
- * @param {Number} [opt.min=null] 輸入直方圖分組(x軸)最小值數字，若不給則使用數據最小值，預設null
- * @param {Number} [opt.max=null] 輸入直方圖分組(x軸)最大值數字，若不給則使用數據最大值，預設null
+ * @param {Number} [opt.min=null] 輸入直方圖分組(x軸)最小值數字，若不給則使用數據最小值，±Infinity視為未給，預設null
+ * @param {Number} [opt.max=null] 輸入直方圖分組(x軸)最大值數字，若不給則使用數據最大值，±Infinity視為未給，預設null
  * @returns {Number} 回傳反函數值
  * @example
  *
@@ -42,8 +42,8 @@ async function arrGammaHist(arr, opt = {}) {
         return Promise.reject('arr is not an effective array')
     }
 
-    //rs
-    let rs = arrFilterByNum(arr)
+    //rs, 只取有限數值, ±Infinity與非數值同樣排除
+    let rs = arrFilterByENum(arr)
 
     //需大於0
     rs = filter(rs, (v) => {

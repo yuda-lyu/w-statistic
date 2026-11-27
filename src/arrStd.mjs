@@ -1,9 +1,6 @@
 import size from 'lodash-es/size.js'
-import map from 'lodash-es/map.js'
-import filter from 'lodash-es/filter.js'
 import isarr from 'wsemi/src/isarr.mjs'
-import isnum from 'wsemi/src/isnum.mjs'
-import cdbl from 'wsemi/src/cdbl.mjs'
+import arrFilterByENum from 'wsemi/src/arrFilterByENum.mjs'
 import jt from './jStat.mjs'
 
 
@@ -12,7 +9,7 @@ import jt from './jStat.mjs'
  *
  * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/arrStd.test.js Github}
  * @memberOf w-statistic
- * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算
+ * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入
  * @returns {Number} 回傳標準差
  * @example
  *
@@ -25,6 +22,10 @@ import jt from './jStat.mjs'
  * arr = ['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']
  * console.log(arrStd(arr))
  * // => 7.269456650947167
+ *
+ * arr = [1, 2, 3, Infinity, -Infinity, '1e400', 'xyz']
+ * console.log(arrStd(arr))
+ * // => 1 (±Infinity不計入個數與計算)
  *
  * arr = [55, 68, 45, 78, 150, 241, 162, 156, 182, 125, 75, 89, 91, 95, 92, 65, 75, 85, 95, 105, 132, 120, 142, 110, 111, 130, 128, 130, 108, 109]
  * console.log(arrStd(arr))
@@ -41,11 +42,8 @@ function arrStd(arr) {
         return null
     }
 
-    //arr
-    arr = filter(arr, (v) => {
-        return isnum(v)
-    })
-    arr = map(arr, cdbl)
+    //arr, 只取有限數值, ±Infinity與非數值同樣排除
+    arr = arrFilterByENum(arr)
 
     //check
     if (size(arr) <= 1) { //標準差至少要2點才能計算

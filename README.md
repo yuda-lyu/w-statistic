@@ -11,6 +11,13 @@ A tool for statistical analysis.
 ## Documentation
 To view documentation or get support, visit [docs](https://yuda-lyu.github.io/w-statistic/w-statistic.html).
 
+## Numeric handling
+Functions that take a numeric array (or numeric options) only use finite numbers. `±Infinity` (including the strings `'Infinity'`, `'-Infinity'` and `'1e400'`) is treated like any other non-numeric value: it is not counted and not used in the calculation, and an option given as `±Infinity` (for example `opt.min`, `opt.max`, `opt.dx`, `opt.interpX`) is treated as not given. When no usable number is left, each function keeps its usual no-data result (for example `null`, `[]` or a rejected promise). Numeric strings follow `isenum` of wsemi: decimal notation only, so `'0x10'` is not counted.
+
+```alias
+arrAverage([1, 2, 3, Infinity, -Infinity]) // => 2
+```
+
 ## Installation
 
 ### Using npm(ES6 module):

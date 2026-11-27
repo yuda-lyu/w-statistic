@@ -2,11 +2,10 @@ import get from 'lodash-es/get.js'
 import each from 'lodash-es/each.js'
 import map from 'lodash-es/map.js'
 import size from 'lodash-es/size.js'
-import isnum from 'wsemi/src/isnum.mjs'
+import isenum from 'wsemi/src/isenum.mjs'
 import isbol from 'wsemi/src/isbol.mjs'
 import iseobj from 'wsemi/src/iseobj.mjs'
 import isearr from 'wsemi/src/isearr.mjs'
-import cdbl from 'wsemi/src/cdbl.mjs'
 import ss from './simpleStatistics.mjs'
 import regLine from './regLine.mjs'
 
@@ -16,9 +15,9 @@ import regLine from './regLine.mjs'
  *
  * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/regPower.test.js Github}
  * @memberOf w-statistic
- * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算
+ * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算，點內x或y為±Infinity(含'Infinity'、'1e400'等字串)或非數值者，該點不計入
  * @param {Object} [opt={}] 輸入設定物件，預設{}
- * @param {Number} [opt.interpX=null] 輸入經由回歸結果內插指定x值數字，預設null
+ * @param {Number} [opt.interpX=null] 輸入經由回歸結果內插指定x值數字，±Infinity視為未給，預設null
  * @param {Boolean} [opt.calcR2=false] 輸入是否計算r2值布林值，預設false
  * @param {Boolean} [opt.useSync=false] 輸入是否使用同步函數布林值，預設false
  * @returns {Object|Promise} 若useSync=true回傳回歸結果物件，若useSync=false則回傳Promise，此時若成功則resolve回歸結果物件，若失敗則reject錯誤訊息
@@ -93,7 +92,7 @@ function regPower(arr, opt = {}) {
 
     //interpX
     let interpX = get(opt, 'interpX')
-    if (!isnum(interpX)) {
+    if (!isenum(interpX)) { //非有限數值(含±Infinity)視為未給
         interpX = null
     }
 
@@ -122,9 +121,9 @@ function regPower(arr, opt = {}) {
         each(arr, (v) => {
             let x = get(v, 0)
             let y = get(v, 1)
-            if (isnum(x) && isnum(y)) {
-                x = cdbl(x)
-                y = cdbl(y)
+            if (isenum(x) && isenum(y)) { //只取有限數值, 任一為±Infinity或非數值則該點不計入
+                x = Number(x)
+                y = Number(y)
                 if (x > 0 && y > 0) {
                     rs.push([x, y]) //會使用log(x)與log(y)故需大於0
                 }
@@ -157,8 +156,8 @@ function regPower(arr, opt = {}) {
         }
 
         //interpX
-        if (isnum(interpX)) {
-            interpX = cdbl(interpX)
+        if (isenum(interpX)) {
+            interpX = Number(interpX)
             let interpY = r.a * (interpX ** r.b)
             r.interpY = interpY
         }

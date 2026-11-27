@@ -3,7 +3,7 @@ import isNumber from 'lodash-es/isNumber.js'
 import isarr from 'wsemi/src/isarr.mjs'
 import isnum from 'wsemi/src/isnum.mjs'
 import cdbl from 'wsemi/src/cdbl.mjs'
-import arrFilterByNum from 'wsemi/src/arrFilterByNum.mjs'
+import arrFilterByENum from 'wsemi/src/arrFilterByENum.mjs'
 import arrAverage from './arrAverage.mjs'
 import arrStd from './arrStd.mjs'
 import jt from './jStat.mjs'
@@ -14,7 +14,7 @@ import jt from './jStat.mjs'
  *
  * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/arrNormInv.test.js Github}
  * @memberOf w-statistic
- * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算
+ * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入
  * @param {Number} ratio 輸入指定位置浮點數，需介於0至1之間
  * @returns {Number} 回傳反函數值
  * @example
@@ -78,8 +78,8 @@ async function arrNormInv(arr, ratio) {
         return Promise.reject(`ratio[${ratio}] > 1`)
     }
 
-    //rs
-    let rs = arrFilterByNum(arr)
+    //rs, 只取有限數值, ±Infinity與非數值同樣排除
+    let rs = arrFilterByENum(arr)
 
     //n
     let n = size(rs)

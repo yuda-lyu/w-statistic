@@ -1,6 +1,6 @@
 {
   "name": "w-statistic",
-  "version": "1.0.83",
+  "version": "1.0.84",
   "main": "dist/w-statistic.umd.js",
   "dependencies": {
     "jstat": "^1.9.6",

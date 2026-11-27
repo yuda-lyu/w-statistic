@@ -9,7 +9,7 @@ import isarr from 'wsemi/src/isarr.mjs'
 import ispint from 'wsemi/src/ispint.mjs'
 import isnum from 'wsemi/src/isnum.mjs'
 import cint from 'wsemi/src/cint.mjs'
-import arrFilterByNum from 'wsemi/src/arrFilterByNum.mjs'
+import arrFilterByENum from 'wsemi/src/arrFilterByENum.mjs'
 import nelderMead from 'w-optimization/src/nelderMead.mjs'
 import bin from './bin.mjs'
 import jt from './jStat.mjs'
@@ -20,7 +20,7 @@ import jt from './jStat.mjs'
  *
  * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/arrGammaFit.test.js Github}
  * @memberOf w-statistic
- * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算
+ * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入
  * @returns {Object} 回傳參數物件
  * @example
  *
@@ -640,8 +640,8 @@ async function arrGammaFit(arr, opt = {}) {
     //bin_max
     let bin_max = get(opt, 'max', null)
 
-    //rs
-    let rs = arrFilterByNum(arr)
+    //rs, 只取有限數值, ±Infinity與非數值同樣排除
+    let rs = arrFilterByENum(arr)
 
     //需大於0
     rs = filter(rs, (v) => {

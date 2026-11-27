@@ -6,7 +6,7 @@ import isarr from 'wsemi/src/isarr.mjs'
 import isp0int from 'wsemi/src/isp0int.mjs'
 import ispint from 'wsemi/src/ispint.mjs'
 import cint from 'wsemi/src/cint.mjs'
-import cdbl from 'wsemi/src/cdbl.mjs'
+import isenum from 'wsemi/src/isenum.mjs'
 import arrAverage from './arrAverage.mjs'
 
 
@@ -15,7 +15,7 @@ import arrAverage from './arrAverage.mjs'
  *
  * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/arrMovingAverage.test.js Github}
  * @memberOf w-statistic
- * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算
+ * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入視窗之平均(EMA之首點為非有限值時與非數值同樣取0)
  * @param {Object} [opt={}] 輸入設定物件，預設{}
  * @param {Integer} [opt.selectCountHalf=2] 輸入上下取點數整數，總取點數為2*selectCountHalf+1，預設2(取5點)
  * @param {Integer} [opt.selectCount] 輸入總取點數正整數，僅mode為PMA時使用，有給時優先於selectCountHalf；奇數N前後各取(N-1)/2點，偶數N前取N/2點、後取N/2-1點(同MATLAB movmean之偶數窗慣例)，邊界處截斷後以實際點數平均；非正整數視為未給
@@ -166,7 +166,7 @@ function arrMovingAverage(arr, opt = {}) {
         else if (mode === 'EMA') {
 
             if (k === 0) {
-                r = cdbl(v)
+                r = isenum(v) ? Number(v) : 0 //非有限數值(含±Infinity)與非數值同樣取0
             }
             else {
                 let _ema = get(rs, k - 1) //前個ema

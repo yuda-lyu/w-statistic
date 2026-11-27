@@ -1,6 +1,6 @@
 import size from 'lodash-es/size.js'
 import isarr from 'wsemi/src/isarr.mjs'
-import arrFilterByPnumAndToLog from 'wsemi/src/arrFilterByPnumAndToLog.mjs'
+import arrFilterByEPnumAndToLog from './_arrFilterByEPnumAndToLog.mjs'
 import arrStd from './arrStd.mjs'
 
 
@@ -9,7 +9,7 @@ import arrStd from './arrStd.mjs'
  *
  * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/arrGeometricStd.test.js Github}
  * @memberOf w-statistic
- * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算
+ * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入
  * @returns {Number} 回傳幾何標準差
  * @example
  *
@@ -34,8 +34,8 @@ function arrGeometricStd(arr) {
         return null
     }
 
-    //取大於0且轉log數值
-    let rs = arrFilterByPnumAndToLog(arr)
+    //取大於0之有限數值且轉log, ±Infinity與非數值同樣排除
+    let rs = arrFilterByEPnumAndToLog(arr)
 
     //n
     let n = size(rs)

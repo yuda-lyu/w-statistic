@@ -184,7 +184,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="arrAverage.mjs.html">arrAverage.mjs</a>, <a href="arrAverage.mjs.html#line27">line 27</a>
+        <a href="arrAverage.mjs.html">arrAverage.mjs</a>, <a href="arrAverage.mjs.html#line31">line 31</a>
     </li></ul></dd>
     
 
@@ -231,7 +231,7 @@
 
     <h5 class="h5-examples">Example</h5>
     
-    <pre class="prettyprint"><code>let arrarr = ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(arrAverage(arr))// => 1.5arr = ['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(arrAverage(arr))// => 3.3</code></pre>
+    <pre class="prettyprint"><code>let arrarr = ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(arrAverage(arr))// => 1.5arr = ['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(arrAverage(arr))// => 3.3arr = [1, 2, 3, Infinity, -Infinity, '1e400', 'xyz']console.log(arrAverage(arr))// => 2 (±Infinity不計入個數與計算)</code></pre>
 
 
 
@@ -278,7 +278,7 @@
 
             
 
-            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算</p></td>
+            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入</p></td>
         </tr>
 
     
@@ -448,7 +448,7 @@
                 </td>
             
 
-            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算</p></td>
+            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入</p></td>
         </tr>
 
     
@@ -676,7 +676,7 @@
                 </td>
             
 
-            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算</p></td>
+            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入</p></td>
         </tr>
 
     
@@ -1062,7 +1062,7 @@
 
             
 
-            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算</p></td>
+            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入</p></td>
         </tr>
 
     
@@ -1242,7 +1242,7 @@
                 </td>
             
 
-            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算</p></td>
+            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入</p></td>
         </tr>
 
     
@@ -1345,7 +1345,7 @@
                 </td>
             
 
-            <td class="description last"><p>輸入直方圖分組(x軸)寬度數字，預設null</p></td>
+            <td class="description last"><p>輸入直方圖分組(x軸)寬度數字，±Infinity視為未給，預設null</p></td>
         </tr>
 
     
@@ -1465,7 +1465,7 @@
                 </td>
             
 
-            <td class="description last"><p>輸入直方圖分組(x軸)最小值數字，若不給則使用數據最小值，預設null</p></td>
+            <td class="description last"><p>輸入直方圖分組(x軸)最小值數字，若不給則使用數據最小值，±Infinity視為未給，預設null</p></td>
         </tr>
 
     
@@ -1505,7 +1505,7 @@
                 </td>
             
 
-            <td class="description last"><p>輸入直方圖分組(x軸)最大值數字，若不給則使用數據最大值，預設null</p></td>
+            <td class="description last"><p>輸入直方圖分組(x軸)最大值數字，若不給則使用數據最大值，±Infinity視為未給，預設null</p></td>
         </tr>
 
     
@@ -1676,7 +1676,7 @@
 
             
 
-            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算</p></td>
+            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入</p></td>
         </tr>
 
     
@@ -1864,7 +1864,7 @@
 
             
 
-            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算</p></td>
+            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入</p></td>
         </tr>
 
     
@@ -2028,7 +2028,7 @@
 
             
 
-            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算</p></td>
+            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入</p></td>
         </tr>
 
     
@@ -2208,7 +2208,7 @@
                 </td>
             
 
-            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算</p></td>
+            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入</p></td>
         </tr>
 
     
@@ -2311,7 +2311,7 @@
                 </td>
             
 
-            <td class="description last"><p>輸入直方圖分組(x軸)寬度數字，預設null</p></td>
+            <td class="description last"><p>輸入直方圖分組(x軸)寬度數字，非有限值(含±Infinity)視為未給，預設null</p></td>
         </tr>
 
     
@@ -2431,7 +2431,7 @@
                 </td>
             
 
-            <td class="description last"><p>輸入直方圖分組(x軸)最小值數字，若不給則使用數據最小值，預設null</p></td>
+            <td class="description last"><p>輸入直方圖分組(x軸)最小值數字，若不給則使用數據最小值，非有限值(含±Infinity)視為未給，預設null</p></td>
         </tr>
 
     
@@ -2471,7 +2471,7 @@
                 </td>
             
 
-            <td class="description last"><p>輸入直方圖分組(x軸)最大值數字，若不給則使用數據最大值，預設null</p></td>
+            <td class="description last"><p>輸入直方圖分組(x軸)最大值數字，若不給則使用數據最大值，非有限值(含±Infinity)視為未給，預設null</p></td>
         </tr>
 
     
@@ -2642,7 +2642,7 @@
 
             
 
-            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算</p></td>
+            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入</p></td>
         </tr>
 
     
@@ -2846,7 +2846,7 @@
                 </td>
             
 
-            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算</p></td>
+            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入視窗之平均(EMA之首點為非有限值時與非數值同樣取0)</p></td>
         </tr>
 
     
@@ -3174,7 +3174,7 @@
                 </td>
             
 
-            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算</p></td>
+            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入</p></td>
         </tr>
 
     
@@ -3277,7 +3277,7 @@
                 </td>
             
 
-            <td class="description last"><p>輸入直方圖分組(x軸)寬度數字，預設null</p></td>
+            <td class="description last"><p>輸入直方圖分組(x軸)寬度數字，非有限值(含±Infinity)視為未給，預設null</p></td>
         </tr>
 
     
@@ -3397,7 +3397,7 @@
                 </td>
             
 
-            <td class="description last"><p>輸入直方圖分組(x軸)最小值數字，若不給則使用數據最小值，預設null</p></td>
+            <td class="description last"><p>輸入直方圖分組(x軸)最小值數字，若不給則使用數據最小值，非有限值(含±Infinity)視為未給，預設null</p></td>
         </tr>
 
     
@@ -3437,7 +3437,7 @@
                 </td>
             
 
-            <td class="description last"><p>輸入直方圖分組(x軸)最大值數字，若不給則使用數據最大值，預設null</p></td>
+            <td class="description last"><p>輸入直方圖分組(x軸)最大值數字，若不給則使用數據最大值，非有限值(含±Infinity)視為未給，預設null</p></td>
         </tr>
 
     
@@ -3608,7 +3608,7 @@
 
             
 
-            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算</p></td>
+            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入</p></td>
         </tr>
 
     
@@ -3796,7 +3796,7 @@
 
             
 
-            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算</p></td>
+            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入</p></td>
         </tr>
 
     
@@ -3890,7 +3890,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="arrStd.mjs.html">arrStd.mjs</a>, <a href="arrStd.mjs.html#line34">line 34</a>
+        <a href="arrStd.mjs.html">arrStd.mjs</a>, <a href="arrStd.mjs.html#line35">line 35</a>
     </li></ul></dd>
     
 
@@ -3937,7 +3937,7 @@
 
     <h5 class="h5-examples">Example</h5>
     
-    <pre class="prettyprint"><code>let arrarr = ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(arrStd(arr))// => 5.985339231345682arr = ['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(arrStd(arr))// => 7.269456650947167arr = [55, 68, 45, 78, 150, 241, 162, 156, 182, 125, 75, 89, 91, 95, 92, 65, 75, 85, 95, 105, 132, 120, 142, 110, 111, 130, 128, 130, 108, 109]console.log(arrStd(arr))// =>  40.847473507599254, 為除以29(n-1)的std</code></pre>
+    <pre class="prettyprint"><code>let arrarr = ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(arrStd(arr))// => 5.985339231345682arr = ['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(arrStd(arr))// => 7.269456650947167arr = [1, 2, 3, Infinity, -Infinity, '1e400', 'xyz']console.log(arrStd(arr))// => 1 (±Infinity不計入個數與計算)arr = [55, 68, 45, 78, 150, 241, 162, 156, 182, 125, 75, 89, 91, 95, 92, 65, 75, 85, 95, 105, 132, 120, 142, 110, 111, 130, 128, 130, 108, 109]console.log(arrStd(arr))// =>  40.847473507599254, 為除以29(n-1)的std</code></pre>
 
 
 
@@ -3984,7 +3984,7 @@
 
             
 
-            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算</p></td>
+            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入</p></td>
         </tr>
 
     
@@ -4054,7 +4054,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bin.mjs.html">bin.mjs</a>, <a href="bin.mjs.html#line98">line 98</a>
+        <a href="bin.mjs.html">bin.mjs</a>, <a href="bin.mjs.html#line97">line 97</a>
     </li></ul></dd>
     
 
@@ -4164,7 +4164,7 @@
                 </td>
             
 
-            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算</p></td>
+            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入</p></td>
         </tr>
 
     
@@ -4307,7 +4307,7 @@
                 </td>
             
 
-            <td class="description last"><p>輸入分組最小值數字，預設null</p></td>
+            <td class="description last"><p>輸入分組最小值數字，非有限值(含±Infinity)視為未給，預設null</p></td>
         </tr>
 
     
@@ -4347,7 +4347,7 @@
                 </td>
             
 
-            <td class="description last"><p>輸入分組最大值數字，預設null</p></td>
+            <td class="description last"><p>輸入分組最大值數字，非有限值(含±Infinity)視為未給，預設null</p></td>
         </tr>
 
     
@@ -4424,7 +4424,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="histGen.mjs.html">histGen.mjs</a>, <a href="histGen.mjs.html#line241">line 241</a>
+        <a href="histGen.mjs.html">histGen.mjs</a>, <a href="histGen.mjs.html#line240">line 240</a>
     </li></ul></dd>
     
 
@@ -4534,7 +4534,7 @@
                 </td>
             
 
-            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算</p></td>
+            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入</p></td>
         </tr>
 
     
@@ -4673,7 +4673,7 @@
                 </td>
             
 
-            <td class="description last"><p>輸入直方圖分組(x軸)寬度數字，預設null</p></td>
+            <td class="description last"><p>輸入直方圖分組(x軸)寬度數字，非有限值(含±Infinity)視為未給，預設null</p></td>
         </tr>
 
     
@@ -4793,7 +4793,7 @@
                 </td>
             
 
-            <td class="description last"><p>輸入直方圖分組(x軸)最小值數字，若不給則使用數據最小值，預設null</p></td>
+            <td class="description last"><p>輸入直方圖分組(x軸)最小值數字，若不給則使用數據最小值，非有限值(含±Infinity)視為未給，預設null</p></td>
         </tr>
 
     
@@ -4833,7 +4833,7 @@
                 </td>
             
 
-            <td class="description last"><p>輸入直方圖分組(x軸)最大值數字，若不給則使用數據最大值，預設null</p></td>
+            <td class="description last"><p>輸入直方圖分組(x軸)最大值數字，若不給則使用數據最大值，非有限值(含±Infinity)視為未給，預設null</p></td>
         </tr>
 
     
@@ -4910,7 +4910,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="regLine.mjs.html">regLine.mjs</a>, <a href="regLine.mjs.html#line100">line 100</a>
+        <a href="regLine.mjs.html">regLine.mjs</a>, <a href="regLine.mjs.html#line99">line 99</a>
     </li></ul></dd>
     
 
@@ -5020,7 +5020,7 @@
                 </td>
             
 
-            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算</p></td>
+            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算，點內x或y為±Infinity(含'Infinity'、'1e400'等字串)或非數值者，該點不計入</p></td>
         </tr>
 
     
@@ -5123,7 +5123,7 @@
                 </td>
             
 
-            <td class="description last"><p>輸入經由回歸結果內插指定x值數字，預設null</p></td>
+            <td class="description last"><p>輸入經由回歸結果內插指定x值數字，±Infinity視為未給，預設null</p></td>
         </tr>
 
     
@@ -5732,7 +5732,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="regPoly.mjs.html">regPoly.mjs</a>, <a href="regPoly.mjs.html#line159">line 159</a>
+        <a href="regPoly.mjs.html">regPoly.mjs</a>, <a href="regPoly.mjs.html#line158">line 158</a>
     </li></ul></dd>
     
 
@@ -5842,7 +5842,7 @@
                 </td>
             
 
-            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算</p></td>
+            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算，點內x或y為±Infinity(含'Infinity'、'1e400'等字串)或非數值者，該點不計入</p></td>
         </tr>
 
     
@@ -5945,7 +5945,7 @@
                 </td>
             
 
-            <td class="description last"><p>輸入經由回歸結果內插指定x值數字，預設null</p></td>
+            <td class="description last"><p>輸入經由回歸結果內插指定x值數字，±Infinity視為未給，預設null</p></td>
         </tr>
 
     
@@ -6145,7 +6145,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="regPower.mjs.html">regPower.mjs</a>, <a href="regPower.mjs.html#line92">line 92</a>
+        <a href="regPower.mjs.html">regPower.mjs</a>, <a href="regPower.mjs.html#line91">line 91</a>
     </li></ul></dd>
     
 
@@ -6255,7 +6255,7 @@
                 </td>
             
 
-            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算</p></td>
+            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算，點內x或y為±Infinity(含'Infinity'、'1e400'等字串)或非數值者，該點不計入</p></td>
         </tr>
 
     
@@ -6358,7 +6358,7 @@
                 </td>
             
 
-            <td class="description last"><p>輸入經由回歸結果內插指定x值數字，預設null</p></td>
+            <td class="description last"><p>輸入經由回歸結果內插指定x值數字，±Infinity視為未給，預設null</p></td>
         </tr>
 
     
@@ -7077,7 +7077,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> on Fri Nov 27 2026 14:44:34 GMT+0800 (台北標準時間) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> on Sat Nov 28 2026 04:21:31 GMT+0800 (台北標準時間) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

@@ -2,7 +2,7 @@ import size from 'lodash-es/size.js'
 import isarr from 'wsemi/src/isarr.mjs'
 import isnum from 'wsemi/src/isnum.mjs'
 import cdbl from 'wsemi/src/cdbl.mjs'
-import arrFilterByPnumAndToLog from 'wsemi/src/arrFilterByPnumAndToLog.mjs'
+import arrFilterByEPnumAndToLog from './_arrFilterByEPnumAndToLog.mjs'
 import arrAverageWithNormCI from './arrAverageWithNormCI.mjs'
 
 
@@ -11,7 +11,7 @@ import arrAverageWithNormCI from './arrAverageWithNormCI.mjs'
  *
  * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/arrAverageWithLogNormCI.test.js Github}
  * @memberOf w-statistic
- * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算
+ * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入
  * @param {Number} p 輸入信賴水準浮點數，需介於0至1之間
  * @param {String} mode 輸入檢定模式字串，可選'two-tailed'、'upper-tail'、'lower-tail'，預設'two-tailed'
  * @returns {Number} 回傳樣本平均值
@@ -91,9 +91,9 @@ async function arrAverageWithLogNormCI(arr, p, mode = 'two-tailed') {
         return Promise.reject(`mode[${mode}] is not 'two-tailed', 'upper-tail' or 'lower-tail'`)
     }
 
-    //取大於0數值並取log
-    let rs = arrFilterByPnumAndToLog(arr)
-    // console.log('arrFilterByPnumAndToLog', rs)
+    //取大於0之有限數值並取log, ±Infinity與非數值同樣排除
+    let rs = arrFilterByEPnumAndToLog(arr)
+    // console.log('arrFilterByEPnumAndToLog', rs)
 
     //n
     let n = size(rs)

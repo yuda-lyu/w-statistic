@@ -17,10 +17,12 @@
 | `regLine`/`regPower`/`regPoly`(迴歸) | 已做:沿用依賴;完全擬合資料可還原真值,`regPoly` 與獨立解法一致;空輸入 reject/丟錯 | R1 | `test/regLine.test.mjs`、`test/regPower.test.mjs`、`test/regPoly.test.mjs` |
 | `simpleStatistics`(透傳) | 已做:原樣透傳 simple-statistics 8.0.0,不包裝 | R1 | `test/simpleStatistics.test.mjs` |
 | `arrMovingAverage`(移動平均) | 已做:PMA 新增 `opt.selectCount`(總取點數,含偶數;有給時優先於 `selectCountHalf`;偶數 N 前取 N/2、後取 N/2−1,同 MATLAB movmean 偶數窗;非正整數視為未給;SMA／EMA 不受影響)(2026-11-10,Gitea #124) | — | `test/arrMovingAverage.test.mjs`、`test/arrMovingAverageSelectCount.test.mjs` |
-| 其餘函式(`arrAverage`、`arrStd`、`histGen` 等) | 本輪未動,見各 `test/<函式>.test.mjs` | — | — |
+| 含 `±Infinity` 之陣列與選項(`arrAverage`、`arrStd`、`arrQuartile`、`arrAverageWith(Log)NormCI`、`arr(Log)NormInv`、`arrGammaFit`/`Hist`/`Inv`、`arrGeometricAverage`/`Std`、`arrNormHist`、`arrLogNormHist`、`bin`、`histGen`、`regLine`/`regPoly`/`regPower`、`arrMovingAverage`) | 已做:統計量只取有限數值,`±Infinity`(含 `'Infinity'`、`'1e400'` 等字串)與非數值同樣不計入;`opt.min`/`max`/`dx`/`interpX` 為 `±Infinity` 視為未給;取值改用 wsemi `arrFilterByENum`/`isenum`(2026-11-28,使用端回報 `arrAverage([1, Infinity])` 得 8.99e307).刻意不改與範圍外之站點見規則帳本 R3 | R3 | `test/nonFinite.test.mjs` |
+| 其餘函式(`arrCount`、`sampleRandom`、`studentTInv`、`regMpLine` 等) | 本輪未動(`±Infinity` 判定見 R3 之站點表),見各 `test/<函式>.test.mjs` | R3 | — |
 
 ## 最近一次驗證
 
+- 2026-11-28:`npm test` 368 案全綠(原 265 案原樣通過,新增 `nonFinite.test.mjs` 103 案;對修前原版實跑 88 紅 14 綠〔14 綠為修前已正確之案:`-Infinity` 於 Gamma/幾何系已被 `>0` 過濾、刻意不改站點之現況釘住、掃描器自測〕;變異驗證見經驗檔).eslint、jsdoc(輸出至暫存夾)皆 0 新增.`dist/`、`docs/` 未重建(發布流程自動產製).
 - 2026-11-10:`npm test` 265 案全綠(新增 `arrMovingAverageSelectCount` 7 案;對原版實跑 3 綠 4 紅,改後 7 綠).
 - 2026-11-09:`npm test` 258 案全綠(升版前 200 案).`dist/` 未重建(發布流程自動產製);以相同選項試建置至 `./tmp` 成功,UMD 冒煙通過.
 

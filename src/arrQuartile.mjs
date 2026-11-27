@@ -2,7 +2,7 @@ import size from 'lodash-es/size.js'
 import isarr from 'wsemi/src/isarr.mjs'
 import ispnum from 'wsemi/src/ispnum.mjs'
 import cdbl from 'wsemi/src/cdbl.mjs'
-import arrFilterByNum from 'wsemi/src/arrFilterByNum.mjs'
+import arrFilterByENum from 'wsemi/src/arrFilterByENum.mjs'
 
 
 //quantileSorted, 針對已由小至大排序之陣列計算母體分位數(Quantiles of a population), 輸入陣列至少須有1個元素
@@ -34,7 +34,7 @@ function quantileSorted(x, p) {
  *
  * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/arrQuartile.test.js Github}
  * @memberOf w-statistic
- * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算
+ * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入
  * @param {Number} ratio 輸入指定位置浮點數，需介於0至1之間
  * @returns {Number} 回傳分位數值
  * @example
@@ -104,8 +104,8 @@ function arrQuartile(arr, ratio) {
         ratio = 1
     }
 
-    //rs
-    let rs = arrFilterByNum(arr)
+    //rs, 只取有限數值, ±Infinity與非數值同樣排除
+    let rs = arrFilterByENum(arr)
 
     //n
     let n = size(rs)
