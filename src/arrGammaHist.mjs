@@ -20,7 +20,7 @@ import jt from './jStat.mjs'
  * @param {Integer} [opt.nCurve=100] 輸入擬合用陣列數據長度整數，預設100
  * @param {Number} [opt.min=null] 輸入直方圖分組(x軸)最小值數字，若不給則使用數據最小值，±Infinity視為未給，預設null
  * @param {Number} [opt.max=null] 輸入直方圖分組(x軸)最大值數字，若不給則使用數據最大值，±Infinity視為未給，預設null
- * @returns {Number} 回傳反函數值
+ * @returns {Number} 回傳反函數值；arr非陣列reject'arr is not an array'，空陣列reject'arr is not an effective array'，無大於0之有效數字reject'no effective data'
  * @example
  *
  * async function test() {

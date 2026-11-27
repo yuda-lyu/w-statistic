@@ -12,7 +12,7 @@ import histGen from './histGen.mjs'
  *
  * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/arrNormHist.test.js Github}
  * @memberOf w-statistic
- * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入
+ * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入；非陣列reject'arr is not an array'，空陣列reject'arr is not an effective array'，無任何有效數字reject'no effective data'
  * @param {Object} [opt={}] 輸入設定物件，預設{}
  * @param {Number} [opt.dx=null] 輸入直方圖分組(x軸)寬度數字，非有限值(含±Infinity)視為未給，預設null
  * @param {Integer} [opt.n=30] 輸入直方圖分組(x軸)數量整數，預設30
@@ -67,6 +67,11 @@ async function arrNormHist(arr, opt = {}) {
 
         return curveY
     }, opt)
+
+    //check, 陣列內無有效數字時histGen回傳null, 須以固定訊息reject(同arrGammaHist等), 不得讀null.bins而外洩內部TypeError
+    if (r === null) {
+        return Promise.reject('no effective data')
+    }
 
     //merge pdfs
     let bins = map(r.bins, (v, k) => {

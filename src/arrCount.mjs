@@ -16,7 +16,7 @@ import cstr from 'wsemi/src/cstr.mjs'
  * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/arrCount.test.js Github}
  * @memberOf w-statistic
  * @param {Array} arr 輸入陣列，只提取有效字串(或為字串的數字)進行計算
- * @returns {Array} 回傳各值出現次數值陣列
+ * @returns {Array} 回傳各值出現次數值陣列，arr非陣列、空陣列或無任何可計元素時回傳空陣列[]
  * @example
  *
  * let arr

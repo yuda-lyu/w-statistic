@@ -65,4 +65,36 @@ console.log(arrMovingAverage(arr, { mode: 'EMA', selectCountHalf: 3 }))
 //   12.28277587890625
 // ]
 
+arr = [10, 12, 'abc', 13, 12]
+console.log(arrMovingAverage(arr, { mode: 'EMA', selectCountHalf: 2 }))
+// => [
+//   10,
+//   11.333333333333334,
+//   11.333333333333334, (非有效數字'abc'不入計算, 沿用前一點)
+//   12.444444444444445,
+//   12.148148148148147
+// ]
+
+arr = ['x', null, 12, 'z', 11]
+console.log(arrMovingAverage(arr, { mode: 'EMA', selectCountHalf: 2 }))
+// => [
+//   null, (尚無有效觀測, EMA無定義)
+//   null,
+//   12, (第一個有效點為種子)
+//   12, (非有效數字'z'不入計算, 沿用前一點)
+//   11.333333333333334
+// ]
+
+arr = [10, 12, 'abc', null, Infinity, 13, '-']
+console.log(arrMovingAverage(arr, { mode: 'EMA', selectCountHalf: 2 }))
+// => [
+//   10,
+//   11.333333333333334,
+//   11.333333333333334,
+//   11.333333333333334,
+//   11.333333333333334,
+//   12.444444444444445,
+//   12.444444444444445
+// ]
+
 //node g.arrMovingAverage.mjs

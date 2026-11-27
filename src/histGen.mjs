@@ -30,7 +30,7 @@ import bin from './bin.mjs'
  * @param {Integer} [opt.nCurve=100] 輸入擬合用陣列數據長度整數，預設100
  * @param {Number} [opt.min=null] 輸入直方圖分組(x軸)最小值數字，若不給則使用數據最小值，非有限值(含±Infinity)視為未給，預設null
  * @param {Number} [opt.max=null] 輸入直方圖分組(x軸)最大值數字，若不給則使用數據最大值，非有限值(含±Infinity)視為未給，預設null
- * @returns {Promise} 回傳Promise，若成功則resolve數據分組與統計數據物件，若失敗則reject錯誤訊息
+ * @returns {Promise} 回傳Promise，若成功則resolve數據分組與統計數據物件，若失敗則reject錯誤訊息；無有效數字時resolve null(不reject)
  * @example
  *
  * async function test() {

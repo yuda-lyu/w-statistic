@@ -12,7 +12,7 @@ import arrNormHist from './arrNormHist.mjs'
  *
  * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/arrLogNormHist.test.js Github}
  * @memberOf w-statistic
- * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入
+ * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入，取log之部分另只取大於0者；非陣列reject'arr is not an array'，空陣列reject'arr is not an effective array'，無任何有效數字或無任何大於0之有效數字reject'no effective data'
  * @param {Object} [opt={}] 輸入設定物件，預設{}
  * @param {Number} [opt.dx=null] 輸入直方圖分組(x軸)寬度數字，非有限值(含±Infinity)視為未給，預設null
  * @param {Integer} [opt.n=30] 輸入直方圖分組(x軸)數量整數，預設30
@@ -915,6 +915,11 @@ async function arrLogNormHist(arr, opt = {}) {
     //取大於0之有限數值並取log, ±Infinity與非數值同樣排除
     let rs = arrFilterByEPnumAndToLog(arr)
     // console.log('arrFilterByEPnumAndToLog', rs)
+
+    //check, 無任何大於0之有效數字時無法取log(arrNormHist對空陣列之訊息為'arr is not an effective array', 易誤導), 改為與arrAverageWithLogNormCI等一致之固定訊息
+    if (size(rs) === 0) {
+        return Promise.reject('no effective data')
+    }
 
     //arrNormHist for log-normal
     let r_log = await arrNormHist(rs) //log不能使用opt否則會使用到外部指定最小最大值

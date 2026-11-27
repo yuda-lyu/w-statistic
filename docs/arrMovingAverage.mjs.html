@@ -29,7 +29,7 @@
 <nav >
     
     
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="w-statistic.html">w-statistic</a><ul class='methods'><li data-type='method'><a href="w-statistic.html#.arrAverage">arrAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrAverageWithLogNormCI">arrAverageWithLogNormCI</a></li><li data-type='method'><a href="w-statistic.html#.arrAverageWithNormCI">arrAverageWithNormCI</a></li><li data-type='method'><a href="w-statistic.html#.arrCount">arrCount</a></li><li data-type='method'><a href="w-statistic.html#.arrGammaFit">arrGammaFit</a></li><li data-type='method'><a href="w-statistic.html#.arrGammaHist">arrGammaHist</a></li><li data-type='method'><a href="w-statistic.html#.arrGammaInv">arrGammaInv</a></li><li data-type='method'><a href="w-statistic.html#.arrGeometricAverage">arrGeometricAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrGeometricStd">arrGeometricStd</a></li><li data-type='method'><a href="w-statistic.html#.arrLogNormHist">arrLogNormHist</a></li><li data-type='method'><a href="w-statistic.html#.arrLogNormInv">arrLogNormInv</a></li><li data-type='method'><a href="w-statistic.html#.arrMovingAverage">arrMovingAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrNormHist">arrNormHist</a></li><li data-type='method'><a href="w-statistic.html#.arrNormInv">arrNormInv</a></li><li data-type='method'><a href="w-statistic.html#.arrQuartile">arrQuartile</a></li><li data-type='method'><a href="w-statistic.html#.arrStd">arrStd</a></li><li data-type='method'><a href="w-statistic.html#.bin">bin</a></li><li data-type='method'><a href="w-statistic.html#.histGen">histGen</a></li><li data-type='method'><a href="w-statistic.html#.regLine">regLine</a></li><li data-type='method'><a href="w-statistic.html#.regMpLine">regMpLine</a></li><li data-type='method'><a href="w-statistic.html#.regPoly">regPoly</a></li><li data-type='method'><a href="w-statistic.html#.regPower">regPower</a></li><li data-type='method'><a href="w-statistic.html#.sampleRandom">sampleRandom</a></li><li data-type='method'><a href="w-statistic.html#.studentTInv">studentTInv</a></li></ul></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="w-statistic.html">w-statistic</a><ul class='methods'><li data-type='method'><a href="w-statistic.html#.arrAverage">arrAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrAverageWithLogNormCI">arrAverageWithLogNormCI</a></li><li data-type='method'><a href="w-statistic.html#.arrAverageWithNormCI">arrAverageWithNormCI</a></li><li data-type='method'><a href="w-statistic.html#.arrCount">arrCount</a></li><li data-type='method'><a href="w-statistic.html#.arrGammaFit">arrGammaFit</a></li><li data-type='method'><a href="w-statistic.html#.arrGammaHist">arrGammaHist</a></li><li data-type='method'><a href="w-statistic.html#.arrGammaInv">arrGammaInv</a></li><li data-type='method'><a href="w-statistic.html#.arrGeometricAverage">arrGeometricAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrGeometricStd">arrGeometricStd</a></li><li data-type='method'><a href="w-statistic.html#.arrLogNormHist">arrLogNormHist</a></li><li data-type='method'><a href="w-statistic.html#.arrLogNormInv">arrLogNormInv</a></li><li data-type='method'><a href="w-statistic.html#.arrMovingAverage">arrMovingAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrNormHist">arrNormHist</a></li><li data-type='method'><a href="w-statistic.html#.arrNormInv">arrNormInv</a></li><li data-type='method'><a href="w-statistic.html#.arrQuantile7">arrQuantile7</a></li><li data-type='method'><a href="w-statistic.html#.arrQuartile">arrQuartile</a></li><li data-type='method'><a href="w-statistic.html#.arrStd">arrStd</a></li><li data-type='method'><a href="w-statistic.html#.bin">bin</a></li><li data-type='method'><a href="w-statistic.html#.histGen">histGen</a></li><li data-type='method'><a href="w-statistic.html#.regLine">regLine</a></li><li data-type='method'><a href="w-statistic.html#.regMpLine">regMpLine</a></li><li data-type='method'><a href="w-statistic.html#.regPoly">regPoly</a></li><li data-type='method'><a href="w-statistic.html#.regPower">regPower</a></li><li data-type='method'><a href="w-statistic.html#.sampleRandom">sampleRandom</a></li><li data-type='method'><a href="w-statistic.html#.studentTInv">studentTInv</a></li></ul></li></ul>
     
 </nav>
 
@@ -62,11 +62,12 @@ import arrAverage from './arrAverage.mjs'
  *
  * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/arrMovingAverage.test.js Github}
  * @memberOf w-statistic
- * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入視窗之平均(EMA之首點為非有限值時與非數值同樣取0)
+ * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入視窗之平均；mode為EMA時，非有效數字(含±Infinity)不入遞推，以第一個有效點為種子，其後之無效點輸出沿用前一點之EMA，第一個有效點之前尚無有效觀測故輸出null(全部無效則全為null，同PMA、SMA視窗內無有效值時之null)，輸出長度恆等於輸入長度且自第一個有效點起皆為有限數
  * @param {Object} [opt={}] 輸入設定物件，預設{}
+ * @param {String} [opt.mode='PMA'] 輸入移動平均模式字串，可選'PMA'(前後各取點之置中平均)、'SMA'(取當前點與其前點之簡單平均)、'EMA'(指數移動平均，以selectCountHalf為期數N，權重alpha=2/(N+1))，非此三者視為'PMA'，預設'PMA'
  * @param {Integer} [opt.selectCountHalf=2] 輸入上下取點數整數，總取點數為2*selectCountHalf+1，預設2(取5點)
  * @param {Integer} [opt.selectCount] 輸入總取點數正整數，僅mode為PMA時使用，有給時優先於selectCountHalf；奇數N前後各取(N-1)/2點，偶數N前取N/2點、後取N/2-1點(同MATLAB movmean之偶數窗慣例)，邊界處截斷後以實際點數平均；非正整數視為未給
- * @returns {Array} 回傳移動平均值陣列
+ * @returns {Array} 回傳移動平均值陣列(長度恆等於arr之長度)，arr非陣列或空陣列回傳空陣列[]；PMA、SMA視窗內無有效數字之點為null，EMA第一個有效點之前之點為null
  * @example
  *
  * let arr
@@ -107,6 +108,38 @@ import arrAverage from './arrAverage.mjs'
  * //   1.5, 2, 2.5, 3.5,
  * //   4.5, 5.5, 6.5, 7.5,
  * //   8.5, 9
+ * // ]
+ *
+ * arr = [10, 12, 'abc', 13, 12]
+ * console.log(arrMovingAverage(arr, { mode: 'EMA', selectCountHalf: 2 }))
+ * // => [
+ * //   10,
+ * //   11.333333333333334,
+ * //   11.333333333333334, (非有效數字'abc'不入計算, 沿用前一點)
+ * //   12.444444444444445,
+ * //   12.148148148148147
+ * // ]
+ *
+ * arr = ['x', null, 12, 'z', 11]
+ * console.log(arrMovingAverage(arr, { mode: 'EMA', selectCountHalf: 2 }))
+ * // => [
+ * //   null, (尚無有效觀測, EMA無定義)
+ * //   null,
+ * //   12, (第一個有效點為種子)
+ * //   12, (非有效數字'z'不入計算, 沿用前一點)
+ * //   11.333333333333334
+ * // ]
+ *
+ * arr = [10, 12, 'abc', null, Infinity, 13, '-']
+ * console.log(arrMovingAverage(arr, { mode: 'EMA', selectCountHalf: 2 }))
+ * // => [
+ * //   10,
+ * //   11.333333333333334,
+ * //   11.333333333333334,
+ * //   11.333333333333334,
+ * //   11.333333333333334,
+ * //   12.444444444444445,
+ * //   12.444444444444445
  * // ]
  *
  */
@@ -212,12 +245,18 @@ function arrMovingAverage(arr, opt = {}) {
         }
         else if (mode === 'EMA') {
 
-            if (k === 0) {
-                r = isenum(v) ? Number(v) : 0 //非有限數值(含±Infinity)與非數值同樣取0
+            //前個ema, 為null表示尚無有效觀測(第一個有效點之前, 含首點), 其後各點必為有限數值(無效點沿用前個ema)
+            let _ema = (k === 0) ? null : get(rs, k - 1)
+            if (isenum(v)) {
+                if (_ema === null) {
+                    r = Number(v) //第一個有效點為種子
+                }
+                else {
+                    r = (_ema * (selectCountHalf - 1) + Number(v) * 2) / (selectCountHalf + 1)
+                }
             }
             else {
-                let _ema = get(rs, k - 1) //前個ema
-                r = (_ema * (selectCountHalf - 1) + v * 2) / (selectCountHalf + 1)
+                r = _ema //非有效數字(含NaN、±Infinity與非數值)不入計算: 已有種子則沿用前個ema, 尚無種子則為null(無有效觀測, EMA無定義), 輸出長度不變
             }
             // console.log(k, kStart, kEnd, 'arrt', arrt, 'EMA', r)
 
@@ -247,7 +286,7 @@ export default arrMovingAverage
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> on Sat Nov 28 2026 04:21:31 GMT+0800 (台北標準時間) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> on Sat Nov 28 2026 06:55:32 GMT+0800 (台北標準時間) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

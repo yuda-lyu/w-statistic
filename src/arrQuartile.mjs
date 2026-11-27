@@ -36,7 +36,7 @@ function quantileSorted(x, p) {
  * @memberOf w-statistic
  * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入
  * @param {Number} ratio 輸入指定位置浮點數，需介於0至1之間
- * @returns {Number} 回傳分位數值
+ * @returns {Number} 回傳分位數值，arr非陣列、空陣列、無有效數字或ratio無效時回傳null
  * @example
  *
  * let arr

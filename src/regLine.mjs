@@ -19,7 +19,7 @@ import ss from './simpleStatistics.mjs'
  * @param {Boolean} [opt.calcR2=false] 輸入是否計算r2值布林值，預設false
  * @param {Boolean} [opt.useRegIntercept=true] 輸入是否回歸使用截距布林值，預設true
  * @param {Boolean} [opt.useSync=false] 輸入是否使用同步函數布林值，預設false
- * @returns {Object|Promise} 若useSync=true回傳回歸結果物件，若useSync=false則回傳Promise，此時若成功則resolve回歸結果物件，若失敗則reject錯誤訊息
+ * @returns {Object|Promise} 若useSync=true回傳回歸結果物件，若useSync=false則回傳Promise，此時若成功則resolve回歸結果物件，若失敗則reject錯誤訊息；arr非有效陣列(含空陣列)丟錯或reject'arr is not an effective array'，無任何有效點丟錯或reject'no effective data'
  * @example
  *
  * async function test() {

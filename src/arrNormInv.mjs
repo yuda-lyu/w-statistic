@@ -16,7 +16,7 @@ import jt from './jStat.mjs'
  * @memberOf w-statistic
  * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入
  * @param {Number} ratio 輸入指定位置浮點數，需介於0至1之間
- * @returns {Number} 回傳反函數值
+ * @returns {Number} 回傳反函數值；arr非陣列reject'arr is not an array'，空陣列reject'arr is not an effective array'，無有效數字reject'no effective data'
  * @example
  *
  * async function test() {

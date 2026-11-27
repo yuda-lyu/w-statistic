@@ -14,7 +14,7 @@ import arrAverageWithNormCI from './arrAverageWithNormCI.mjs'
  * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入
  * @param {Number} p 輸入信賴水準浮點數，需介於0至1之間
  * @param {String} mode 輸入檢定模式字串，可選'two-tailed'、'upper-tail'、'lower-tail'，預設'two-tailed'
- * @returns {Number} 回傳樣本平均值
+ * @returns {Number} 回傳樣本平均值；arr非陣列reject'arr is not an array'，空陣列reject'arr is not an effective array'，無大於0之有效數字reject'no effective data'
  * @example
  *
  * async function test() {

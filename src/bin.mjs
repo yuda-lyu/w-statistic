@@ -21,7 +21,7 @@ import rang from 'wsemi/src/rang.mjs'
  * @param {Object} [opt={}] 輸入設定物件，預設{}
  * @param {Number} [opt.min=null] 輸入分組最小值數字，非有限值(含±Infinity)視為未給，預設null
  * @param {Number} [opt.max=null] 輸入分組最大值數字，非有限值(含±Infinity)視為未給，預設null
- * @returns {Object} 回傳數據分組資訊物件
+ * @returns {Object} 回傳數據分組資訊物件，無有效數字時回傳空陣列[]
  * @example
  *
  * let arr

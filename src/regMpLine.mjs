@@ -19,7 +19,7 @@ import MLR from 'ml-regression-multivariate-linear'
  * @param {Array} [opt.interpX=null] 輸入經由回歸結果內插指定x陣列，為[x1,x2,x3,...]，預設null
  * @param {Boolean} [opt.useRegIntercept=true] 輸入是否回歸使用截距布林值，預設true
  * @param {Boolean} [opt.useSync=false] 輸入是否使用同步函數布林值，預設false
- * @returns {Object|Promise} 若useSync=true回傳回歸結果物件，若useSync=false則回傳Promise，此時若成功則resolve回歸結果物件，若失敗則reject錯誤訊息
+ * @returns {Object|Promise} 若useSync=true回傳回歸結果物件，若useSync=false則回傳Promise，此時若成功則resolve回歸結果物件，若失敗則reject錯誤訊息；本函數不過濾元素(透傳第三方套件，不在統計類例外之元素略過範圍)：matX、matY非有效陣列丟錯或reject'matX is not an effective array'等，含非數值元素時由第三方套件丟錯，含NaN、±Infinity時係數為NaN
  * @example
  *
  * async function test() {

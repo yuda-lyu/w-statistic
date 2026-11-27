@@ -18,6 +18,27 @@ Functions that take a numeric array (or numeric options) only use finite numbers
 arrAverage([1, 2, 3, Infinity, -Infinity]) // => 2
 ```
 
+An element that is not a valid number (a marker string such as `'-'`, `null`, a boolean, an object, `NaN`, `±Infinity`) never makes a call fail: it is left out of the calculation. For regression (`regLine`, `regPoly`, `regPower`) a point is left out as a whole when either coordinate is not a valid number (`regPower` also needs both coordinates greater than 0). `regMpLine` hands its matrices to a third-party package as they are and does not skip elements.
+
+For the exponential moving average (`arrMovingAverage` with `mode: 'EMA'`), a point that is not a valid number is left out of the recursion and its output repeats the previous EMA. The first valid point is the seed; the points before it have no EMA yet and their output is `null` (all `null` when no point is valid, like the other two modes). The output always keeps the length of the input and is finite from the first valid point on.
+
+```alias
+arrMovingAverage([10, 12, 'abc', 13, 12], { mode: 'EMA', selectCountHalf: 2 })
+// => [10, 11.333333333333334, 11.333333333333334, 12.444444444444445, 12.148148148148147]
+arrMovingAverage(['x', null, 12, 'z', 11], { mode: 'EMA', selectCountHalf: 2 })
+// => [null, null, 12, 12, 11.333333333333334]
+```
+
+`arrNormHist` and `arrLogNormHist` reject with `'no effective data'` when no valid number is left (`arrLogNormHist` also when no valid number is greater than 0).
+
+## Quantile (type 7)
+`arrQuantile7(arr, ratio)` returns the type 7 quantile (the default of R `quantile` and numpy `quantile`): the sorted valid numbers are interpolated linearly at position `(n - 1) * ratio`. It differs from `arrQuartile`, which returns the nearest original value (population quantile). Only finite numbers are used; it returns `null` for a non-array, an empty array, no valid number, or a `ratio` that is not a number from 0 to 1.
+
+```alias
+arrQuantile7([3, 6, 7, 8, 8, 10, 13, 15, 16, 20], 0.25) // => 7.25
+arrQuartile([3, 6, 7, 8, 8, 10, 13, 15, 16, 20], 0.25) // => 7
+```
+
 ## Installation
 
 ### Using npm(ES6 module):

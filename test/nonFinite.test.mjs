@@ -365,9 +365,9 @@ describe(`nonFinite 選項(bin的min/max, histGen的dx, EMA首點)`, function() 
         assertApprox(r, [1.5, 2, 2.5, 4, 5])
     })
 
-    it(`arrMovingAverage EMA: 首點為非有限值時與首點為非數值相同(取0), 不得為Number.MAX_VALUE`, function() {
+    it(`arrMovingAverage EMA: 首點為非有限值時與首點為非數值相同(無有效觀測, 輸出null; 第一個有效點為種子), 不得為Number.MAX_VALUE`, function() {
         let ref = arrMovingAverage(['abc', 2, 3, 4], { mode: 'EMA', selectCountHalf: 2 })
-        assert.strictEqual(ref[0], 0, '測試前提: 非數值之首點取0')
+        assert.strictEqual(ref[0], null, '測試前提: 非數值之首點無有效觀測, 輸出null(R3 S28; 修前取0)')
         for (let x of [...POS, ...NEG]) {
             let r = arrMovingAverage([x, 2, 3, 4], { mode: 'EMA', selectCountHalf: 2 })
             assert.deepStrictEqual(r, ref, `EMA 首點=${String(x)}`)
@@ -494,6 +494,7 @@ describe(`nonFinite 原始碼掃描`, function() {
         let gotE = files.filter((f) => scanText(fs.readFileSync(path.join(dirSrc, f), 'utf8')).mods.includes('isenum'))
         assert.deepStrictEqual(gotE, [
             'arrMovingAverage.mjs',
+            'arrQuantile7.mjs',
             'bin.mjs',
             'histGen.mjs',
             'regLine.mjs',
@@ -508,6 +509,7 @@ describe(`nonFinite 原始碼掃描`, function() {
             'arrGammaFit.mjs',
             'arrGammaHist.mjs',
             'arrNormInv.mjs',
+            'arrQuantile7.mjs',
             'arrQuartile.mjs',
             'arrStd.mjs',
             'bin.mjs',

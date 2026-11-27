@@ -21,7 +21,7 @@ import jt from './jStat.mjs'
  * Unit Test: {@link https://github.com/yuda-lyu/w-statistic/blob/master/test/arrGammaFit.test.js Github}
  * @memberOf w-statistic
  * @param {Array} arr 輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入
- * @returns {Object} 回傳參數物件
+ * @returns {Object} 回傳參數物件；arr非陣列reject'arr is not an array'，空陣列reject'arr is not an effective array'，無大於0之有效數字reject'no effective data'
  * @example
  *
  * async function test() {
