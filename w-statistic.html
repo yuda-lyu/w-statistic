@@ -29,7 +29,7 @@
 <nav >
     
     
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="w-statistic.html">w-statistic</a><ul class='methods'><li data-type='method'><a href="w-statistic.html#.arrAverage">arrAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrAverageWithLogNormCI">arrAverageWithLogNormCI</a></li><li data-type='method'><a href="w-statistic.html#.arrAverageWithNormCI">arrAverageWithNormCI</a></li><li data-type='method'><a href="w-statistic.html#.arrCount">arrCount</a></li><li data-type='method'><a href="w-statistic.html#.arrGammaFit">arrGammaFit</a></li><li data-type='method'><a href="w-statistic.html#.arrGammaHist">arrGammaHist</a></li><li data-type='method'><a href="w-statistic.html#.arrGammaInv">arrGammaInv</a></li><li data-type='method'><a href="w-statistic.html#.arrGeometricAverage">arrGeometricAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrGeometricStd">arrGeometricStd</a></li><li data-type='method'><a href="w-statistic.html#.arrLogNormHist">arrLogNormHist</a></li><li data-type='method'><a href="w-statistic.html#.arrLogNormInv">arrLogNormInv</a></li><li data-type='method'><a href="w-statistic.html#.arrMovingAverage">arrMovingAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrNormHist">arrNormHist</a></li><li data-type='method'><a href="w-statistic.html#.arrNormInv">arrNormInv</a></li><li data-type='method'><a href="w-statistic.html#.arrQuartile">arrQuartile</a></li><li data-type='method'><a href="w-statistic.html#.arrStd">arrStd</a></li><li data-type='method'><a href="w-statistic.html#.bin">bin</a></li><li data-type='method'><a href="w-statistic.html#.histGen">histGen</a></li><li data-type='method'><a href="w-statistic.html#.regLine">regLine</a></li><li data-type='method'><a href="w-statistic.html#.regMpLine">regMpLine</a></li><li data-type='method'><a href="w-statistic.html#.regPoly">regPoly</a></li><li data-type='method'><a href="w-statistic.html#.regPower">regPower</a></li><li data-type='method'><a href="w-statistic.html#.sampleRandom">sampleRandom</a></li><li data-type='method'><a href="w-statistic.html#.studentTInv">studentTInv</a></li></ul></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="w-statistic.html">w-statistic</a><ul class='methods'><li data-type='method'><a href="w-statistic.html#.arrAverage">arrAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrAverageWithLogNormCI">arrAverageWithLogNormCI</a></li><li data-type='method'><a href="w-statistic.html#.arrAverageWithNormCI">arrAverageWithNormCI</a></li><li data-type='method'><a href="w-statistic.html#.arrCount">arrCount</a></li><li data-type='method'><a href="w-statistic.html#.arrGammaFit">arrGammaFit</a></li><li data-type='method'><a href="w-statistic.html#.arrGammaHist">arrGammaHist</a></li><li data-type='method'><a href="w-statistic.html#.arrGammaInv">arrGammaInv</a></li><li data-type='method'><a href="w-statistic.html#.arrGeometricAverage">arrGeometricAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrGeometricStd">arrGeometricStd</a></li><li data-type='method'><a href="w-statistic.html#.arrLogNormHist">arrLogNormHist</a></li><li data-type='method'><a href="w-statistic.html#.arrLogNormInv">arrLogNormInv</a></li><li data-type='method'><a href="w-statistic.html#.arrMovingAverage">arrMovingAverage</a></li><li data-type='method'><a href="w-statistic.html#.arrNormHist">arrNormHist</a></li><li data-type='method'><a href="w-statistic.html#.arrNormInv">arrNormInv</a></li><li data-type='method'><a href="w-statistic.html#.arrQuantile7">arrQuantile7</a></li><li data-type='method'><a href="w-statistic.html#.arrQuartile">arrQuartile</a></li><li data-type='method'><a href="w-statistic.html#.arrStd">arrStd</a></li><li data-type='method'><a href="w-statistic.html#.bin">bin</a></li><li data-type='method'><a href="w-statistic.html#.histGen">histGen</a></li><li data-type='method'><a href="w-statistic.html#.regLine">regLine</a></li><li data-type='method'><a href="w-statistic.html#.regMpLine">regMpLine</a></li><li data-type='method'><a href="w-statistic.html#.regPoly">regPoly</a></li><li data-type='method'><a href="w-statistic.html#.regPower">regPower</a></li><li data-type='method'><a href="w-statistic.html#.sampleRandom">sampleRandom</a></li><li data-type='method'><a href="w-statistic.html#.studentTInv">studentTInv</a></li></ul></li></ul>
     
 </nav>
 
@@ -304,7 +304,7 @@
 
         
 <div class="param-desc">
-    <p>回傳平均值</p>
+    <p>回傳平均值，arr非陣列、空陣列或無有效數字時回傳null</p>
 </div>
 
 
@@ -532,7 +532,7 @@
 
         
 <div class="param-desc">
-    <p>回傳樣本平均值</p>
+    <p>回傳樣本平均值；arr非陣列reject'arr is not an array'，空陣列reject'arr is not an effective array'，無大於0之有效數字reject'no effective data'</p>
 </div>
 
 
@@ -760,7 +760,7 @@
 
         
 <div class="param-desc">
-    <p>回傳樣本平均值</p>
+    <p>回傳樣本平均值；arr非陣列reject'arr is not an array'，空陣列reject'arr is not an effective array'，無有效數字reject'no effective data'</p>
 </div>
 
 
@@ -924,7 +924,7 @@
 
         
 <div class="param-desc">
-    <p>回傳各值出現次數值陣列</p>
+    <p>回傳各值出現次數值陣列，arr非陣列、空陣列或無任何可計元素時回傳空陣列[]</p>
 </div>
 
 
@@ -1088,7 +1088,7 @@
 
         
 <div class="param-desc">
-    <p>回傳參數物件</p>
+    <p>回傳參數物件；arr非陣列reject'arr is not an array'，空陣列reject'arr is not an effective array'，無大於0之有效數字reject'no effective data'</p>
 </div>
 
 
@@ -1538,7 +1538,7 @@
 
         
 <div class="param-desc">
-    <p>回傳反函數值</p>
+    <p>回傳反函數值；arr非陣列reject'arr is not an array'，空陣列reject'arr is not an effective array'，無大於0之有效數字reject'no effective data'</p>
 </div>
 
 
@@ -1726,7 +1726,7 @@
 
         
 <div class="param-desc">
-    <p>回傳反函數值</p>
+    <p>回傳反函數值；arr非陣列reject'arr is not an array'，空陣列reject'arr is not an effective array'，無大於0之有效數字reject'no effective data'</p>
 </div>
 
 
@@ -1890,7 +1890,7 @@
 
         
 <div class="param-desc">
-    <p>回傳幾何平均值</p>
+    <p>回傳幾何平均值，arr非陣列、空陣列或無大於0之有效數字時回傳null</p>
 </div>
 
 
@@ -2054,7 +2054,7 @@
 
         
 <div class="param-desc">
-    <p>回傳幾何標準差</p>
+    <p>回傳幾何標準差，arr非陣列、空陣列或大於0之有效數字少於2個時回傳null</p>
 </div>
 
 
@@ -2208,7 +2208,7 @@
                 </td>
             
 
-            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入</p></td>
+            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入，取log之部分另只取大於0者；非陣列reject'arr is not an array'，空陣列reject'arr is not an effective array'，無任何有效數字或無任何大於0之有效數字reject'no effective data'</p></td>
         </tr>
 
     
@@ -2692,7 +2692,7 @@
 
         
 <div class="param-desc">
-    <p>回傳反函數取指數(exp)值</p>
+    <p>回傳反函數取指數(exp)值；arr非陣列reject'arr is not an array'，空陣列reject'arr is not an effective array'，無大於0之有效數字reject'no effective data'</p>
 </div>
 
 
@@ -2736,7 +2736,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="arrMovingAverage.mjs.html">arrMovingAverage.mjs</a>, <a href="arrMovingAverage.mjs.html#line66">line 66</a>
+        <a href="arrMovingAverage.mjs.html">arrMovingAverage.mjs</a>, <a href="arrMovingAverage.mjs.html#line99">line 99</a>
     </li></ul></dd>
     
 
@@ -2783,7 +2783,7 @@
 
     <h5 class="h5-examples">Example</h5>
     
-    <pre class="prettyprint"><code>let arrarr = ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(arrMovingAverage(arr))// => [//                   -2.5,                   -2,//                  -1.75,                -1.42,//    -0.9399999999999998, -0.44000000000000006,//   -0.24000000000000005,                -0.02,//                   0.02,                 0.24,//    0.44000000000000006,   0.9400000000000001,//                   1.42,                  5.9,//                  7.125,    9.166666666666666,//                   12.5// ]arr = ['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(arrMovingAverage(arr, { selectCountHalf: 1 }))// => [//   0,//   0,//   0.03333333333333333,//   0.06666666666666667,//   0.39999999999999997,//   0.7000000000000001,//   1.5,//   2,//   9.166666666666666,//   12.5,//   22.5// ]arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]console.log(arrMovingAverage(arr, { selectCount: 4 }))// => [//   1.5, 2, 2.5, 3.5,//   4.5, 5.5, 6.5, 7.5,//   8.5, 9// ]</code></pre>
+    <pre class="prettyprint"><code>let arrarr = ['abc', '-2.5', -2.5, '-1', -1, '-0.1', -0.1, '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(arrMovingAverage(arr))// => [//                   -2.5,                   -2,//                  -1.75,                -1.42,//    -0.9399999999999998, -0.44000000000000006,//   -0.24000000000000005,                -0.02,//                   0.02,                 0.24,//    0.44000000000000006,   0.9400000000000001,//                   1.42,                  5.9,//                  7.125,    9.166666666666666,//                   12.5// ]arr = ['abc', '0', 0, '0.1', 0.1, '1', 1, '2.5', 2.5, 22.5, 'xyz']console.log(arrMovingAverage(arr, { selectCountHalf: 1 }))// => [//   0,//   0,//   0.03333333333333333,//   0.06666666666666667,//   0.39999999999999997,//   0.7000000000000001,//   1.5,//   2,//   9.166666666666666,//   12.5,//   22.5// ]arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]console.log(arrMovingAverage(arr, { selectCount: 4 }))// => [//   1.5, 2, 2.5, 3.5,//   4.5, 5.5, 6.5, 7.5,//   8.5, 9// ]arr = [10, 12, 'abc', 13, 12]console.log(arrMovingAverage(arr, { mode: 'EMA', selectCountHalf: 2 }))// => [//   10,//   11.333333333333334,//   11.333333333333334, (非有效數字'abc'不入計算, 沿用前一點)//   12.444444444444445,//   12.148148148148147// ]arr = ['x', null, 12, 'z', 11]console.log(arrMovingAverage(arr, { mode: 'EMA', selectCountHalf: 2 }))// => [//   null, (尚無有效觀測, EMA無定義)//   null,//   12, (第一個有效點為種子)//   12, (非有效數字'z'不入計算, 沿用前一點)//   11.333333333333334// ]arr = [10, 12, 'abc', null, Infinity, 13, '-']console.log(arrMovingAverage(arr, { mode: 'EMA', selectCountHalf: 2 }))// => [//   10,//   11.333333333333334,//   11.333333333333334,//   11.333333333333334,//   11.333333333333334,//   12.444444444444445,//   12.444444444444445// ]</code></pre>
 
 
 
@@ -2846,7 +2846,7 @@
                 </td>
             
 
-            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入視窗之平均(EMA之首點為非有限值時與非數值同樣取0)</p></td>
+            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入視窗之平均；mode為EMA時，非有效數字(含±Infinity)不入遞推，以第一個有效點為種子，其後之無效點輸出沿用前一點之EMA，第一個有效點之前尚無有效觀測故輸出null(全部無效則全為null，同PMA、SMA視窗內無有效值時之null)，輸出長度恆等於輸入長度且自第一個有效點起皆為有限數</p></td>
         </tr>
 
     
@@ -2912,6 +2912,46 @@
     </thead>
 
     <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>mode</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>'PMA'</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>輸入移動平均模式字串，可選'PMA'(前後各取點之置中平均)、'SMA'(取當前點與其前點之簡單平均)、'EMA'(指數移動平均，以selectCountHalf為期數N，權重alpha=2/(N+1))，非此三者視為'PMA'，預設'PMA'</p></td>
+        </tr>
+
     
 
         <tr>
@@ -3020,7 +3060,7 @@
 
         
 <div class="param-desc">
-    <p>回傳移動平均值陣列</p>
+    <p>回傳移動平均值陣列(長度恆等於arr之長度)，arr非陣列或空陣列回傳空陣列[]；PMA、SMA視窗內無有效數字之點為null，EMA第一個有效點之前之點為null</p>
 </div>
 
 
@@ -3174,7 +3214,7 @@
                 </td>
             
 
-            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入</p></td>
+            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入；非陣列reject'arr is not an array'，空陣列reject'arr is not an effective array'，無任何有效數字reject'no effective data'</p></td>
         </tr>
 
     
@@ -3658,7 +3698,246 @@
 
         
 <div class="param-desc">
-    <p>回傳反函數值</p>
+    <p>回傳反函數值；arr非陣列reject'arr is not an array'，空陣列reject'arr is not an effective array'，無有效數字reject'no effective data'</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Number</span>
+
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".arrQuantile7"><span class="type-signature type-signature-static">(static) </span>arrQuantile7<span class="signature">(arr, ratio)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><p>計算陣列內有效數字之第7型分位數值(Quantile type 7)</p>
+<p>第7型為R語言quantile(type=7，預設)與numpy.quantile(method='linear'，預設)所用者：
+將n個有效數字由小至大排序為x[0]至x[n-1]，取位置h=(n-1)<em>ratio，於相鄰兩點間線性內插，即x[⌊h⌋]+(h-⌊h⌋)</em>(x[⌊h⌋+1]-x[⌊h⌋])，h為整數時即x[h]。
+與arrQuartile(母體分位數，非整數位置時取最靠近之原始數據值)不同，本函數之結果可介於兩個原始數據之間，ratio為0時回傳最小值、為1時回傳最大值。
+只取有限數值：±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入個數與計算，數字字串轉數值後使用。
+位置h因浮點誤差而與整數相差在數個ULP內者視為整數(如ratio為0.07且n為101時h應為7，浮點乘積為7.000000000000001)，使結果恰為x[7]，不帶內插誤差。
+不改動輸入陣列。</p>
+<p>Unit Test: <a href="https://github.com/yuda-lyu/w-statistic/blob/master/test/arrQuantile7.test.js">Github</a></p></li></ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="arrQuantile7.mjs.html">arrQuantile7.mjs</a>, <a href="arrQuantile7.mjs.html#line68">line 68</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="h5-examples">Example</h5>
+    
+    <pre class="prettyprint"><code>let arr
+
+arr = [1, 2, 3, 4]
+console.log(arrQuantile7(arr, 0.5))
+// => 2.5
+
+arr = [1, 2, 3, 4]
+console.log(arrQuantile7(arr, 0.25))
+// => 1.75
+
+arr = [3, 6, 7, 8, 8, 10, 13, 15, 16, 20]
+console.log(arrQuantile7(arr, 0.25))
+// => 7.25
+
+arr = [3, 6, 7, 8, 8, 10, 13, 15, 16, 20]
+console.log(arrQuantile7(arr, 0.75))
+// => 14.5
+
+arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]
+console.log(arrQuantile7(arr, 0.25))
+// => 25.5
+
+arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]
+console.log(arrQuantile7(arr, 0.5))
+// => 40
+
+arr = [6, 47, 49, 15, 42, 41, 7, 39, 43, 40, 36]
+console.log(arrQuantile7(arr, 1))
+// => 49
+
+arr = ['abc', '3', ' 1 ', 2, null, Infinity, '0x10', true, 'xyz']
+console.log(arrQuantile7(arr, '0.5'))
+// => 2 (只取有限數值1、2、3，ratio可為數字字串)
+
+arr = [1, 2, 3, Infinity, -Infinity, '1e400', 'xyz']
+console.log(arrQuantile7(arr, 1))
+// => 3 (±Infinity不計入個數與計算)
+
+console.log(arrQuantile7([], 0.5))
+// => null
+
+console.log(arrQuantile7([1, 2, 3], 1.5))
+// => null</code></pre>
+
+
+
+
+    <h5 class="h5-parameters">Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>arr</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算，±Infinity(含'Infinity'、'1e400'等字串)與非數值同樣不計入</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>ratio</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+|
+
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>輸入指定位置有效數字，須介於0至1之間(含端點，可為數字字串)</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5 class="h5-returns">Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>回傳分位數值，arr非陣列、空陣列、陣列內無有效數字，或ratio缺漏、非有效數字、超出0至1範圍時回傳null，不丟錯(同arrQuartile)</p>
 </div>
 
 
@@ -3846,7 +4125,7 @@
 
         
 <div class="param-desc">
-    <p>回傳分位數值</p>
+    <p>回傳分位數值，arr非陣列、空陣列、無有效數字或ratio無效時回傳null</p>
 </div>
 
 
@@ -4010,7 +4289,7 @@
 
         
 <div class="param-desc">
-    <p>回傳標準差</p>
+    <p>回傳標準差，arr非陣列、空陣列或有效數字少於2個時回傳null</p>
 </div>
 
 
@@ -4380,7 +4659,7 @@
 
         
 <div class="param-desc">
-    <p>回傳數據分組資訊物件</p>
+    <p>回傳數據分組資訊物件，無有效數字時回傳空陣列[]</p>
 </div>
 
 
@@ -4866,7 +5145,7 @@
 
         
 <div class="param-desc">
-    <p>回傳Promise，若成功則resolve數據分組與統計數據物件，若失敗則reject錯誤訊息</p>
+    <p>回傳Promise，若成功則resolve數據分組與統計數據物件，若失敗則reject錯誤訊息；無有效數字時resolve null(不reject)</p>
 </div>
 
 
@@ -5276,7 +5555,7 @@
 
         
 <div class="param-desc">
-    <p>若useSync=true回傳回歸結果物件，若useSync=false則回傳Promise，此時若成功則resolve回歸結果物件，若失敗則reject錯誤訊息</p>
+    <p>若useSync=true回傳回歸結果物件，若useSync=false則回傳Promise，此時若成功則resolve回歸結果物件，若失敗則reject錯誤訊息；arr非有效陣列(含空陣列)丟錯或reject'arr is not an effective array'，無任何有效點丟錯或reject'no effective data'</p>
 </div>
 
 
@@ -5685,7 +5964,7 @@
 
         
 <div class="param-desc">
-    <p>若useSync=true回傳回歸結果物件，若useSync=false則回傳Promise，此時若成功則resolve回歸結果物件，若失敗則reject錯誤訊息</p>
+    <p>若useSync=true回傳回歸結果物件，若useSync=false則回傳Promise，此時若成功則resolve回歸結果物件，若失敗則reject錯誤訊息；本函數不過濾元素(透傳第三方套件，不在統計類例外之元素略過範圍)：matX、matY非有效陣列丟錯或reject'matX is not an effective array'等，含非數值元素時由第三方套件丟錯，含NaN、±Infinity時係數為NaN</p>
 </div>
 
 
@@ -6098,7 +6377,7 @@
 
         
 <div class="param-desc">
-    <p>若useSync=true回傳回歸結果物件，若useSync=false則回傳Promise，此時若成功則resolve回歸結果物件，若失敗則reject錯誤訊息</p>
+    <p>若useSync=true回傳回歸結果物件，若useSync=false則回傳Promise，此時若成功則resolve回歸結果物件，若失敗則reject錯誤訊息；arr非有效陣列(含空陣列)丟錯或reject'arr is not an effective array'，無任何有效點丟錯或reject'no effective data'</p>
 </div>
 
 
@@ -6255,7 +6534,7 @@
                 </td>
             
 
-            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算，點內x或y為±Infinity(含'Infinity'、'1e400'等字串)或非數值者，該點不計入</p></td>
+            <td class="description last"><p>輸入陣列，只提取有效數字(或為字串的數字)進行計算，點(整列)內x或y為±Infinity(含'Infinity'、'1e400'等字串)、非數值(含null、布林、物件、'0x10'等)或不大於0(取log無定義)者，整點不計入，不使入口失敗；無任何可用點時同步版丟錯、非同步版reject'no effective data'</p></td>
         </tr>
 
     
@@ -6471,7 +6750,7 @@
 
         
 <div class="param-desc">
-    <p>若useSync=true回傳回歸結果物件，若useSync=false則回傳Promise，此時若成功則resolve回歸結果物件，若失敗則reject錯誤訊息</p>
+    <p>若useSync=true回傳回歸結果物件，若useSync=false則回傳Promise，此時若成功則resolve回歸結果物件，若失敗則reject錯誤訊息；arr非有效陣列(含空陣列)丟錯或reject'arr is not an effective array'，無任何有效點丟錯或reject'no effective data'</p>
 </div>
 
 
@@ -7077,7 +7356,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> on Sat Nov 28 2026 04:21:31 GMT+0800 (台北標準時間) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> on Sat Nov 28 2026 06:55:32 GMT+0800 (台北標準時間) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
